@@ -42,7 +42,7 @@ test('miniature combines four same-file corrections and onboarding while preserv
     assert.equal(seen.length, 5);
     assert.deepEqual(bundle.candidate.files.map(file => file.path), ['content/email/onboarding.md', 'content/site/launch.md', 'data/facts.json']);
     assert.equal(bundle.images['content/email/eligible.md'], undefined);
-    const web = extractRenderedAsset(createPublicArtifact({ sourceCommit: 'b'.repeat(40), mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: bundle.images['data/facts.json'], sourceTexts: { ...f.baseSources, 'site/launch.md': bundle.images['content/site/launch.md'], 'email/onboarding.md': bundle.images['content/email/onboarding.md'] } }).routes.find(route => route.pathname === '/site/launch')!.html, 'https://mogs-fixture.invalid/site/launch');
+    const web = extractRenderedAsset(createPublicArtifact({ sourceCommit: 'b'.repeat(40), mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: bundle.images['data/facts.json'], sourceTexts: { ...f.baseSources, 'site/launch.md': bundle.images['content/site/launch.md'], 'email/onboarding.md': bundle.images['content/email/onboarding.md'] } }).routes.find(route => route.pathname === '/site/launch')!.html, 'https://mogs-fixture.invalid/site/launch');
     assert.equal(web.passages.find(p => p.sourceId === 'threshold')!.text, 'Get started for under $35 a month, billed monthly.');
     for (const p of f.state.passages.filter(p => p.assetId === 'web:site/launch.md' && !f.state.patches.some(patch => patch.passageId === p.id && patch.status === 'drafted'))) assert.equal(web.passages.find(observed => observed.id === p.id)!.text, p.text);
     assert.match(bundle.images['content/email/onboarding.md'], /\{\{ first_name \}\}/);
@@ -68,7 +68,7 @@ test('candidate checks the entire baseline, including an untouched protected sou
 });
 
 test('baseline observer checks exact rendered text on every asset, not just source hash metadata', async () => {
-  const f = buildRemoteFixtures(), artifact = createPublicArtifact({ sourceCommit: f.state.attempt.baseline.baseSha, mode: 'seed', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: f.seedFactsText });
+  const f = buildRemoteFixtures(), artifact = createPublicArtifact({ sourceCommit: f.state.attempt.baseline.baseSha, mode: 'seed', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: f.seedFactsText });
   const metadata = createDeploymentMetadata(JSON.stringify(artifact)), requests: string[] = [];
   const fakeFetch = (corrupt = false) => async (input: Parameters<typeof fetch>[0]) => { const pathname = new URL(String(input)).pathname; requests.push(pathname); const route = artifact.routes.find(route => route.pathname === pathname)!; const html = route.html + '<script type="application/json" id="deployment-meta">' + JSON.stringify(metadata) + '</script>'; return new Response(corrupt && pathname === '/assets/email/eligible' ? html.replace('Starter is $30 a month.', 'Starter is $999 a month.') : html, { status: 200, headers: { 'Content-Type': 'text/html' } }); };
   await observeBaseline(f.state.attempt.baseline, { sources: f.baseSources, publishedFacts: f.state.facts[0].snapshot, fetch: fakeFetch() as typeof fetch });
@@ -134,7 +134,7 @@ test('restoration shares the active target, restores exact seed bytes, and contr
   try {
     const { bundle, submission } = await submit(db, f), desiredText = bundle.images['data/facts.json'];
     const currentSources = { ...f.baseSources, 'site/launch.md': bundle.images['content/site/launch.md'], 'email/onboarding.md': bundle.images['content/email/onboarding.md'] };
-    const artifact = createPublicArtifact({ sourceCommit: submission.candidate.candidateSha!, mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: desiredText, sourceTexts: currentSources });
+    const artifact = createPublicArtifact({ sourceCommit: submission.candidate.candidateSha!, mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: desiredText, sourceTexts: currentSources });
     const baseline = BaselineSchema.parse({ ...f.state.attempt.baseline, baseSha: artifact.sourceCommit, deployedSha: artifact.sourceCommit, inventoryHash: artifact.inventoryHash, factsHash: artifact.factsHash, factsFileHash: artifact.factsFileHash, assets: artifact.assets });
     const restoreAttempt = { ...f.state.attempt, id: randomUUID(), runId: 'fixture-restore-run', purpose: 'restoration' as const, seedRevision: 'e'.repeat(40), baseline, baselineHash: hashRecord(baseline), beforeFactsHash: artifact.factsHash, desiredFactsHash: f.state.attempt.beforeFactsHash };
     assert.throws(() => db.putAttempt(restoreAttempt), /already owns/);

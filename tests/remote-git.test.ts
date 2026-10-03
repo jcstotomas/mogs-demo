@@ -38,7 +38,7 @@ class FakeGitHub {
   beforeMutation?: () => void;
   constructor(readonly f: ReturnType<typeof buildRemoteFixtures>) {
     this.prefix = '/repos/' + f.state.attempt.baseline.target.repository;
-    const files = { ...Object.fromEntries(Object.entries(f.baseSources).map(([file, source]) => ['content/' + file, source])), 'data/facts.json': f.seedFactsText, 'content/seed.json': readFileSync('content/seed.json', 'utf8'), 'data/seed/facts.json': f.seedFactsText, 'apps/public/index.js': '// untouched public app' };
+    const files = { ...Object.fromEntries(Object.entries(f.baseSources).map(([file, source]) => ['content/' + file, source])), 'data/facts.json': f.seedFactsText, 'content/seed.json': readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), 'data/seed/facts.json': f.seedFactsText, 'apps/public/index.js': '// untouched public app' };
     const tree = Object.entries(files).map(([file, source]) => { const sha = gitObjectSha('blob', source); this.blobs.set(sha, source); return { path: file, mode: '100644', type: 'blob', sha }; });
     this.baseTree = hashRecord(tree).slice(0, 40); this.trees.set(this.baseTree, tree);
     this.commits.set(f.state.attempt.baseline.baseSha, { sha: f.state.attempt.baseline.baseSha, tree: { sha: this.baseTree } });
@@ -115,7 +115,7 @@ async function setup(mode: 'fixture' | 'live' = 'fixture') {
 }
 function enforcement(s: Awaited<ReturnType<typeof setup>>, submission: Submission) { return EnforcementEvidenceSchema.parse({ repository: s.remote.target.repository, baseRef: 'main', producerAppId: s.remote.target.statusProducerAppId, checks: ['mogs/candidate', 'mogs/preview'].map(context => ({ context, appId: s.remote.target.statusProducerAppId })), strict: true, enforceAdmins: true, bypassActors: [], mergeQueue: false, autoMerge: false, probes: { pendingBlocked: true, failureBlocked: true, wrongHeadBlocked: true, currentHeadEligible: true }, testedSha: submission.candidate.candidateSha, verifiedAt: REMOTE_FIXTURE_TIME }); }
 function previewFixture(s: Awaited<ReturnType<typeof setup>>, submission: Submission) {
-  const artifact = createPublicArtifact({ sourceCommit: submission.candidate.candidateSha!, mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: s.bundle.images['data/facts.json'], sourceTexts: Object.fromEntries(Object.entries(s.f.baseSources).map(([file, source]) => [file, s.bundle.images['content/' + file] ?? source])) });
+  const artifact = createPublicArtifact({ sourceCommit: submission.candidate.candidateSha!, mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: s.bundle.images['data/facts.json'], sourceTexts: Object.fromEntries(Object.entries(s.f.baseSources).map(([file, source]) => [file, s.bundle.images['content/' + file] ?? source])) });
   const origin = 'https://mogs-preview-fixture.invalid', passages = artifact.routes.flatMap(route => extractRenderedAsset(route.html, origin + route.pathname).passages);
   return DeploymentObservationSchema.parse({ id: randomUUID(), launchAttemptId: submission.launchAttemptId, submissionId: submission.id, environment: 'preview', deploymentId: 'fixture-preview', url: origin, candidateSha: submission.candidate.candidateSha, mergedSha: null, deployedSha: submission.candidate.candidateSha, readiness: 'ready', verification: 'passed', inventoryHash: artifact.inventoryHash, factsHash: artifact.factsHash, publishedFacts: s.f.state.facts.find(fact => fact.phase === 'desired')!.snapshot, sourceHashes: Object.fromEntries(artifact.assets.map(asset => [asset.assetId, asset.sourceHash])), blocks: submission.candidate.approvals.flatMap(approval => approval.eligibleIds).map(id => {
     const patch = s.db.getPatch(submission.runId, id)!, passage = passages.find(p => p.id === patch.passageId)!, { contractVersion: _v, launchAttemptId: _a, ...original } = s.f.state.judgments.find(j => j.passageId === patch.passageId)!;
@@ -341,8 +341,8 @@ test('restoration verifies seed manifest and fact bytes from the exact pinned Gi
       const old = s.db.getAttempt(s.f.state.attempt.id)!;
       s.db.putAttempt({ ...old, state: 'abandoning', revision: 1 }); s.db.putAttempt({ ...old, state: 'abandoned', revision: 2, closedAt: REMOTE_FIXTURE_TIME, closureReason: 'Fixture preparation.' });
       const currentSources = Object.fromEntries(Object.entries(s.f.baseSources).map(([file, source]) => [file, s.bundle.images['content/' + file] ?? source]));
-      const currentSha = 'c'.repeat(40), artifact = createPublicArtifact({ sourceCommit: currentSha, mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: s.bundle.images['data/facts.json'], sourceTexts: currentSources });
-      const currentFiles = { ...Object.fromEntries(Object.entries(currentSources).map(([file, source]) => ['content/' + file, source])), 'data/facts.json': s.bundle.images['data/facts.json'], 'content/seed.json': readFileSync('content/seed.json', 'utf8'), 'data/seed/facts.json': s.f.seedFactsText, 'apps/public/index.js': '// untouched public app' };
+      const currentSha = 'c'.repeat(40), artifact = createPublicArtifact({ sourceCommit: currentSha, mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: s.bundle.images['data/facts.json'], sourceTexts: currentSources });
+      const currentFiles = { ...Object.fromEntries(Object.entries(currentSources).map(([file, source]) => ['content/' + file, source])), 'data/facts.json': s.bundle.images['data/facts.json'], 'content/seed.json': readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), 'data/seed/facts.json': s.f.seedFactsText, 'apps/public/index.js': '// untouched public app' };
       const tree = Object.entries(currentFiles).map(([file, source]) => { const sha = gitObjectSha('blob', source); s.fake.blobs.set(sha, source); return { path: file, mode: '100644', type: 'blob', sha }; });
       const treeSha = hashRecord(tree).slice(0, 40); s.fake.trees.set(treeSha, tree); s.fake.commits.set(currentSha, { sha: currentSha, tree: { sha: treeSha } }); s.fake.branches.set('main', currentSha);
       const baseline = { ...old.baseline, baseSha: currentSha, deployedSha: currentSha, factsHash: artifact.factsHash, factsFileHash: artifact.factsFileHash, inventoryHash: artifact.inventoryHash, assets: artifact.assets };
@@ -367,7 +367,7 @@ test('trusted seed reads reject mutable refs, foreign repositories, mismatched c
     const revision = s.f.state.attempt.baseline.baseSha;
     const seed = await s.remote.readSeed(revision);
     assert.equal(seed.seedFactsText, s.f.seedFactsText);
-    assert.equal(seed.seedManifestText, readFileSync('content/seed.json', 'utf8'));
+    assert.equal(seed.seedManifestText, readFileSync('fixtures/remote/miniature/seed.json', 'utf8'));
     await assert.rejects(s.remote.readSeed('main'));
     const foreign = new GitHubRemote({ target: s.remote.target, token: 'fixture-only-token', readLocal: () => null, fetch: async () => new Response(JSON.stringify({ full_name: 'another/repository' })) });
     await assert.rejects(foreign.readSeed(revision), /repository identity/);

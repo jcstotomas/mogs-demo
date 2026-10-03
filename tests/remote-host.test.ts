@@ -93,7 +93,7 @@ function sourceRepository() {
   const git = (args: string[]) => execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
   git(['init', '--quiet']); git(['config', 'user.name', 'MOGS source fixture']); git(['config', 'user.email', 'fixture@mogs.invalid']); git(['config', 'commit.gpgsign', 'false']);
   git(['remote', 'add', 'origin', 'https://github.com/jcstotomas/mogs-demo.git']);
-  const seedManifestText = readFileSync('content/seed.json', 'utf8'), seedFactsText = readFileSync('data/seed/facts.json', 'utf8');
+  const seedManifestText = readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), seedFactsText = readFileSync('data/seed/facts.json', 'utf8');
   const seed = JSON.parse(seedManifestText);
   for (const [file, { source }] of Object.entries(seed.sources) as Array<[string, { source: string }]>) {
     const destination = path.join(root, 'content', file); mkdirSync(path.dirname(destination), { recursive: true }); writeFileSync(destination, source);

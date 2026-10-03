@@ -23,7 +23,7 @@ test('public template rejects unmarked wrapper offers and a missing deployed wra
 
 async function seedInputs() {
   const [seedManifestText, factText] = await Promise.all([
-    readFile(path.join(root, 'content/seed.json'), 'utf8'),
+    readFile(path.join(root, 'fixtures/remote/miniature/seed.json'), 'utf8'),
     readFile(path.join(root, 'data/seed/facts.json'), 'utf8'),
   ]);
   return { seedManifestText, factText };

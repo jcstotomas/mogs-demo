@@ -20,7 +20,7 @@ export interface RemoteFixtures { state: RemoteExport; baseSources: Record<strin
 
 /** Provider-free DTO fixture only. Fabricated judgments/checks are not model or remote gate evidence. */
 export function buildRemoteFixtures(attemptId = REMOTE_FIXTURE_ATTEMPT): RemoteFixtures {
-  const seedManifestText = readFileSync('content/seed.json', 'utf8'), seedFactsText = readFileSync('data/seed/facts.json', 'utf8');
+  const seedManifestText = readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), seedFactsText = readFileSync('data/seed/facts.json', 'utf8');
   const seed = JSON.parse(seedManifestText) as RemoteFixtures['seed'] & { corpusHash: string };
   const before = FactSnapshotSchema.parse(JSON.parse(seedFactsText)), desired = confirmedFacts(before);
   const artifact = createPublicArtifact({ sourceCommit: REMOTE_FIXTURE_SHA, mode: 'seed', seedManifestText, factText: seedFactsText });
@@ -30,7 +30,7 @@ export function buildRemoteFixtures(attemptId = REMOTE_FIXTURE_ATTEMPT): RemoteF
   const attempt = LaunchAttemptSchema.parse({ contractVersion: 2, id: attemptId, runId, purpose: 'correction', seedRevision: null, baseline, baselineHash, beforeFactsHash: hashRecord(before), desiredFactsHash: hashRecord(desired), state: 'active', revision: 0, confirmedAt: REMOTE_FIXTURE_TIME, recoveryId: null, closedAt: null, closureReason: null });
   const extracted = artifact.routes.map(route => extractRenderedAsset(route.html, origin + route.pathname, REMOTE_FIXTURE_TIME));
   const pages = extracted.map(item => item.page), passages = extracted.flatMap(item => item.passages);
-  const manifest = readFileSync('content/manifest.jsonl', 'utf8').trim().split('\n').map(line => JSON.parse(line) as { passageId: string; expectedLabel: Judgment['label']; kind: Judgment['kind']; expectedReplacement: string | null; expectedWithhold: string | null });
+  const manifest = readFileSync('fixtures/remote/miniature/manifest.jsonl', 'utf8').trim().split('\n').map(line => JSON.parse(line) as { passageId: string; expectedLabel: Judgment['label']; kind: Judgment['kind']; expectedReplacement: string | null; expectedWithhold: string | null });
   const filteredPassageIds = passages.filter(p => !prefilter(p)).map(p => p.id);
   const judgments = passages.filter(prefilter).map(p => {
     const expected = manifest.find(row => row.passageId === p.id);
@@ -101,7 +101,7 @@ export async function buildRemoteApiFixtures() {
   const bundle = await assembleCandidate(state, f.baseSources, state.attempt.baseline, fixtureCombinedJudge(f), REMOTE_FIXTURE_TIME);
   const candidate = { ...bundle.candidate, candidateSha: 'b'.repeat(40) }; // Synthetic fixture SHA; no Git/PR write.
   const submission = SubmissionSchema.parse({ id: 'fixture-submission', launchAttemptId: state.attempt.id, runId: state.run.id, candidate, revision: 0, status: 'submitted', journal: 'pr_opened', operationId: 'fixture-submit-operation', requestFingerprint: hashRecord({ fixtureCandidate: candidate.id }), prNumber: 1, prUrl: 'https://github.com/jcstotomas/mogs-demo/pull/1', observedHeadSha: candidate.candidateSha, failure: null, createdAt: REMOTE_FIXTURE_TIME, updatedAt: REMOTE_FIXTURE_TIME });
-  const changedArtifact = createPublicArtifact({ sourceCommit: candidate.candidateSha, mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: bundle.images['data/facts.json'], sourceTexts: Object.fromEntries(Object.entries(f.baseSources).map(([file, source]) => [file, bundle.images['content/' + file] ?? source])) });
+  const changedArtifact = createPublicArtifact({ sourceCommit: candidate.candidateSha, mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: bundle.images['data/facts.json'], sourceTexts: Object.fromEntries(Object.entries(f.baseSources).map(([file, source]) => [file, bundle.images['content/' + file] ?? source])) });
   const restoreBaseline = BaselineSchema.parse({ ...state.attempt.baseline, baseSha: changedArtifact.sourceCommit, deployedSha: changedArtifact.sourceCommit, inventoryHash: changedArtifact.inventoryHash, factsHash: changedArtifact.factsHash, factsFileHash: changedArtifact.factsFileHash, assets: changedArtifact.assets });
   const requests = {
     confirm: { contractVersion: 2, launchAttemptId: state.attempt.id, expectedFactVersion: 1, baselineHash: state.attempt.baselineHash, idempotencyKey: 'fixture-confirm-key' },

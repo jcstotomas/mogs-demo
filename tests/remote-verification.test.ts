@@ -10,7 +10,7 @@ import { createDeploymentMetadata, createPublicArtifact } from '../lib/deploymen
 import { finalizeVerifiedAttempt, verifyDeployment, type DeploymentVerificationOptions } from '../lib/deployment/verify';
 import { hashRecord, sha256 } from '../lib/hash';
 
-const seedManifestText = readFileSync('content/seed.json', 'utf8');
+const seedManifestText = readFileSync('fixtures/remote/miniature/seed.json', 'utf8');
 const clock = () => new Date(REMOTE_FIXTURE_TIME);
 const candidateSha = 'b'.repeat(40), mergedSha = 'c'.repeat(40);
 type Fixture = Awaited<ReturnType<typeof fixture>>;

@@ -8,7 +8,7 @@ import { hashRecord } from '../lib/hash';
 
 function fixture(mutate?: (html: string, pathname: string) => string, origin?: string) {
   const f = buildRemoteFixtures(), baseline = f.state.attempt.baseline;
-  const artifact = createPublicArtifact({ sourceCommit: baseline.deployedSha, mode: 'seed', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: f.seedFactsText });
+  const artifact = createPublicArtifact({ sourceCommit: baseline.deployedSha, mode: 'seed', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: f.seedFactsText });
   const metadata = createDeploymentMetadata(JSON.stringify(artifact, null, 2) + '\n'), requests: string[] = [];
   const fakeFetch = async (input: Parameters<typeof fetch>[0], init?: Parameters<typeof fetch>[1]) => {
     const url = new URL(String(input)); requests.push(url.href);

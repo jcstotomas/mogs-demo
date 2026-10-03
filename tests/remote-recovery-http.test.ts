@@ -218,7 +218,7 @@ test('scripted fixture restoration and abandonment API events stay test-labeled 
 
     const before = h.fixture.state.facts.find(facts => facts.phase === 'desired')!.snapshot;
     const desired = h.fixture.state.facts.find(facts => facts.phase === 'before')!.snapshot;
-    const artifact = createPublicArtifact({ sourceCommit: 'c'.repeat(40), mode: 'commit', seedManifestText: readFileSync('content/seed.json', 'utf8'), factText: JSON.stringify(before, null, 2) + '\n', sourceTexts: h.fixture.baseSources });
+    const artifact = createPublicArtifact({ sourceCommit: 'c'.repeat(40), mode: 'commit', seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), factText: JSON.stringify(before, null, 2) + '\n', sourceTexts: h.fixture.baseSources });
     const baseline = { ...h.fixture.state.attempt.baseline, baseSha: artifact.sourceCommit, deployedSha: artifact.sourceCommit, assets: artifact.assets, inventoryHash: artifact.inventoryHash, factsHash: artifact.factsHash, factsFileHash: artifact.factsFileHash };
     const coordinator = new RemoteCoordinator({ databasePath: h.databasePath, clock, actor: 'test' });
     const restorationHttp = handlers(h.db, h.remote, 'test', async body => coordinator.startRestoration(body, { baseline, beforeFacts: before, desiredFacts: desired, config: h.fixture.state.run.config, mode: 'fixture' }));

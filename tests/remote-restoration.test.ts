@@ -15,7 +15,7 @@ import { hashRecord } from '../lib/hash';
 function sandbox(captured = true, correction = false) {
   const root = mkdtempSync(path.join(tmpdir(), 'mogs-restoration-ready-')), databasePath = path.join(root, 'app.db');
   let now = Date.parse(REMOTE_FIXTURE_TIME);
-  const clock = () => new Date(now), fixture = buildRemoteFixtures(), seedManifestText = readFileSync('content/seed.json', 'utf8');
+  const clock = () => new Date(now), fixture = buildRemoteFixtures(), seedManifestText = readFileSync('fixtures/remote/miniature/seed.json', 'utf8');
   const before = fixture.state.facts.find(fact => fact.phase === 'desired')!.snapshot, desired = fixture.state.facts.find(fact => fact.phase === 'before')!.snapshot;
   const artifact = createPublicArtifact({ sourceCommit: 'c'.repeat(40), mode: 'commit', seedManifestText, factText: JSON.stringify(before, null, 2) + '\n', sourceTexts: fixture.baseSources });
   const baseline = correction ? fixture.state.attempt.baseline : { ...fixture.state.attempt.baseline, baseSha: 'c'.repeat(40), deployedSha: 'c'.repeat(40), assets: artifact.assets, inventoryHash: artifact.inventoryHash, factsHash: artifact.factsHash, factsFileHash: artifact.factsFileHash };

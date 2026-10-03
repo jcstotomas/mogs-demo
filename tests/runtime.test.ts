@@ -13,10 +13,10 @@ import { CheckNameSchema, type Judgment, type ManifestRow, type Patch, type Publ
 
 function sandbox(fault?: (index:number,file:string)=>void){
   const root=mkdtempSync(path.join(tmpdir(),'mogs-runtime-')),contentRoot=path.join(root,'content'),databasePath=path.join(root,'data/app.db'),factsPath=path.join(root,'data/facts.json');
-  const seed=JSON.parse(readFileSync('content/seed.json','utf8')) as {sources:Record<string,{source:string}>};
+  const seed=JSON.parse(readFileSync('fixtures/remote/miniature/seed.json','utf8')) as {sources:Record<string,{source:string}>};
   for(const [file,item] of Object.entries(seed.sources)){mkdirSync(path.dirname(path.join(contentRoot,file)),{recursive:true});writeFileSync(path.join(contentRoot,file),item.source);}
   mkdirSync(path.dirname(factsPath),{recursive:true});writeFileSync(factsPath,JSON.stringify(initialFacts(),null,2)+'\n');
-  const manifest=readFileSync('content/manifest.jsonl','utf8').trim().split('\n').map(line=>JSON.parse(line) as ManifestRow);
+  const manifest=readFileSync('fixtures/remote/miniature/manifest.jsonl','utf8').trim().split('\n').map(line=>JSON.parse(line) as ManifestRow);
   const read=(urls?:string[])=>{const assets=Object.keys(seed.sources).map(file=>{const surface=file.startsWith('site/')?'web':'email',url='http://localhost:3000'+(surface==='web'?'/':'/assets/')+file.slice(0,-3);return extractRenderedAsset(renderSource(parseSource(readFileSync(path.join(contentRoot,file),'utf8'),file,surface)),url);}).filter(a=>!urls||urls.includes(a.page.url));return{pages:assets.map(a=>a.page),passages:assets.flatMap(a=>a.passages)};};
   let checkCalls=0;
   const options={databasePath,contentRoot,factsPath,runtimeRoot:path.dirname(databasePath),mode:'eval' as const,actor:'test' as const,beforeReplace:fault,testDependencies:{

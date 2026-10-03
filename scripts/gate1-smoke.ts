@@ -11,7 +11,7 @@ import { type ManifestRow } from '../lib/types';
 loadLocalEnv();
 const root=path.resolve(process.env.MOGS_GATE1_ROOT??'/private/tmp/mogs-gate1-live');
 const contentRoot=path.join(root,'content'),factsPath=path.join(root,'data/facts.json'),databasePath=path.join(root,'data/app.db'),baseUrl=process.env.MOGS_BASE_URL??'http://localhost:3100';
-const seed=JSON.parse(readFileSync('content/seed.json','utf8')) as {sources:Record<string,{source:string;hash:string}>;manifestHash:string;initialFactHash:string};
+const seed=JSON.parse(readFileSync('fixtures/remote/miniature/seed.json','utf8')) as {sources:Record<string,{source:string;hash:string}>;manifestHash:string;initialFactHash:string};
 if(process.argv[2]==='prepare'){
   if(existsSync(databasePath))throw new Error('Use a fresh isolated root for every real-provider gate.');
   for(const [file,item] of Object.entries(seed.sources)){mkdirSync(path.dirname(path.join(contentRoot,file)),{recursive:true});writeFileSync(path.join(contentRoot,file),item.source);}
@@ -29,7 +29,7 @@ if(process.argv[2]==='prepare'){
   // Preserve the actual outcome before evaluating any gate assertions.
   writeFileSync(evidencePath,JSON.stringify({stage:'processed',actor:'test',root,initial},null,2)+'\n');
   assert.equal(initial.run.status,'ready',JSON.stringify(initial.run.errors));
-  const manifest=readFileSync('content/manifest.jsonl','utf8').trim().split('\n').map(line=>JSON.parse(line) as ManifestRow);
+  const manifest=readFileSync('fixtures/remote/miniature/manifest.jsonl','utf8').trim().split('\n').map(line=>JSON.parse(line) as ManifestRow);
   const wrong=manifest.filter(m=>m.expectedLabel==='contradicting');
   assert.ok(wrong.every(m=>initial.judgments.some(j=>j.passageId===m.passageId&&j.label==='contradicting')),'Every featured wrong claim must be detected.');
   assert.ok(!initial.patches.some(p=>manifest.find(m=>m.passageId===p.passageId)?.expectedLabel!=='contradicting'),'Protected and ambiguous claims must have no proposals.');
