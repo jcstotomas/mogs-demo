@@ -56,7 +56,9 @@ npm --prefix apps/public run build -- --webpack
 MOGS_PUBLIC_TEST_PORT=3105 npm run public:start
 ```
 
-The branch is `codex/mogs-public-design`. Integrate the presentation commit when the coordinator is ready, retaining current content/fact edits and any later public-route expansion. Rebuild against the integrated commit before remote verification so the source revision records the actual candidate. This design does not replace or bypass preview, merge, production, or rendered-content checks.
+The design branch is `codex/mogs-public-design`, with presentation commit `6fdf3c1411ccf7820d00701ff23a770668a67148`. At the user's request, the coordinator integrated it into the primary local checkout as `79524bffea2b8108ebcfdda0b3ad623d6d63f2af`, preserving the working content/fact and planning edits. Fresh integrated checks passed: 35 focused tests, public typecheck, static UI guardrails, and the public export build. All four exported assets retained exact source HTML, public chrome and deployment metadata, with one h1 and one main each. [Integration evidence](ui/public-site-design/integration-checks.json) records that commit and artifact identity. Existing unchanged design browser evidence and the verification limits above still apply.
+
+The design remains local and has not been pushed or deployed. A later remote candidate must rebuild against its own commit before verification. This design does not replace or bypass preview, merge, production, or rendered-content checks.
 
 ## Screenshots
 

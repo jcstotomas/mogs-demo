@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-03T22:09:49.324Z",
+  "sourceCommit": "79524bffea2b8108ebcfdda0b3ad623d6d63f2af",
+  "localOnly": true,
+  "artifactHash": "cd5cc70be8de2a46e7917f14323528becabc825f9a15511c099b526c9b346801",
+  "assets": [
+    {
+      "pathname": "/assets/email/eligible",
+      "sourceBody": "exact match",
+      "publicChrome": "passed",
+      "deploymentMetadata": "exact match",
+      "h1": 1,
+      "main": 1
+    },
+    {
+      "pathname": "/assets/email/onboarding",
+      "sourceBody": "exact match",
+      "publicChrome": "passed",
+      "deploymentMetadata": "exact match",
+      "h1": 1,
+      "main": 1
+    },
+    {
+      "pathname": "/site/launch",
+      "sourceBody": "exact match",
+      "publicChrome": "passed",
+      "deploymentMetadata": "exact match",
+      "h1": 1,
+      "main": 1
+    },
+    {
+      "pathname": "/site/pricing",
+      "sourceBody": "exact match",
+      "publicChrome": "passed",
+      "deploymentMetadata": "exact match",
+      "h1": 1,
+      "main": 1
+    }
+  ],
+  "checks": {
+    "focusedTests": "35/35 passed",
+    "publicBuild": "passed",
+    "publicTypecheck": "passed",
+    "publicUiGuardrails": "passed"
+  },
+  "preservedContent": true,
+  "deployment": "not performed"
+}
