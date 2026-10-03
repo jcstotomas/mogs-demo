@@ -17,6 +17,9 @@
 .stage ul { padding-left: 20px; font-size: 14px; line-height: 1.55; }
 .surfaces { margin-top: 12px; font-size: 14px; color: #43533c; }
 .groupReason { font-size: 14px; max-width: 360px; margin: 8px 0 0; color: #657060; }
+.reviewDetails { margin-top: 16px; font-size: 14px; }
+.reviewDetails summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-weight: 600; color: #52634b; }
+.shellWrap .reviewDetails p { font-size: 14px; margin-top: 12px; }
 .recovery { margin-top: 24px; padding: 24px; background: #fcf0e8; border: 1px solid #dcbca8; border-radius: 8px; }
 .recovery p { margin-top: 12px; font-size: 14px; }
 .recovery label { display: block; margin-top: 16px; font-size: 14px; font-weight: 600; }

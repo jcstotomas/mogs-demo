@@ -1,9 +1,9 @@
 'use strict';
 
 const $ = (id) => document.getElementById(id);
-const state = { assets: [], runs: [], facts: null, agent: null, tasks: [], taskId: null, shownTaskRun: null, selected: new Set(), assetId: null, runId: null, unitId: null, page: 1, busy: false, initialized: false, poll: null };
+const state = { assets: [], runs: [], facts: null, agent: null, tasks: [], taskId: null, shownTaskRun: null, selected: new Set(), unchanged: new Set(), previewKey: null, assetId: null, runId: null, unitId: null, page: 1, busy: false, initialized: false, poll: null };
 const surfaceNames = { email: 'Email', deck: 'Deck PDF', creative: 'Creative' };
-const labelNames = { contradicting: 'Needs correction', consistent: 'Consistent', valid_exception: 'Protected exception', unrelated: 'Unrelated', insufficient_context: 'Unresolved context' };
+const labelNames = { contradicting: 'Suggested change', consistent: 'Keep unchanged', valid_exception: 'Keep unchanged', unrelated: 'Keep unchanged', insufficient_context: 'Needs your decision' };
 const audienceNames = { new_customers: 'New customers', existing_customers: 'Existing customers', historical: 'Historical context', unspecified: 'Audience unknown' };
 const apiUrl = (path) => (document.documentElement.dataset.apiPrefix || '') + path;
 
@@ -34,11 +34,18 @@ function selectRun(runId) {
 }
 function readableDate(value) { return new Date(value).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }); }
 function dollars(cents) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(cents / 100); }
-function say(message) { $('status').textContent = message; }
+function say(message) { $('status').textContent = message; $('status').hidden = !message; }
 function error(message) { $('error').textContent = message; $('error').hidden = !message; }
 function badge(text, tone = '') { return el('span', `badge ${tone}`.trim(), text); }
 function statusTone(status) { return ['failed', 'cancelled'].includes(status) ? 'danger' : ['partial', 'queued', 'running', 'extracting'].includes(status) ? 'attention' : ''; }
 function labelTone(label) { return label === 'contradicting' || label === 'insufficient_context' ? 'attention' : label === 'consistent' || label === 'valid_exception' ? 'good' : ''; }
+function needsReview(finding) { return finding.replacement !== null || !!finding.withholdReason || ['contradicting', 'insufficient_context'].includes(finding.label); }
+function checkedSuggestion(finding) { return finding.replacement !== null && !finding.withholdReason && finding.checks.length > 0 && finding.checks.every((check) => check.pass); }
+function findingPriority(finding) {
+  if (checkedSuggestion(finding)) return finding.locator.kind === 'html' && finding.locator.field ? 1 : 0;
+  if (needsReview(finding)) return 2;
+  return finding.label === 'valid_exception' ? 3 : finding.label === 'consistent' ? 4 : 5;
+}
 function addNotice(parent, message, isError = false) { parent.append(el('div', `notice${isError ? ' error' : ''}`, message)); }
 function locationText(locator) {
   if (locator.kind === 'html') return locator.field ? `Email ${locator.field}` : 'Email source block';
@@ -63,7 +70,7 @@ function setBusy(value) {
   state.busy = value;
   for (const control of $('import-form').elements) control.disabled = value;
   $('demo-button').disabled = value;
-  $('import-button').textContent = value ? 'Working…' : 'Import and extract';
+  $('import-button').textContent = value ? 'Adding…' : 'Add asset';
   updateSelection();
 }
 function updateSelection() {
@@ -74,10 +81,11 @@ function updateSelection() {
   $('select-all').indeterminate = count > 0 && count < active.length;
   $('select-all').disabled = !active.length;
   const running = state.tasks.some((task) => ['queued', 'running'].includes(task.status));
+  $('new-request').disabled = state.busy || running;
   $('agent-submit').disabled = state.busy || running || !state.agent?.available || extracting;
   $('agent-message').disabled = state.busy || running || !state.agent?.available;
   for (const button of $('prompt-examples').querySelectorAll('button')) button.disabled = state.busy || running || !state.agent?.available;
-  $('selection-help').textContent = extracting ? 'Extraction is in progress. Wait until selected assets finish before checking.' : count ? `${count} selected ${count === 1 ? 'asset' : 'assets'} · Every extracted block will be checked; failed and incomplete inputs remain in the report.` : 'No explicit selection. Describe the asset scope in your request; import files below if the library is empty.';
+  $('selection-help').textContent = extracting ? 'Preparing the selected assets…' : count ? `${count} ${count === 1 ? 'asset' : 'assets'} selected for this check.` : 'Choose assets below, or describe which files to check.';
 }
 function renderAssets() {
   const container = clear('asset-list');
@@ -93,8 +101,12 @@ function renderAssets() {
     const button = el('button', 'asset-button'); button.type = 'button'; button.setAttribute('aria-current', String(asset.id === state.assetId));
     button.append(el('span', 'asset-name', asset.context.title || asset.filename));
     const meta = el('span', 'asset-meta');
-    meta.append(el('span', '', surfaceNames[asset.surface] || 'Asset'), badge(asset.active ? asset.status : 'Superseded', statusTone(asset.status)));
-    button.append(meta, el('span', 'asset-file', asset.filename));
+    const findings = selectedRun()?.findings.filter((finding) => finding.assetId === asset.id) || [];
+    const flagged = findings.filter(needsReview).length;
+    const labels = { ready: 'Ready', partial: 'Partial coverage', extracting: 'Preparing', failed: 'Could not read file' };
+    const status = !asset.active ? 'Older version' : asset.status === 'failed' || asset.status === 'extracting' ? labels[asset.status] : findings.length ? flagged ? `${flagged} flagged` : 'Keep unchanged' : labels[asset.status] || asset.status;
+    meta.append(el('span', '', surfaceNames[asset.surface] || 'Asset'), badge(status, flagged ? 'attention' : statusTone(asset.status)));
+    button.append(meta);
     button.addEventListener('click', () => {
       state.assetId = asset.id; state.unitId = null; state.page = 1;
       render();
@@ -103,6 +115,7 @@ function renderAssets() {
     row.append(label, button); container.append(row);
   }
   updateSelection();
+  $('campaign-loader').hidden = state.assets.some((asset) => asset.active);
 }
 function renderRunOptions() {
   const select = clear('run-select');
@@ -113,28 +126,26 @@ function renderRunOptions() {
 }
 function renderRunSummary() {
   const container = clear('run-summary');
+  const evidence = clear('run-evidence');
   const run = selectedRun();
   $('export-link').hidden = !run || ['queued', 'running'].includes(run.status);
   if (run) $('export-link').href = apiUrl(`/api/runs/${encodeURIComponent(run.id)}/export`);
   if (!run) return;
-  const row = el('div', 'run-status');
-  row.append(badge(run.status, statusTone(run.status)), el('span', '', `Starter desired price ${dollars(run.facts.monthlyCents)}/month`), el('span', '', 'Experimental suggestions'));
-  container.append(row);
-  if (run.stale) addNotice(container, 'Stale report. Source or context changed after this check. Previous suggestions are retained as evidence and must be checked again against current revisions.');
-  if (['queued', 'running'].includes(run.status)) addNotice(container, 'Checking all selected content. Results are incomplete while this run is in progress.');
-  if (run.status === 'partial') addNotice(container, 'Partial coverage. Some content is unresolved or could not be checked. This report is not a clean audit.');
-  if (['failed', 'cancelled'].includes(run.status)) addNotice(container, `Analysis ${run.status}. Review the recorded errors before starting a new check.`, true);
+  if (run.stale) addNotice(container, 'This check is out of date. Source or audience details changed. Run a new check before using these suggestions.');
+  if (['queued', 'running'].includes(run.status)) addNotice(container, 'Checking your campaign. Results are still coming in.');
+  if (run.status === 'partial') addNotice(container, 'Partial coverage: some image or document content could not be checked reliably. Review flagged items and the original assets.');
+  if (['failed', 'cancelled'].includes(run.status)) addNotice(container, `Check ${run.status}. Open report details to see the errors before starting again.`, true);
   const counts = el('div', 'run-stats');
-  for (const [key, title] of [['assets', 'Assets'], ['units', 'Extracted blocks'], ['checked', 'Checked blocks'], ['suggestions', 'Suggestions'], ['unresolved', 'Unresolved']]) {
+  for (const [key, title] of [['suggestions', 'Suggested changes'], ['unresolved', 'Need your decision'], ['assets', 'Assets in this check']]) {
     const item = el('div', 'run-stat'); item.append(el('strong', '', run.counts[key]), document.createTextNode(title)); counts.append(item);
   }
   container.append(counts);
   if (run.errors.length) {
-    const issues = el('details', 'run-issues'); issues.append(el('summary', '', `${run.errors.length} recorded coverage issues or errors`));
-    const list = el('ul', 'warning-list'); for (const message of run.errors) list.append(el('li', '', message)); issues.append(list); container.append(issues);
+    const issues = el('details', 'run-issues'); issues.append(el('summary', '', `${run.errors.length} coverage notes or errors`));
+    const list = el('ul', 'warning-list'); for (const message of run.errors) list.append(el('li', '', message)); issues.append(list); evidence.append(issues);
   }
-  container.append(details('Run evidence', [
-    ['Run ID', run.id], ['Engine', run.engine], ['Fact hash', run.factsHash], ['Contract', run.contractVersion], ['Created', run.createdAt], ['Completed', run.completedAt || 'Not completed'], ['Elapsed', `${run.durationMs} ms`], ['Evidence scope', 'Local imports and deterministic rule analysis. No production verification.'],
+  evidence.append(details('Recorded check evidence', [
+    ['Status', run.status], ['Assets', run.counts.assets], ['Extracted blocks', run.counts.units], ['Checked blocks', run.counts.checked], ['All findings', run.findings.length], ['Desired Starter price', `${dollars(run.facts.monthlyCents)}/month`], ['Run ID', run.id], ['Engine', run.engine], ['Fact hash', run.factsHash], ['Contract', run.contractVersion], ['Created', run.createdAt], ['Completed', run.completedAt || 'Not completed'], ['Elapsed', `${run.durationMs} ms`], ['Evidence scope', 'Local imports and deterministic rule analysis. No production verification.'],
   ]));
 }
 function renderAssetSummary() {
@@ -144,82 +155,97 @@ function renderAssetSummary() {
   const section = el('div', 'asset-summary');
   section.append(el('h3', '', asset.context.title || asset.filename));
   const eligibility = asset.context.legacyEligible === true ? 'Legacy eligible' : asset.context.legacyEligible === false ? 'Not legacy eligible' : 'Legacy eligibility unknown';
-  section.append(el('p', 'context-line', `${surfaceNames[asset.surface]} · ${audienceNames[asset.context.audience]} · ${eligibility}`));
-  section.append(el('p', 'context-line', `Context supplied at import${asset.context.journey ? ` · ${asset.context.journey}` : ''}. ${asset.extraction ? `${asset.extraction.units.length} extracted blocks across ${asset.extraction.pages} ${asset.surface === 'email' ? 'document' : 'page(s)'}.` : 'No completed extraction.'}`));
+  section.append(el('p', 'context-line', `${surfaceNames[asset.surface]} · ${audienceNames[asset.context.audience]}`));
   if (!asset.active) addNotice(section, 'This revision has been superseded. Its source and reports remain available; select the active revision for a new check.');
   if (asset.status === 'extracting') addNotice(section, 'Extracting source content. This asset is not ready to check.');
   if (asset.error) addNotice(section, `Extraction failed: ${asset.error}`, true);
-  if (asset.extraction?.status === 'partial') addNotice(section, 'Extraction is partial. Missing or uncertain regions are not treated as checked content.');
+  if (asset.extraction?.status === 'partial' && selectedRun()?.status !== 'partial') addNotice(section, 'Partial coverage: some content in this asset could not be read reliably.');
+  const sourceDetails = el('details', 'source-details'); sourceDetails.append(el('summary', '', 'Audience, source, and coverage details'));
+  sourceDetails.append(el('p', 'context-line', `${eligibility}${asset.context.journey ? ` · ${asset.context.journey}` : ''}. Context supplied at import.`));
+  sourceDetails.append(el('p', 'context-line', asset.extraction ? `${asset.extraction.units.length} extracted blocks across ${asset.extraction.pages} ${asset.surface === 'email' ? 'document' : 'page(s)'}.` : 'No completed extraction.'));
   if (asset.extraction?.warnings.length) {
     const list = el('ul', 'warning-list field-help');
     for (const warning of asset.extraction.warnings) list.append(el('li', '', warning));
     const notes = el('details', 'evidence');
     notes.append(el('summary', '', `${asset.extraction.warnings.length} coverage ${asset.extraction.warnings.length === 1 ? 'note' : 'notes'}`), list);
-    section.append(notes);
+    sourceDetails.append(notes);
   }
-  section.append(details('Source evidence', [
+  sourceDetails.append(details('Source evidence', [
     ['Original filename', asset.filename], ['Asset revision', asset.revision], ['Source SHA-256', asset.sourceHash], ['Context SHA-256', asset.contextHash], ['Extractor', asset.extraction?.extractor || 'Unavailable'], ['Imported', asset.createdAt], ['Region', asset.context.region || 'Unknown'], ['Date context', asset.context.date || 'Unknown'], ['Origin', 'Local import; built-in examples are synthetic'],
   ]));
+  section.append(sourceDetails);
   container.append(section);
 }
 function renderFindings() {
   const container = clear('findings');
   const asset = selectedAsset(); const run = selectedRun();
   const findings = run && asset ? run.findings.filter((finding) => finding.assetId === asset.id) : [];
-  const priority = (finding) => {
-    if (finding.replacement !== null && !finding.withholdReason && finding.checks.length && finding.checks.every((check) => check.pass)) {
-      return finding.locator.kind === 'html' && finding.locator.field ? 1 : 0;
-    }
-    if (finding.withholdReason || ['contradicting', 'insufficient_context'].includes(finding.label)) return 2;
-    return finding.label === 'valid_exception' ? 3 : finding.label === 'consistent' ? 4 : 5;
-  };
-  findings.sort((left, right) => priority(left) - priority(right));
-  $('finding-count').textContent = findings.length;
+  findings.sort((left, right) => findingPriority(left) - findingPriority(right));
+  const flagged = findings.filter(needsReview);
+  const unchanged = findings.filter((finding) => !needsReview(finding));
+  $('finding-count').textContent = `${flagged.length} flagged`;
   if (!findings.length) {
     let message = 'Ask MOGS to check your imported assets, then review its findings here.';
     if (run && asset) message = !run.assetIds.includes(asset.id) ? 'This asset was not included in the selected run. Select it and start a new check.' : ['queued', 'running'].includes(run.status) ? 'Findings will appear after analysis. No conclusion is available yet.' : asset.status === 'failed' ? 'The source could not be extracted. See the recorded failure above.' : 'No findings are recorded for this asset in this run. Check coverage and errors before drawing a conclusion.';
     container.append(el('p', 'empty-message', message));
     return;
   }
-  container.append(el('p', 'field-help', 'Corrections and unresolved items shown first.'));
+  if (!flagged.length) container.append(el('p', 'empty-message', 'No changes are flagged for this asset. Review coverage details before treating the check as complete.'));
   if (!findings.some((finding) => finding.unitId === state.unitId)) state.unitId = null;
+  const viewKey = `${run.id}:${asset.id}`;
+  if (state.previewKey !== viewKey) {
+    state.previewKey = viewKey;
+    const firstSuggestion = flagged.find(checkedSuggestion);
+    if (!state.unitId && firstSuggestion) { state.unitId = firstSuggestion.unitId; state.page = firstSuggestion.locator.kind === 'html' ? 1 : firstSuggestion.locator.page; }
+  }
+  const unchangedContent = el('details', 'unchanged-content');
+  unchangedContent.append(el('summary', '', `Show unchanged content (${unchanged.length})`));
   for (const finding of findings) {
+    const suggested = checkedSuggestion(finding);
+    const actionable = needsReview(finding);
     const article = el('article', 'finding'); article.dataset.selected = String(finding.unitId === state.unitId);
-    const header = el('div', 'finding-heading'); header.append(badge(labelNames[finding.label] || finding.label, labelTone(finding.label)));
+    const header = el('div', 'finding-heading'); header.append(badge(suggested ? 'Suggested change' : actionable ? 'Needs your decision' : 'Keep unchanged', actionable ? 'attention' : 'good'));
     const content = el('div', 'finding-content');
-    content.append(el('p', 'finding-location', `${locationText(finding.locator)} · ${finding.kind.replaceAll('_', ' ')}`));
-    content.append(el('span', 'copy-label', 'Current source'), el('p', 'source-copy', finding.original));
+    content.append(el('p', 'finding-location', locationText(finding.locator)));
+    content.append(el('span', 'copy-label', 'Current copy'), el('p', 'source-copy', finding.original));
     if (finding.replacement !== null) {
       content.append(el('span', 'copy-label', run.stale ? 'Previously suggested · stale' : 'Suggested copy'), el('p', 'proposed-copy', finding.replacement));
     }
-    content.append(el('p', 'rationale', finding.rationale));
-    if (finding.withholdReason) content.append(el('p', 'withheld', `Suggestion withheld: ${finding.withholdReason}`));
-    if (finding.label === 'valid_exception') content.append(el('p', 'field-help', 'Preserve this source. Its context supports an exception.'));
-    if (finding.label === 'insufficient_context' && !finding.withholdReason) content.append(el('p', 'withheld', 'No suggested edit. More reliable context is required.'));
+    if (actionable && !suggested) content.append(el('p', 'withheld', finding.withholdReason || finding.rationale || 'Confirm the audience or pricing context before changing this copy.'));
+    if (finding.label === 'valid_exception') content.append(el('p', 'field-help', 'Keep this copy. Its context supports the original wording.'));
+    const explanation = el('details', 'finding-details');
+    explanation.append(el('summary', '', suggested ? 'Why this change?' : actionable ? 'Why was this flagged?' : 'Why keep this copy?'), el('p', 'rationale', finding.rationale));
     const checkDetails = el('details', 'checks');
     const passes = finding.checks.filter((check) => check.pass).length;
     checkDetails.append(el('summary', '', finding.checks.length ? `Checks: ${passes}/${finding.checks.length} passed` : 'Checks: none recorded'));
     const list = el('ul');
     for (const check of finding.checks) list.append(el('li', '', `${check.pass ? 'Pass' : 'Fail'} · ${check.name}: ${check.detail}`));
-    checkDetails.append(list); content.append(checkDetails);
+    checkDetails.append(list); explanation.append(checkDetails);
     const unit = asset.extraction?.units.find((candidate) => candidate.id === finding.unitId);
-    content.append(details('Claim evidence', [['Unit ID', finding.unitId], ['Source revision', finding.revision], ['Locator', JSON.stringify(finding.locator)], ['Surrounding source context', unit?.context || 'Unavailable'], ['Extraction confidence', unit?.confidence == null ? 'Not reported by extractor' : String(unit.confidence)], ['Fact snapshot', run.factsHash]]));
-    const button = el('button', 'secondary', finding.unitId === state.unitId ? 'Source location selected' : 'Show source location'); button.type = 'button'; button.setAttribute('aria-pressed', String(finding.unitId === state.unitId));
+    explanation.append(details('Claim evidence', [['Classification', finding.label], ['Claim type', finding.kind], ['Unit ID', finding.unitId], ['Source revision', finding.revision], ['Locator', JSON.stringify(finding.locator)], ['Surrounding source context', unit?.context || 'Unavailable'], ['Extraction confidence', unit?.confidence == null ? 'Not reported by extractor' : String(unit.confidence)], ['Fact snapshot', run.factsHash]]));
+    content.append(explanation);
+    const button = el('button', 'secondary', finding.unitId === state.unitId ? 'Showing in original' : 'View in original'); button.type = 'button'; button.setAttribute('aria-pressed', String(finding.unitId === state.unitId));
     button.addEventListener('click', () => {
       state.unitId = finding.unitId;
       state.page = finding.locator.kind === 'html' ? 1 : finding.locator.page;
       renderFindings(); renderPreview();
       const selected = [...$('findings').querySelectorAll('article')].find((item) => item.dataset.selected === 'true');
+      if (selected?.closest('.unchanged-content')) selected.closest('.unchanged-content').open = true;
       selected?.querySelector('button')?.focus({ preventScroll: true });
-      say(`Source location selected: ${locationText(finding.locator)}.`);
+      say('Showing the flagged copy in the original asset.');
     });
-    content.append(button); article.append(header, content); container.append(article);
+    content.append(button); article.append(header, content); (actionable ? container : unchangedContent).append(article);
+  }
+  if (unchanged.length) {
+    unchangedContent.open = state.unchanged.has(viewKey) || unchanged.some((finding) => finding.unitId === state.unitId);
+    unchangedContent.addEventListener('toggle', () => { unchangedContent.open ? state.unchanged.add(viewKey) : state.unchanged.delete(viewKey); });
+    container.append(unchangedContent);
   }
 }
 function renderPreview() {
   const container = clear('source-preview'); const asset = selectedAsset();
   $('page-controls').hidden = true;
-  $('preview-help').textContent = 'Select a finding to highlight its exact extracted location.';
+  $('preview-help').textContent = 'Choose a flagged item to see it in the original.';
   if (!asset?.extraction?.previews.length) {
     container.append(el('p', 'empty-message', asset?.status === 'extracting' ? 'The source preview is being prepared.' : asset ? 'No source preview is available. See extraction status and warnings.' : 'Import an asset or load the designed campaign to see its source.'));
     return;
@@ -234,7 +260,7 @@ function renderPreview() {
       const field = el('div', 'source-field'); field.append(el('strong', '', `Email ${unit.locator.field}`), el('p', '', unit.text)); container.append(field);
     }
     const iframe = el('iframe'); iframe.title = `Sanitized email preview: ${asset.context.title || asset.filename}`; iframe.setAttribute('sandbox', ''); iframe.referrerPolicy = 'no-referrer'; iframe.src = unit ? `${url}#mogs-selected-unit` : url; container.append(iframe);
-    $('preview-help').textContent = 'Sanitized email preview. Scripts, forms, navigation, and remote tracking are disabled. Original template bytes remain unchanged.';
+    $('preview-help').textContent = unit ? 'Email preview with the selected copy highlighted. The original template is unchanged.' : 'Original email preview. Choose an item to highlight its copy.';
   } else {
     const frame = el('div', 'preview-image'); const image = el('img'); image.src = url; image.alt = `${asset.surface === 'deck' ? `PDF page ${preview.page}` : 'Original creative'} of ${asset.context.title || asset.filename}`;
     image.addEventListener('error', () => { container.replaceChildren(el('p', 'empty-message', 'The preview could not be loaded. The recorded source and findings remain available.')); });
@@ -263,38 +289,52 @@ function renderPreview() {
 function renderAgent() {
   const task = selectedTask();
   const available = state.agent?.available;
-  $('agent-availability').textContent = available ? 'Agent connected' : 'Agent unavailable';
+  const finished = !!task && ['complete', 'failed', 'cancelled'].includes(task.status);
+  $('agent-title').textContent = finished ? task.status === 'complete' ? 'Campaign check finished' : 'This check needs attention' : 'What changed?';
+  $('agent-help').hidden = finished;
+  $('agent-form').hidden = finished;
+  $('agent-availability').textContent = available ? 'Ready' : 'Unavailable';
+  $('agent-availability').hidden = finished && !!available;
   $('agent-availability').className = `badge ${available ? 'good' : 'attention'}`;
   $('agent-unavailable').hidden = !!available;
-  $('agent-unavailable').textContent = available ? '' : `${state.agent?.reason || 'Checking agent availability.'} Configure the server provider setting to use natural-language requests. Imported source review remains available.`;
+  $('agent-unavailable').textContent = available ? '' : `${state.agent?.reason || 'Checking availability.'} You can still review existing sources and results.`;
+  const checkSettings = $('check-settings');
+  if (checkSettings) $('check-settings-home').append(checkSettings);
   const container = clear('agent-conversation');
   if (task) {
     const chain = []; let cursor = task; const seen = new Set();
     while (cursor && !seen.has(cursor.id)) { seen.add(cursor.id); chain.unshift(cursor); cursor = state.tasks.find((candidate) => candidate.id === cursor.previousTaskId); }
+    const requestDetails = el('details', 'request-details'); requestDetails.append(el('summary', '', 'Request details'));
+    const conversation = el('div', 'agent-response');
     for (const item of chain) {
       const turn = el('div', 'agent-turn'); turn.append(el('p', 'speaker', 'You'), el('p', 'agent-message', item.message));
       if (item.reply) turn.append(el('p', 'speaker', 'MOGS'), agentReply(item.reply));
-      container.append(turn);
+      conversation.append(turn);
     }
+    if (task.status === 'needs_input' && task.reply) container.append(agentReply(task.reply));
     const taskStatus = el('div', 'agent-task-status');
-    const labels = {queued:'Queued',running:'Working',needs_input:'Your reply is needed',complete:'Task complete',failed:'Task failed',cancelled:'Task cancelled'};
+    const labels = {queued:'Waiting to start',running:'Checking campaign',needs_input:'Your reply is needed',complete:'Check finished',failed:'Check failed',cancelled:'Check cancelled'};
     taskStatus.append(badge(labels[task.status] || task.status, ['failed', 'cancelled'].includes(task.status) ? 'danger' : task.status === 'complete' ? 'good' : 'attention'));
-    container.append(taskStatus);
+    if (!finished) container.append(taskStatus);
+    if (finished && task.runId) container.append(el('p', 'field-help', 'Review the suggested changes and items that need your decision below.'));
+    requestDetails.append(conversation);
     if (task.events.length) {
       const progress = el('details', 'agent-progress'); progress.open = ['queued', 'running'].includes(task.status);
       progress.append(el('summary', '', `${task.events.length} recorded tool ${task.events.length === 1 ? 'action' : 'actions'}`));
-      const list = el('ol'); for (const event of task.events) { const item = el('li'); item.append(el('strong', '', event.title), el('p', '', event.detail)); list.append(item); } progress.append(list); container.append(progress);
+      const list = el('ol'); for (const event of task.events) { const item = el('li'); item.append(el('strong', '', event.title), el('p', '', event.detail)); list.append(item); } progress.append(list); (['queued', 'running'].includes(task.status) ? container : requestDetails).append(progress);
     }
     if (task.error) addNotice(container, task.error, true);
     if (task.runId && !['queued', 'running'].includes(task.status)) {
-      const link = el('a', 'button-link secondary', 'Review the findings'); link.href = '#review'; link.addEventListener('click', () => { selectRun(task.runId); render(); }); container.append(link);
+      const link = el('a', 'button-link', 'Review flagged items'); link.href = '#review'; link.addEventListener('click', () => { if (state.runId !== task.runId) selectRun(task.runId); render(); }); container.append(link);
     }
-    container.append(details('Agent evidence', [['Task ID', task.id], ['Model', task.model], ['Created', task.createdAt], ['Completed', task.completedAt || 'In progress'], ['Input tokens', task.usage.inputTokens], ['Output tokens', task.usage.outputTokens], ['Analysis run', task.runId || 'No scan started']]));
+    requestDetails.append(details('Agent evidence', [['Task ID', task.id], ['Model', task.model], ['Created', task.createdAt], ['Completed', task.completedAt || 'In progress'], ['Input tokens', task.usage.inputTokens], ['Output tokens', task.usage.outputTokens], ['Analysis run', task.runId || 'No scan started']]));
+    if (checkSettings) requestDetails.append(checkSettings);
+    container.append(requestDetails);
   }
   const followup = task?.status === 'needs_input';
-  $('agent-message-label').textContent = followup ? 'Your reply' : 'Your request';
+  $('agent-message-label').textContent = followup ? 'Your reply' : 'Describe your change';
   $('agent-message').placeholder = followup ? 'Add the missing details so MOGS can continue…' : 'Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets.';
-  $('agent-submit').textContent = followup ? 'Send reply' : state.tasks.some((item) => ['queued', 'running'].includes(item.status)) ? 'MOGS is working…' : 'Ask MOGS';
+  $('agent-submit').textContent = followup ? 'Send reply' : state.tasks.some((item) => ['queued', 'running'].includes(item.status)) ? 'Checking…' : 'Check campaign';
   $('new-request').hidden = !task || ['queued', 'running'].includes(task.status);
   $('prompt-examples').hidden = !!task;
   $('task-history').hidden = !state.tasks.length;
@@ -428,8 +468,8 @@ $('run-select').addEventListener('change', () => {
 function changePage(direction) {
   const pages = selectedAsset()?.extraction?.previews || [];
   const index = pages.findIndex((preview) => preview.page === state.page);
-  if (pages[index + direction]) { state.page = pages[index + direction].page; state.unitId = null; renderPreview(); for (const article of $('findings').querySelectorAll('article')) { article.dataset.selected = 'false'; const button = article.querySelector('button'); button.textContent = 'Show source location'; button.setAttribute('aria-pressed', 'false'); } }
+  if (pages[index + direction]) { state.page = pages[index + direction].page; state.unitId = null; renderPreview(); for (const article of $('findings').querySelectorAll('article')) { article.dataset.selected = 'false'; const button = article.querySelector('button'); button.textContent = 'View in original'; button.setAttribute('aria-pressed', 'false'); } }
 }
 $('previous-page').addEventListener('click', () => changePage(-1));
 $('next-page').addEventListener('click', () => changePage(1));
-loadState().then(() => say(state.assets.length ? `${state.assets.length} local assets available. Select an asset to inspect its source.` : 'Ready to import. Add your own asset or try the designed campaign.')).catch((failure) => { error(failure.message); say('The lab could not be loaded.'); });
+loadState().then(() => say(state.assets.length ? '' : 'Add your own files or load the designed campaign.')).catch((failure) => { error(failure.message); say('Campaign review could not load.'); });

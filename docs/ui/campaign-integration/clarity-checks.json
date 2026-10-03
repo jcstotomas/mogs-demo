@@ -1,0 +1,47 @@
+{
+  "desktop": {
+    "page": {
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    "campaign": {
+      "scrollWidth": 1376,
+      "width": 1376
+    }
+  },
+  "focus": [
+    {
+      "outline": "3px",
+      "style": "solid",
+      "tag": "INPUT"
+    }
+  ],
+  "website": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "mobileTesting": "Skipped at the user's request",
+  "savedResults": {
+    "suggestedChanges": 8,
+    "needsDecision": 5,
+    "assets": 6,
+    "coverage": "partial"
+  },
+  "disclosure": {
+    "unchangedCreativeFindings": 22,
+    "opened": true,
+    "closedAgain": true
+  },
+  "websiteReview": {
+    "groups": 4,
+    "approvalControls": "enabled after recorded baseline loaded",
+    "approvalActions": 0
+  },
+  "checks": {
+    "typecheck": "passed",
+    "mainBuild": "passed",
+    "labBuild": "passed",
+    "providerRequests": 0,
+    "submissionActions": 0
+  }
+}

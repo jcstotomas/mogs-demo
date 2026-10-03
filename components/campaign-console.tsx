@@ -68,25 +68,24 @@ export function CampaignConsole() {
       <nav aria-label="Review navigation"><a href="/console/campaign" aria-current="page">Campaign assets</a><a href={reviewUrl}>Website launch</a></nav>
     </header>
     <main className={styles.main} id="campaign-main" tabIndex={-1}>
-      <div className={styles.intro}><p className={styles.eyebrow}>Website · Email · Sales deck · Creative</p><h1>Review the launch across your campaign.</h1>
-        <p>Inspect the original sources, check the Starter price change, and continue the website launch review.</p></div>
+      <div className={styles.intro}><h1>Review your launch</h1>
+        <p>See what needs updating across your website, emails, deck, and creative.</p></div>
       <section className={styles.launch} aria-labelledby="launch-title">
-        <div><h2 id="launch-title">Website and paired email launch</h2>
-          {core ? <><p className={styles.summary}>{core.assets} captured assets · {core.passages} source blocks · {core.repairs} checked corrections</p><p className={styles.detail}>{core.approvedGroups} of {core.groups} groups approved · Recorded run: {core.status}</p></> : <p className={styles.detail}>{error ? 'Recorded run unavailable.' : 'Loading the current launch review…'}</p>}
-          {core ? <p className={styles.detail}>Starter {dollars(core.beforeMonthlyCents)} → {dollars(core.monthlyCents)} monthly · {dollars(core.annualCents)} annually · Eligible subscribers keep {dollars(core.legacyMonthlyCents)} monthly.</p> : null}
-          <p className={styles.detail}>Human group approval, pull request submission, preview verification, merge, and public verification each have their own recorded result.</p>
+        <div><h2 id="launch-title">Website and emails</h2>
+          {core ? <><p className={styles.summary}><strong>{core.repairs} corrections</strong> in {core.groups} review groups</p><p className={styles.detail}>{core.status === 'failed' ? 'This check needs attention. Open the website review to see the errors.' : core.status === 'ready' ? `${Math.max(0, core.groups - core.approvedGroups)} ${core.groups - core.approvedGroups === 1 ? 'group needs' : 'groups need'} your approval.` : `Check status: ${core.status}.`}</p></> : <p className={styles.detail}>{error ? 'The current website check is unavailable.' : 'Loading your website check…'}</p>}
+          {core ? <details className={styles.reviewDetails}><summary>Price change and review details</summary><p className={styles.detail}>Starter {dollars(core.beforeMonthlyCents)} → {dollars(core.monthlyCents)} monthly. Annual pricing stays {dollars(core.annualCents)}; eligible subscribers keep {dollars(core.legacyMonthlyCents)} monthly.</p><p className={styles.detail}>{core.assets} captured assets · {core.passages} source blocks · {core.approvedGroups} groups approved. Recorded status: {core.status}.</p><p className={styles.detail}>Group approval includes checked copy in a pull request. A person merges in GitHub, then the deployed result is verified.</p></details> : null}
           {error ? <p className={styles.error} role="alert">{error}</p> : null}
         </div>
         <div className={styles.actions}><a className={styles.primary} href={reviewUrl}>Continue website review</a>{prUrl ? <a className={styles.secondary} href={prUrl} target="_blank" rel="noreferrer">Open recorded pull request</a> : null}</div>
       </section>
       <section className={styles.campaign} aria-labelledby="campaign-title">
-        <div className={styles.sectionHeading}><div><h2 id="campaign-title">Designed campaign sources</h2>
-          <p className={styles.detail}>{context ? `${context.imports.emails} emails · ${context.imports.decks} sales deck · ${context.imports.creatives} creatives · ${context.imports.assets} assets available to import` : 'Load the designed campaign below or import your own supported source.'}</p>
-          <p className={styles.detail}>Campaign findings are source-linked suggestions. Their counts and reports are separate from the website launch. Originals stay unchanged; email templates are not sent.</p>
+        <div className={styles.sectionHeading}><div><h2 id="campaign-title">Campaign assets</h2>
+          <p className={styles.detail}>{context ? `${context.imports.emails} emails · ${context.imports.decks} sales deck · ${context.imports.creatives} creatives` : 'Load the designed campaign or add your own files.'}</p>
           {context && !context.factsCompatible ? <p className={styles.error}>The campaign facts differ from the current website run. Compare each fact snapshot in its review.</p> : null}
         </div></div>
         {frameError ? <p className={styles.error} role="alert">Campaign review could not load. <a href="/console/campaign">Refresh campaign review</a>.</p> : null}
         <iframe className={styles.frame} ref={frame} src="/api/multichannel/ui" title="Campaign agent, original sources, and findings" onLoad={fitFrame} onError={() => setFrameError(true)} />
+        <p className={styles.detail}>Campaign checks suggest copy. Original files stay unchanged; email previews are not sent. Campaign results are separate from the website launch.</p>
       </section>
     </main>
   </div>;

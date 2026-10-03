@@ -22,24 +22,22 @@
     </section>
     <div id="error" class="notice error" role="alert" hidden></div>
     <p id="status" class="status-line" role="status" aria-live="polite">Loading local assets…</p>
-    <div class="campaign-loader"><button type="button" class="secondary" id="demo-button">Load designed campaign</button><p class="field-help">Two designed emails, a five-slide sales deck, and three photographic creatives. Inspect actual source previews below.</p></div>
+    <div class="campaign-loader" id="campaign-loader"><button type="button" class="secondary" id="demo-button">Load designed campaign</button><p class="field-help">Start with the sample emails, deck, and creative.</p></div>
     <section class="agent-panel" aria-labelledby="agent-title">
-      <div class="section-heading"><h2 id="agent-title">What should we check?</h2><span class="badge" id="agent-availability">Connecting…</span></div>
-      <p class="field-help">Ask about the MOGS pricing change across emails, decks, and creative. The agent chooses its tools; the pricing checks remain grounded in the approved facts.</p>
-      <p class="field-help">Uses Anthropic to interpret requests; inspected source excerpts may be sent to the model.</p>
+      <div class="section-heading"><h2 id="agent-title">What changed?</h2><button id="new-request" type="button" class="secondary" hidden>New check</button><span class="badge" id="agent-availability">Connecting…</span></div>
+      <p class="field-help" id="agent-help">Describe the change. We'll flag copy to update and anything that needs your decision.</p>
       <div id="agent-unavailable" class="notice" hidden></div>
       <div id="agent-conversation"></div>
       <form id="agent-form">
-        <label for="agent-message" id="agent-message-label">Your request</label>
+        <label for="agent-message" id="agent-message-label">Describe your change</label>
         <textarea id="agent-message" name="message" rows="3" maxlength="4000" required aria-describedby="selection-help" placeholder="Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets."></textarea>
         <div class="prompt-examples" id="prompt-examples" aria-label="Example requests"><button type="button" class="prompt-button secondary" data-prompt="Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets.">Check the pricing change</button><button type="button" class="prompt-button secondary" data-prompt="Check all imported emails against the approved pricing facts and explain which legacy claims should stay unchanged.">Review emails and exceptions</button><button type="button" class="prompt-button secondary" data-prompt="Check all imported decks and creative for outdated Starter prices and derived pricing claims.">Check decks and creative</button></div>
-        <div class="form-actions"><button id="agent-submit" type="submit" disabled>Ask MOGS</button><button id="new-request" type="button" class="secondary" hidden>Start a new request</button><span class="field-help" id="selection-help">Import assets to give the agent source material.</span></div>
+        <div class="form-actions"><button id="agent-submit" type="submit" disabled>Check campaign</button><span class="field-help" id="selection-help">Add files to check.</span></div>
       </form>
-      <details class="facts-details"><summary>Approved facts and scope</summary><p id="facts-description"></p><p>The agent can change the desired Starter monthly price when you specify it. Annual, Team, and legacy rules remain fixed. It runs a complete scan of extracted content using supported MOGS pricing rules. Broader semantic and visual claims are outside this check. Lab suggestions do not enter launch publication.</p></details>
-      <details class="task-history" id="task-history" hidden><summary>Previous requests</summary><label for="task-select">Choose a request</label><select id="task-select"></select></details>
+      <div id="check-settings-home"><details class="facts-details" id="check-settings"><summary>Check settings</summary><p id="facts-description"></p><p>This check covers supported MOGS pricing claims. Annual, Team, and legacy rules remain fixed. Image text may be incomplete; uncertain claims stay flagged. Suggestions do not edit or publish files.</p><p>Anthropic interprets your request and may receive inspected source excerpts.</p></details></div>
     </section>
     <details class="import-panel" id="import-panel" open>
-      <summary>Import an asset</summary>
+      <summary>Add another asset</summary>
       <form id="import-form">
         <div class="import-grid">
           <div>
@@ -66,27 +64,27 @@
             <div><label for="region">Region</label><input id="region" name="region" maxlength="100"><label for="date">Content date or date context</label><input id="date" name="date" maxlength="100" placeholder="For example, October 2026"><p class="field-help">All form context is recorded as user supplied. Keep unknown fields empty; uncertainty may withhold a suggestion.</p></div>
           </div>
         </details>
-        <div class="form-actions"><button type="submit" id="import-button">Import and extract</button></div>
+        <div class="form-actions"><button type="submit" id="import-button">Add asset</button></div>
       </form>
     </details>
     <section class="workspace" aria-label="Asset review">
       <aside class="asset-panel" aria-labelledby="assets-title">
         <div class="section-heading"><h2 id="assets-title">Assets</h2><span id="asset-count" class="count">0</span></div>
-        <div class="select-row"><label><input type="checkbox" id="select-all"> Select all active assets</label></div>
+        <div class="select-row"><label><input type="checkbox" id="select-all"> Include all in next check</label></div>
         <div id="asset-list"><p class="empty-message">Your imported files will appear here.</p></div>
       </aside>
       <section class="review-panel" id="review" tabindex="-1" aria-labelledby="review-title">
-        <div class="section-heading review-heading"><h2 id="review-title">Source and findings</h2><a id="export-link" class="button-link secondary" hidden download>Export report</a></div>
-        <div class="run-toolbar"><label for="run-select">Analysis run</label><select id="run-select"><option value="">No runs yet</option></select></div>
+        <div class="section-heading review-heading"><h2 id="review-title">What needs updating</h2><a id="export-link" class="button-link secondary" hidden download>Download report</a></div>
+        <details class="check-history"><summary>Previous checks and report details</summary><div class="run-toolbar"><label for="run-select">Choose a check</label><select id="run-select"><option value="">No checks yet</option></select></div><details class="task-history" id="task-history" hidden><summary>Previous requests</summary><label for="task-select">Choose a request</label><select id="task-select"></select></details><div id="run-evidence"></div></details>
         <div id="run-summary"></div>
         <div id="asset-summary"></div>
         <div class="review-columns">
-          <section class="source-panel" aria-labelledby="source-title"><div class="section-heading"><h3 id="source-title">Original source</h3><span class="badge" id="source-label">Unchanged</span></div><div id="source-preview" class="preview-content"><p class="empty-message">Import an asset or load the designed campaign to see its source.</p></div><div id="page-controls" class="page-controls" hidden><button type="button" id="previous-page" class="secondary">Previous page</button><span id="page-label"></span><button type="button" id="next-page" class="secondary">Next page</button></div><p class="field-help" id="preview-help">Select a finding to highlight its exact extracted location.</p></section>
-          <section class="findings-panel" aria-labelledby="findings-title"><div class="section-heading"><h3 id="findings-title">Findings</h3><span id="finding-count" class="count">0</span></div><div id="findings"><p class="empty-message">Run a check to review claims and suggested corrections.</p></div></section>
+          <section class="source-panel" aria-labelledby="source-title"><div class="section-heading"><h3 id="source-title">Original asset</h3><span class="badge" id="source-label">Unchanged</span></div><div id="source-preview" class="preview-content"><p class="empty-message">Add files or load the designed campaign to see an original asset.</p></div><div id="page-controls" class="page-controls" hidden><button type="button" id="previous-page" class="secondary">Previous page</button><span id="page-label"></span><button type="button" id="next-page" class="secondary">Next page</button></div><p class="field-help" id="preview-help">Choose a flagged item to see it in the original.</p></section>
+          <section class="findings-panel" aria-labelledby="findings-title"><div class="section-heading"><h3 id="findings-title">Flagged items</h3><span id="finding-count" class="count">0</span></div><div id="findings"><p class="empty-message">Check your campaign to see suggested changes.</p></div></section>
         </div>
       </section>
     </section>
-    <footer>Local multichannel experiment · Imported content and synthetic evidence are separate from production verification.</footer>
+    <footer>Fictional MOGS campaign · Suggestions only. Originals stay unchanged.</footer>
   </main>
 </body>
 </html>

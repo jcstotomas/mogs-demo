@@ -178,6 +178,8 @@ footer { border-top: 1px solid var(--color-line); margin-top: 48px; padding: 24p
 
 .agent-panel { padding: 24px; margin-bottom: 24px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-surface); }
 .agent-panel .section-heading { margin-bottom: 8px; }
+.agent-panel .section-heading { flex-wrap: wrap; }
+.agent-panel .section-heading h2 { margin-right: auto; }
 .agent-panel form { margin-top: 16px; }
 .agent-panel textarea { margin-bottom: 12px; min-height: 104px; line-height: 1.6; }
 .agent-panel .form-actions { padding-top: 12px; }
@@ -205,3 +207,26 @@ footer { border-top: 1px solid var(--color-line); margin-top: 48px; padding: 24p
 html[data-api-prefix] .site-header, html[data-api-prefix] .intro, html[data-api-prefix] > body > .skip-link { display: none; }
 html[data-api-prefix] main { max-width: none; padding: 0; }
 html[data-api-prefix] footer { margin-top: 24px; }
+
+.request-details { margin-top: 8px; font-size: .875rem; }
+.request-details > summary, .check-history > summary, .source-details > summary, .finding-details > summary { font-size: .875rem; font-weight: 400; color: var(--color-action); }
+.request-details .agent-turn:first-child { border-top: 0; margin-top: 0; }
+.check-history { margin-bottom: 8px; font-size: .875rem; }
+.source-details { margin-top: 4px; font-size: .875rem; }
+.source-details summary { min-height: 44px; }
+.unchanged-content { margin-top: 16px; font-size: .875rem; }
+.unchanged-content > summary { color: var(--color-action); }
+.unchanged-content .finding { background: #f6f5f0; }
+.finding-details { margin: 0 0 12px; }
+.finding-details > summary { padding: 12px 0; }
+.finding-details .checks { margin-bottom: 8px; }
+.asset-meta .badge { font-size: .75rem; }
+.run-stats { margin: 12px 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--color-line); }
+.asset-summary { border-top: 0; padding-top: 0; }
+.agent-panel:has(#agent-form[hidden]) { padding: 16px 24px; }
+.agent-panel:has(#agent-form[hidden]) .field-help { margin: 8px 0 12px; }
+@media (max-width: 700px) {
+  .agent-panel:has(#agent-form[hidden]) { padding: 16px; }
+  .agent-panel .section-heading h2 { flex: 1 1 180px; }
+  .request-details { margin-top: 8px; }
+}
