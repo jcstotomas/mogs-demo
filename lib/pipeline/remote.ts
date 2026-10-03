@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { correctionKey } from '../corrections';
+import { targetForKind } from '../facts/derive';
 import { hashRecord, sha256 } from '../hash';
 import { runtimeProviderConfig } from '../providers';
 import { CheckNameSchema, PatchSchema, type Patch } from '../types';
@@ -146,44 +147,60 @@ async function runWorker(runId: string, options: RemotePipelineOptions): Promise
     if (current().errors.length) { failRun(db, runId, 'classification_incomplete', 'Full-scope classification did not complete successfully.', clock); return; }
     update({ status: 'drafting' });
     const editable = db.judgments(runId).filter(j => j.label === 'contradicting' && passages.find(p => p.id === j.passageId)!.editable && pageById.get(passages.find(p => p.id === j.passageId)!.assetId)!.editable);
-    const outcomes: RemotePatch[] = [];
-    await bounded(editable, async judgment => {
-      const p = passages.find(p => p.id === judgment.passageId)!, page = pageById.get(p.assetId)!;
-      try {
-        // V1 provider entry points receive their strict v1 judgment shape.
-        const { contractVersion: _version, launchAttemptId: _attempt, ...providerJudgment } = judgment;
-        const result = await draft(runId, p, page, providerJudgment, before, desired);
-        if (!accepting()) return;
-        if (!result) throw new Error('Missing correction outcome.');
-        let patch = PatchSchema.parse(result);
-        if (patch.runId !== runId || patch.passageId !== p.id || patch.kind !== judgment.kind || patch.factVersion !== desired.version) throw new Error('Foreign correction outcome.');
-        if (patch.replacement) {
-          const checks = await check(patch, p, page, before, desired, options.contentRoot, { providerConfig: initial.config, onProviderError: () => errorFor('provider_failure', 'Replacement judgment failed; the correction was withheld.', p.id) });
+    // Classification fixes all potential members before drafting begins. Finish
+    // one complete kind at a time so its group can be reviewed while the other
+    // groups are still being checked, without waiting for the all-results gate.
+    const kinds = new Map<string, typeof editable>();
+    for (const judgment of editable) kinds.set(judgment.kind, [...(kinds.get(judgment.kind) ?? []), judgment]);
+    const batches = [...kinds.entries()].sort(([a, aMembers], [b, bMembers]) => {
+      const aTarget = targetForKind(aMembers[0].kind, desired), bTarget = targetForKind(bMembers[0].kind, desired);
+      return Number(bTarget !== null) - Number(aTarget !== null) || aMembers.length - bMembers.length || a.localeCompare(b);
+    });
+    for (const [, members] of batches) {
+      const outcomes: RemotePatch[] = [];
+      await bounded(members, async judgment => {
+        const p = passages.find(p => p.id === judgment.passageId)!, page = pageById.get(p.assetId)!;
+        try {
+          // V1 provider entry points receive their strict v1 judgment shape.
+          const { contractVersion: _version, launchAttemptId: _attempt, ...providerJudgment } = judgment;
+          const result = await draft(runId, p, page, providerJudgment, before, desired);
           if (!accepting()) return;
-          const required = CheckNameSchema.options.filter(name => name !== 'tokens_kept' || p.surface === 'email');
-          const passed = required.every(name => checks.some(c => c.name === name && c.pass)) && checks.every(c => c.pass);
-          if (checks.some(c => ['source_located', 'source_fresh', 'fact_fresh'].includes(c.name) && !c.pass)) errorFor('stale', 'Captured source or desired facts no longer match; start a fresh attempt.', p.id);
-          patch = PatchSchema.parse({ ...patch, checks, ...(!passed ? { status: 'withheld', withholdReason: 'One or more applicable source, value, preservation or contextual checks failed.' } : {}) });
+          if (!result) throw new Error('Missing correction outcome.');
+          let patch = PatchSchema.parse(result);
+          if (patch.runId !== runId || patch.passageId !== p.id || patch.kind !== judgment.kind || patch.factVersion !== desired.version || hashRecord(patch.target) !== hashRecord(targetForKind(judgment.kind, desired))) throw new Error('Foreign correction outcome.');
+          if (patch.replacement) {
+            const checks = await check(patch, p, page, before, desired, options.contentRoot, { providerConfig: initial.config, onProviderError: () => errorFor('provider_failure', 'Replacement judgment failed; the correction was withheld.', p.id) });
+            if (!accepting()) return;
+            const required = CheckNameSchema.options.filter(name => name !== 'tokens_kept' || p.surface === 'email');
+            const passed = required.every(name => checks.some(c => c.name === name && c.pass)) && checks.every(c => c.pass);
+            if (checks.some(c => ['source_located', 'source_fresh', 'fact_fresh'].includes(c.name) && !c.pass)) errorFor('stale', 'Captured source or desired facts no longer match; start a fresh attempt.', p.id);
+            patch = PatchSchema.parse({ ...patch, checks, ...(!passed ? { status: 'withheld', withholdReason: 'One or more applicable source, value, preservation or contextual checks failed.' } : {}) });
+          }
+          outcomes.push(RemotePatchSchema.parse({ ...patch, contractVersion: 2, launchAttemptId: attempt.id }));
+        } catch { errorFor('provider_failure', 'Drafting or checking failed; this contradiction has no eligible correction.', p.id); }
+      });
+      if (!accepting()) return;
+      if (current().errors.length) { failRun(db, runId, 'drafting_incomplete', 'Correction drafting/checking did not complete successfully.', clock); return; }
+      const grouped = groupsFor(initial, outcomes);
+      db.transaction(() => {
+        for (const group of grouped) db.putGroup(group);
+        for (const patch of outcomes) {
+          const group = grouped.find(g => g.memberIds.includes(patch.id));
+          db.putPatch({ ...patch, groupId: group?.id ?? null });
         }
-        outcomes.push(RemotePatchSchema.parse({ ...patch, contractVersion: 2, launchAttemptId: attempt.id }));
-      } catch { errorFor('provider_failure', 'Drafting or checking failed; this contradiction has no eligible correction.', p.id); }
-    });
+        const at = clock().toISOString();
+        for (const group of grouped) db.putGroup({ ...group, status: group.eligibleIds.length ? 'sealed' : 'blocked', sealedAt: group.eligibleIds.length ? at : null });
+        const run = current(), elapsed = Math.max(0, Date.parse(at) - Date.parse(run.confirmedAt)), stats = structuredClone(run.stats);
+        stats.patchesDrafted += outcomes.filter(p => p.status === 'drafted').length; stats.withheld += outcomes.filter(p => p.status === 'withheld').length; stats.groups += grouped.length;
+        for (const patch of outcomes.filter(p => p.status === 'drafted')) stats.bySurface[patch.surface].patches++;
+        stats.machineMs = elapsed;
+        if (stats.firstSealedGroupMs === null && grouped.some(g => g.eligibleIds.length)) stats.firstSealedGroupMs = elapsed;
+        db.putRun({ ...run, stats, updatedAt: at });
+      });
+    }
     if (!accepting()) return;
-    if (current().errors.length) { failRun(db, runId, 'drafting_incomplete', 'Correction drafting/checking did not complete successfully.', clock); return; }
-    const grouped = groupsFor(initial, outcomes);
-    db.transaction(() => {
-      for (const group of grouped) db.putGroup({ ...group, status: 'collecting', sealedAt: null });
-      for (const patch of outcomes) {
-        const group = grouped.find(g => g.memberIds.includes(patch.id));
-        db.putPatch({ ...patch, groupId: group?.id ?? null });
-      }
-      for (const group of grouped) db.putGroup({ ...group, status: group.eligibleIds.length ? 'sealed' : 'blocked', sealedAt: group.eligibleIds.length ? clock().toISOString() : null });
-      const run = current(), elapsed = Math.max(0, clock().getTime() - Date.parse(run.confirmedAt)), stats = structuredClone(run.stats);
-      stats.patchesDrafted = outcomes.filter(p => p.status === 'drafted').length; stats.withheld = outcomes.filter(p => p.status === 'withheld').length; stats.groups = grouped.length;
-      for (const patch of outcomes.filter(p => p.status === 'drafted')) stats.bySurface[patch.surface].patches++;
-      stats.machineMs = elapsed; stats.firstSealedGroupMs = grouped.some(g => g.eligibleIds.length) ? elapsed : null; stats.allResultsReadyMs = elapsed;
-      db.putRun({ ...run, status: 'ready', stats, updatedAt: clock().toISOString() });
-    });
+    const run = current(), at = clock().toISOString(), elapsed = Math.max(0, Date.parse(at) - Date.parse(run.confirmedAt));
+    db.putRun({ ...run, status: 'ready', stats: { ...run.stats, machineMs: elapsed, allResultsReadyMs: elapsed }, updatedAt: at });
   } catch (error) {
     if (error instanceof RemoteStateError && ['validation', 'not_found', 'busy'].includes(error.code)) throw error;
     failRun(db, runId, error instanceof RemoteStateError ? error.code : 'runtime_failure', 'Analysis could not complete against the pinned facts and source. Abandon this attempt before starting again.', clock);

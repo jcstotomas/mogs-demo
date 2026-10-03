@@ -71,6 +71,36 @@ test('classification barrier prevents sealing early and preserves a live worker 
     release(); await work; assert.equal(s.state().run.status, 'ready'); assert.equal(maxActive, 4);
   } finally { s.cleanup(); }
 });
+test('a complete group seals after full classification while later groups continue, and its first timing and approval are retained', async () => {
+  const s = sandbox(); let release!: () => void;
+  try {
+    let entered!: () => void;
+    const gate = new Promise<void>(resolve => { release = resolve; }), started = new Promise<void>(resolve => { entered = resolve; });
+    const draft = s.dependencies.draft!;
+    s.dependencies.draft = async (...args) => {
+      if (args[3].kind === 'per_day') { entered(); await gate; }
+      s.advance(10_000);
+      return draft(...args);
+    };
+    const work = processRemoteRun(s.start.run.id, s.options); await started;
+    const partial = s.state(), first = partial.groups[0];
+    assert.equal(partial.run.status, 'drafting'); assert.equal(partial.judgments.length, 30);
+    assert.equal(partial.run.filteredPassageIds.length, 10); assert.equal(partial.groups.length, 1);
+    assert.equal(first.status, 'sealed'); assert.ok(first.key.includes(':annual_savings:'));
+    assert.equal(partial.run.stats.firstSealedGroupMs, 10_000); assert.equal(partial.run.stats.allResultsReadyMs, null);
+    assert.equal(partial.run.stats.patchesDrafted, 1); assert.equal(partial.run.stats.groups, 1);
+    const coordinator = new RemoteCoordinator({ databasePath: s.databasePath, legacyPath: s.legacyPath, clock: s.clock, actor: 'test' });
+    const approval = coordinator.approve(first.id, { contractVersion: 2, runId: partial.run.id, launchAttemptId: partial.attempt.id, expectedRevision: first.revision, membershipHash: first.membershipHash, idempotencyKey: randomUUID() });
+    release(); await work;
+    const complete = s.state();
+    assert.equal(complete.run.status, 'ready'); assert.equal(complete.groups.length, 4);
+    assert.equal(complete.run.stats.firstSealedGroupMs, 10_000); assert.equal(complete.run.stats.allResultsReadyMs, 60_000);
+    assert.equal(complete.run.stats.patchesDrafted, 5); assert.equal(complete.run.stats.withheld, 1);
+    assert.equal(complete.groups.find(g => g.id === first.id)!.status, 'approved');
+    assert.equal(complete.groups.find(g => g.id === first.id)!.approvalId, approval.approval.id);
+    assert.equal(complete.submission, null);
+  } finally { release?.(); s.cleanup(); }
+});
 test('failed classification and wrong provider identity remain errors, with no semantic substitute or approvable group', async () => {
   for (const wrongIdentity of [false, true]) {
     const s = sandbox(); try {
@@ -140,7 +170,7 @@ test('fixture model injection and primary v1 source are refused on a live run', 
   } finally { s.cleanup(); }
 });
 
-test('an unavailable replacement judge remains an operation failure rather than a ready semantic withholding result', async () => {
+test('a later replacement judge failure preserves earlier group evidence but prevents further approval and readiness', async () => {
   const s = sandbox(); try {
     const check = s.dependencies.check!;
     s.dependencies.check = async (...args) => {
@@ -148,8 +178,11 @@ test('an unavailable replacement judge remains an operation failure rather than 
       return check(...args);
     };
     await processRemoteRun(s.start.run.id, s.options); const state = s.state();
-    assert.equal(state.run.status, 'failed'); assert.equal(state.groups.length, 0);
+    assert.equal(state.run.status, 'failed'); assert.equal(state.groups.length, 3);
+    assert.equal(state.run.stats.allResultsReadyMs, null);
     assert.ok(state.run.errors.some(e => e.code === 'provider_failure' && e.passageId === 'email:email/onboarding.md#starter-price'));
+    const group = state.groups[0], coordinator = new RemoteCoordinator({ databasePath: s.databasePath, legacyPath: s.legacyPath, clock: s.clock, actor: 'test' });
+    assert.throws(() => coordinator.approve(group.id, { contractVersion: 2, runId: state.run.id, launchAttemptId: state.attempt.id, expectedRevision: group.revision, membershipHash: group.membershipHash, idempotencyKey: randomUUID() }), /no longer accepts group approvals/);
   } finally { s.cleanup(); }
 });
 
