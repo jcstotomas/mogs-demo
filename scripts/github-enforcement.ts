@@ -11,7 +11,7 @@ loadLocalEnv();
 const config = githubAppConfig(), provider = new GitHubAppTokenProvider({ ...config, administration: 'write' });
 const target = TargetRepositorySchema.parse({ repository: config.repository, baseRef: process.env.MOGS_GITHUB_BASE_REF ?? 'main', productionOrigin: process.env.MOGS_PRODUCTION_ORIGIN, vercelProjectId: process.env.MOGS_VERCEL_PROJECT_ID, vercelTeamId: process.env.MOGS_VERCEL_TEAM_ID, statusProducerAppId: config.appId });
 const prefix = '/repos/' + config.repository, contexts = ['mogs/candidate', 'mogs/preview'] as const;
-const directory = 'data/evidence/remote0', journalFile = directory + '/enforcement-probes.json';
+const directory = process.env.MOGS_ENFORCEMENT_EVIDENCE_DIR ?? 'data/evidence/remote0', journalFile = directory + '/enforcement-probes.json';
 await mkdir(directory, { recursive: true });
 let journal: { id: string; repository: string; baseSha?: string; passed: boolean; closed: boolean; probes: { number: number; url: string; sha: string; branch: string; kind: string }[]; stages: Record<string, unknown>[]; failure?: string };
 try { journal = JSON.parse(await readFile(journalFile, 'utf8')); } catch { journal = { id: randomUUID(), repository: config.repository, passed: false, closed: false, probes: [], stages: [] }; }

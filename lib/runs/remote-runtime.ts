@@ -45,7 +45,7 @@ function github(db?: RemoteDatabase): GitHubRemote {
 }
 async function enforcement() {
   try {
-  const proof = EnforcementEvidenceSchema.parse(JSON.parse(await readFile('data/evidence/remote0/enforcement-pass.json', 'utf8')));
+  const proof = EnforcementEvidenceSchema.parse(JSON.parse(await readFile(path.join(process.env.MOGS_ENFORCEMENT_EVIDENCE_DIR ?? 'data/evidence/remote0', 'enforcement-pass.json'), 'utf8')));
   const remote = github(); const settings = await remote.readEnforcementSettings(); remote.assertEnforcementSettings(settings);
   if (proof.repository !== settings.repository || proof.baseRef !== settings.baseRef || proof.producerAppId !== settings.producerAppId) throw new RemoteStateError('enforcement_unavailable', 'Recorded enforcement probes do not match the configured target.');
   return proof;
