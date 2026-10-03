@@ -1,12 +1,12 @@
 {
   "scenarioId": "mogs-starter-2026-10-03",
-  "version": 2,
+  "version": 1,
   "company": "MOGS",
-  "phase": "confirmed",
+  "phase": "initial",
   "effectiveDate": "2026-10-03",
   "plans": {
     "starter": {
-      "monthlyCents": 4000,
+      "monthlyCents": 3000,
       "annualCents": 28800
     },
     "team": {
