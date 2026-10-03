@@ -6,6 +6,7 @@ Read [SPEC.md](SPEC.md) for behavior and [BUILD_PLAN.md](BUILD_PLAN.md) for sequ
 
 ## Expanded demo
 
+- [Updated supporting-page design preview](https://mogs-demo-ot0fkms78-jcstotomas-projects.vercel.app/site/starter-offer): all 18 new pages use the approved presentation. [Draft PR #8](https://github.com/jcstotomas/mogs-demo/pull/8) awaits completion of the pinned correction before production rollout; [design evidence](docs/PUBLIC_PAGE_DESIGN.md) records the unchanged source and checks.
 - [22-asset analysis review](http://localhost:3107/console/remote?recording=required-22): real provider results from an isolated local run; approval and publication controls are disabled.
 - [Public seed preview](https://mogs-demo-pngdru8o8-jcstotomas-projects.vercel.app): 20 web pages and two email templates, including the approved public design, at the pristine $30 seed.
 - [Live 22-asset correction review](http://localhost:3107/console/remote?runId=097e9332-aa63-428c-8c81-5e2b462a69bf): fresh analysis against verified production; group approvals remain a human decision.

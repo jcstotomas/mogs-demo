@@ -1,0 +1,65 @@
+{
+  "format": "mogs-required-design-preview-readback-v1",
+  "purpose": "presentation-only-supporting-pages",
+  "sourceCommit": "bbaca360be0bdadea14379262cb6ba7ed9e2db73",
+  "parent": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+  "deployment": {
+    "deploymentId": "dpl_EfW1CWV9VCu9Ja7FavCEWc9W7SrU",
+    "url": "https://mogs-demo-ot0fkms78-jcstotomas-projects.vercel.app",
+    "sourceCommit": "bbaca360be0bdadea14379262cb6ba7ed9e2db73",
+    "readyState": "READY",
+    "observedAt": "2026-10-03T23:07:20.009Z"
+  },
+  "assets": 22,
+  "passages": 110,
+  "articleLayouts": 18,
+  "inventoryHash": "6d4d29a14d8852cccfa1fb901f0d7e8d82b8813ef87d05f191fb785bab999413",
+  "corpusHash": "22072aae8d911d414640982cfa59b86fcbf210c5c9854500157d3c595337d4a2",
+  "factsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+  "sourceHashes": {
+    "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+    "email/onboarding.md": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+    "site/account-rules.md": "2eea5b0befbe958e4a08e9894571926eee4f26ee6719cd7a18c1cfddf0652b85",
+    "site/annual-calculator.md": "18b5d8dc9e3f731a2cde58331144dbee9182f4093e0532bac3573e4595773dfd",
+    "site/annual-comparison.md": "1f3379cd3ab7eb4a594c7efc8cda441a2448c04ac5198331b9dc42a286e6c329",
+    "site/annual-faq.md": "c7b9504b685edcdff59e7d931da2ebcd94dd79f89403277574d980dca4edb8aa",
+    "site/annual-help.md": "e76a7fa1a26b240a5678ad090cc197df6015c7416fd8804c237483091a4995ff",
+    "site/annual-overview.md": "95ac7651314e97a7fad3fb3cb6ff76d4e5d1a7e355d974000e6954745f892daf",
+    "site/billing-choice.md": "1fc408bb396c97d4d4b4d23c63bad872d9f57a6ad936f8c8ab0fdbb262b545be",
+    "site/daily-help.md": "5e2e0de229da8abb10f6f9ebda0bff837fc67545e513bd70492437a95b7557e4",
+    "site/daily-planner.md": "06d0bf87f5a1cf6878e4acfea0205b75fc53b9810b2b40e02d3a615591e8cbb0",
+    "site/launch.md": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+    "site/monthly-checkout.md": "bbb82305e07f37c21cca5b3302eb5985058d2ef7584c4cfe1071f6b602e12154",
+    "site/monthly-help.md": "fb9f322dda701d9780e688979f8f87f3b63958199e18246c879313385c45396e",
+    "site/monthly-plans.md": "661f888e270380baf2253636c592fbbd8964ef602dde70160d844b5917e18e72",
+    "site/offer-context.md": "ce02a85812a4fd0ced2f1716d46483d2b6583c5de4408953e0b2c57754c6d82c",
+    "site/plan-comparison.md": "647c9b3e08100830234564518be4f4d099f091f633a9367a072324fcb4ad2756",
+    "site/starter-basics.md": "b57129c79cfe74a8d137f34e26ce242b6b2063911efa1a725082095e9609d1fc",
+    "site/starter-cost.md": "d1e45f97fb643fdf1794c9c970840fc70876ebc42e35704d7a059b5035884f3d",
+    "site/starter-offer.md": "03943976d0244a16875fefdda1f30b8fbc4749e44a24e378d60751eb10709314",
+    "site/starter-renewal.md": "d1ec7093fb98a6884f4b7096cd27a83c610ee068468d188030b51c9740bec103"
+  },
+  "exactSourceAndFactsUnchanged": true,
+  "exclusions": [
+    {
+      "path": "/console",
+      "status": 404
+    },
+    {
+      "path": "/api/v2/facts",
+      "status": 404
+    },
+    {
+      "path": "/.env.local",
+      "status": 404
+    },
+    {
+      "path": "/data/facts.json",
+      "status": 404
+    }
+  ],
+  "pass": true,
+  "checkedAt": "2026-10-03T23:08:24.272Z",
+  "launchRepairCredit": false,
+  "productionChanged": false
+}

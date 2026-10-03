@@ -1,0 +1,15 @@
+{
+  "format": "mogs-required-design-preservation-v1",
+  "sourceCommit": "c545b57459a363b754f5316a99c8b38fed75b4e5",
+  "mode": "seed",
+  "assets": 22,
+  "passages": 110,
+  "articleLayouts": 18,
+  "sourceAndFactHashesUnchanged": true,
+  "exactMainHtmlUnchanged": true,
+  "sourceIdsTextRolesAndContextsUnchanged": true,
+  "chromeCopyUnchanged": true,
+  "oneHeadingAndMainPerAsset": true,
+  "checkedAt": "2026-10-03T23:05:10.084Z",
+  "publicationCredit": false
+}

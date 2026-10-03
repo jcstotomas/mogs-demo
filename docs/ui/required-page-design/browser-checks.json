@@ -1,0 +1,60 @@
+{
+  "measurements": [
+    {
+      "articleClass": true,
+      "gridColumns": "584px 584px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/starter-offer",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "articleClass": true,
+      "gridColumns": "584px 584px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/annual-overview",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "articleClass": true,
+      "gridColumns": "798px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/account-rules",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "articleClass": true,
+      "gridColumns": "335px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/starter-offer",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "articleClass": true,
+      "gridColumns": "335px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/annual-overview",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "articleClass": true,
+      "gridColumns": "285px",
+      "h1": 1,
+      "main": 1,
+      "path": "/site/account-rules",
+      "scrollWidth": 375,
+      "width": 375
+    }
+  ],
+  "focus": "3px solid skip-link outline",
+  "motion": "unchanged existing controls; no new motion"
+}

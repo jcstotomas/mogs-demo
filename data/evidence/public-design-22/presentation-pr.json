@@ -1,0 +1,41 @@
+{
+  "format": "mogs-required-presentation-pr-v1",
+  "repository": "jcstotomas/mogs-demo",
+  "branch": "codex/required-22-presentation",
+  "parent": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+  "sourceCommit": "2557545635f64ffd920796999e0c6382b4a1c9df",
+  "purpose": "presentation-only-supporting-pages",
+  "createdAt": "2026-10-03T23:06:41.100Z",
+  "activeCorrectionRunId": "097e9332-aa63-428c-8c81-5e2b462a69bf",
+  "launchRepairCredit": false,
+  "humanApprovals": 0,
+  "mergeHold": "Complete the pinned live correction before refreshing and merging this presentation PR.",
+  "files": [
+    {
+      "path": "apps/public/app/globals.css",
+      "blobSha": "a815edcbd5eb60b1670506dc67bb853caf1e7258",
+      "sha256": "b36f4a7358ab0765c805d44bef43cac47d3afe80241c8c5598ece1bc7802f09e"
+    },
+    {
+      "path": "apps/public/components/public-asset.tsx",
+      "blobSha": "635fc9127342b60610c4a4c42191712a23a01f12",
+      "sha256": "5cff77d8a037124c5fcabdbe7a4c9d501d132701e55658805e9520c0a405db2e"
+    }
+  ],
+  "treeSha": "5a3a3d6a68b03d161e9b26206c2086b9b369c946",
+  "commitSha": "bbaca360be0bdadea14379262cb6ba7ed9e2db73",
+  "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/8",
+  "prNumber": 8,
+  "preview": {
+    "deploymentId": "dpl_EfW1CWV9VCu9Ja7FavCEWc9W7SrU",
+    "url": "https://mogs-demo-ot0fkms78-jcstotomas-projects.vercel.app",
+    "sourceCommit": "bbaca360be0bdadea14379262cb6ba7ed9e2db73",
+    "readyState": "READY",
+    "observedAt": "2026-10-03T23:07:20.009Z"
+  },
+  "previewReadback": {
+    "passed": true,
+    "evidenceHash": "91827aeea93802172b076e94a3f501ee7211bba000b5545a5ccc0d1f3dbf03a0",
+    "at": "2026-10-03T23:08:24.272Z"
+  }
+}
