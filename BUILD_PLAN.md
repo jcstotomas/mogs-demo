@@ -4,7 +4,7 @@
 
 ## Ship target and critical path
 
-Ship a local, fictional Fernhill demo: confirm Starter monthly changes from $30 to $40 for new customers; within **90 seconds**, a live run over **20 served web pages plus the paired emails** produces a reviewable correction group; one approval of that group publishes its eligible patches to the locally served files, rechecks the browser pages, and records verified or failed verification. Direct price, annual savings, per-day, valid grandfathering, historical, unrelated, and ambiguous claims must be visible. `npm run reset` must restore the rehearsal state.
+Ship a local, fictional MOGS (Member of GTM Staff) demo: confirm Starter monthly changes from $30 to $40 for new customers; within **90 seconds**, a live run over **20 served web pages plus the paired emails** produces a reviewable correction group; one approval of that group publishes its eligible patches to the locally served files, rechecks the browser pages, and records verified or failed verification. Direct price, annual savings, per-day, valid grandfathering, historical, unrelated, and ambiguous claims must be visible. `npm run reset` must restore the rehearsal state.
 
 The dependency chain is **shared contract → served assets and crawl → judge → fix and checks → group → atomic group publish → live verify → UI → eval and rehearsal**. Parallel work starts after the shared contract is frozen. Ads, decks, corpus volume, and polish enter only after this chain works. A passing build is not a completed demo.
 

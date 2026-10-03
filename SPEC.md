@@ -24,7 +24,7 @@ Demo story: one scoped price change at a fictional company. Direct, implied, and
 
 ## 3. Scenario and facts
 
-Company: **Fernhill** (fictional team scheduling software; rename freely). The site must say it is a demo.
+Company: **MOGS** (Member of GTM Staff; fictional team scheduling software). The site must say it is a demo.
 
 | Plan | Monthly | Annual (per year) | Effective monthly on annual |
 |---|---|---|---|
@@ -333,7 +333,7 @@ A surface that is not passing its acceptance check by 3:45 is removed from the s
 
 ## 13. Demo script (about four minutes)
 
-1. The pain in one sentence. Show the locally served Fernhill site and the true asset counts per enabled surface. Say it is fictional and seeded.
+1. The pain in one sentence. Show the locally served MOGS site and the true asset counts per enabled surface. Say it is fictional and seeded.
 2. Confirm the scoped change. Show `/site/pricing` now giving $40 to new monthly customers and the $30 active-subscriber exception. Start the 20-web-page plus paired-email run; reach a reviewable group within 90 seconds.
 3. Open the direct-price correction group, including the onboarding email. Then show separate derived groups: "Save 20% with annual billing" and "about a dollar a day". Each group takes its own approval.
 4. Show what was preserved: the eligible upgrade email, historical statement, and $30 add-on. Show one escalation: "Plans from $30."
