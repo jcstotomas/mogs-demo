@@ -4,7 +4,7 @@ import { assetIdFor, contextHashFor, parseSource } from '../assets/source';
 import { targetForKind } from '../facts/derive';
 import { hashRecord, sha256 } from '../hash';
 import { judge } from '../providers';
-import { CheckNameSchema, PassageSchema, type Check, type FactSnapshot, type Page, type Passage, type Patch, type Target } from '../types';
+import { CheckNameSchema, PassageSchema, type Check, type FactSnapshot, type Page, type Passage, type Patch, type ProviderConfig, type Target } from '../types';
 
 type CheckName = Check['name'];
 type CheckResult = { pass: boolean; detail: string };
@@ -122,8 +122,13 @@ export function checkTextChange(original: string, replacement: string, target: T
   ];
 }
 
+export interface PatchCheckOptions {
+  providerConfig?: Pick<ProviderConfig, 'adapter' | 'judgeModel'>;
+  onProviderError?: () => void;
+}
+
 /** Check the captured/current revision and the actual on-disk source before spending a rejudge call. */
-export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot, contentRoot?: string): Promise<Check[]> {
+export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot, contentRoot?: string, options: PatchCheckOptions = {}): Promise<Check[]> {
   const replacement = patch.replacement;
   const evaluated: Partial<Record<CheckName, CheckResult>> = {};
   evaluated.span_confined = replacement ? spanCheck(patch.original, replacement) : result(false, 'No replacement to compare.');
@@ -159,9 +164,11 @@ export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFac
       const heading = p.role === 'heading' ? replacement : p.heading;
       const candidate = PassageSchema.parse({ ...p, text: replacement, blockHash: sha256(replacement), heading, contextHash: contextHashFor(page.meta, p.role, heading, p.before, p.after) });
       const verdict = await judge(patch.runId, candidate, page, beforeFacts, afterFacts);
-      const pass = verdict.runId === patch.runId && verdict.passageId === p.id && verdict.factVersion === patch.factVersion && verdict.kind === patch.kind && verdict.escalatedBy === null && ['consistent', 'valid_exception'].includes(verdict.label);
+      const pinned = !options.providerConfig || (verdict.adapter === options.providerConfig.adapter && verdict.model === options.providerConfig.judgeModel);
+      const pass = pinned && verdict.runId === patch.runId && verdict.passageId === p.id && verdict.factVersion === patch.factVersion && verdict.kind === patch.kind && verdict.escalatedBy === null && ['consistent', 'valid_exception'].includes(verdict.label);
       evaluated.rejudge_consistent = result(pass, 'Replacement rejudge: ' + verdict.label + ', kind ' + verdict.kind + ', adapter ' + verdict.adapter + ', model ' + verdict.model + '.');
     } catch (error) {
+      options.onProviderError?.();
       evaluated.rejudge_consistent = result(false, 'Replacement rejudge failed: ' + (error instanceof Error ? error.message : 'unknown provider error'));
     }
   }
