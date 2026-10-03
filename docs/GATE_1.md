@@ -33,6 +33,18 @@ Checks passed: typecheck, production build, typed fixture checks, and 20 meaning
 
 ## Human handoff and next gate
 
+Live run `ff57ceec-5f59-49e0-9a26-d9911b2fdd57` is prepared in the console with four sealed groups and five eligible patches. First sealed group: 27,011 ms; all results ready: 27,026 ms. It has **zero publications and zero review actions**. The HTTP Confirm path, background processing, console restoration, and documented run/groups/export aliases passed. Missing run ID returns 400; an unknown run returns 404. Snapshot: `data/evidence/gate1-live-pending-ff57ceec-5f59-49e0-9a26-d9911b2fdd57.json`.
+
+Final review wording and narrow-screen corrections:
+
+| Before | After | Why |
+|---|---|---|
+| Unresolved billing was described as conflicting audience/eligibility | Plan, billing period, or eligibility needs more context | Names the actual unresolved pricing scope |
+| Footer described publication while the published count was zero | Pending approval describes the next operation; actual publication uses per-group results | Keeps result claims tied to recorded state |
+| Price row overflowed at 320px with 150% text zoom | Price tokens wrap and grid children can shrink | Keeps enlarged text inside the review surface |
+
+Populated review screens were inspected at 1440px, 375px, and 320px. Visible keyboard focus and reduced motion passed. The final text-zoom recheck is recorded with the browser evidence. Screenshots are saved under `/private/tmp/mogs-review-*` and `/private/tmp/mogs-context-copy-320.png`. The parallel frontend guardrail/style changes in this checkout are preserved separately from this integration commit.
+
 Open `/console`, confirm the price change, open the direct-price group and approve its displayed revision, then review and approve annual savings on the same web page. The console requires one human approval per complete group and displays the served verification result. The test harness cannot use the live demo content, facts, or database paths.
 
 **Human live approval is pending.** Corpus expansion, evaluation lane D, the 22-asset timing gate, and full rehearsals have not started.

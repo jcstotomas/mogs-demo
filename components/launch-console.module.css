@@ -1,6 +1,8 @@
 
 .shell { color: #242a24; background: #f6f5f0; min-height: 100vh; font-family: Arial, Helvetica, sans-serif; font-size: 15px; }
 .shell * { box-sizing: border-box; }
+.change > * { min-width: 0; }
+.price { flex-wrap: wrap; }
 .shell a { color: #244f40; text-underline-offset: 4px; }
 .shell button, .shell a, .shell summary { -webkit-tap-highlight-color: transparent; }
 .shell button { font: inherit; cursor: pointer; }
