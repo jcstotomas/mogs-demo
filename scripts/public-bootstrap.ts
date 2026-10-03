@@ -3,7 +3,7 @@ import { mkdir, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { decodeSource } from '../lib/assets/source';
-import { createPublicArtifact, MINIATURE_SOURCE_FILES, type PublicBuildMode } from '../lib/deployment/public-artifact';
+import { createPublicArtifact, parseSeedManifest, type PublicBuildMode } from '../lib/deployment/public-artifact';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const generatedRoot = path.join(repositoryRoot, 'apps/public/generated');
@@ -36,7 +36,7 @@ async function main(): Promise<void> {
   const seedManifestText = committedFile(sourceCommit, 'content/seed.json');
   const factText = committedFile(sourceCommit, mode === 'seed' ? 'data/seed/facts.json' : 'data/facts.json');
   const sourceTexts = mode === 'commit'
-    ? Object.fromEntries(MINIATURE_SOURCE_FILES.map(file => [file, committedFile(sourceCommit, 'content/' + file)]))
+    ? Object.fromEntries(Object.keys(parseSeedManifest(seedManifestText).sources).map(file => [file, committedFile(sourceCommit, 'content/' + file)]))
     : undefined;
   const artifact = createPublicArtifact({ sourceCommit, mode, seedManifestText, factText, sourceTexts });
   await mkdir(generatedRoot, { recursive: true });

@@ -1,7 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
-import { MINIATURE_SOURCE_FILES, createPublicArtifact } from './public-artifact';
+import { parseSeedManifest, createPublicArtifact } from './public-artifact';
 import { FactSnapshotSchema } from '../types';
 import { decodeSource } from '../assets/source';
 
@@ -14,9 +14,9 @@ export async function readRemoteSourceSnapshot(repository: string, sha: string, 
   if (remote.toLowerCase() !== ('https://github.com/' + repository).toLowerCase()) throw new Error('Isolated source checkout origin does not match the configured GitHub repository.');
   if (options.fetch !== false) await git(['fetch', 'origin', '--no-tags']);
   const committed = (file: string) => git(['show', sha + ':' + file]);
-  const [seedManifestText, factText, sourceEntries] = await Promise.all([
-    committed('content/seed.json'), committed('data/facts.json'), Promise.all(MINIATURE_SOURCE_FILES.map(async file => [file, await committed('content/' + file)] as const)),
-  ]);
+  const [seedManifestText, factText] = await Promise.all([committed('content/seed.json'), committed('data/facts.json')]);
+  const seed = parseSeedManifest(seedManifestText);
+  const sourceEntries = await Promise.all(Object.keys(seed.sources).map(async file => [file, await committed('content/' + file)] as const));
   const sources = Object.fromEntries(sourceEntries), publishedFacts = FactSnapshotSchema.parse(JSON.parse(factText));
   const artifact = createPublicArtifact({ sourceCommit: sha, mode: 'commit', seedManifestText, factText, sourceTexts: sources });
   return { sources, publishedFacts, factText, seedManifestText, artifact, artifactText: JSON.stringify(artifact, null, 2) + '\n' };
