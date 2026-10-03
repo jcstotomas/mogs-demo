@@ -1,98 +1,102 @@
-# Launch Correction Agent — swarm build plan
+# MOGS Launch Correction Agent — build plan
 
-**Authority:** `SPEC.md` is the product and implementation contract. This plan sets build order, ownership, and gates. The accepted interview decisions are incorporated in the revised spec and take precedence over conflicting language in the original pasted draft. One coordinator owns shared contracts and integration; agents A–D own the paths below. Code freeze: **5:00 PM Pacific** on the build day.
+**Authority:** [SPEC.md](SPEC.md) defines product behavior, data contracts, and acceptance rules. This plan defines sequence, path ownership, and build gates. The revised documents incorporate the accepted fresh review and supersede the original pasted draft. Code freeze is **5:00 PM Pacific** on the build day; feature work stops at **4:15 PM**.
 
-## Ship target and critical path
+## Required build and evidence
 
-Ship a local, fictional MOGS (Member of GTM Staff) demo: confirm Starter monthly changes from $30 to $40 for new customers; within **90 seconds**, a live run over **20 served web pages plus the paired emails** produces a reviewable correction group; one approval of that group publishes its eligible patches to the locally served files, rechecks the browser pages, and records verified or failed verification. Direct price, annual savings, per-day, valid grandfathering, historical, unrelated, and ambiguous claims must be visible. `npm run reset` must restore the rehearsal state.
+Build a local fictional MOGS (Member of GTM Staff) demo over exactly **20 web pages, including the canonical pricing page, plus two paired emails**. Confirming the change raises Starter monthly from $30 to $40 for customers without legacy eligibility. The canonical pricing page is fact-driven and never receives a correction patch; the other 19 web pages are editable. One approval per correction group publishes its checked patches across web and email, then verifies the served result.
 
-The dependency chain is **shared contract → served assets and crawl → judge → fix and checks → group → atomic group publish → live verify → UI → eval and rehearsal**. Parallel work starts after the shared contract is frozen. Ads, decks, corpus volume, and polish enter only after this chain works. A passing build is not a completed demo.
+The required examples cover direct price, annual savings, per-day cost, plan gap, eligible grandfathering, historical prices, already-correct claims, unrelated numbers, and ambiguous claims. Every applicable check is blocking. Failed checks withhold patches; unresolved ambiguity and threshold wording remain visible in a list. Checked manual editing/drop controls are optional polish. If implemented, edits rerun all checks and group exclusions are audited. There is no override path in this build.
 
-## Step 0 — coordinator freezes the seams
+Ads, decks, additional emails, large-corpus generation, human baseline comparisons, override UI, real-site runs, and change-monitoring features are deferred. Passing a gate does not unlock that scope. Use short deterministic content around the planted claims; corpus word count is not a goal.
 
-Do this before agents edit their areas. Only the coordinator edits shared files (`lib/types.ts`, `lib/db.ts`, `lib/facts/derive.ts`, `data/facts.json`, `fixtures/*`, package scripts, and cross-cutting configuration). Commit this baseline before dispatch. Completion means all agents can typecheck against the same contracts and run against the same fixture.
+The dependency chain is **executable shared contracts → source/render/crawl → classification and checked fixes → sealed groups → serialized publication and recovery → served verification → evaluation and rehearsal**. A build passing typecheck is one piece of evidence, not a completed demo.
 
-1. Initialize Git and scaffold one Next.js App Router + TypeScript app in the existing directory. Add `dev`, `build`, `typecheck`, `test`, `eval`, and `reset` scripts. Keep SQLite at `data/app.db`. Add `.env.example`; keep real keys out of Git.
-2. Define the exact source format: UTF-8 Markdown files with frontmatter and **plain editable blocks carrying stable `sourceId`s**. Render each block with `data-source-id` and `data-role`; render asset metadata in `#asset-meta`. Email Liquid tags remain literal. General rich Markdown editing is outside this build.
-3. Freeze stable IDs: `Passage.id` is derived from surface + asset path + `sourceId`; `ManifestRow` stores that `passageId`. The evaluator joins by ID, never by passage text. A source lookup must find that source ID exactly once and match its original text/hash.
-4. Freeze eligibility: the $30 exception applies only to an **active Starter monthly subscriber from before the change**. Asset metadata must carry that status explicitly; `audienceHint: existing_customers` alone never grants the exception. The paired emails use the same sentence with different eligibility context.
-5. Freeze fact behavior: confirming the change updates the canonical local pricing page to $40 for new monthly customers, retains the eligibility rule for $30, bumps `factVersion`, and computes derived values in code. `reset` returns facts, source content, and DB to the initial state.
-6. Freeze judge output with `adapter` and optional/adapter-specific confidence. Jev probabilities and frontier fallback scores must not be presented as equivalent. In-scope unchanged Starter claims remain judge candidates and can receive `consistent`; `unrelated` is reserved for truly unrelated claims.
-7. Freeze group publish semantics: approval is **per correction group**, across its surfaces. The whole group is preflighted against fact version, original source block, source freshness, and hard checks. Multiple changes in one file are applied to one staged file image. If any eligible patch fails, publish none; if a staged write fails, restore original files and report the failure. Withheld/dropped items are outside the approvable set.
-8. Freeze hard checks and override rules: source location/freshness, allowed numbers, scope qualifiers, email tokens/URLs, and ad lengths block publishing. A recorded human override may address only span size or model disagreement. A published override becomes `verified` only after a passing live recheck.
-9. Create one fixture each for facts, served page/passage, judgment, patch/checks, group, run progress, and eval result. Freeze API request/response shapes and fixture IDs. Agent C starts from fixtures; B implements those shapes.
-10. **Do now — provider gate:** smoke-test the actual Jev adapter on **direct price, grandfathered eligibility, and derived savings**, checking expected fields and usable latency, plus one frontier fix call. Make the Jev decision by **11:50 AM** if still possible; if that time has passed, decide within 30 minutes of kickoff. If the three-case gate fails, set `JUDGE_ADAPTER=frontier`, mark its confidence as unavailable or adapter-specific, and continue.
+## Step 0 — prove and freeze the shared contracts
 
-No agent changes shared files after this freeze. Contract changes go to the coordinator, who updates types, fixtures, and affected agents together.
+The coordinator completes and commits this baseline before dispatching lanes. Shared ownership is defined in the table below. Record actual results; the planning documents themselves are not proof that a provider or gate passed.
 
-## Parallel ownership after Step 0
+1. Scaffold one Next.js App Router + TypeScript app in the existing repository. Add `dev`, `build`, `typecheck`, `test`, `eval`, and `reset` scripts, SQLite storage, and `.env.example`. Keep real provider keys outside Git.
+2. Implement the exact source grammar, parser, renderer, source-ID algorithm, and block replacement helper specified by `SPEC.md`. Prove an executable fixture round trip: source bytes → rendered `data-source-id`/`data-role` blocks and asset metadata → crawled passages → one checked replacement → rendered result. Include duplicate text with different IDs, an email Liquid tag and URL, and multiple blocks in one file. Freeze grammar and API signatures from this example; hand the implementation to A after the baseline.
+3. Freeze facts and code-derived values, explicit legacy eligibility, canonical pricing behavior, and the initial/post-change fact versions. `existing_customers` alone cannot grant the legacy rate. Confirm coordinates the fact update and creation/start of one run and returns its original timestamp and IDs. One live confirmed change/run is allowed until reset. Confirm retries return that operation instead of creating another fact version or resetting the timer.
+4. Freeze SQLite schemas, shared types, and request/response/error fixtures for facts, runs, judgments, patches, checks, groups, approvals, and evaluation. Include run scope and ownership, correction kind/target value, complete group membership, withholding reasons, source/context revisions, provider configuration, and publication state. Approval retries return the existing operation; they must not write twice.
+5. Freeze run completion and group sealing. The full scoped run must finish classification, and a group's drafting/checking must finish, before that group's membership is sealed and approval enabled. No patches may be added after sealing; record permitted exclusions and revision changes explicitly. Surface terminal failures and withheld items. Measure `firstSealedGroupMs` and `allResultsReadyMs` from the original Confirm event.
+6. Freeze serialized publication, durable recovery, source freshness, and verification contracts. Stage multiple changes to a file together. Revalidate pending patches and their relevant context after application-owned writes so separate groups can update the same file sequentially. External edits invalidate affected work; do not silently accept a new baseline. A failed preflight writes nothing. Recovery and consistency guarantees must match `SPEC.md`; do not claim a filesystem and database transaction is intrinsically atomic.
+7. Freeze the seed layout, fixture labels, pinned post-change facts, and isolated evaluation configuration; A later freezes the complete corpus and labels before Gate 2. Evaluation uses separate working content/database state and writes reports that survive demo reset. Seed and report provenance identify corpus/labels, facts, adapter/model, thresholds, and run ID.
+8. Run provider stage 1 below, typecheck the scaffold and fixtures, and run the executable source round trip. Step 0 is complete only when the selected judge passes all three classification cases, the frontier structured fix passes, the round trip passes, and typecheck passes. Commit the completed baseline with its result record before dispatch. If blocked, a partial progress commit may preserve the work, but it does not authorize lane dispatch or claim Step 0 completion.
 
-| Agent | Owns | First deliverable | Done when |
+Shared contracts are then frozen. Propose a change with its affected lanes; the coordinator updates types, fixtures, and callers together before dependent work proceeds.
+
+### Provider stage 1 — adapter correctness
+
+Start the decision window at the next actual implementation kickoff and decide within **30 minutes**. Test each candidate judge, including a frontier fallback under consideration, on the same three classification cases: stale direct price, explicitly eligible grandfathering, and derived annual savings. Check expected labels, response fields, errors, and measured latency. Also run one frontier structured fix through schema validation and the applicable checks.
+
+Choose one exact integration path and its configuration: package/API, endpoint, model ID, environment key names, and response mapping. Jev confidence, label probabilities, and frontier uncertainty remain distinct. Select an adapter only after its gate passes. An unavailable key or unsuccessful call is a recorded blocker; an untested fallback is not a passing result. Stage 1 does not establish the full-run latency claim.
+
+## Lane ownership and dispatch
+
+This table is the authoritative ownership map. Prefer separate worktrees from the committed Step 0 baseline. In a shared checkout, edit only owned paths. Package or shared contract changes go through the coordinator.
+
+| Lane | Owns | First deliverable | Handoff evidence |
 |---|---|---|---|
-| **A — assets and corpus** | `app/site/**`, `app/assets/**`, `content/**`, `scripts/generate-site.ts`, `scripts/reset.ts` | 20 served web pages, canonical pricing, paired emails, sitemap, manifest by `passageId` | Every manifest ID resolves once to its served source block; reset is repeatable; protected and featured examples are planted and labeled. Expand to 60+ web pages, ads, and decks only after checkpoint 1. |
-| **B — pipeline and APIs** | `lib/pipeline/**`, `app/api/**` | `/api/run` on A's 20 pages plus paired email, with progress, judgments, patches, groups | One group approval preflights and publishes all eligible patches, re-fetches served URLs, and records verification; a failed hard check or stale block publishes none. |
-| **C — review console** | `app/console/**` except `eval/**` and `baseline/**`; `components/**` | Fixture-backed confirm → progress → group review → approve flow | A reviewer can edit/drop a patch, see check results and surface breakdown, approve one group, and open verified served URLs without using a terminal; approve/edit/drop/escalation actions and human review time are recorded. |
-| **D — evaluation and baseline** | `scripts/eval.ts`, `lib/metrics/**`, `app/console/eval/**`, `app/console/baseline/**` | ID-based tuning/held-out report with counts and protected-case failures | Reports prefilter recall, label matrix, contradicting precision/recall, false edits, repair validity, misses and withheld items by split/kind/surface; frontier and Jev results remain separate. |
+| **Coordinator — shared state and publication** | `lib/types.ts`, `lib/db.ts`, `lib/facts/**`, `lib/runs/**`, `lib/publication/**`, `data/facts.json`, `fixtures/**`, package/config files, integration and release gates | Step 0 contracts, run lifecycle, idempotent confirm/approve, serialized publish/recovery/verify | Sequential groups on one file work; stale/external changes block; failures recover; API fixtures and runtime states agree. |
+| **A — assets and crawl** | `app/site/**`, `app/assets/**`, `app/sitemap.ts`, `content/**`, `lib/assets/**`, `lib/crawl/**`, `scripts/generate-site.ts`, `scripts/reset.ts` | One editable web page plus the paired emails, using the Step 0 parser, renderer, and crawler | IDs resolve exactly once; tokens/URLs survive; expand to exactly 20 web + 2 emails; freeze labels/templates and seed; reset restores exact hashes while preserving evaluation reports. |
+| **B — classification and fixes** | `lib/pipeline/**`, `app/api/**` | Classification → fix → checks → correction grouping against the miniature fixture | Required/protected cases produce expected results; withholding is explicit; API handlers delegate run lifecycle and publication to coordinator modules. |
+| **C — review console** | `app/console/**` except `eval/**`; `components/**` | Fixture-backed confirm → progress → sealed group review → approve → verified links | Complete groups alone are approvable; show protected/ambiguous/withheld/failed results and actual counts/times; any optional edit/drop controls enforce checks and revision rules. |
+| **D — evaluation** | `scripts/eval.ts`, `lib/metrics/**`, `app/console/eval/**` | ID-based isolated evaluation with reproducible provenance | Reports detection, protected-case proposals, withheld fixes, and verified repairs separately; evaluation cannot mutate rehearsal state or lose reports to reset. |
 
-**A ↔ B:** A supplies served URLs, `#asset-meta`, `data-source-id`, `data-role`, and manifest IDs. B crawls those exact rendered elements. Agree on a two-block sample before generating volume.
+The current runtime has **three worker slots plus the coordinator**. Dispatch A, B, and C first. D replaces A after A hands off the required corpus, parser/crawl, and reset evidence; A can then be resumed if an asset defect blocks integration. The coordinator prepares evaluation contracts and fixtures during Step 0 so D can start immediately at handoff.
 
-**B ↔ C:** C uses Step 0 fixtures and API shapes. B connects real progress and approve responses without asking C to read DB internals. Surface counts and status transitions are data from B, not UI guesses.
-
-**A/B ↔ D:** A freezes template IDs and the held-out manifest before tuning. B exposes judgments, patch checks, and run IDs keyed by `passageId`; D never joins on text. D can score fixtures before the complete pipeline exists.
-
-**Coordinator:** integrate small working slices, resolve seam changes, run gates, write/verify Jeremy-authored passages if time is reserved, and own the final cut decision. If Jeremy's ten passages are unavailable, A may supply agent-written substitutes labeled as such; anything chosen after seeing results stays out of held-out metrics.
+**Integration seams:** A owns source interpretation and served extraction; B consumes its frozen passages. B owns model/check results and grouping inputs; the coordinator owns run completion, sealed membership, approval, and publication. C consumes API fixtures and responses, never inferred DB state. D joins by stable passage/source IDs and consumes recorded run results. A freezes template splits before any tuning. Jeremy-authored examples require Jeremy's actual text; agent-authored substitutes are labeled accurately, and examples chosen after observing results are excluded from held-out metrics.
 
 ## Ordered integration gates
 
-### Gate 1 — served source and web checkpoint
+### Gate 1 — miniature complete loop
 
-- A's first 20 web pages and paired emails appear in the sitemap and browser. `/site/pricing` renders from current facts. Exact source IDs survive rendering; Liquid tags survive email rendering.
-- B crawls the served routes and produces passage IDs that match the manifest. The lexical prefilter includes unchanged in-scope Starter pricing claims. Record pages, passages, candidates, and judging latency.
-- Live confirm → reviewable group takes **≤90 seconds** on this scope. All featured wrong claims on the shown surfaces are found. The paired sentence is `contradicting` for new signups and `valid_exception` only for an active pre-change Starter monthly subscriber. “Starter is $30 a month” on a new-customer page is wrong; “Plans from $30” escalates as ambiguous.
-- **Before the first `npm run reset` rehearsal**, commit the generated, frozen demo corpus, held-out manifest/template split, and initial facts to Git. A's reset script must restore from this committed seed, not the earlier Step 0 scaffold commit. Verify a publish changes files and reset restores their exact seed hashes.
+Before expanding the corpus, pass the live loop on **one editable web page plus the paired emails**. The fact-driven pricing route is also available for confirmation but is outside this miniature three-asset run scope.
 
-### Gate 2 — safe publish and review
+- The web page contains multiple correction kinds so two separate groups will later touch the same file. The paired email sentence is wrong for onboarding and valid only for explicitly eligible active pre-change Starter monthly subscribers.
+- Confirm → crawl → real judge → checked fixes → sealed group → approval → local publish → served verification works. Then approve a second correction group on that same web file; unchanged valid work must remain publishable after revalidation.
+- A protected email remains untouched, Liquid tags and URLs are preserved, and an ambiguous or failed-check patch stays withheld. Repeating confirm/approve requests does not duplicate changes.
+- Record the run ID, provider/model, labels, group membership, published/verified counts, and timing. This miniature proves integration; it does not satisfy the 22-asset timing gate.
 
-- C shows direct and derived groups, outliers, ambiguous items, checks, and the paired exception; one approve action handles one group across its surfaces.
-- B handles two edits in the same file in one staged write. Test a stale source block, a missing block, a broken email token/URL, and an ad over length where applicable: each blocks the entire eligible group. Test allowed override paths and record who/what was overridden.
-- After approval, browser URLs show replacements. Rejudge each changed block: passing results are `verified`; failures are `failed_verify`. Run `reset`, then repeat this path at least three times for rehearsal.
+### Gate 2 — required corpus and provider stage 2
 
-### Gate 3 — frozen synthetic evaluation
+- Serve exactly **20 web pages including pricing, plus two emails**; every expected asset is in the sitemap and every manifest ID resolves once. Freeze the initial corpus, facts, templates, labels, and their hashes in Git before rehearsal reset.
+- Run the actual 22-asset workload with the intended concurrency, including classification, fixes, checks, and rejudging. From Confirm to the **first complete, sealed reviewable group must be ≤90 seconds** (`firstSealedGroupMs`). Record `allResultsReadyMs` separately, including failures and withheld items; incomplete group membership cannot be approved.
+- Require all featured wrong examples to be detected. Publish and verify named direct-price, annual-savings, per-day, and plan-gap repairs; direct-price approval includes its eligible web and onboarding-email patches. Preserve the paired legacy email and every protected case.
+- Record real counts and latency by stage. Revisit adapter/concurrency or shorten nonessential prose if timing fails, then rerun the same required scope. Preserve the actual failing result; stage 1 passing is not a substitute.
+- Publish changes, reset, and compare exact source/fact seed hashes. Evaluation reports must survive the reset.
 
-- Freeze held-out phrasings before threshold tuning. Fit `T_REL` on tuning only. Fit `T_LABEL` only for an adapter that supplies a validated comparable confidence score; Jev and frontier results are evaluated separately. A genuine held-out label correction is logged, followed by a full rerun and disclosure.
-- Require **100% detection of featured wrong claims on shown surfaces** and **≥80% recall on held-out contradicting web claims**, displayed as numerator/denominator. For every shown surface, require **zero proposed edits** to planted grandfathered, historical, and unrelated claims. Show all misses, withheld fixes, and unlabeled findings plainly.
-- Call this a **synthetic scenario regression test**. Do not infer real-customer accuracy. If an adapter changed, rerun and report that adapter's metrics separately.
-- Jeremy labels the timed 30-passage baseline blind to agent answers. Jeremy's labels form the human baseline reference; show disagreements with the generated manifest and compare the agent on the same 30. If this cannot be done, omit the baseline claim.
+### Gate 3 — isolated evaluation and failure handling
 
-### Gate 4 — optional surfaces
+- Evaluate a fresh copy of the pristine seed against pinned post-change facts in separate content/database state. Record corpus/label hashes, facts version, adapter/model, thresholds, and run ID. Freeze held-out templates before tuning; tune only on the tuning split. Log genuine label corrections and fully rerun their affected evaluation.
+- Require **100% detection of featured wrong claims** and **≥80% recall on held-out contradicting web claims**, with numerators and denominators. Require **zero proposed edits** to expected `consistent`, `valid_exception`, `unrelated`, and unresolved `insufficient_context` claims. Report the paired email result as a case study, not broad email accuracy.
+- Show detection, withheld fixes, and successful verified repairs separately. Include per-kind and per-surface denominators, misses, failed checks, and unlabeled findings. Passing recall alone cannot replace the required verified repair examples. Scripted approvals for isolated publication tests are test-only; the live demo requires the reviewer to approve.
+- Test missing/duplicate source IDs, external edits, changed relevant context, stale fact versions, broken email tags/URLs, repeated approve requests, and same-file sequential groups. Include a draft/check response that arrives after another group publishes; it must reconcile revisions before being accepted or sealed. A failed preflight blocks the whole group. Exercise an interrupted publication/recovery path and report exactly which guarantees it demonstrates.
+- Browser re-fetch plus rejudging determines `verified` versus `failed_verify` for every published patch. A served replacement proves local publication; model rejudging is not independent proof of factual correctness.
 
-Expand from the required paired emails to the full email collection, then add ads and decks through the same pipeline. Each surface must pass extraction, metadata, safety checks, publish/verify, and its protected-case gate before it appears in the pitch. Scenario sends/spend may sort findings but remain explicitly labeled **invented scenario data**.
+### Gate 4 — three rehearsals and capture
+
+Run the complete reset → Confirm → review → approve → served verification path three times using the frozen 22-asset scope. Show the required corrections, preserved cases, ambiguity/withholding, and isolated evaluation report. Record run IDs, counts, provider, timing, and failures for each rehearsal. Capture a backup recording using truthful local/synthetic wording.
 
 ## Time and cuts
 
-Use the original checkpoints if still available; if a clock time has passed, apply its gate immediately and cut lower-priority scope. A surface still failing its own acceptance gate by **3:45 PM** leaves the sitemap and pitch. At **4:15 PM**, stop feature work and run three reset-to-verify rehearsals plus a backup screen capture. At **5:00 PM**, freeze code.
+The provider decision has a 30-minute window from actual kickoff. The ordered gates above govern progress. At **4:15 PM**, stop feature work and reserve the remaining time for rehearsal, failure fixes, and backup capture. At **5:00 PM**, freeze code.
 
-| Decision point | Required evidence | Action if red |
-|---|---|---|
-| **1:30 PM — web checkpoint** | 20 web pages + paired emails, live run, first group, publish/verify | Reduce corpus to the checkpoint slice; focus A/B/C on this path. |
-| **2:30 PM — eval checkpoint** | Frozen held-out split, first counts, largest failure class identified | Fix that class on tuning; leave secondary surfaces off. |
-| **3:45 PM — surface gate** | Each pitched surface passes its protection and publishing checks | Remove failing surface individually; keep accurate asset counts. |
-| **4:15 PM — rehearsal** | Reset works and all demo links/checks complete | Cut visual polish, baseline page, and optional cases. |
-| **5:00 PM — freeze** | Demo path and evidence captured | Stop edits; pitch only verified behavior. |
+If time slips, cut visual polish, extra filtering/export controls, and optional checked editing/drop controls. Keep list visibility for unresolved items, the required corpus, derived claims, exception handling, sealed group approval, idempotency, publication recovery, served verification, isolated evaluation, and reset. Deferred surfaces remain deferred. If any required gate fails, report the narrower demonstrated result and the missed gate explicitly; do not claim the required demo is complete.
 
-Cut in this order: stretch (`recheckChanged`, fact-version staleness, real-site read-only run), decks, ads, full corpus size, baseline page, extra escalation actions. Retain the 20-page plus paired-email path, derived claims, exception handling, grouped approval, hard safety checks, local publish/verify, honest eval counts, and reset. If the paired email cannot pass, state the narrower web-only result rather than claiming the target was met.
+## Start and handoff instructions
 
-## Immediate start instructions
+1. **Coordinator:** complete Step 0, commit the baseline, and report files, checks, source-round-trip evidence, provider results, and blockers before dispatch.
+2. **A:** build the miniature source/render/crawl path and pair first; expand only after Gate 1. Hand off the exact 20 + 2 corpus, manifest, parser/crawl, and repeatable reset.
+3. **B:** implement judge/fix/check/group against frozen contracts and the miniature fixture; keep API orchestration thin and connect coordinator lifecycle/publication functions.
+4. **C:** build the reviewer flow against fixtures, then connect real responses. Show complete membership, explicit withholding, checks, actual counts, and verified links.
+5. **D, after A handoff:** implement isolated evaluation, protect all noncontradicting/ambiguous cases, and report verified repairs separately from detection.
+6. **Coordinator after integration:** run typecheck, the relevant contract/failure tests, and build; perform a focused browser check of the changed path. Before a full rehearsal, reset and record the exact corpus/facts/provider configuration. Broaden testing only for a remaining risk or a required gate.
 
-1. **Coordinator:** put the revised `SPEC.md` and this file under Git; scaffold the app and freeze Step 0 types, fixtures, source format, scripts, and API shapes. Run `npm run typecheck`. **Run the three-case Jev gate immediately** and smoke-test the frontier path; record the adapter decision in `.env.example` or a build log without exposing keys.
-2. **Dispatch A:** “Build the first 20 served web pages, canonical pricing, two paired emails, sitemap, stable source IDs, manifest, and reset. Match Step 0 fixtures. Return sample URLs and manifest IDs.”
-3. **Dispatch B:** “Build the crawl-to-verify path and APIs against the frozen fixture. First pass the two-block extraction sample, then the 20-page plus paired-email run. Prove group preflight and same-file multi-edit behavior.”
-4. **Dispatch C:** “Build the fixture-backed reviewer path from confirm to verified link. Match the frozen API shapes; show hard check failures and override records.”
-5. **Dispatch D:** “Freeze the template split, build ID-based metrics, and return held-out counts with all misses/protected-case failures. Prepare blind 30-passage baseline only if Jeremy can perform it.”
-6. **Coordinator after each merge:** run `npm run typecheck`, `npm run test`, `npm run build`, then a focused browser smoke test of the changed path. Use `npm run reset` before each full rehearsal. Record the exact run ID, adapter, facts version, corpus scope, counts, and elapsed time used in the pitch.
+When the scaffold and routes exist, run `npm run dev` and inspect `/site/pricing` and `/sitemap.xml` in the local browser before crawling. Run `npm run eval` only against the frozen isolated evaluation setup. Use `npm run reset` to prepare each timed demo run.
 
-When the scaffold and first routes exist, start the local app with `npm run dev`; check `http://localhost:3000/site/pricing` and `http://localhost:3000/sitemap.xml` in a browser before running the crawler. Run `npm run eval` only after A has frozen the held-out manifest; run `npm run reset` before the timed demo path.
+## Demo wording
 
-## Demo wording and evidence
-
-Say **“fictional company,” “locally served asset,” “published locally and re-checked in the browser,” “one approval per correction group,”** and **“synthetic held-out test.”** Name the exact asset counts and adapter used. Show numerators and denominators, misses, protected claims, withheld fixes, and any failed verification. Treat scenario volume as invented. A local browser check supports the local publishing claim; it does not establish a production integration or live customer impact.
+Use **“fictional company,” “locally served asset,” “published locally and re-checked in the browser,” “one approval per complete correction group,”** and **“synthetic held-out test.”** Name actual asset counts and the tested adapter. Present measured completion/review time and verified corrections; omit human-baseline speed or accuracy comparisons. Local verification does not establish a production integration or customer impact.
