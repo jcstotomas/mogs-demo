@@ -16,7 +16,8 @@ const qualifierPatterns = [
   /\bannual\s+billing\b/gi, /\b(?:a|per|each)\s+year\b/gi,
   /\b(?:a|per|each)\s+day\b/gi, /\b(?:new|existing|current)\s+customers?\b/gi,
   /\bactive\s+pre-change\b/gi, /\bpre-change\b/gi,
-  /\b(?:legacy|grandfathered|historical)\b/gi, /\b(?:about|approximately|around|only|under|over|before|after)\b/gi,
+  /\b(?:legacy|grandfathered|historical)\b/gi, /\b(?:about|approximately|around|only|under|below|over|above|before|after)\b/gi,
+  /\b(?:no\s+more\s+than|no\s+less\s+than|less\s+than|more\s+than|at\s+least|at\s+most|up\s+to)\b/gi,
   /\b(?:in|since)\s+\d{4}\b/gi,
 ];
 const broadening = /\b(?:for\s+everyone|all\s+customers?|any\s+customers?|without\s+exception|no\s+exceptions?|guaranteed)\b/i;

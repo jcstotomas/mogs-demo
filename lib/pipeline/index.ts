@@ -39,10 +39,18 @@ export function normalizeDirectPriceScope(judgment: Judgment, passage: Pick<Pass
   });
 }
 
+/** A pricing bound has no deterministic replacement even if the model calls it a direct price. */
+export function normalizePricingScope(judgment: Judgment, passage: Pick<Passage, 'text' | 'heading'>): Judgment {
+  const inequality = /\b(?:under|below|less\s+than|at\s+most|up\s+to|no\s+more\s+than|over|above|more\s+than|at\s+least|no\s+less\s+than)\s+\$\s*\d/i;
+  const scoped = judgment.label !== 'unrelated' && inequality.test(passage.text)
+    ? JudgmentSchema.parse({ ...judgment, kind: 'threshold' }) : judgment;
+  return normalizeDirectPriceScope(scoped, passage);
+}
+
 export async function classifyPassage(runId: string, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot): Promise<Judgment> {
   if (p.assetId !== page.assetId || p.surface !== page.surface || p.url !== page.url) throw new Error('Passage and asset identity mismatch.');
   if (afterFacts.phase !== 'confirmed' || afterFacts.version !== beforeFacts.version + 1 || afterFacts.scenarioId !== beforeFacts.scenarioId) throw new Error('Classification needs the confirmed fact transition.');
-  return normalizeDirectPriceScope(JudgmentSchema.parse(await judge(runId, p, page, beforeFacts, afterFacts)), p);
+  return normalizePricingScope(JudgmentSchema.parse(await judge(runId, p, page, beforeFacts, afterFacts)), p);
 }
 
 export async function draftPatch(runId: string, p: Passage, page: Page, j: Judgment, beforeFacts: FactSnapshot, afterFacts: FactSnapshot): Promise<Patch | null> {
