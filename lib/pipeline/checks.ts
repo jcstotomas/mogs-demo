@@ -113,7 +113,7 @@ function tokenCheck(original: string, replacement: string): CheckResult {
 }
 
 /** Check the captured/current revision and the actual on-disk source before spending a rejudge call. */
-export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot): Promise<Check[]> {
+export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot, contentRoot?: string): Promise<Check[]> {
   const replacement = patch.replacement;
   const evaluated: Partial<Record<CheckName, CheckResult>> = {};
   evaluated.span_confined = replacement ? spanCheck(patch.original, replacement) : result(false, 'No replacement to compare.');
@@ -125,7 +125,7 @@ export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFac
   let located = false, fresh = false, sourceDetail = '';
   try {
     if (!page.file || assetIdFor(page.surface, page.file) !== page.assetId) throw new Error('No valid editable source path.');
-    const root = path.resolve(process.env.MOGS_CONTENT_ROOT ?? path.join(process.cwd(), 'content'));
+    const root = path.resolve(contentRoot ?? process.env.MOGS_CONTENT_ROOT ?? path.join(process.cwd(), 'content'));
     const file = path.resolve(root, page.file);
     if (!file.startsWith(root + path.sep)) throw new Error('Source path escapes the content root.');
     const bytes = await readFile(file);

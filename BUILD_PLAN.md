@@ -55,6 +55,8 @@ The current runtime has **three worker slots plus the coordinator**. Dispatch A,
 
 ### Gate 1 — miniature complete loop
 
+Implementation and measured isolated evidence are recorded in [docs/GATE_1.md](docs/GATE_1.md). The isolated automated publication gate passed with test approvals; the live reviewer approval gate remains pending until a person approves the displayed groups. Keep corpus expansion behind that approval gate.
+
 Before expanding the corpus, pass the live loop on **one editable web page plus the paired emails**. The fact-driven pricing route is also available for confirmation but is outside this miniature three-asset run scope.
 
 - The web page contains multiple correction kinds so two separate groups will later touch the same file. The paired email sentence is wrong for onboarding and valid only for explicitly eligible active pre-change Starter monthly subscribers.

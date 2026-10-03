@@ -20,6 +20,8 @@ write('fixtures/eval.json', f.evaluation);
 const confirm = { changeId: f.facts.change.id, expectedFactVersion: 1, idempotencyKey: 'fixture-confirm' };
 const confirmed = { changeId: f.facts.change.id, factVersion: 2, confirmedAt: f.run.confirmedAt, runId: f.run.id };
 write('fixtures/api.json', {
+  facts: { facts: f.facts, runId: null },
+  openGroup: { request: {runId:f.run.id}, response: {openedAt:f.run.confirmedAt} },
   confirm: { request: confirm, response: confirmed, retryResponse: confirmed },
   run: { run: f.run, groups: [f.group], publications: [] },
   groups: { runId: f.run.id, groups: [f.group], patches: f.patches, publications: [] },

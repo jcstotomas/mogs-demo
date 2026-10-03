@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { buildFixtures } from '../lib/fixtures';
 import { MogsDatabase } from '../lib/db';
-import { ApproveRequestSchema, ApproveResponseSchema, ConfirmRequestSchema, ConfirmResponseSchema, ExportResponseSchema, GroupsResponseSchema, PatchActionSchema, PatchResponseSchema, RunResponseSchema, ApiErrorSchema } from '../lib/contracts/api';
+import { ApproveRequestSchema, ApproveResponseSchema, ConfirmRequestSchema, ConfirmResponseSchema, ExportResponseSchema, GroupsResponseSchema, PatchActionSchema, PatchResponseSchema, RunResponseSchema, ApiErrorSchema, FactsResponseSchema, OpenGroupRequestSchema, OpenGroupResponseSchema } from '../lib/contracts/api';
 import { EvalReportSchema, FactSnapshotSchema, GroupSchema, JudgmentSchema, ManifestRowSchema, PageSchema, PassageSchema, PatchSchema, PublicationSchema, RunSchema } from '../lib/types';
 import { assertPreflight } from '../lib/publication/contracts';
 const f = buildFixtures();
@@ -12,6 +12,7 @@ JudgmentSchema.array().parse(parse('judgments.json')); PatchSchema.array().parse
 GroupSchema.parse(parse('group.json')); RunSchema.parse(parse('run.json')); PublicationSchema.parse(parse('publication.json'));
 ManifestRowSchema.array().parse(parse('manifest.json')); EvalReportSchema.parse(parse('eval.json'));
 const api = parse('api.json');
+FactsResponseSchema.parse(api.facts); OpenGroupRequestSchema.parse(api.openGroup.request); OpenGroupResponseSchema.parse(api.openGroup.response);
 ConfirmRequestSchema.parse(api.confirm.request); ConfirmResponseSchema.parse(api.confirm.response); ConfirmResponseSchema.parse(api.confirm.retryResponse);
 RunResponseSchema.parse(api.run); GroupsResponseSchema.parse(api.groups); PatchActionSchema.parse(api.edit.request); PatchResponseSchema.parse(api.edit.response); PatchActionSchema.parse(api.drop.request);
 ApproveRequestSchema.parse(api.approve.request); ApproveResponseSchema.parse(api.approve.response); ExportResponseSchema.parse(api.export);

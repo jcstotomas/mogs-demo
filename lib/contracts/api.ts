@@ -1,7 +1,10 @@
 import { z } from 'zod';
-import { GroupSchema, JudgmentSchema, PageSchema, PassageSchema, PatchSchema, PublicationSchema, ReviewEventSchema, RunSchema } from '../types';
+import { FactSnapshotSchema, GroupSchema, JudgmentSchema, PageSchema, PassageSchema, PatchSchema, PublicationSchema, ReviewEventSchema, RunSchema } from '../types';
 const Id = z.string().min(1);
 const Revision = z.number().int().nonnegative();
+export const FactsResponseSchema = z.object({ facts: FactSnapshotSchema, runId: Id.nullable() }).strict();
+export const OpenGroupRequestSchema = z.object({ runId: Id }).strict();
+export const OpenGroupResponseSchema = z.object({ openedAt: z.iso.datetime() }).strict();
 export const ConfirmRequestSchema = z.object({ changeId: Id, expectedFactVersion: z.number().int().positive(), idempotencyKey: Id }).strict();
 export const ConfirmResponseSchema = z.object({ changeId: Id, factVersion: z.number().int().positive(), confirmedAt: z.iso.datetime(), runId: Id }).strict();
 export const PatchActionSchema = z.discriminatedUnion('action', [
@@ -19,3 +22,7 @@ export type ConfirmRequest = z.infer<typeof ConfirmRequestSchema>;
 export type ConfirmResponse = z.infer<typeof ConfirmResponseSchema>;
 export type ApproveRequest = z.infer<typeof ApproveRequestSchema>;
 export type PatchAction = z.infer<typeof PatchActionSchema>;
+export type RunResponse = z.infer<typeof RunResponseSchema>;
+export type GroupsResponse = z.infer<typeof GroupsResponseSchema>;
+export type ExportResponse = z.infer<typeof ExportResponseSchema>;
+export type FactsResponse = z.infer<typeof FactsResponseSchema>;

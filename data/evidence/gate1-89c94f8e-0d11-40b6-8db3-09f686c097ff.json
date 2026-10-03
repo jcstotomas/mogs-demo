@@ -1,0 +1,3710 @@
+{
+  "stage": "complete",
+  "actor": "test",
+  "root": "/private/tmp/mogs-gate1-v2",
+  "provenance": {
+    "seedRevision": "11282b7",
+    "corpusHash": "813908ecafe54dc67a71908a79b2086f7b9a3a853a4f8b7e9ac16d21cee12502",
+    "labelHash": "a522b51fb93940d3c943c16b9aaf9524afb43f8b8c09d04675fcd997da530508",
+    "factHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+    "scope": "one editable web page + two emails; canonical pricing outside run"
+  },
+  "initial": {
+    "run": {
+      "id": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "mode": "eval",
+      "scope": {
+        "assetIds": [
+          "email:email/eligible.md",
+          "email:email/onboarding.md",
+          "web:site/launch.md"
+        ],
+        "urls": [
+          "http://localhost:3100/assets/email/eligible",
+          "http://localhost:3100/assets/email/onboarding",
+          "http://localhost:3100/site/launch"
+        ],
+        "corpusHash": "813908ecafe54dc67a71908a79b2086f7b9a3a853a4f8b7e9ac16d21cee12502"
+      },
+      "config": {
+        "adapter": "frontier",
+        "connection": "anthropic_direct",
+        "fixConnection": "anthropic_direct",
+        "judgeModel": "claude-sonnet-5-5",
+        "fixModel": "claude-sonnet-5-5",
+        "tRel": 0.2,
+        "tLabel": 0.7,
+        "concurrency": 4,
+        "timeoutMs": 20000,
+        "promptVersion": "gate1-v2"
+      },
+      "confirmedAt": "2026-10-03T19:37:49.799Z",
+      "status": "ready",
+      "stats": {
+        "assetsIndexed": 3,
+        "passagesIndexed": 33,
+        "candidates": 24,
+        "judged": 24,
+        "patchesDrafted": 5,
+        "withheld": 1,
+        "groups": 4,
+        "published": 0,
+        "verified": 0,
+        "byLabel": {
+          "contradicting": 6,
+          "consistent": 7,
+          "valid_exception": 4,
+          "unrelated": 4,
+          "insufficient_context": 3
+        },
+        "bySurface": {
+          "web": {
+            "assets": 1,
+            "passages": 13,
+            "contradictions": 5,
+            "patches": 4
+          },
+          "email": {
+            "assets": 2,
+            "passages": 20,
+            "contradictions": 1,
+            "patches": 1
+          }
+        },
+        "reviewActions": 0,
+        "machineMs": 26902,
+        "humanMs": 0,
+        "firstSealedGroupMs": 26890,
+        "allResultsReadyMs": 26902
+      },
+      "errors": [],
+      "updatedAt": "2026-10-03T19:38:16.701Z"
+    },
+    "pages": [
+      {
+        "assetId": "email:email/eligible.md",
+        "file": "email/eligible.md",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+        "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+        "crawledAt": "2026-10-03T19:37:50.381Z",
+        "meta": {
+          "title": "MOGS eligible legacy email",
+          "kind": "email",
+          "audienceHint": "existing_customers",
+          "legacyStarterEligible": true,
+          "journey": "eligible_legacy"
+        }
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "file": "email/onboarding.md",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "crawledAt": "2026-10-03T19:37:50.384Z",
+        "meta": {
+          "title": "MOGS onboarding email",
+          "kind": "email",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false,
+          "journey": "onboarding"
+        }
+      },
+      {
+        "assetId": "web:site/launch.md",
+        "file": "site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "crawledAt": "2026-10-03T19:37:50.386Z",
+        "meta": {
+          "title": "MOGS launch guide",
+          "kind": "launch",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false
+        }
+      }
+    ],
+    "passages": [
+      {
+        "id": "email:email/eligible.md#email-subject",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Your MOGS account, {{ first_name }}",
+        "blockHash": "91576c06bd03ed515773f649583c4cc562b9fe4b82ac3662a18cbb03e36d05af",
+        "contextHash": "8b669157bd4a5b25f5c36ace0354e0e3bc354ac579bd7a81e51d827ac0dc5db2",
+        "heading": "",
+        "before": "",
+        "after": "A fictional MOGS email for active pre-change Starter monthly subscribers."
+      },
+      {
+        "id": "email:email/eligible.md#email-preheader",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+        "blockHash": "ec3b2a16dfb6aa5029759d35ac2a27fc0ad218e65a5e49322df2eacafc8eb1c0",
+        "contextHash": "e4081329d05d095c9b0f0ac5839a9829e317ae4cf09a0d6d210d56a8daefb23b",
+        "heading": "",
+        "before": "Your MOGS account, {{ first_name }}",
+        "after": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account."
+      },
+      {
+        "id": "email:email/eligible.md#greeting",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "greeting",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+        "blockHash": "363f9c2f433c1fa10478bfff5398460236b2f89f9169f39a17f1773768667613",
+        "contextHash": "63f78853366b643779b7296cf78aa3a4c7e47055a498f4765f1420c8d8c0da7f",
+        "heading": "",
+        "before": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#starter-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "8f32f1ae582fee9ca56729746d2487f0768f5f948d462b13046ff10c80d901b0",
+        "heading": "",
+        "before": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#historical",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "2a0bd959f89b0469722b35c696f978ad1f510bf5c6b48ff554262f9d9a617e65",
+        "heading": "",
+        "before": "Starter is $30 a month.",
+        "after": "For new customers, Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "email:email/eligible.md#annual-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "892ccd3193e5bc5e62322710017d783e180b9638a2e2cece2d9a588a2ee0dd80",
+        "contextHash": "62028221191b3721649c186da9ae6c80a61775d5749f38bd2990408226888d0d",
+        "heading": "",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "For new customers, Starter is $40 a month."
+      },
+      {
+        "id": "email:email/eligible.md#current-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "For new customers, Starter is $40 a month.",
+        "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+        "contextHash": "c050d5b48a0f1ab6a63a34e40b412042ff04c8340ff4ebc3656260e64585bff2",
+        "heading": "",
+        "before": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#locations-addon",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "d6525fac95febd95009ebf4720b3d38702b5a49ca385dcb80dc33b8eddfe3166",
+        "heading": "",
+        "before": "For new customers, Starter is $40 a month.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "email:email/eligible.md#cancellation",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "e5eba4b84025f3e6f0e751e77db3fda1ecbacf11d10c0d29c8a58046ed7ceb3c",
+        "heading": "",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "email:email/eligible.md#ambiguous-offer",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 9,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "48d293904861b2b6929bdd776c43ef193b5d9222bc185bde218c6e6d17927d4d",
+        "heading": "",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      },
+      {
+        "id": "email:email/onboarding.md#email-subject",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Welcome to MOGS, {{ first_name }}",
+        "blockHash": "7d1b0354096c74ba00a00b63b233b1433cddc7d25cdbe079ad5e66b1d6e9c1b7",
+        "contextHash": "19c6273d86ada84d70ece27fdcdeccb39ca90334a47f49b88c1cc383026f660b",
+        "heading": "",
+        "before": "",
+        "after": "A fictional MOGS onboarding email."
+      },
+      {
+        "id": "email:email/onboarding.md#email-preheader",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "A fictional MOGS onboarding email.",
+        "blockHash": "553bd8769e2eac007190becc2f2e19d44bdabc138e7d93c741fcec7c4d764f19",
+        "contextHash": "bc015ab11fccd2d358f2e3ac529e48a71f268376a513ab810175d37f15f92333",
+        "heading": "",
+        "before": "Welcome to MOGS, {{ first_name }}",
+        "after": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup."
+      },
+      {
+        "id": "email:email/onboarding.md#greeting",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "greeting",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+        "blockHash": "97927ade4a0540fb75f3cd89034db9d0d77833f8240c67ff3000b954f0f6d827",
+        "contextHash": "a93fe9eedde0c534cb58776ae453433eb1f4a9186b617378debf74b7dc39b726",
+        "heading": "",
+        "before": "A fictional MOGS onboarding email.",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#starter-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "ebb1917c3c2c1d1a83525b3d97a282b4dd050d6bf3f1f362af1b8a159e262ff3",
+        "heading": "",
+        "before": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#historical",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "926483090116d4f9445b9a566eaaa3dce9038ca645bce204d6d086090fd2e25c",
+        "heading": "",
+        "before": "Starter is $30 a month.",
+        "after": "Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "email:email/onboarding.md#annual-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+        "contextHash": "d3e02e284595b25c3f47c6a69cff2c2419cfc2bea01559d6d033471a2808332a",
+        "heading": "",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "For new customers, Starter is $40 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#current-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "For new customers, Starter is $40 a month.",
+        "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+        "contextHash": "dda620485fdd5c397edd4877dac0bf93e3f4ddcc333d68d8fcf48f2285f6f2e0",
+        "heading": "",
+        "before": "Starter is $288 a year, or $24 a month billed annually.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#locations-addon",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "c7f3c8c716bb6aae0470b66d177c057807c2ed140f1f962e33158c1988c7fc40",
+        "heading": "",
+        "before": "For new customers, Starter is $40 a month.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "email:email/onboarding.md#cancellation",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "27754092f5581506a3d49552c747a84f1c206a51f012ae5fd1af0feaaf5fd6a5",
+        "heading": "",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "email:email/onboarding.md#ambiguous-offer",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 9,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "2896e43e121c78978de0c175870c4e82c6e6731395d4a7f490b3b89601e08165",
+        "heading": "",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      },
+      {
+        "id": "web:site/launch.md#launch-title",
+        "assetId": "web:site/launch.md",
+        "sourceId": "launch-title",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "heading",
+        "idx": 0,
+        "text": "MOGS launch guide — fictional company",
+        "blockHash": "3fe179cfd041bccb6fdbd69b13dec52a02a27db6efd39e639af66429a3c9f90a",
+        "contextHash": "552e8db96305e9f70e4956a4e792ab14052f12d29fc01692e44c5dbb1d70b071",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#starter-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 1,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "dc3bd87fac898708326fccae1db738efece95872562492b2e62657d6569adbcf",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "MOGS launch guide — fictional company",
+        "after": "Save 20% on Starter with annual billing."
+      },
+      {
+        "id": "web:site/launch.md#annual-savings",
+        "assetId": "web:site/launch.md",
+        "sourceId": "annual-savings",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Save 20% on Starter with annual billing.",
+        "blockHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+        "contextHash": "7308b73736eff33c41108cfbeed65f319e137c3ec617daf172e4704748894cd7",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $30 a month.",
+        "after": "Starter costs about a dollar a day."
+      },
+      {
+        "id": "web:site/launch.md#per-day",
+        "assetId": "web:site/launch.md",
+        "sourceId": "per-day",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter costs about a dollar a day.",
+        "blockHash": "d09a5d8514f739a714df4a383a3138aaae072f2395c277d549bf858550586519",
+        "contextHash": "c869fb4cc41cd908d0caf76a208874e2c380d648859d72e53784bb7eaa262e29",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Save 20% on Starter with annual billing.",
+        "after": "Team is only $50 a month more than Starter."
+      },
+      {
+        "id": "web:site/launch.md#plan-gap",
+        "assetId": "web:site/launch.md",
+        "sourceId": "plan-gap",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "Team is only $50 a month more than Starter.",
+        "blockHash": "0d97374ec691ae8e716baad06583d3ad3fad468bb2a462f38aa47a3fddd2f74f",
+        "contextHash": "a5287131c63eb898d63268b1245e3219f822f2f72e6b2595601e6ddacf69ed9d",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter costs about a dollar a day.",
+        "after": "Get started for under $35 a month, billed monthly."
+      },
+      {
+        "id": "web:site/launch.md#threshold",
+        "assetId": "web:site/launch.md",
+        "sourceId": "threshold",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "Get started for under $35 a month, billed monthly.",
+        "blockHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+        "contextHash": "c363e0cfb8744633334328efacadc1386e0e2e0226fe1c075fae296d4fb0e580",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Team is only $50 a month more than Starter.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#historical",
+        "assetId": "web:site/launch.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "f2b9ce5fe7f7dd789adab1931e67749fe65acfb40b8aa5058d3acdf2bccc666a",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Get started for under $35 a month, billed monthly.",
+        "after": "Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "web:site/launch.md#annual-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+        "contextHash": "2bab18b5a446edd9a37908ccc24c3a8bedd64b382d77afe588022fd65b3631eb",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "Starter is $40 a month for new customers."
+      },
+      {
+        "id": "web:site/launch.md#current-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Starter is $40 a month for new customers.",
+        "blockHash": "eeffbcbc0bba075e4c531a6fce60d766065226dc685b45346cff7e4fff9c855c",
+        "contextHash": "d469107cc965b5bab049983e2b51ffcdd2694d55a505bb7c3594626c80a370cf",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $288 a year, or $24 a month billed annually.",
+        "after": "Starter is our most affordable plan."
+      },
+      {
+        "id": "web:site/launch.md#most-affordable",
+        "assetId": "web:site/launch.md",
+        "sourceId": "most-affordable",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "list_item",
+        "idx": 9,
+        "text": "Starter is our most affordable plan.",
+        "blockHash": "ea2fb5f9aeadefc99c5e12c6f68aea80c6e34b7dcb15dba5afcb1ba74afb5222",
+        "contextHash": "dd41e1eef2527c16e5001e7ee024c962a4e74ba74bb9dcf836925e7c0a618580",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $40 a month for new customers.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#locations-addon",
+        "assetId": "web:site/launch.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 10,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "bce76fae597a9b263b9b38f7ebc8446423cb900d6c4c8456e03bec4fc2dd4b7e",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is our most affordable plan.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "web:site/launch.md#cancellation",
+        "assetId": "web:site/launch.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 11,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "7cbf3a71682ef52c6b077347e377598f23d3effd9ab0b08447c955afdd3c948e",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "web:site/launch.md#ambiguous-offer",
+        "assetId": "web:site/launch.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 12,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "bd01fa727bcf1ab81568dbe2e2996bfb0a1894757549752a1ee4ebd3588344ce",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      }
+    ],
+    "judgments": [
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#historical",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0.05,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "monthly",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#email-preheader",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#historical",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#threshold",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "threshold",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-savings",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "annual_savings",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#historical",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#plan-gap",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "plan_gap",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "unspecified",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0.1,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "monthly",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#per-day",
+        "factVersion": 2,
+        "relevant": 0.95,
+        "kind": "per_day",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "unspecified",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#most-affordable",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "other_pricing",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    ],
+    "groups": [
+      {
+        "id": "group-abc768f335da92ebc25c9243",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:annual_savings:40:percent:public",
+        "title": "Starter annual savings to 40%",
+        "memberIds": [
+          "patch-e0fada621cdf78769b083dc5"
+        ],
+        "eligibleIds": [
+          "patch-e0fada621cdf78769b083dc5"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "91ba26394d185c2f69d82306e3449ed7fd3e8f12c5e61a86ccb6215455cc255d",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:38:16.689Z",
+        "status": "sealed",
+        "publicationId": null
+      },
+      {
+        "id": "group-3ee09e8697b3ad4fb6a6d85f",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price to $40",
+        "memberIds": [
+          "patch-465b3b6db9d99118f35a9de9",
+          "patch-7cda947d03b66b36cbb7d4cb"
+        ],
+        "eligibleIds": [
+          "patch-465b3b6db9d99118f35a9de9",
+          "patch-7cda947d03b66b36cbb7d4cb"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "82471d9f8ec3063d7e6dbd68ac9feae9aae6060dd6e8e0fdf0f393a8805513a3",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:38:16.693Z",
+        "status": "sealed",
+        "publicationId": null
+      },
+      {
+        "id": "group-9be4dfc26e2342feeb236be6",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:per_day:1.33:usd_per_day:public",
+        "title": "Starter cost per day to $1.33",
+        "memberIds": [
+          "patch-7b66cadf1855c308d0c7802e"
+        ],
+        "eligibleIds": [
+          "patch-7b66cadf1855c308d0c7802e"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "9b3e0f2e3073d5508ddcef5d70bae580ef88a5a268dde9eae1747905ec9cda9a",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:38:16.696Z",
+        "status": "sealed",
+        "publicationId": null
+      },
+      {
+        "id": "group-689127e471726ceed9f68f0c",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:plan_gap:40:usd:public",
+        "title": "Team versus Starter monthly gap to $40",
+        "memberIds": [
+          "patch-6f61c76588b4c46946bcb32b"
+        ],
+        "eligibleIds": [
+          "patch-6f61c76588b4c46946bcb32b"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "18d137ea2193cb8c3484ba80f4d3116fdbd6b18cb8587f1f6286fed7d6288d4d",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:38:16.699Z",
+        "status": "sealed",
+        "publicationId": null
+      }
+    ],
+    "patches": [
+      {
+        "id": "patch-465b3b6db9d99118f35a9de9",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "The target is $40 in USD at public scope. The page is for new customers who are not legacy-eligible, so the Starter monthly price is now $40, not $30. Only the amount changed, and the monthly billing qualifier is kept.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "dc3bd87fac898708326fccae1db738efece95872562492b2e62657d6569adbcf",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind direct_price, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-e0fada621cdf78769b083dc5",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-savings",
+        "sourceId": "annual-savings",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "annual_savings",
+        "target": {
+          "value": 40,
+          "unit": "percent",
+          "scope": "public"
+        },
+        "original": "Save 20% on Starter with annual billing.",
+        "replacement": "Save 40% on Starter with annual billing.",
+        "rationale": "The passage states the annual savings percent as 20%, which was the before value. Per the derived facts, annual_savings_percent after is 40 (percent), matching the supplied target of 40 percent. Only the number was changed; the billing qualifier (annual billing) and plan (Starter) are preserved, and no other claims were added.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+        "expectedContextHash": "7308b73736eff33c41108cfbeed65f319e137c3ec617daf172e4704748894cd7",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:percent; target 40.0000:percent."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind annual_savings, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-19fb1d798f52dc6cf25bd496",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#threshold",
+        "sourceId": "threshold",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "threshold",
+        "target": null,
+        "original": "Get started for under $35 a month, billed monthly.",
+        "replacement": null,
+        "rationale": null,
+        "withholdReason": "No deterministic safe target for this claim kind; reviewer context is required.",
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+        "expectedContextHash": "c363e0cfb8744633334328efacadc1386e0e2e0226fe1c075fae296d4fb0e580",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [],
+        "revision": 0,
+        "status": "withheld",
+        "groupId": null,
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-7cda947d03b66b36cbb7d4cb",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "email:email/onboarding.md",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "The passage states the current public monthly Starter price as $30. The confirmed facts set it to $40 (4000 cents, monthly) as of 2026-10-03. This onboarding email is for new customers who are not legacy-eligible, so the target of 40 USD applies. Only the figure changes. The surrounding historical sentence about the 2023 launch price stays as it is.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "expectedFileHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "ebb1917c3c2c1d1a83525b3d97a282b4dd050d6bf3f1f362af1b8a159e262ff3",
+        "expectedMetadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind direct_price, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          },
+          {
+            "name": "tokens_kept",
+            "pass": true,
+            "detail": "Email Liquid tags and URLs retain exact order and occurrences."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-7b66cadf1855c308d0c7802e",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#per-day",
+        "sourceId": "per-day",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "per_day",
+        "target": {
+          "value": 1.33,
+          "unit": "usd_per_day",
+          "scope": "public"
+        },
+        "original": "Starter costs about a dollar a day.",
+        "replacement": "Starter costs about $1.33 a day.",
+        "rationale": "The target for this passage is 1.33 usd_per_day, and the passage still says about a dollar a day, which is the old figure. The smallest fix swaps in $1.33 and leaves the rest of the sentence as it was. The page is for new customers who are not legacy-eligible, so the updated rate applies.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "d09a5d8514f739a714df4a383a3138aaae072f2395c277d549bf858550586519",
+        "expectedContextHash": "c869fb4cc41cd908d0caf76a208874e2c380d648859d72e53784bb7eaa262e29",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "2 changed span(s); token edits 0/2, 2/0."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 1.3300:usd_per_day; target 1.3300:usd_per_day."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind per_day, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-6f61c76588b4c46946bcb32b",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#plan-gap",
+        "sourceId": "plan-gap",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "plan_gap",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Team is only $50 a month more than Starter.",
+        "replacement": "Team is only $40 a month more than Starter.",
+        "rationale": "The passage states the Team-Starter gap as $50, which was the before value. The confirmed target for team_starter_gap_usd is $40 (usd). Only the figure was changed; wording, billing and audience qualifiers are preserved and no claim was added.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "0d97374ec691ae8e716baad06583d3ad3fad468bb2a462f38aa47a3fddd2f74f",
+        "expectedContextHash": "a5287131c63eb898d63268b1245e3219f822f2f72e6b2595601e6ddacf69ed9d",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind plan_gap, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "editedByHuman": false
+      }
+    ],
+    "publications": [],
+    "reviewEvents": []
+  },
+  "approvals": [
+    {
+      "id": "c79214bb-9e83-4c87-add2-00f6e1c5d145",
+      "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+      "factVersion": 2,
+      "idempotencyKey": "430124c5-3ad9-4658-b9be-e56f03697bc2",
+      "requestFingerprint": "5980287e38832acedf04a2ccea6703ff4d40adae2e60d3c8ff89cbd01f4a8be8",
+      "approvedRevision": 0,
+      "approvedMemberIds": [
+        "patch-465b3b6db9d99118f35a9de9",
+        "patch-7cda947d03b66b36cbb7d4cb"
+      ],
+      "actor": "test",
+      "status": "verified",
+      "files": [
+        {
+          "file": "site/launch.md",
+          "beforeHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+          "afterHash": "4eb307b28b40ce5e0e42d496bbfaf45fecf785ccc3e08cb4c1f22c9df98fbfed",
+          "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $30 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "state": "replaced"
+        },
+        {
+          "file": "email/onboarding.md",
+          "beforeHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+          "afterHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "beforeSource": "---\ntitle: MOGS onboarding email\nkind: email\naudienceHint: new_customers\nlegacyStarterEligible: false\njourney: onboarding\n---\n\n<!-- source-id: email-subject role: subject -->\nWelcome to MOGS, {{ first_name }}\n<!-- /source-id: email-subject -->\n\n<!-- source-id: email-preheader role: preheader -->\nA fictional MOGS onboarding email.\n<!-- /source-id: email-preheader -->\n\n<!-- source-id: greeting role: body -->\nHi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.\n<!-- /source-id: greeting -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $30 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nFor new customers, Starter is $40 a month.\n<!-- /source-id: current-price -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "afterSource": "---\ntitle: MOGS onboarding email\nkind: email\naudienceHint: new_customers\nlegacyStarterEligible: false\njourney: onboarding\n---\n\n<!-- source-id: email-subject role: subject -->\nWelcome to MOGS, {{ first_name }}\n<!-- /source-id: email-subject -->\n\n<!-- source-id: email-preheader role: preheader -->\nA fictional MOGS onboarding email.\n<!-- /source-id: email-preheader -->\n\n<!-- source-id: greeting role: body -->\nHi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.\n<!-- /source-id: greeting -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nFor new customers, Starter is $40 a month.\n<!-- /source-id: current-price -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "state": "replaced"
+        }
+      ],
+      "verification": [
+        {
+          "passageId": "web:site/launch.md#starter-price",
+          "url": "http://localhost:3100/site/launch",
+          "sourceObserved": true,
+          "observedHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+          "judgment": {
+            "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+            "passageId": "web:site/launch.md#starter-price",
+            "factVersion": 2,
+            "relevant": 1,
+            "kind": "direct_price",
+            "audience": "unspecified",
+            "billing": "monthly",
+            "label": "consistent",
+            "confidence": null,
+            "probabilities": null,
+            "confidenceSource": "unavailable",
+            "adapter": "frontier",
+            "model": "claude-sonnet-5-5",
+            "escalatedBy": null
+          },
+          "pass": true,
+          "detail": "Exact served replacement and fresh model judgment passed.",
+          "checkedAt": "2026-10-03T19:38:22.720Z"
+        },
+        {
+          "passageId": "email:email/onboarding.md#starter-price",
+          "url": "http://localhost:3100/assets/email/onboarding",
+          "sourceObserved": true,
+          "observedHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+          "judgment": {
+            "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+            "passageId": "email:email/onboarding.md#starter-price",
+            "factVersion": 2,
+            "relevant": 1,
+            "kind": "direct_price",
+            "audience": "new_customers",
+            "billing": "monthly",
+            "label": "consistent",
+            "confidence": null,
+            "probabilities": null,
+            "confidenceSource": "unavailable",
+            "adapter": "frontier",
+            "model": "claude-sonnet-5-5",
+            "escalatedBy": null
+          },
+          "pass": true,
+          "detail": "Exact served replacement and fresh model judgment passed.",
+          "checkedAt": "2026-10-03T19:38:22.627Z"
+        }
+      ],
+      "createdAt": "2026-10-03T19:38:16.724Z",
+      "updatedAt": "2026-10-03T19:38:22.720Z",
+      "failure": null
+    },
+    {
+      "id": "3655bcea-f837-425b-a73c-464598520177",
+      "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "groupId": "group-abc768f335da92ebc25c9243",
+      "factVersion": 2,
+      "idempotencyKey": "e6479b95-bc43-4862-9b22-1422212d8680",
+      "requestFingerprint": "284f6468c509836fe0f28a91e3e66d6513ef616a4dc789467c17f40651a3f187",
+      "approvedRevision": 1,
+      "approvedMemberIds": [
+        "patch-e0fada621cdf78769b083dc5"
+      ],
+      "actor": "test",
+      "status": "verified",
+      "files": [
+        {
+          "file": "site/launch.md",
+          "beforeHash": "4eb307b28b40ce5e0e42d496bbfaf45fecf785ccc3e08cb4c1f22c9df98fbfed",
+          "afterHash": "bcd8157f8ecbae049c105324bd197f64e36e13dafac3fa1b61e81fba19e6e62b",
+          "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "state": "replaced"
+        }
+      ],
+      "verification": [
+        {
+          "passageId": "web:site/launch.md#annual-savings",
+          "url": "http://localhost:3100/site/launch",
+          "sourceObserved": true,
+          "observedHash": "c1ccdc129a8721240c09cf481768d163530f8d7d4343de9e08016a5c229cc821",
+          "judgment": {
+            "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+            "passageId": "web:site/launch.md#annual-savings",
+            "factVersion": 2,
+            "relevant": 1,
+            "kind": "annual_savings",
+            "audience": "new_customers",
+            "billing": "annual",
+            "label": "consistent",
+            "confidence": null,
+            "probabilities": null,
+            "confidenceSource": "unavailable",
+            "adapter": "frontier",
+            "model": "claude-sonnet-5-5",
+            "escalatedBy": null
+          },
+          "pass": true,
+          "detail": "Exact served replacement and fresh model judgment passed.",
+          "checkedAt": "2026-10-03T19:38:31.632Z"
+        }
+      ],
+      "createdAt": "2026-10-03T19:38:22.772Z",
+      "updatedAt": "2026-10-03T19:38:31.632Z",
+      "failure": null
+    },
+    {
+      "id": "c2da0fe8-5a27-4f15-a0ec-70b647ff108f",
+      "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "groupId": "group-9be4dfc26e2342feeb236be6",
+      "factVersion": 2,
+      "idempotencyKey": "595990bc-dff6-42a7-90e6-998127dfe055",
+      "requestFingerprint": "7d74ef5075e08075268e57a1ff1aac367375b90dd8dd3dc0f8f4f5cf1701f22c",
+      "approvedRevision": 2,
+      "approvedMemberIds": [
+        "patch-7b66cadf1855c308d0c7802e"
+      ],
+      "actor": "test",
+      "status": "verified",
+      "files": [
+        {
+          "file": "site/launch.md",
+          "beforeHash": "bcd8157f8ecbae049c105324bd197f64e36e13dafac3fa1b61e81fba19e6e62b",
+          "afterHash": "ea9bd8f4f4d4daa2a7c28af4639434b1fedd3acac2db7828b04724bfa406d886",
+          "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "state": "replaced"
+        }
+      ],
+      "verification": [
+        {
+          "passageId": "web:site/launch.md#per-day",
+          "url": "http://localhost:3100/site/launch",
+          "sourceObserved": true,
+          "observedHash": "784e7903a9809c7b7725e30b397d738fb77ef85518517e460fe2c9141a2e19cb",
+          "judgment": {
+            "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+            "passageId": "web:site/launch.md#per-day",
+            "factVersion": 2,
+            "relevant": 1,
+            "kind": "per_day",
+            "audience": "new_customers",
+            "billing": "monthly",
+            "label": "consistent",
+            "confidence": null,
+            "probabilities": null,
+            "confidenceSource": "unavailable",
+            "adapter": "frontier",
+            "model": "claude-sonnet-5-5",
+            "escalatedBy": null
+          },
+          "pass": true,
+          "detail": "Exact served replacement and fresh model judgment passed.",
+          "checkedAt": "2026-10-03T19:38:40.139Z"
+        }
+      ],
+      "createdAt": "2026-10-03T19:38:31.670Z",
+      "updatedAt": "2026-10-03T19:38:40.139Z",
+      "failure": null
+    },
+    {
+      "id": "e2637081-68e3-4136-9e43-0b807e7eb336",
+      "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "groupId": "group-689127e471726ceed9f68f0c",
+      "factVersion": 2,
+      "idempotencyKey": "48536558-9d85-4263-bab7-22d1e6142735",
+      "requestFingerprint": "48cd59f7e12ad8ccfb7376d6e8a912e9b858bf6a18eb5b178fa3c8d83f8859af",
+      "approvedRevision": 3,
+      "approvedMemberIds": [
+        "patch-6f61c76588b4c46946bcb32b"
+      ],
+      "actor": "test",
+      "status": "verified",
+      "files": [
+        {
+          "file": "site/launch.md",
+          "beforeHash": "ea9bd8f4f4d4daa2a7c28af4639434b1fedd3acac2db7828b04724bfa406d886",
+          "afterHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+          "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $40 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+          "state": "replaced"
+        }
+      ],
+      "verification": [
+        {
+          "passageId": "web:site/launch.md#plan-gap",
+          "url": "http://localhost:3100/site/launch",
+          "sourceObserved": true,
+          "observedHash": "4ef5d476aaae31d478762a0e2a7a80aa1ad06fab95d687d051640ce4c787c57a",
+          "judgment": {
+            "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+            "passageId": "web:site/launch.md#plan-gap",
+            "factVersion": 2,
+            "relevant": 1,
+            "kind": "plan_gap",
+            "audience": "new_customers",
+            "billing": "monthly",
+            "label": "consistent",
+            "confidence": null,
+            "probabilities": null,
+            "confidenceSource": "unavailable",
+            "adapter": "frontier",
+            "model": "claude-sonnet-5-5",
+            "escalatedBy": null
+          },
+          "pass": true,
+          "detail": "Exact served replacement and fresh model judgment passed.",
+          "checkedAt": "2026-10-03T19:38:45.678Z"
+        }
+      ],
+      "createdAt": "2026-10-03T19:38:40.171Z",
+      "updatedAt": "2026-10-03T19:38:45.678Z",
+      "failure": null
+    }
+  ],
+  "final": {
+    "run": {
+      "id": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "mode": "eval",
+      "scope": {
+        "assetIds": [
+          "email:email/eligible.md",
+          "email:email/onboarding.md",
+          "web:site/launch.md"
+        ],
+        "urls": [
+          "http://localhost:3100/assets/email/eligible",
+          "http://localhost:3100/assets/email/onboarding",
+          "http://localhost:3100/site/launch"
+        ],
+        "corpusHash": "813908ecafe54dc67a71908a79b2086f7b9a3a853a4f8b7e9ac16d21cee12502"
+      },
+      "config": {
+        "adapter": "frontier",
+        "connection": "anthropic_direct",
+        "fixConnection": "anthropic_direct",
+        "judgeModel": "claude-sonnet-5-5",
+        "fixModel": "claude-sonnet-5-5",
+        "tRel": 0.2,
+        "tLabel": 0.7,
+        "concurrency": 4,
+        "timeoutMs": 20000,
+        "promptVersion": "gate1-v2"
+      },
+      "confirmedAt": "2026-10-03T19:37:49.799Z",
+      "status": "ready",
+      "stats": {
+        "assetsIndexed": 3,
+        "passagesIndexed": 33,
+        "candidates": 24,
+        "judged": 24,
+        "patchesDrafted": 5,
+        "withheld": 1,
+        "groups": 4,
+        "published": 5,
+        "verified": 5,
+        "byLabel": {
+          "contradicting": 6,
+          "consistent": 7,
+          "valid_exception": 4,
+          "unrelated": 4,
+          "insufficient_context": 3
+        },
+        "bySurface": {
+          "web": {
+            "assets": 1,
+            "passages": 13,
+            "contradictions": 5,
+            "patches": 4
+          },
+          "email": {
+            "assets": 2,
+            "passages": 20,
+            "contradictions": 1,
+            "patches": 1
+          }
+        },
+        "reviewActions": 0,
+        "machineMs": 55734,
+        "humanMs": 0,
+        "firstSealedGroupMs": 26890,
+        "allResultsReadyMs": 26902
+      },
+      "errors": [],
+      "updatedAt": "2026-10-03T19:38:45.681Z"
+    },
+    "pages": [
+      {
+        "assetId": "email:email/eligible.md",
+        "file": "email/eligible.md",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+        "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+        "crawledAt": "2026-10-03T19:37:50.381Z",
+        "meta": {
+          "title": "MOGS eligible legacy email",
+          "kind": "email",
+          "audienceHint": "existing_customers",
+          "legacyStarterEligible": true,
+          "journey": "eligible_legacy"
+        }
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "file": "email/onboarding.md",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "crawledAt": "2026-10-03T19:37:50.384Z",
+        "meta": {
+          "title": "MOGS onboarding email",
+          "kind": "email",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false,
+          "journey": "onboarding"
+        }
+      },
+      {
+        "assetId": "web:site/launch.md",
+        "file": "site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "crawledAt": "2026-10-03T19:37:50.386Z",
+        "meta": {
+          "title": "MOGS launch guide",
+          "kind": "launch",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false
+        }
+      }
+    ],
+    "passages": [
+      {
+        "id": "email:email/eligible.md#email-subject",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Your MOGS account, {{ first_name }}",
+        "blockHash": "91576c06bd03ed515773f649583c4cc562b9fe4b82ac3662a18cbb03e36d05af",
+        "contextHash": "8b669157bd4a5b25f5c36ace0354e0e3bc354ac579bd7a81e51d827ac0dc5db2",
+        "heading": "",
+        "before": "",
+        "after": "A fictional MOGS email for active pre-change Starter monthly subscribers."
+      },
+      {
+        "id": "email:email/eligible.md#email-preheader",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+        "blockHash": "ec3b2a16dfb6aa5029759d35ac2a27fc0ad218e65a5e49322df2eacafc8eb1c0",
+        "contextHash": "e4081329d05d095c9b0f0ac5839a9829e317ae4cf09a0d6d210d56a8daefb23b",
+        "heading": "",
+        "before": "Your MOGS account, {{ first_name }}",
+        "after": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account."
+      },
+      {
+        "id": "email:email/eligible.md#greeting",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "greeting",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+        "blockHash": "363f9c2f433c1fa10478bfff5398460236b2f89f9169f39a17f1773768667613",
+        "contextHash": "63f78853366b643779b7296cf78aa3a4c7e47055a498f4765f1420c8d8c0da7f",
+        "heading": "",
+        "before": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#starter-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "8f32f1ae582fee9ca56729746d2487f0768f5f948d462b13046ff10c80d901b0",
+        "heading": "",
+        "before": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#historical",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "2a0bd959f89b0469722b35c696f978ad1f510bf5c6b48ff554262f9d9a617e65",
+        "heading": "",
+        "before": "Starter is $30 a month.",
+        "after": "For new customers, Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "email:email/eligible.md#annual-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "892ccd3193e5bc5e62322710017d783e180b9638a2e2cece2d9a588a2ee0dd80",
+        "contextHash": "62028221191b3721649c186da9ae6c80a61775d5749f38bd2990408226888d0d",
+        "heading": "",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "For new customers, Starter is $40 a month."
+      },
+      {
+        "id": "email:email/eligible.md#current-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "For new customers, Starter is $40 a month.",
+        "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+        "contextHash": "c050d5b48a0f1ab6a63a34e40b412042ff04c8340ff4ebc3656260e64585bff2",
+        "heading": "",
+        "before": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#locations-addon",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "d6525fac95febd95009ebf4720b3d38702b5a49ca385dcb80dc33b8eddfe3166",
+        "heading": "",
+        "before": "For new customers, Starter is $40 a month.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "email:email/eligible.md#cancellation",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "e5eba4b84025f3e6f0e751e77db3fda1ecbacf11d10c0d29c8a58046ed7ceb3c",
+        "heading": "",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "email:email/eligible.md#ambiguous-offer",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 9,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "48d293904861b2b6929bdd776c43ef193b5d9222bc185bde218c6e6d17927d4d",
+        "heading": "",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      },
+      {
+        "id": "email:email/onboarding.md#email-subject",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Welcome to MOGS, {{ first_name }}",
+        "blockHash": "7d1b0354096c74ba00a00b63b233b1433cddc7d25cdbe079ad5e66b1d6e9c1b7",
+        "contextHash": "19c6273d86ada84d70ece27fdcdeccb39ca90334a47f49b88c1cc383026f660b",
+        "heading": "",
+        "before": "",
+        "after": "A fictional MOGS onboarding email."
+      },
+      {
+        "id": "email:email/onboarding.md#email-preheader",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "A fictional MOGS onboarding email.",
+        "blockHash": "553bd8769e2eac007190becc2f2e19d44bdabc138e7d93c741fcec7c4d764f19",
+        "contextHash": "bc015ab11fccd2d358f2e3ac529e48a71f268376a513ab810175d37f15f92333",
+        "heading": "",
+        "before": "Welcome to MOGS, {{ first_name }}",
+        "after": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup."
+      },
+      {
+        "id": "email:email/onboarding.md#greeting",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "greeting",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+        "blockHash": "97927ade4a0540fb75f3cd89034db9d0d77833f8240c67ff3000b954f0f6d827",
+        "contextHash": "a93fe9eedde0c534cb58776ae453433eb1f4a9186b617378debf74b7dc39b726",
+        "heading": "",
+        "before": "A fictional MOGS onboarding email.",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#starter-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "ebb1917c3c2c1d1a83525b3d97a282b4dd050d6bf3f1f362af1b8a159e262ff3",
+        "heading": "",
+        "before": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#historical",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "926483090116d4f9445b9a566eaaa3dce9038ca645bce204d6d086090fd2e25c",
+        "heading": "",
+        "before": "Starter is $30 a month.",
+        "after": "Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "email:email/onboarding.md#annual-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+        "contextHash": "d3e02e284595b25c3f47c6a69cff2c2419cfc2bea01559d6d033471a2808332a",
+        "heading": "",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "For new customers, Starter is $40 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#current-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "For new customers, Starter is $40 a month.",
+        "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+        "contextHash": "dda620485fdd5c397edd4877dac0bf93e3f4ddcc333d68d8fcf48f2285f6f2e0",
+        "heading": "",
+        "before": "Starter is $288 a year, or $24 a month billed annually.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#locations-addon",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "c7f3c8c716bb6aae0470b66d177c057807c2ed140f1f962e33158c1988c7fc40",
+        "heading": "",
+        "before": "For new customers, Starter is $40 a month.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "email:email/onboarding.md#cancellation",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "27754092f5581506a3d49552c747a84f1c206a51f012ae5fd1af0feaaf5fd6a5",
+        "heading": "",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "email:email/onboarding.md#ambiguous-offer",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 9,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "2896e43e121c78978de0c175870c4e82c6e6731395d4a7f490b3b89601e08165",
+        "heading": "",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      },
+      {
+        "id": "web:site/launch.md#launch-title",
+        "assetId": "web:site/launch.md",
+        "sourceId": "launch-title",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "heading",
+        "idx": 0,
+        "text": "MOGS launch guide — fictional company",
+        "blockHash": "3fe179cfd041bccb6fdbd69b13dec52a02a27db6efd39e639af66429a3c9f90a",
+        "contextHash": "552e8db96305e9f70e4956a4e792ab14052f12d29fc01692e44c5dbb1d70b071",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#starter-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 1,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "dc3bd87fac898708326fccae1db738efece95872562492b2e62657d6569adbcf",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "MOGS launch guide — fictional company",
+        "after": "Save 20% on Starter with annual billing."
+      },
+      {
+        "id": "web:site/launch.md#annual-savings",
+        "assetId": "web:site/launch.md",
+        "sourceId": "annual-savings",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Save 20% on Starter with annual billing.",
+        "blockHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+        "contextHash": "7308b73736eff33c41108cfbeed65f319e137c3ec617daf172e4704748894cd7",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $30 a month.",
+        "after": "Starter costs about a dollar a day."
+      },
+      {
+        "id": "web:site/launch.md#per-day",
+        "assetId": "web:site/launch.md",
+        "sourceId": "per-day",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 3,
+        "text": "Starter costs about a dollar a day.",
+        "blockHash": "d09a5d8514f739a714df4a383a3138aaae072f2395c277d549bf858550586519",
+        "contextHash": "c869fb4cc41cd908d0caf76a208874e2c380d648859d72e53784bb7eaa262e29",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Save 20% on Starter with annual billing.",
+        "after": "Team is only $50 a month more than Starter."
+      },
+      {
+        "id": "web:site/launch.md#plan-gap",
+        "assetId": "web:site/launch.md",
+        "sourceId": "plan-gap",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 4,
+        "text": "Team is only $50 a month more than Starter.",
+        "blockHash": "0d97374ec691ae8e716baad06583d3ad3fad468bb2a462f38aa47a3fddd2f74f",
+        "contextHash": "a5287131c63eb898d63268b1245e3219f822f2f72e6b2595601e6ddacf69ed9d",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter costs about a dollar a day.",
+        "after": "Get started for under $35 a month, billed monthly."
+      },
+      {
+        "id": "web:site/launch.md#threshold",
+        "assetId": "web:site/launch.md",
+        "sourceId": "threshold",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 5,
+        "text": "Get started for under $35 a month, billed monthly.",
+        "blockHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+        "contextHash": "c363e0cfb8744633334328efacadc1386e0e2e0226fe1c075fae296d4fb0e580",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Team is only $50 a month more than Starter.",
+        "after": "When we launched in 2023, Starter cost $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#historical",
+        "assetId": "web:site/launch.md",
+        "sourceId": "historical",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 6,
+        "text": "When we launched in 2023, Starter cost $30 a month.",
+        "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+        "contextHash": "f2b9ce5fe7f7dd789adab1931e67749fe65acfb40b8aa5058d3acdf2bccc666a",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Get started for under $35 a month, billed monthly.",
+        "after": "Starter is $288 a year, or $24 a month billed annually."
+      },
+      {
+        "id": "web:site/launch.md#annual-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "annual-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 7,
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+        "contextHash": "2bab18b5a446edd9a37908ccc24c3a8bedd64b382d77afe588022fd65b3631eb",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "When we launched in 2023, Starter cost $30 a month.",
+        "after": "Starter is $40 a month for new customers."
+      },
+      {
+        "id": "web:site/launch.md#current-price",
+        "assetId": "web:site/launch.md",
+        "sourceId": "current-price",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 8,
+        "text": "Starter is $40 a month for new customers.",
+        "blockHash": "eeffbcbc0bba075e4c531a6fce60d766065226dc685b45346cff7e4fff9c855c",
+        "contextHash": "d469107cc965b5bab049983e2b51ffcdd2694d55a505bb7c3594626c80a370cf",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $288 a year, or $24 a month billed annually.",
+        "after": "Starter is our most affordable plan."
+      },
+      {
+        "id": "web:site/launch.md#most-affordable",
+        "assetId": "web:site/launch.md",
+        "sourceId": "most-affordable",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "list_item",
+        "idx": 9,
+        "text": "Starter is our most affordable plan.",
+        "blockHash": "ea2fb5f9aeadefc99c5e12c6f68aea80c6e34b7dcb15dba5afcb1ba74afb5222",
+        "contextHash": "dd41e1eef2527c16e5001e7ee024c962a4e74ba74bb9dcf836925e7c0a618580",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is $40 a month for new customers.",
+        "after": "The Locations add-on is $30 a month."
+      },
+      {
+        "id": "web:site/launch.md#locations-addon",
+        "assetId": "web:site/launch.md",
+        "sourceId": "locations-addon",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 10,
+        "text": "The Locations add-on is $30 a month.",
+        "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+        "contextHash": "bce76fae597a9b263b9b38f7ebc8446423cb900d6c4c8456e03bec4fc2dd4b7e",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Starter is our most affordable plan.",
+        "after": "Cancel within 30 days."
+      },
+      {
+        "id": "web:site/launch.md#cancellation",
+        "assetId": "web:site/launch.md",
+        "sourceId": "cancellation",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 11,
+        "text": "Cancel within 30 days.",
+        "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+        "contextHash": "7cbf3a71682ef52c6b077347e377598f23d3effd9ab0b08447c955afdd3c948e",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "The Locations add-on is $30 a month.",
+        "after": "Plans from $30."
+      },
+      {
+        "id": "web:site/launch.md#ambiguous-offer",
+        "assetId": "web:site/launch.md",
+        "sourceId": "ambiguous-offer",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 12,
+        "text": "Plans from $30.",
+        "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+        "contextHash": "bd01fa727bcf1ab81568dbe2e2996bfb0a1894757549752a1ee4ebd3588344ce",
+        "heading": "MOGS launch guide — fictional company",
+        "before": "Cancel within 30 days.",
+        "after": ""
+      }
+    ],
+    "judgments": [
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#historical",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0.05,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "monthly",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#email-preheader",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/eligible.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#historical",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#threshold",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "threshold",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-savings",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "annual_savings",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#historical",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "historical",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#plan-gap",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "plan_gap",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "unspecified",
+        "billing": "annual",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#current-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#locations-addon",
+        "factVersion": 2,
+        "relevant": 0.1,
+        "kind": "none",
+        "audience": "unspecified",
+        "billing": "monthly",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#per-day",
+        "factVersion": 2,
+        "relevant": 0.95,
+        "kind": "per_day",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#ambiguous-offer",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "unspecified",
+        "billing": "unspecified",
+        "label": "insufficient_context",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": "scope_conflict"
+      },
+      {
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#most-affordable",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "other_pricing",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "consistent",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    ],
+    "groups": [
+      {
+        "id": "group-abc768f335da92ebc25c9243",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:annual_savings:40:percent:public",
+        "title": "Starter annual savings to 40%",
+        "memberIds": [
+          "patch-e0fada621cdf78769b083dc5"
+        ],
+        "eligibleIds": [
+          "patch-e0fada621cdf78769b083dc5"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "91ba26394d185c2f69d82306e3449ed7fd3e8f12c5e61a86ccb6215455cc255d",
+        "revision": 1,
+        "sealedAt": "2026-10-03T19:38:16.689Z",
+        "status": "verified",
+        "publicationId": "3655bcea-f837-425b-a73c-464598520177"
+      },
+      {
+        "id": "group-3ee09e8697b3ad4fb6a6d85f",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price to $40",
+        "memberIds": [
+          "patch-465b3b6db9d99118f35a9de9",
+          "patch-7cda947d03b66b36cbb7d4cb"
+        ],
+        "eligibleIds": [
+          "patch-465b3b6db9d99118f35a9de9",
+          "patch-7cda947d03b66b36cbb7d4cb"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "82471d9f8ec3063d7e6dbd68ac9feae9aae6060dd6e8e0fdf0f393a8805513a3",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:38:16.693Z",
+        "status": "verified",
+        "publicationId": "c79214bb-9e83-4c87-add2-00f6e1c5d145"
+      },
+      {
+        "id": "group-9be4dfc26e2342feeb236be6",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:per_day:1.33:usd_per_day:public",
+        "title": "Starter cost per day to $1.33",
+        "memberIds": [
+          "patch-7b66cadf1855c308d0c7802e"
+        ],
+        "eligibleIds": [
+          "patch-7b66cadf1855c308d0c7802e"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "9b3e0f2e3073d5508ddcef5d70bae580ef88a5a268dde9eae1747905ec9cda9a",
+        "revision": 2,
+        "sealedAt": "2026-10-03T19:38:16.696Z",
+        "status": "verified",
+        "publicationId": "c2da0fe8-5a27-4f15-a0ec-70b647ff108f"
+      },
+      {
+        "id": "group-689127e471726ceed9f68f0c",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "factVersion": 2,
+        "key": "2:plan_gap:40:usd:public",
+        "title": "Team versus Starter monthly gap to $40",
+        "memberIds": [
+          "patch-6f61c76588b4c46946bcb32b"
+        ],
+        "eligibleIds": [
+          "patch-6f61c76588b4c46946bcb32b"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 0,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "18d137ea2193cb8c3484ba80f4d3116fdbd6b18cb8587f1f6286fed7d6288d4d",
+        "revision": 3,
+        "sealedAt": "2026-10-03T19:38:16.699Z",
+        "status": "verified",
+        "publicationId": "e2637081-68e3-4136-9e43-0b807e7eb336"
+      }
+    ],
+    "patches": [
+      {
+        "id": "patch-465b3b6db9d99118f35a9de9",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "The target is $40 in USD at public scope. The page is for new customers who are not legacy-eligible, so the Starter monthly price is now $40, not $30. Only the amount changed, and the monthly billing qualifier is kept.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "dc3bd87fac898708326fccae1db738efece95872562492b2e62657d6569adbcf",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind direct_price, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 0,
+        "status": "verified",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-e0fada621cdf78769b083dc5",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#annual-savings",
+        "sourceId": "annual-savings",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "annual_savings",
+        "target": {
+          "value": 40,
+          "unit": "percent",
+          "scope": "public"
+        },
+        "original": "Save 20% on Starter with annual billing.",
+        "replacement": "Save 40% on Starter with annual billing.",
+        "rationale": "The passage states the annual savings percent as 20%, which was the before value. Per the derived facts, annual_savings_percent after is 40 (percent), matching the supplied target of 40 percent. Only the number was changed; the billing qualifier (annual billing) and plan (Starter) are preserved, and no other claims were added.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "4eb307b28b40ce5e0e42d496bbfaf45fecf785ccc3e08cb4c1f22c9df98fbfed",
+        "expectedBlockHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+        "expectedContextHash": "57e3ca860e28cd8518cff1fa16446643e522c1a0de841c3472173d04c33c6b42",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:percent; target 40.0000:percent."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind annual_savings, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 1,
+        "status": "verified",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-19fb1d798f52dc6cf25bd496",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#threshold",
+        "sourceId": "threshold",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "threshold",
+        "target": null,
+        "original": "Get started for under $35 a month, billed monthly.",
+        "replacement": null,
+        "rationale": null,
+        "withholdReason": "No deterministic safe target for this claim kind; reviewer context is required.",
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedBlockHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+        "expectedContextHash": "c363e0cfb8744633334328efacadc1386e0e2e0226fe1c075fae296d4fb0e580",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [],
+        "revision": 0,
+        "status": "withheld",
+        "groupId": null,
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-7cda947d03b66b36cbb7d4cb",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "email:email/onboarding.md",
+        "url": "http://localhost:3100/assets/email/onboarding",
+        "surface": "email",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "The passage states the current public monthly Starter price as $30. The confirmed facts set it to $40 (4000 cents, monthly) as of 2026-10-03. This onboarding email is for new customers who are not legacy-eligible, so the target of 40 USD applies. Only the figure changes. The surrounding historical sentence about the 2023 launch price stays as it is.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "expectedFileHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "ebb1917c3c2c1d1a83525b3d97a282b4dd050d6bf3f1f362af1b8a159e262ff3",
+        "expectedMetadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind direct_price, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          },
+          {
+            "name": "tokens_kept",
+            "pass": true,
+            "detail": "Email Liquid tags and URLs retain exact order and occurrences."
+          }
+        ],
+        "revision": 0,
+        "status": "verified",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-7b66cadf1855c308d0c7802e",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#per-day",
+        "sourceId": "per-day",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "per_day",
+        "target": {
+          "value": 1.33,
+          "unit": "usd_per_day",
+          "scope": "public"
+        },
+        "original": "Starter costs about a dollar a day.",
+        "replacement": "Starter costs about $1.33 a day.",
+        "rationale": "The target for this passage is 1.33 usd_per_day, and the passage still says about a dollar a day, which is the old figure. The smallest fix swaps in $1.33 and leaves the rest of the sentence as it was. The page is for new customers who are not legacy-eligible, so the updated rate applies.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "bcd8157f8ecbae049c105324bd197f64e36e13dafac3fa1b61e81fba19e6e62b",
+        "expectedBlockHash": "d09a5d8514f739a714df4a383a3138aaae072f2395c277d549bf858550586519",
+        "expectedContextHash": "22dc37af53a4a9072424f4e6e54e4b13abd19a6ad470aa1cc1a440cc39866a6c",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "2 changed span(s); token edits 0/2, 2/0."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 1.3300:usd_per_day; target 1.3300:usd_per_day."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind per_day, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 2,
+        "status": "verified",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "editedByHuman": false
+      },
+      {
+        "id": "patch-6f61c76588b4c46946bcb32b",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "passageId": "web:site/launch.md#plan-gap",
+        "sourceId": "plan-gap",
+        "assetId": "web:site/launch.md",
+        "url": "http://localhost:3100/site/launch",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "plan_gap",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Team is only $50 a month more than Starter.",
+        "replacement": "Team is only $40 a month more than Starter.",
+        "rationale": "The passage states the Team-Starter gap as $50, which was the before value. The confirmed target for team_starter_gap_usd is $40 (usd). Only the figure was changed; wording, billing and audience qualifiers are preserved and no claim was added.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "expectedFileHash": "ea9bd8f4f4d4daa2a7c28af4639434b1fedd3acac2db7828b04724bfa406d886",
+        "expectedBlockHash": "0d97374ec691ae8e716baad06583d3ad3fad468bb2a462f38aa47a3fddd2f74f",
+        "expectedContextHash": "5576b9177c28bad1fd4e255809c44b9c5c0714ada4b67e8fc0594f5d7480f322",
+        "expectedMetadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "1 changed span(s); token edits 1/1."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Introduced values: 40.0000:usd; target 40.0000:usd."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Original plan, billing, audience, time, and approximation qualifiers remain."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Replacement rejudge: consistent, kind plan_gap, adapter frontier, model claude-sonnet-5-5."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Source ID resolves once with the expected original block."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Current file, metadata, and rendered context match expected revision."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Patch fact version and deterministic target match current supplied facts."
+          }
+        ],
+        "revision": 3,
+        "status": "verified",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "editedByHuman": false
+      }
+    ],
+    "publications": [
+      {
+        "id": "c79214bb-9e83-4c87-add2-00f6e1c5d145",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "factVersion": 2,
+        "idempotencyKey": "430124c5-3ad9-4658-b9be-e56f03697bc2",
+        "requestFingerprint": "5980287e38832acedf04a2ccea6703ff4d40adae2e60d3c8ff89cbd01f4a8be8",
+        "approvedRevision": 0,
+        "approvedMemberIds": [
+          "patch-465b3b6db9d99118f35a9de9",
+          "patch-7cda947d03b66b36cbb7d4cb"
+        ],
+        "actor": "test",
+        "status": "verified",
+        "files": [
+          {
+            "file": "site/launch.md",
+            "beforeHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+            "afterHash": "4eb307b28b40ce5e0e42d496bbfaf45fecf785ccc3e08cb4c1f22c9df98fbfed",
+            "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $30 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "state": "replaced"
+          },
+          {
+            "file": "email/onboarding.md",
+            "beforeHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+            "afterHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+            "beforeSource": "---\ntitle: MOGS onboarding email\nkind: email\naudienceHint: new_customers\nlegacyStarterEligible: false\njourney: onboarding\n---\n\n<!-- source-id: email-subject role: subject -->\nWelcome to MOGS, {{ first_name }}\n<!-- /source-id: email-subject -->\n\n<!-- source-id: email-preheader role: preheader -->\nA fictional MOGS onboarding email.\n<!-- /source-id: email-preheader -->\n\n<!-- source-id: greeting role: body -->\nHi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.\n<!-- /source-id: greeting -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $30 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nFor new customers, Starter is $40 a month.\n<!-- /source-id: current-price -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "afterSource": "---\ntitle: MOGS onboarding email\nkind: email\naudienceHint: new_customers\nlegacyStarterEligible: false\njourney: onboarding\n---\n\n<!-- source-id: email-subject role: subject -->\nWelcome to MOGS, {{ first_name }}\n<!-- /source-id: email-subject -->\n\n<!-- source-id: email-preheader role: preheader -->\nA fictional MOGS onboarding email.\n<!-- /source-id: email-preheader -->\n\n<!-- source-id: greeting role: body -->\nHi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.\n<!-- /source-id: greeting -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nFor new customers, Starter is $40 a month.\n<!-- /source-id: current-price -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "state": "replaced"
+          }
+        ],
+        "verification": [
+          {
+            "passageId": "web:site/launch.md#starter-price",
+            "url": "http://localhost:3100/site/launch",
+            "sourceObserved": true,
+            "observedHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+            "judgment": {
+              "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+              "passageId": "web:site/launch.md#starter-price",
+              "factVersion": 2,
+              "relevant": 1,
+              "kind": "direct_price",
+              "audience": "unspecified",
+              "billing": "monthly",
+              "label": "consistent",
+              "confidence": null,
+              "probabilities": null,
+              "confidenceSource": "unavailable",
+              "adapter": "frontier",
+              "model": "claude-sonnet-5-5",
+              "escalatedBy": null
+            },
+            "pass": true,
+            "detail": "Exact served replacement and fresh model judgment passed.",
+            "checkedAt": "2026-10-03T19:38:22.720Z"
+          },
+          {
+            "passageId": "email:email/onboarding.md#starter-price",
+            "url": "http://localhost:3100/assets/email/onboarding",
+            "sourceObserved": true,
+            "observedHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+            "judgment": {
+              "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+              "passageId": "email:email/onboarding.md#starter-price",
+              "factVersion": 2,
+              "relevant": 1,
+              "kind": "direct_price",
+              "audience": "new_customers",
+              "billing": "monthly",
+              "label": "consistent",
+              "confidence": null,
+              "probabilities": null,
+              "confidenceSource": "unavailable",
+              "adapter": "frontier",
+              "model": "claude-sonnet-5-5",
+              "escalatedBy": null
+            },
+            "pass": true,
+            "detail": "Exact served replacement and fresh model judgment passed.",
+            "checkedAt": "2026-10-03T19:38:22.627Z"
+          }
+        ],
+        "createdAt": "2026-10-03T19:38:16.724Z",
+        "updatedAt": "2026-10-03T19:38:22.720Z",
+        "failure": null
+      },
+      {
+        "id": "3655bcea-f837-425b-a73c-464598520177",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "factVersion": 2,
+        "idempotencyKey": "e6479b95-bc43-4862-9b22-1422212d8680",
+        "requestFingerprint": "284f6468c509836fe0f28a91e3e66d6513ef616a4dc789467c17f40651a3f187",
+        "approvedRevision": 1,
+        "approvedMemberIds": [
+          "patch-e0fada621cdf78769b083dc5"
+        ],
+        "actor": "test",
+        "status": "verified",
+        "files": [
+          {
+            "file": "site/launch.md",
+            "beforeHash": "4eb307b28b40ce5e0e42d496bbfaf45fecf785ccc3e08cb4c1f22c9df98fbfed",
+            "afterHash": "bcd8157f8ecbae049c105324bd197f64e36e13dafac3fa1b61e81fba19e6e62b",
+            "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 20% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "state": "replaced"
+          }
+        ],
+        "verification": [
+          {
+            "passageId": "web:site/launch.md#annual-savings",
+            "url": "http://localhost:3100/site/launch",
+            "sourceObserved": true,
+            "observedHash": "c1ccdc129a8721240c09cf481768d163530f8d7d4343de9e08016a5c229cc821",
+            "judgment": {
+              "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+              "passageId": "web:site/launch.md#annual-savings",
+              "factVersion": 2,
+              "relevant": 1,
+              "kind": "annual_savings",
+              "audience": "new_customers",
+              "billing": "annual",
+              "label": "consistent",
+              "confidence": null,
+              "probabilities": null,
+              "confidenceSource": "unavailable",
+              "adapter": "frontier",
+              "model": "claude-sonnet-5-5",
+              "escalatedBy": null
+            },
+            "pass": true,
+            "detail": "Exact served replacement and fresh model judgment passed.",
+            "checkedAt": "2026-10-03T19:38:31.632Z"
+          }
+        ],
+        "createdAt": "2026-10-03T19:38:22.772Z",
+        "updatedAt": "2026-10-03T19:38:31.632Z",
+        "failure": null
+      },
+      {
+        "id": "c2da0fe8-5a27-4f15-a0ec-70b647ff108f",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "factVersion": 2,
+        "idempotencyKey": "595990bc-dff6-42a7-90e6-998127dfe055",
+        "requestFingerprint": "7d74ef5075e08075268e57a1ff1aac367375b90dd8dd3dc0f8f4f5cf1701f22c",
+        "approvedRevision": 2,
+        "approvedMemberIds": [
+          "patch-7b66cadf1855c308d0c7802e"
+        ],
+        "actor": "test",
+        "status": "verified",
+        "files": [
+          {
+            "file": "site/launch.md",
+            "beforeHash": "bcd8157f8ecbae049c105324bd197f64e36e13dafac3fa1b61e81fba19e6e62b",
+            "afterHash": "ea9bd8f4f4d4daa2a7c28af4639434b1fedd3acac2db7828b04724bfa406d886",
+            "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about a dollar a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "state": "replaced"
+          }
+        ],
+        "verification": [
+          {
+            "passageId": "web:site/launch.md#per-day",
+            "url": "http://localhost:3100/site/launch",
+            "sourceObserved": true,
+            "observedHash": "784e7903a9809c7b7725e30b397d738fb77ef85518517e460fe2c9141a2e19cb",
+            "judgment": {
+              "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+              "passageId": "web:site/launch.md#per-day",
+              "factVersion": 2,
+              "relevant": 1,
+              "kind": "per_day",
+              "audience": "new_customers",
+              "billing": "monthly",
+              "label": "consistent",
+              "confidence": null,
+              "probabilities": null,
+              "confidenceSource": "unavailable",
+              "adapter": "frontier",
+              "model": "claude-sonnet-5-5",
+              "escalatedBy": null
+            },
+            "pass": true,
+            "detail": "Exact served replacement and fresh model judgment passed.",
+            "checkedAt": "2026-10-03T19:38:40.139Z"
+          }
+        ],
+        "createdAt": "2026-10-03T19:38:31.670Z",
+        "updatedAt": "2026-10-03T19:38:40.139Z",
+        "failure": null
+      },
+      {
+        "id": "e2637081-68e3-4136-9e43-0b807e7eb336",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "factVersion": 2,
+        "idempotencyKey": "48536558-9d85-4263-bab7-22d1e6142735",
+        "requestFingerprint": "48cd59f7e12ad8ccfb7376d6e8a912e9b858bf6a18eb5b178fa3c8d83f8859af",
+        "approvedRevision": 3,
+        "approvedMemberIds": [
+          "patch-6f61c76588b4c46946bcb32b"
+        ],
+        "actor": "test",
+        "status": "verified",
+        "files": [
+          {
+            "file": "site/launch.md",
+            "beforeHash": "ea9bd8f4f4d4daa2a7c28af4639434b1fedd3acac2db7828b04724bfa406d886",
+            "afterHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+            "beforeSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $50 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "afterSource": "---\ntitle: MOGS launch guide\nkind: launch\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n<!-- source-id: launch-title role: heading -->\nMOGS launch guide — fictional company\n<!-- /source-id: launch-title -->\n\n<!-- source-id: starter-price role: body -->\nStarter is $40 a month.\n<!-- /source-id: starter-price -->\n\n<!-- source-id: annual-savings role: body -->\nSave 40% on Starter with annual billing.\n<!-- /source-id: annual-savings -->\n\n<!-- source-id: per-day role: body -->\nStarter costs about $1.33 a day.\n<!-- /source-id: per-day -->\n\n<!-- source-id: plan-gap role: body -->\nTeam is only $40 a month more than Starter.\n<!-- /source-id: plan-gap -->\n\n<!-- source-id: threshold role: body -->\nGet started for under $35 a month, billed monthly.\n<!-- /source-id: threshold -->\n\n<!-- source-id: historical role: body -->\nWhen we launched in 2023, Starter cost $30 a month.\n<!-- /source-id: historical -->\n\n<!-- source-id: annual-price role: body -->\nStarter is $288 a year, or $24 a month billed annually.\n<!-- /source-id: annual-price -->\n\n<!-- source-id: current-price role: body -->\nStarter is $40 a month for new customers.\n<!-- /source-id: current-price -->\n\n<!-- source-id: most-affordable role: list_item -->\nStarter is our most affordable plan.\n<!-- /source-id: most-affordable -->\n\n<!-- source-id: locations-addon role: body -->\nThe Locations add-on is $30 a month.\n<!-- /source-id: locations-addon -->\n\n<!-- source-id: cancellation role: body -->\nCancel within 30 days.\n<!-- /source-id: cancellation -->\n\n<!-- source-id: ambiguous-offer role: body -->\nPlans from $30.\n<!-- /source-id: ambiguous-offer -->\n",
+            "state": "replaced"
+          }
+        ],
+        "verification": [
+          {
+            "passageId": "web:site/launch.md#plan-gap",
+            "url": "http://localhost:3100/site/launch",
+            "sourceObserved": true,
+            "observedHash": "4ef5d476aaae31d478762a0e2a7a80aa1ad06fab95d687d051640ce4c787c57a",
+            "judgment": {
+              "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+              "passageId": "web:site/launch.md#plan-gap",
+              "factVersion": 2,
+              "relevant": 1,
+              "kind": "plan_gap",
+              "audience": "new_customers",
+              "billing": "monthly",
+              "label": "consistent",
+              "confidence": null,
+              "probabilities": null,
+              "confidenceSource": "unavailable",
+              "adapter": "frontier",
+              "model": "claude-sonnet-5-5",
+              "escalatedBy": null
+            },
+            "pass": true,
+            "detail": "Exact served replacement and fresh model judgment passed.",
+            "checkedAt": "2026-10-03T19:38:45.678Z"
+          }
+        ],
+        "createdAt": "2026-10-03T19:38:40.171Z",
+        "updatedAt": "2026-10-03T19:38:45.678Z",
+        "failure": null
+      }
+    ],
+    "reviewEvents": [
+      {
+        "id": "6e0a9cec-a73d-452f-b8d3-7ff98fd92004",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "patchId": null,
+        "actor": "test",
+        "action": "approve",
+        "at": "2026-10-03T19:38:16.724Z",
+        "detail": "Approved complete revision 0"
+      },
+      {
+        "id": "393cff42-9c1b-409f-a594-992dad98a626",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "patchId": "patch-e0fada621cdf78769b083dc5",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:20.320Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "2c87c033-6970-4955-8cca-1369a53a4462",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "patchId": "patch-6f61c76588b4c46946bcb32b",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:20.749Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "87e6bace-8ac6-4cf5-bdc9-dd8a6072d9cc",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "patchId": "patch-7b66cadf1855c308d0c7802e",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:21.108Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "402d7c49-e1ee-4857-b473-4d135a0f854e",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-3ee09e8697b3ad4fb6a6d85f",
+        "patchId": null,
+        "actor": "system",
+        "action": "verify",
+        "at": "2026-10-03T19:38:22.726Z",
+        "detail": "Every approved patch passed served verification."
+      },
+      {
+        "id": "f92da1cb-10a9-45a2-8358-2c6aa1343706",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "patchId": null,
+        "actor": "test",
+        "action": "approve",
+        "at": "2026-10-03T19:38:22.772Z",
+        "detail": "Approved complete revision 1"
+      },
+      {
+        "id": "9958cb24-a89a-42c0-9c3c-cf5970c85fd7",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "patchId": "patch-6f61c76588b4c46946bcb32b",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:28.237Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "def0e750-247b-4976-8277-5ac676e7b3b8",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "patchId": "patch-7b66cadf1855c308d0c7802e",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:29.154Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "d090b6f1-4c84-44bb-9192-02520085f0b5",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-abc768f335da92ebc25c9243",
+        "patchId": null,
+        "actor": "system",
+        "action": "verify",
+        "at": "2026-10-03T19:38:31.635Z",
+        "detail": "Every approved patch passed served verification."
+      },
+      {
+        "id": "dbd1feeb-ae38-4dd7-809d-ca1fc4968d3e",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "patchId": null,
+        "actor": "test",
+        "action": "approve",
+        "at": "2026-10-03T19:38:31.670Z",
+        "detail": "Approved complete revision 2"
+      },
+      {
+        "id": "0bb26510-de20-4d1e-a2c7-abfcbc11b9f9",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "patchId": "patch-6f61c76588b4c46946bcb32b",
+        "actor": "system",
+        "action": "revision_advance",
+        "at": "2026-10-03T19:38:37.289Z",
+        "detail": "Recorded application publication chain and refreshed context checks passed."
+      },
+      {
+        "id": "dfacc03d-c875-4069-aa5a-75f441a7e36b",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-9be4dfc26e2342feeb236be6",
+        "patchId": null,
+        "actor": "system",
+        "action": "verify",
+        "at": "2026-10-03T19:38:40.142Z",
+        "detail": "Every approved patch passed served verification."
+      },
+      {
+        "id": "2d5085e4-413b-432e-bfb7-d7701608e158",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "patchId": null,
+        "actor": "test",
+        "action": "approve",
+        "at": "2026-10-03T19:38:40.171Z",
+        "detail": "Approved complete revision 3"
+      },
+      {
+        "id": "38e68eca-5d5d-4c13-9438-1529bb686a74",
+        "runId": "89c94f8e-0d11-40b6-8db3-09f686c097ff",
+        "groupId": "group-689127e471726ceed9f68f0c",
+        "patchId": null,
+        "actor": "system",
+        "action": "verify",
+        "at": "2026-10-03T19:38:45.681Z",
+        "detail": "Every approved patch passed served verification."
+      }
+    ]
+  }
+}

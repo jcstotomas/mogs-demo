@@ -27,7 +27,7 @@ export const PageSchema = z.object({ assetId: Id, file: z.string().nullable(), u
 export const PassageSchema = z.object({ id: Id, assetId: Id, sourceId: Id, url: z.string().url(), surface: SurfaceSchema, editable: z.boolean(), role: RoleSchema, idx: Count, text: z.string(), blockHash: HashSchema, contextHash: HashSchema, heading: z.string(), before: z.string(), after: z.string() }).strict();
 export const ProviderConfigSchema = z.object({
   adapter: AdapterSchema.nullable(), connection: z.enum(['typesafe_http', 'anthropic_direct']).nullable(), fixConnection: z.literal('anthropic_direct'), judgeModel: z.string(), fixModel: z.string(),
-  tRel: Probability, tLabel: Probability, concurrency: z.number().int().positive(), timeoutMs: z.number().int().positive(), promptVersion: z.literal('step0-v1'),
+  tRel: Probability, tLabel: Probability, concurrency: z.number().int().positive(), timeoutMs: z.number().int().positive(), promptVersion: z.enum(['step0-v1', 'gate1-v2']),
 }).strict();
 export const RunStatsSchema = z.object({
   assetsIndexed: Count, passagesIndexed: Count, candidates: Count, judged: Count, patchesDrafted: Count, withheld: Count, groups: Count, published: Count, verified: Count,

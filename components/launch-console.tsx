@@ -3,14 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { z } from 'zod';
 import {
-  ApiErrorSchema, ApproveResponseSchema, ConfirmResponseSchema, ExportResponseSchema,
+  ApiErrorSchema, ApproveResponseSchema, ConfirmResponseSchema, ExportResponseSchema, FactsResponseSchema, OpenGroupResponseSchema,
   type ApproveRequest, type ConfirmRequest,
 } from '@/lib/contracts/api';
-import { FactSnapshotSchema, type FactSnapshot, type Group, type Patch, type Publication, type Run } from '@/lib/types';
+import { type FactSnapshot, type Group, type Patch, type Publication, type Run } from '@/lib/types';
 import styles from './launch-console.module.css';
 
 type Evidence = z.infer<typeof ExportResponseSchema>;
-const FactsResponse = z.object({ facts: FactSnapshotSchema, runId: z.string().min(1).nullable() }).strict();
 const checkNames: Record<Patch['checks'][number]['name'], string> = {
   span_confined: 'Focused edit', numbers_allowed: 'Correct values', qualifiers_kept: 'Scope preserved',
   rejudge_consistent: 'Model recheck', source_located: 'Source found', source_fresh: 'Source unchanged',
@@ -94,7 +93,7 @@ export function LaunchConsole() {
   const openedGroups = useRef(new Set<string>());
 
   const loadFacts = useCallback(async (signal?: AbortSignal) => {
-    const result = await request('/api/facts', FactsResponse, { signal });
+    const result = await request('/api/facts', FactsResponseSchema, { signal });
     setFacts(result.facts);
     setRunId(result.runId);
     return result;
@@ -137,7 +136,7 @@ export function LaunchConsole() {
     if (openedGroups.current.has(group.id)) return;
     openedGroups.current.add(group.id);
     try {
-      await request(`/api/groups/${encodeURIComponent(group.id)}/open`, z.object({ openedAt: z.iso.datetime() }).strict(), {
+      await request(`/api/groups/${encodeURIComponent(group.id)}/open`, OpenGroupResponseSchema, {
         method: 'POST', body: JSON.stringify({ runId: group.runId }),
       });
     } catch { openedGroups.current.delete(group.id); }
@@ -213,6 +212,8 @@ export function LaunchConsole() {
   const scopeWeb = run?.scope.assetIds.filter(id => id.startsWith('web:')).length ?? 1;
   const scopeEmail = run?.scope.assetIds.filter(id => id.startsWith('email:')).length ?? 2;
   const runActive = !!run && !['ready', 'failed'].includes(run.status);
+  const reviewStarted = evidence?.reviewEvents.some(event => event.actor === 'human' && event.action === 'open');
+  const reviewApproved = evidence?.reviewEvents.some(event => event.actor === 'human' && event.action === 'approve');
 
   return (
     <div className={styles.shell}>
@@ -294,7 +295,7 @@ export function LaunchConsole() {
         </section> : null}
 
         {run && evidence ? <footer className={styles.evidence}>
-          <dl className={styles.stats}><Stat label="Published corrections" value={run.stats.published} /><Stat label="Verified corrections" value={run.stats.verified} /><Stat label="Review actions" value={run.stats.reviewActions} /><Stat label="Review elapsed time" value={evidence.reviewEvents.some(event => event.actor === 'human' && event.action === 'open') ? duration(run.stats.humanMs) : 'Not recorded'} /></dl>
+          <dl className={styles.stats}><Stat label="Published corrections" value={run.stats.published} /><Stat label="Verified corrections" value={run.stats.verified} /><Stat label="Review actions" value={run.stats.reviewActions} /><Stat label="Machine processing" value={duration(run.stats.machineMs)} /><Stat label="Review elapsed time" value={reviewStarted && reviewApproved ? duration(run.stats.humanMs) : reviewStarted ? 'Awaiting approval' : 'Not recorded'} /></dl>
           <details><summary>Run details</summary><dl><dt>Run</dt><dd>{run.id}</dd><dt>Judge</dt><dd>{run.config.adapter ?? 'Not selected'} · {run.config.judgeModel}</dd><dt>Confirmed</dt><dd>{new Date(run.confirmedAt).toLocaleString()}</dd><dt>Mode</dt><dd>{run.mode === 'live' ? 'Live provider calls on fictional local content' : `${run.mode} results — not a live run`}</dd></dl></details>
           <p>Published locally and checked in the rendered asset. The model recheck is recorded separately from whether the replacement was observed.</p>
         </footer> : <footer className={styles.evidence}><p>MOGS is fictional. This console publishes only locally served demonstration content.</p></footer>}

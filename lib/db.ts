@@ -60,6 +60,7 @@ PRAGMA user_version = 1;
 `;
 export class MogsDatabase {
   readonly connection: DatabaseSync;
+  private transactionDepth = 0;
   constructor(readonly file = process.env.MOGS_DATABASE_PATH ?? 'data/app.db') {
     if (file !== ':memory:') mkdirSync(path.dirname(file), { recursive: true });
     this.connection = new DatabaseSync(file);
@@ -71,9 +72,12 @@ export class MogsDatabase {
   }
   close(): void { this.connection.close(); }
   transaction<T>(operation: () => T): T {
+    if (this.transactionDepth) return operation();
     this.connection.exec('BEGIN IMMEDIATE');
+    this.transactionDepth++;
     try { const value = operation(); this.connection.exec('COMMIT'); return value; }
     catch (error) { this.connection.exec('ROLLBACK'); throw error; }
+    finally { this.transactionDepth--; }
   }
   putFacts(input: FactSnapshot): void {
     const facts = FactSnapshotSchema.parse(input), existing = this.getFacts(facts.version);
@@ -142,6 +146,18 @@ export class MogsDatabase {
   }
   remember(namespace: string, key: string, fingerprint: string, response: unknown, createdAt: string): void {
     this.connection.prepare('INSERT INTO idempotency(namespace,key,fingerprint,response,created_at) VALUES(?,?,?,?,?)').run(namespace, key, fingerprint, JSON.stringify(response), createdAt);
+  }
+  liveRun(): Run | null { return this.read("SELECT payload FROM runs WHERE mode='live'", RunSchema); }
+  latestRun(mode: Run['mode']): Run | null { return this.read('SELECT payload FROM runs WHERE mode=? ORDER BY rowid DESC LIMIT 1', RunSchema, mode); }
+  pages(runId: string): Page[] { return this.list('pages', PageSchema, runId); }
+  passages(runId: string): Passage[] { return this.list('passages', PassageSchema, runId); }
+  judgments(runId: string): Judgment[] { return this.list('judgments', JudgmentSchema, runId); }
+  groups(runId: string): Group[] { return this.list('correction_groups', GroupSchema, runId); }
+  patches(runId: string): Patch[] { return this.list('patches', PatchSchema, runId); }
+  publications(runId: string): Publication[] { return this.list('publications', PublicationSchema, runId); }
+  reviewEvents(runId: string): ReviewEvent[] { return this.list('review_events', ReviewEventSchema, runId); }
+  private list<T>(table: string, schema: z.ZodType<T>, runId: string): T[] {
+    return (this.connection.prepare('SELECT payload FROM '+table+' WHERE run_id=? ORDER BY rowid').all(runId) as {payload:string}[]).map(row => schema.parse(JSON.parse(row.payload)));
   }
   private read<T>(sql: string, schema: z.ZodType<T>, ...params: (string | number)[]): T | null { const row = this.connection.prepare(sql).get(...params) as { payload: string } | undefined; return row ? schema.parse(JSON.parse(row.payload)) : null; }
 }

@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { access, open, readFile, rename, unlink, writeFile } from 'node:fs/promises';
+import { access, open, readFile, readdir, rename, unlink, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import { MogsDatabase } from '../lib/db';
 import { FactSnapshotSchema, HashSchema } from '../lib/types';
@@ -13,6 +13,11 @@ async function exists(file: string): Promise<boolean> { try { await access(file)
 function alive(pid: number): boolean { try { process.kill(pid, 0); return true; } catch (error) { if ((error as NodeJS.ErrnoException).code === 'ESRCH') return false; throw error; } }
 async function assertIdle(root: string, databasePath: string): Promise<void> {
   if (await exists(path.join(root, 'data/confirm-journal.json'))) throw new Error('A confirmation journal needs coordinator recovery before reset. Start the server to recover it.');
+  const readers=path.join(root,'data/readers');
+  if(await exists(readers))for(const entry of await readdir(readers)){
+    try{const lease=JSON.parse(await readFile(path.join(readers,entry),'utf8')) as {pid:number};if(alive(lease.pid))throw new Error('A database request is still open; retry reset when the runtime is idle.');}
+    catch(error){if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;}
+  }
   if (!await exists(databasePath)) return;
   const database = new DatabaseSync(databasePath, { readOnly: true });
   try {
@@ -55,6 +60,7 @@ async function main(): Promise<void> {
     for (const file of [databasePath, databasePath + '-wal', databasePath + '-shm']) await unlink(file).catch(error => { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; });
     const database = new MogsDatabase(databasePath);
     try { database.putFacts(facts); } finally { database.close(); }
+    await unlink(path.join(root,'data/processing.json')).catch(error=>{if((error as NodeJS.ErrnoException).code!=='ENOENT')throw error;});
     for (const [file, item] of Object.entries(seed.sources)) if (sha256(await readFile(path.join(root, 'content', file))) !== item.hash) throw new Error('Restored source hash mismatch: ' + file);
     if (sha256(await readFile(path.join(root, 'data/facts.json'))) !== seed.initialFactHash) throw new Error('Restored fact hash mismatch.');
     console.log(JSON.stringify({ reset: 'complete', scope: seed.scope, assets: Object.keys(seed.sources).length, corpusHash: seed.corpusHash, factHash: seed.initialFactHash, evaluationReports: 'preserved' }));

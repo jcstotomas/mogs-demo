@@ -112,14 +112,18 @@ The shared database stores runs, snapshots, judgments, patches, groups, review e
 
 | Route | Contract to freeze |
 |---|---|
+| `GET /api/facts` | Current fact snapshot and current live run ID (or null), for console restoration |
 | `POST /api/facts` | `{ changeId, expectedFactVersion, idempotencyKey }`; coordinates confirmation and starts one run; returns `{ changeId, factVersion, confirmedAt, runId }` |
 | `GET /api/run/:id` | Run status, full scope, counts/errors, group progress, firstSealedGroupMs and allResultsReadyMs |
 | `GET /api/groups?runId=...` | Only that run's groups, revisions, patches, exclusions, and publication/verification status |
 | `PATCH /api/patches/:id` | Discriminated edit or drop action with expectedRevision; rerun checks after edits and update group revision/counts |
 | `POST /api/groups/:id/approve` | `{ runId, expectedRevision, idempotencyKey }`; returns the original or new publication operation and its status; polling exposes completion |
+| `POST /api/groups/:id/open` | `{ runId }`; records the first human opening of that group and returns its original `openedAt`; repeated openings add no event |
 | `GET /api/export?runId=...` | Read-only run evidence with real counts and statuses |
 
 Use a common structured error shape containing code, message, and relevant record/revision. Freeze 400 validation, 404 missing, 409 stale/busy/idempotency-conflict, and provider/runtime failure cases. Same key plus same request returns the original result; same key with different payload conflicts. Repeated confirm must not change the clock, facts, or run; repeated approve must not write twice or add another review action. A second approval of an already published group returns its existing publication result. Status polling is read-only.
+
+Gate 1 also exposes `/api/runs/:id`, `/api/runs/:id/groups`, and `/api/runs/:id/export` as aliases with identical response schemas. Checked editing/drop controls remain optional and are not implemented in the miniature console. Frontier prompt revision `gate1-v2` requires a resolved billing period for direct-price classification; unresolved direct-price scope becomes `insufficient_context` with a `scope_conflict` flag. Older fixture and Step 0 evidence retains `step0-v1` provenance.
 
 The coordinator owns run lifecycle and serialized mutations; API handlers delegate to those modules. In-process work records progress durably. On restart, unfinished runs become interrupted failures and unfinished publications enter recovery before new mutations are accepted. Confirm's fact-file/DB transition must also be recoverable, so retry cannot silently apply the price change twice.
 

@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next-gate1/
 .turbo/
 coverage/
 *.tsbuildinfo
@@ -11,5 +12,10 @@ coverage/
 data/**/*.db
 data/**/*.db-*
 data/eval/latest.json
+data/runtime.lock
+data/processing.json
+data/confirm-journal.json
+data/staging/
+data/readers/
 
 .DS_Store

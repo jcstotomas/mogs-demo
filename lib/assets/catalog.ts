@@ -4,7 +4,7 @@ import { FactSnapshotSchema, type Surface } from '../types';
 import { hashRecord } from '../hash';
 import { decodeSource, parseSource, renderSource, type SourceAsset } from './source';
 
-export const CONTENT_ROOT = path.join(process.cwd(), 'content');
+export const CONTENT_ROOT = path.resolve(process.env.MOGS_CONTENT_ROOT ?? 'content');
 export interface AssetEntry { file: string; surface: Surface; pathname: string }
 export async function listAssetEntries(): Promise<AssetEntry[]> {
   const entries: AssetEntry[] = [];
@@ -34,7 +34,7 @@ export function renderedBody(asset: SourceAsset): string {
   return match[1];
 }
 export async function renderCanonicalPricing(): Promise<string> {
-  const facts = FactSnapshotSchema.parse(JSON.parse(await readFile(path.join(process.cwd(), 'data/facts.json'), 'utf8')));
+  const facts = FactSnapshotSchema.parse(JSON.parse(await readFile(path.resolve(process.env.MOGS_FACTS_PATH ?? 'data/facts.json'), 'utf8')));
   const money = (cents: number) => '$' + (cents / 100).toLocaleString('en-US', { maximumFractionDigits: 2 });
   const block = (id: string, role: 'heading' | 'body', text: string) => `<!-- source-id: ${id} role: ${role} -->\n${text}\n<!-- /source-id: ${id} -->`;
   const source = '---\ntitle: MOGS canonical pricing\nkind: pricing\naudienceHint: new_customers\nlegacyStarterEligible: false\n---\n\n' + [

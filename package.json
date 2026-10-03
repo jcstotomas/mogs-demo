@@ -14,6 +14,8 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "contracts": "node --import tsx scripts/check-contracts.ts",
     "provider:smoke": "node --import tsx scripts/provider-smoke.ts",
+    "gate1:smoke": "node --import tsx scripts/gate1-smoke.ts",
+    "generate:site": "node --import tsx scripts/generate-site.ts",
     "fixtures": "node --import tsx scripts/create-fixtures.ts",
     "eval": "node --import tsx scripts/eval.ts",
     "reset": "node --import tsx scripts/reset.ts"
