@@ -41,6 +41,10 @@ const baseline = BaselineSchema.parse({
 const confirmedAt = new Date(); // Crawl and processing share the original start time.
 const crawled = await crawlRemoteScope(baseline, { sources, publishedFacts: beforeFacts, localTestOrigin: origin });
 assertCoverageResolution(coverage, crawled.passages.filter(p => p.editable), crawled.pages.filter(p => p.editable));
+// The v2 database pins HTTPS target identities. Local readback stays explicitly
+// recorded in localOrigin; this reserved invalid hostname is never a deployment.
+for (const page of crawled.pages) page.url = new URL(new URL(page.url).pathname, baseline.target.productionOrigin).href;
+for (const passage of crawled.passages) passage.url = new URL(new URL(passage.url).pathname, baseline.target.productionOrigin).href;
 const coordinator = new RemoteCoordinator({ databasePath, legacyPath, actor: 'test', clock: () => confirmedAt });
 const { run } = coordinator.confirm({ contractVersion: 2, launchAttemptId: randomUUID(), idempotencyKey: randomUUID(), expectedFactVersion: 1, baselineHash: hashRecord(baseline) }, {
   baseline, beforeFacts, desiredFacts: confirmedFacts(beforeFacts), config: runtimeProviderConfig(), mode: 'eval', ...crawled,
