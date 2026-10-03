@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { parse, stringify } from 'yaml';
 import { z } from 'zod';
@@ -17,6 +18,9 @@ const DefinitionSchema = z.object({
 
 async function main(): Promise<void> {
   const root = process.cwd(), contentRoot = path.join(root, 'content');
+  const args = process.argv.slice(2);
+  if (args.length > 1 || args.length === 1 && !/^--freeze-at=[a-f0-9]{40}$/.test(args[0])) throw new Error('Use --freeze-at=<full source commit> only after committing the generated corpus.');
+  const sourceCommit = args.length ? args[0].slice('--freeze-at='.length) : null;
   const definitions = DefinitionSchema.parse(parse(await readFile(path.join(contentRoot, 'claims.yaml'), 'utf8')));
   const required = definitions.scope === 'required-22';
   if (new Set(definitions.assets.map(item => item.file)).size !== definitions.assets.length || definitions.assets.some(item => item.surface !== (item.file.startsWith('site/') ? 'web' : 'email'))) throw new Error('Definition source inventory has duplicate or mismatched surfaces.');
@@ -50,9 +54,14 @@ async function main(): Promise<void> {
   await writeFile(path.join(contentRoot, 'manifest.jsonl'), manifestText);
   const initialFactSource = await readFile(path.join(root, 'data/seed/facts.json'), 'utf8');
   const seed = { format: 'mogs-content-seed-v1', scope: definitions.scope, sources, corpusHash: hashRecord(Object.entries(sources).map(([file, item]) => ({ file, hash: item.hash }))), manifestHash: sha256(manifestText), initialFactHash: sha256(initialFactSource) };
-  await writeFile(path.join(contentRoot, 'seed.json'), JSON.stringify(seed, null, 2) + '\n');
+  const seedText = JSON.stringify(seed, null, 2) + '\n';
+  await writeFile(path.join(contentRoot, 'seed.json'), seedText);
   if (required) {
-    const registry = freezeCoverageRegistry({ contractVersion: 'remote0-coverage-v1', id: 'mogs-required-22-v1', evidenceKind: 'fixture', scenarioId: definitions.scenario, sourceCommit: null, corpusHash: seed.corpusHash, labelHash: seed.manifestHash, factHash: hashRecord(facts), targets: Object.fromEntries(DETERMINISTIC_KINDS.map(kind => [kind, targetForKind(kind, facts)!])) as Parameters<typeof freezeCoverageRegistry>[0]['targets'], assets, families: [...families.values()], cases });
+    if (sourceCommit !== null) {
+      const committed = (file: string) => execFileSync('git', ['show', sourceCommit + ':' + file], { cwd: root, encoding: 'utf8', maxBuffer: 5_000_000 });
+      if (committed('content/seed.json') !== seedText || committed('content/manifest.jsonl') !== manifestText || committed('data/seed/facts.json') !== initialFactSource || Object.entries(sources).some(([file, item]) => committed('content/' + file) !== item.source)) throw new Error('Frozen corpus source commit must contain the exact generated seed, labels, facts and source bytes.');
+    }
+    const registry = freezeCoverageRegistry({ contractVersion: 'remote0-coverage-v1', id: 'mogs-required-22-v1', evidenceKind: sourceCommit === null ? 'fixture' : 'frozen_corpus', scenarioId: definitions.scenario, sourceCommit, corpusHash: seed.corpusHash, labelHash: seed.manifestHash, factHash: hashRecord(facts), targets: Object.fromEntries(DETERMINISTIC_KINDS.map(kind => [kind, targetForKind(kind, facts)!])) as Parameters<typeof freezeCoverageRegistry>[0]['targets'], assets, families: [...families.values()], cases });
     const independent = DETERMINISTIC_KINDS.map(kind => ({ kind, heldout: registry.families.filter(family => family.kind === kind && family.representativePassageId !== null).length }));
     if (independent.some(item => item.heldout !== 5)) throw new Error('Required coverage needs exactly five preselected representatives per deterministic kind.');
     await writeFile(path.join(root, 'fixtures/remote/coverage-required-22.json'), JSON.stringify(registry, null, 2) + '\n');

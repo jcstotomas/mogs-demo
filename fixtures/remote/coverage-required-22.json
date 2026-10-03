@@ -1,9 +1,9 @@
 {
   "contractVersion": "remote0-coverage-v1",
   "id": "mogs-required-22-v1",
-  "evidenceKind": "fixture",
+  "evidenceKind": "frozen_corpus",
   "scenarioId": "mogs-starter-2026-10-03",
-  "sourceCommit": null,
+  "sourceCommit": "89f4ba3fe71619bca6a3faa1e0b5a54f15520204",
   "corpusHash": "22072aae8d911d414640982cfa59b86fcbf210c5c9854500157d3c595337d4a2",
   "labelHash": "36651ebe6887c3a7ca1d9dbb8b719ed1fbe878ceb3f2a5a47ec5a6c7c824361b",
   "factHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
@@ -3136,5 +3136,5 @@
       "authoredBy": "agent"
     }
   ],
-  "registryHash": "522efdcfb1ee47d940965af56c1e8909978ad662ef0098bd446190b130e14b4f"
+  "registryHash": "b9779851332270274eac2e7e5c6684a150157fcaa7d74c13bd4885247b2c195d"
 }
