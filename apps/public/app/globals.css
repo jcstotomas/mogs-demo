@@ -140,6 +140,18 @@ footer { max-width: 1184px; margin: auto; padding: 24px 0 32px; border-top: 1px 
 .public-page--web [data-source-id="starter-price"] { background: var(--color-action); color: white; border-color: var(--color-action); }
 .public-page--web .source-body main > p:nth-of-type(n+5), .public-page--web .source-body ul { padding: 20px 0 4px; border-top: 1px solid var(--color-line); }
 .public-page--web .source-body ul { padding-left: 24px; }
+.public-page--article .source-body main { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+.public-page--article .source-body main > [data-role="heading"]:first-child { margin-bottom: 8px; color: var(--color-muted); font-weight: 550; line-height: 1.6; }
+.public-page--article .source-body main > [data-role="body"] { grid-column: auto; min-width: 0; padding: 32px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-surface); font-size: 23px; line-height: 1.5; letter-spacing: -.025em; }
+.public-page--article .source-body main > [data-role="body"]:first-of-type { background: var(--color-action); color: #fff; border-color: var(--color-action); }
+.public-page--article .source-body main > [data-role="body"]:has(+ [data-role="heading"]) { grid-column: 1 / -1; }
+.public-page--article .source-body main > [data-role="heading"]:not(:first-child) { margin: 16px 0 0; padding: 24px 32px 12px; border: 1px solid var(--color-line); border-bottom: 0; border-radius: 12px 12px 0 0; background: var(--color-surface); font-size: 16px; line-height: 1.5; letter-spacing: 0; color: var(--color-muted); }
+.public-page--article .source-body main > [data-role="heading"]:not(:first-child) ~ [data-role="body"] { grid-column: 1 / -1; margin-top: -16px; padding: 0 32px 24px; border: 1px solid var(--color-line); border-top: 0; border-bottom: 0; border-radius: 0; background: var(--color-surface); color: var(--color-ink); }
+.public-page--article .source-body main > [data-role="heading"]:not(:first-child) ~ [data-role="body"]:where(:last-child, :has(+ [data-role="heading"])) { border-bottom: 1px solid var(--color-line); border-radius: 0 0 12px 12px; }
+.public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) { max-width: 864px; grid-template-columns: minmax(0, 1fr); gap: 0; padding: 32px; border: 1px solid var(--color-line); border-radius: 16px; background: var(--color-surface); }
+.public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) > [data-role="heading"] { margin: 0; padding: 0 0 20px; border: 0; border-radius: 0; background: transparent; color: var(--color-muted); }
+.public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) > [data-role="heading"]:not(:first-child) { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--color-line); color: var(--color-ink); font-size: 20px; font-weight: 600; letter-spacing: -.025em; }
+.public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) > [data-role="body"] { grid-column: 1; margin: 0; padding: 16px 0; border: 0; border-radius: 0; background: transparent; color: var(--color-ink); font-size: 18px; line-height: 1.7; letter-spacing: 0; }
 .public-page--email .content-shell { max-width: 864px; }
 .public-page--email .asset-hero { padding: 24px 0 40px; }
 .public-page--email .asset-intro h1 { font-size: clamp(32px, 4.4vw, 48px); }
@@ -228,6 +240,12 @@ footer { max-width: 1184px; margin: auto; padding: 24px 0 32px; border-top: 1px 
   .public-page--pricing [data-source-id="fact-version"] { grid-row: 7; }
   .public-page--web .source-body main { grid-template-columns: 1fr; }
   .public-page--web [data-source-id="starter-price"], .public-page--web [data-source-id="annual-savings"], .public-page--web [data-source-id="per-day"], .public-page--web [data-source-id="plan-gap"] { padding: 24px; font-size: 22px; }
+  .public-page--article .source-body main { grid-template-columns: minmax(0, 1fr); }
+  .public-page--article .source-body main > [data-role="body"] { padding: 24px; font-size: 22px; }
+  .public-page--article .source-body main > [data-role="heading"]:not(:first-child) { padding: 24px 24px 12px; }
+  .public-page--article .source-body main > [data-role="heading"]:not(:first-child) ~ [data-role="body"] { padding: 0 24px 24px; }
+  .public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) { padding: 24px; }
+  .public-page--article .source-body main:has(> [data-role="body"]:nth-of-type(5)) > [data-role="body"] { padding: 16px 0; }
   .public-page--email .source-body { padding: 28px 24px; }
   .public-page--email .asset-intro h1 { font-size: 36px; }
 }
