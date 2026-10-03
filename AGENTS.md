@@ -6,10 +6,10 @@ For frontend layout, styling, copy, or interaction changes, read [docs/FRONTEND_
 
 ## Start and handoff
 
-1. Preserve the v1 Step 0 and local Gate 1 evidence. The coordinator bootstraps the public target and completes Remote 0's migration, attempt identity, recovery and enforced merge checks before dependent v2 lanes start. Require the committed executable baseline and passing evidence in the build plan; a planning revision or partial commit with a blocker is not a dispatch baseline.
-2. Claim only paths assigned in the build plan. Use a separate worktree when available; in a shared checkout, edit only owned paths and preserve existing changes. A/B/C use the three worker slots; D follows A's required corpus handoff.
+1. Preserve the v1 Step 0 and local Gate 1 evidence. Use the build plan's split gates: committed, passing Remote 0A local types/database/API fixtures unlock A/B/C while the coordinator completes Remote 0B. Require recorded executable baseline evidence; a planning edit alone does not pass a gate. Real correction/restoration submission and publication wait for Remote 0B's enforced merge checks.
+2. Claim only paths assigned in the build plan. Use a separate worktree when available; in a shared checkout, edit only owned paths and preserve existing changes. The three builders are C console/review, B classification/corrections, and A corpus/evaluation preparation; A includes the former D work. Finish the miniature real PR/preview/human-merge/public-verification slice before expanding the active corpus to 22 assets.
 3. Send shared contract changes and cross-lane impact to the coordinator; wait for the coordinated types/fixtures/callers update before implementing against it. The coordinator owns desired/deployed facts, Git submission, deployment observation and recovery.
-4. At each gate, report changed files, checks run and results, sample output/run IDs, and unmet acceptance criteria. The coordinator integrates and evaluates the complete path.
+4. Use focused checks during edits, then the build plan's integrated test/build/UI/browser gate and one bounded implementation review per milestone. Resolve concrete findings and rerun affected checks; retain every applicable acceptance check. Freeze optional controls, polish and generalization through the miniature. At handoff report changed files, checks/results, sample output/run IDs and unmet criteria; the coordinator integrates the complete path.
 
 ## Demo truth and publication
 

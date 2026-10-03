@@ -1,5 +1,7 @@
 # Remote 0 corpus and evaluation coverage proposal
 
+**Current dispatch note:** The [revised build plan](../../BUILD_PLAN.md) supersedes the historical A/D ownership and combined Remote 0 dispatch restrictions below. One builder A now owns corpus and evaluation: isolated miniature/coverage/evaluation preparation starts after Remote 0A; active 22-asset content, sitemap and seed expansion waits for Remote 1. Shared coverage contracts remain coordinator-owned. The original proposal, fixture counts and failed/unpassed evidence below are preserved; they do not claim implementation of the expanded corpus.
+
 Status: design only. This document does not expand the corpus, freeze executable v2 contracts, or pass a remote gate. A may implement the inventory only after Remote 0's executable baseline and the Remote 1 miniature PR/preview/merge/public-verification path pass. The coordinator assigned this document as the only writable path for this support task.
 
 ## Existing evidence and seed boundary

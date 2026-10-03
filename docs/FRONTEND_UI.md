@@ -33,6 +33,8 @@ Use a small press scale (0.97), never an entrance from zero scale. Anchored over
 
 ## Required verification
 
+Apply this checklist at the integrated milestone gate defined in [BUILD_PLAN.md](../BUILD_PLAN.md); run focused checks during intermediate edits. Every affected visual state still needs browser evidence. Repeat affected checks after fixes or changes that invalidate the evidence; unchanged documentation-only edits need no new screenshots.
+
 1. Run `npm run ui:check`, `npm run typecheck`, and the relevant tests. `npm test` and `npm run build` also run the static UI check automatically. A newly added lint rule needs a failing example and a passing counterexample.
 2. Inspect the affected screen at 1440px and 375px widths; spot-check 320px and text zoom when text/layout changes. Check long content and actual populated groups, not only the empty screen. Save before/after screenshots for visual changes.
 3. Tab through the changed controls, verify the skip link and visible focus, and activate keyboard controls without motion. Check pointer hover/press, disabled controls, and reduced motion. Confirm page overflow is absent and targets remain usable on touch.
