@@ -1,0 +1,742 @@
+{
+  "pages": [
+    {
+      "page": "pricing",
+      "view": "desktop",
+      "h1": 1,
+      "main": 1,
+      "overflow": false,
+      "smallTargets": [],
+      "width": 1440
+    },
+    {
+      "page": "launch",
+      "view": "desktop",
+      "h1": 1,
+      "main": 1,
+      "overflow": false,
+      "smallTargets": [],
+      "width": 1440
+    },
+    {
+      "page": "onboarding",
+      "view": "desktop",
+      "h1": 1,
+      "main": 1,
+      "overflow": false,
+      "smallTargets": [],
+      "width": 1440
+    },
+    {
+      "page": "eligible",
+      "view": "desktop",
+      "h1": 1,
+      "main": 1,
+      "overflow": false,
+      "smallTargets": [],
+      "width": 1440
+    },
+    {
+      "page": "home",
+      "view": "mobile",
+      "overflow": false,
+      "smallTargets": [],
+      "undersizedText": [],
+      "width": 375
+    },
+    {
+      "page": "pricing",
+      "view": "mobile",
+      "overflow": false,
+      "smallTargets": [],
+      "undersizedText": [],
+      "width": 375
+    },
+    {
+      "page": "launch",
+      "view": "mobile",
+      "overflow": false,
+      "smallTargets": [],
+      "undersizedText": [],
+      "width": 375
+    },
+    {
+      "page": "onboarding",
+      "view": "mobile",
+      "overflow": false,
+      "smallTargets": [],
+      "undersizedText": [],
+      "width": 375
+    },
+    {
+      "page": "eligible",
+      "view": "mobile",
+      "overflow": false,
+      "smallTargets": [],
+      "undersizedText": [],
+      "width": 375
+    },
+    {
+      "page": "home",
+      "view": "narrow",
+      "overflow": false,
+      "width": 320
+    },
+    {
+      "page": "pricing",
+      "view": "narrow",
+      "overflow": false,
+      "width": 320
+    },
+    {
+      "page": "launch",
+      "view": "narrow",
+      "overflow": false,
+      "width": 320
+    },
+    {
+      "page": "onboarding",
+      "view": "narrow",
+      "overflow": false,
+      "width": 320
+    },
+    {
+      "page": "eligible",
+      "view": "narrow",
+      "overflow": false,
+      "width": 320
+    }
+  ],
+  "contrast": [
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "16px",
+      "text": "Skip to content",
+      "weight": "400",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "22px",
+      "text": "MOGS",
+      "weight": "780",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "Pricing",
+      "weight": "550",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "Launch guide",
+      "weight": "550",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "Onboarding email",
+      "weight": "550",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "Legacy email",
+      "weight": "550",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(83, 100, 79)",
+      "size": "12px",
+      "text": "Good work starts with a little space.",
+      "weight": "550",
+      "ratio": 5.952332165676136,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "80px",
+      "text": "The week ahead,beautifully in sync.",
+      "weight": "600",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(107, 124, 96)",
+      "size": "80px",
+      "text": "beautifully in sync.",
+      "weight": "600",
+      "ratio": 4.204281009553495,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "17px",
+      "text": "A calmer place for your team’s schedules. Bring th",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(255, 255, 255)",
+      "size": "14px",
+      "text": "Explore MOGS",
+      "weight": "600",
+      "ratio": 9.452276584755536,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "View pricing",
+      "weight": "600",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Fictional company. A working launch-correction dem",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "12px",
+      "text": "My schedule",
+      "weight": "400",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(240, 243, 233)",
+      "color": "rgb(89, 103, 80)",
+      "size": "12px",
+      "text": "Sample workspace",
+      "weight": "400",
+      "ratio": 5.373027335372633,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "A fresh week, a clear view.",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "24px",
+      "text": "October 5 – 9",
+      "weight": "550",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "October 2026",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Mon",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(255, 255, 255)",
+      "size": "14px",
+      "text": "05",
+      "weight": "550",
+      "ratio": 9.452276584755536,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "9:00 – 9:30",
+      "weight": "400",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "Weekly sync",
+      "weight": "650",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "Product team",
+      "weight": "400",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(244, 239, 217)",
+      "color": "rgb(102, 83, 42)",
+      "size": "12px",
+      "text": "11:00 – 12:30",
+      "weight": "400",
+      "ratio": 6.41648310470549,
+      "pass": true
+    },
+    {
+      "background": "rgb(244, 239, 217)",
+      "color": "rgb(102, 83, 42)",
+      "size": "12px",
+      "text": "Focus time",
+      "weight": "650",
+      "ratio": 6.41648310470549,
+      "pass": true
+    },
+    {
+      "background": "rgb(244, 239, 217)",
+      "color": "rgb(102, 83, 42)",
+      "size": "12px",
+      "text": "Just you",
+      "weight": "400",
+      "ratio": 6.41648310470549,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Tue",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "06",
+      "weight": "550",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "10:00 – 11:00",
+      "weight": "400",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "Design review",
+      "weight": "650",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "Alex + Jamie",
+      "weight": "400",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Wed",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "07",
+      "weight": "550",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 232, 220)",
+      "color": "rgb(121, 81, 54)",
+      "size": "12px",
+      "text": "9:30 – 10:00",
+      "weight": "400",
+      "ratio": 5.760635652490875,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 232, 220)",
+      "color": "rgb(121, 81, 54)",
+      "size": "12px",
+      "text": "Coffee & catch-up",
+      "weight": "650",
+      "ratio": 5.760635652490875,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 232, 220)",
+      "color": "rgb(121, 81, 54)",
+      "size": "12px",
+      "text": "You + Sam",
+      "weight": "400",
+      "ratio": 5.760635652490875,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "2:00 – 3:00",
+      "weight": "400",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "Planning ahead",
+      "weight": "650",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(229, 237, 219)",
+      "color": "rgb(58, 81, 48)",
+      "size": "12px",
+      "text": "Product team",
+      "weight": "400",
+      "ratio": 7.2797395369318085,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Thu",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "08",
+      "weight": "550",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(250, 251, 248)",
+      "color": "rgb(100, 113, 95)",
+      "size": "12px",
+      "text": "Your open afternoon",
+      "weight": "400",
+      "ratio": 4.968870716029961,
+      "pass": true
+    },
+    {
+      "background": "rgb(250, 251, 248)",
+      "color": "rgb(100, 113, 95)",
+      "size": "12px",
+      "text": "A little breathing room",
+      "weight": "500",
+      "ratio": 4.968870716029961,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Fri",
+      "weight": "400",
+      "ratio": 5.236952662032835,
+      "pass": true
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "09",
+      "weight": "550",
+      "ratio": 11.947248573876522,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "11:00 – 12:00",
+      "weight": "400",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "Show & tell",
+      "weight": "650",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(237, 232, 245)",
+      "color": "rgb(91, 72, 118)",
+      "size": "12px",
+      "text": "Everyone",
+      "weight": "400",
+      "ratio": 6.63105533308844,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "A little less coordination.",
+      "weight": "550",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "36px",
+      "text": "A little moreroom to do good work.",
+      "weight": "550",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "01",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "15px",
+      "text": "See the week together",
+      "weight": "600",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "14px",
+      "text": "A shared perspective on the people, plans, and tim",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "02",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "15px",
+      "text": "Find your rhythm",
+      "weight": "600",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "14px",
+      "text": "Make space for working together, catching up, and ",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "03",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "15px",
+      "text": "Keep everyone in the loop",
+      "weight": "600",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "14px",
+      "text": "Explore the launch guide and the messages that hel",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(245, 248, 237)",
+      "size": "16px",
+      "text": "Meet your next planA good fit foryour kind of team",
+      "weight": "400",
+      "ratio": 8.79167096072999,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(245, 248, 237)",
+      "size": "12px",
+      "text": "Meet your next plan",
+      "weight": "400",
+      "ratio": 8.79167096072999,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(245, 248, 237)",
+      "size": "36px",
+      "text": "A good fit foryour kind of team.",
+      "weight": "550",
+      "ratio": 8.79167096072999,
+      "pass": true
+    },
+    {
+      "background": "rgb(37, 78, 54)",
+      "color": "rgb(245, 248, 237)",
+      "size": "14px",
+      "text": "Explore pricing",
+      "weight": "550",
+      "ratio": 8.79167096072999,
+      "pass": true
+    },
+    {
+      "background": "rgb(233, 237, 226)",
+      "color": "rgb(36, 60, 44)",
+      "size": "16px",
+      "text": "From our inbox to yoursA thoughtfulfirst hello.Pre",
+      "weight": "400",
+      "ratio": 10.056510986479992,
+      "pass": true
+    },
+    {
+      "background": "rgb(233, 237, 226)",
+      "color": "rgb(36, 60, 44)",
+      "size": "12px",
+      "text": "From our inbox to yours",
+      "weight": "400",
+      "ratio": 10.056510986479992,
+      "pass": true
+    },
+    {
+      "background": "rgb(233, 237, 226)",
+      "color": "rgb(36, 60, 44)",
+      "size": "36px",
+      "text": "A thoughtfulfirst hello.",
+      "weight": "550",
+      "ratio": 10.056510986479992,
+      "pass": true
+    },
+    {
+      "background": "rgb(233, 237, 226)",
+      "color": "rgb(36, 60, 44)",
+      "size": "14px",
+      "text": "Preview the welcome email",
+      "weight": "550",
+      "ratio": 10.056510986479992,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(36, 60, 44)",
+      "size": "22px",
+      "text": "MOGS",
+      "weight": "780",
+      "ratio": 11.187149265625871,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "12px",
+      "text": "Fictional team scheduling company.Built for the la",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    },
+    {
+      "background": "rgb(247, 248, 242)",
+      "color": "rgb(97, 112, 100)",
+      "size": "14px",
+      "text": "Meet MOGS",
+      "weight": "400",
+      "ratio": 4.903771003415937,
+      "pass": true
+    }
+  ]
+}
