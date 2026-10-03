@@ -6,7 +6,7 @@ import { runtimeProviderConfig } from '../providers';
 import { FactSnapshotSchema } from '../types';
 import { RemoteDatabase, RemoteStateError } from './remote-db';
 import { RemoteCoordinator } from './remote-service';
-import { BaselineSchema, ConfirmRequestSchema, RestoreRequestSchema, SubmitRequestSchema, TargetRepositorySchema } from './remote-types';
+import { AbandonRequestSchema, ApproveRequestSchema, BaselineSchema, ConfirmRequestSchema, ReconcileRequestSchema, RestoreRequestSchema, SubmitRequestSchema, TargetRepositorySchema } from './remote-types';
 import { RemoteBaselineViewSchema, RemoteCandidateViewSchema } from './remote-api';
 import { GitHubRemote } from '../submission/github';
 import { assembleCandidate, assertSameBaseline, type CandidateBundle } from '../submission/candidate';
@@ -20,13 +20,20 @@ import { observeBaseline } from '../deployment/provenance';
 import { verifyDeployment, finalizeVerifiedAttempt } from '../deployment/verify';
 import { crawlRemoteScope } from '../crawl/remote';
 import { completeRestorationRun } from './remote-restoration';
+import { assertRemoteRuntimeState, remoteRuntimeProfile } from './remote-runtime-profile';
 
-const databaseOptions = () => ({ databasePath: process.env.MOGS_REMOTE_DATABASE_PATH ?? 'data/remote/app.db' });
-function target() { return TargetRepositorySchema.parse({ repository: process.env.MOGS_GITHUB_REPOSITORY ?? 'jcstotomas/mogs-demo', baseRef: process.env.MOGS_GITHUB_BASE_REF ?? 'main', productionOrigin: process.env.MOGS_PRODUCTION_ORIGIN, vercelProjectId: process.env.MOGS_VERCEL_PROJECT_ID, vercelTeamId: process.env.MOGS_VERCEL_TEAM_ID, statusProducerAppId: Number(process.env.MOGS_STATUS_PRODUCER_APP_ID) }); }
+const databaseOptions = () => { profile(); return { databasePath: process.env.MOGS_REMOTE_DATABASE_PATH ?? 'data/remote/app.db' }; };
+function target() {
+  const configured = TargetRepositorySchema.parse({ repository: process.env.MOGS_GITHUB_REPOSITORY ?? 'jcstotomas/mogs-demo', baseRef: process.env.MOGS_GITHUB_BASE_REF ?? 'main', productionOrigin: process.env.MOGS_PRODUCTION_ORIGIN, vercelProjectId: process.env.MOGS_VERCEL_PROJECT_ID, vercelTeamId: process.env.MOGS_VERCEL_TEAM_ID, statusProducerAppId: Number(process.env.MOGS_STATUS_PRODUCER_APP_ID) });
+  remoteRuntimeProfile(configured);
+  return configured;
+}
+const profile = () => remoteRuntimeProfile(target());
+const assertState = (state: Parameters<typeof assertRemoteRuntimeState>[0]) => assertRemoteRuntimeState(state, target());
 function database<T>(operation: (db: RemoteDatabase) => T): T { const db = new RemoteDatabase(databaseOptions().databasePath); try { return operation(db); } finally { db.close(); } }
 function github(db?: RemoteDatabase): GitHubRemote {
-  return new GitHubRemote({ target: target(), stateStore: db ? () => db : undefined, readLocal: runId => {
-    const read = (store: RemoteDatabase) => { const submission = store.getSubmission(runId), attempt = submission && store.getAttempt(submission.launchAttemptId); return submission && attempt ? { submission, attempt } : null; };
+  return new GitHubRemote({ target: target(), testOnlyAllowFixtureEvidence: profile().testOnlyAllowFixtureEvidence, stateStore: db ? () => db : undefined, readLocal: runId => {
+    const read = (store: RemoteDatabase) => { const submission = store.getSubmission(runId), attempt = submission && store.getAttempt(submission.launchAttemptId); if (submission && attempt) assertState(store.export(runId)); return submission && attempt ? { submission, attempt } : null; };
     return db ? read(db) : database(read);
   }, observeProduction: async (submission, deploymentId) => {
     const pr = await github(db).readPullRequest(submission); if (!pr.mergedSha) throw new RemoteStateError('unknown_remote_state', 'The PR has no observed merge commit.');
@@ -58,7 +65,7 @@ export async function remoteBaseline() {
   const { baseline, snapshot } = await currentBaseline();
   let readiness = { available: false, message: 'GitHub enforcement probes have not passed for this target.' };
   try { await enforcement(); readiness = { available: true, message: 'Required checks, trusted App and strict base probes passed; GitHub merge remains a human decision.' }; } catch {}
-  const activeRunId = database(db => db.activeAttempt(baseline.target)?.runId ?? null);
+  const activeRunId = database(db => { const active = db.activeAttempt(baseline.target); if (active) assertState(db.export(active.runId)); return active?.runId ?? null; });
   const view = RemoteBaselineViewSchema.parse({ contractVersion: 2, baseline, baselineHash: hashRecord(baseline), beforeFacts: snapshot.publishedFacts, desiredFacts: confirmedFacts(snapshot.publishedFacts), activeRunId, enforcement: readiness });
   await mkdir(path.dirname(baselineFile(view.baselineHash)), { recursive: true });
   try { await writeFile(baselineFile(view.baselineHash), JSON.stringify(view, null, 2) + '\n', { flag: 'wx' }); }
@@ -82,17 +89,22 @@ async function capture(attemptId: string, sources: Record<string, string>) {
 }
 export function remoteRunContentRoot(runId: string) { return captureRoot(getRemoteRun(runId).attempt.id); }
 export async function confirmRemote(input: unknown) {
+  const runtime = profile();
   const confirmedAt = new Date();
   const request = ConfirmRequestSchema.parse(input);
-  const replay = database(db => db.replay('v2:correction:confirm', request.idempotencyKey, hashRecord(request))) as ReturnType<RemoteCoordinator['confirm']> | null;
+  const replay = database(db => {
+    const saved = db.replay('v2:correction:confirm', request.idempotencyKey, hashRecord(request)) as ReturnType<RemoteCoordinator['confirm']> | null;
+    if (saved) { assertState(saved); assertState(db.export(saved.run.id)); }
+    return saved;
+  });
   if (replay) return replay;
   const { baseline, snapshot } = await pinnedBaseline(request.baselineHash);
   const crawled = await crawlRemoteScope(baseline, { sources: snapshot.sources, publishedFacts: snapshot.publishedFacts });
   await capture(request.launchAttemptId, snapshot.sources);
-  return new RemoteCoordinator({ ...databaseOptions(), clock: () => confirmedAt }).confirm(request, { baseline, beforeFacts: snapshot.publishedFacts, desiredFacts: confirmedFacts(snapshot.publishedFacts), config: runtimeProviderConfig(), ...crawled, mode: 'live' });
+  return new RemoteCoordinator({ ...databaseOptions(), clock: () => confirmedAt, actor: runtime.actor }).confirm(request, { baseline, beforeFacts: snapshot.publishedFacts, desiredFacts: confirmedFacts(snapshot.publishedFacts), config: runtimeProviderConfig(), ...crawled, mode: runtime.mode });
 }
-export function getRemoteRun(runId: string) { return new RemoteCoordinator(databaseOptions()).export(runId); }
-export function approveRemote(groupId: string, request: unknown) { return new RemoteCoordinator(databaseOptions()).approve(groupId, request as Parameters<RemoteCoordinator['approve']>[1]); }
+export function getRemoteRun(runId: string) { const state = new RemoteCoordinator({ ...databaseOptions(), actor: profile().actor }).export(runId); assertState(state); return state; }
+export function approveRemote(groupId: string, input: unknown) { const request = ApproveRequestSchema.parse(input); getRemoteRun(request.runId); return new RemoteCoordinator({ ...databaseOptions(), actor: profile().actor }).approve(groupId, request); }
 async function candidateBundle(runId: string): Promise<CandidateBundle> {
   const state = getRemoteRun(runId), fresh = await currentBaseline();
   if (state.attempt.purpose === 'restoration') {
@@ -103,11 +115,13 @@ async function candidateBundle(runId: string): Promise<CandidateBundle> {
 }
 export async function prepareRemoteCandidate(runId: string) { const bundle = await candidateBundle(runId); return RemoteCandidateViewSchema.parse({ candidate: bundle.candidate, checks: bundle.checks }); }
 export async function submitRemote(request: unknown) {
-  const body = SubmitRequestSchema.parse(request); await enforcement();
+  const runtime = profile();
+  const body = SubmitRequestSchema.parse(request); getRemoteRun(body.runId); await enforcement();
   const existing = database(db => db.getSubmission(body.runId)), bundle = existing ? undefined : await candidateBundle(body.runId);
   const db = new RemoteDatabase(databaseOptions().databasePath);
   try {
-    const remote = github(db), submission = await new RemoteSubmission(db, remote).submit(request, bundle);
+    assertState(db.export(body.runId));
+    const remote = github(db), submission = await new RemoteSubmission(db, remote, undefined, runtime.actor).submit(request, bundle);
     if (submission.status === 'submitted' && submission.candidate.candidateSha) {
       const pr = await remote.readPullRequest(submission);
       if (pr.state === 'open' && !pr.mergedSha) {
@@ -133,6 +147,7 @@ export async function observeRemoteRun(runId: string) {
   const result = await checkDeployment(runId, environment, pr.mergedSha);
   database(db => db.transaction(() => {
     const current = db.export(runId);
+    assertState(current);
     if (hashRecord(current.submission) !== hashRecord(state.submission) || hashRecord(current.attempt) !== hashRecord(state.attempt)) throw new RemoteStateError('stale', 'Attempt changed during deployment verification.');
     db.putObservation(result.observation);
     if (environment === 'production') {
@@ -150,21 +165,27 @@ export async function observeRemoteRun(runId: string) {
   }
   return getRemoteRun(runId);
 }
-export async function abandonRemote(request: unknown) { const db = new RemoteDatabase(databaseOptions().databasePath); try { return { recovery: await new RemoteRecovery(db, github(db)).abandon(request) }; } finally { db.close(); } }
-export async function reconcileRemote(request: unknown) { const db = new RemoteDatabase(databaseOptions().databasePath); try { return { recovery: await new RemoteRecovery(db, github(db)).reconcile(request) }; } finally { db.close(); } }
+export async function abandonRemote(input: unknown) { const runtime = profile(), request = AbandonRequestSchema.parse(input); getRemoteRun(request.runId); const db = new RemoteDatabase(databaseOptions().databasePath); try { assertState(db.export(request.runId)); return { recovery: await new RemoteRecovery(db, github(db), undefined, runtime.actor).abandon(request) }; } finally { db.close(); } }
+export async function reconcileRemote(input: unknown) { const runtime = profile(), request = ReconcileRequestSchema.parse(input); getRemoteRun(request.runId); const db = new RemoteDatabase(databaseOptions().databasePath); try { assertState(db.export(request.runId)); return { recovery: await new RemoteRecovery(db, github(db), undefined, runtime.actor).reconcile(request) }; } finally { db.close(); } }
 export async function restoreRemote(input: unknown) {
+  const runtime = profile();
   const confirmedAt = new Date();
-  await enforcement(); const request = RestoreRequestSchema.parse(input);
-  const replay = database(db => db.replay('v2:restoration:confirm', request.idempotencyKey, hashRecord(request))) as ReturnType<RemoteCoordinator['startRestoration']> | null;
+  const request = RestoreRequestSchema.parse(input);
+  const replay = database(db => {
+    const saved = db.replay('v2:restoration:confirm', request.idempotencyKey, hashRecord(request)) as ReturnType<RemoteCoordinator['startRestoration']> | null;
+    if (saved) { assertState(saved); assertState(db.export(saved.run.id)); }
+    return saved;
+  });
+  await enforcement();
   if (replay) {
-    database(db => { if (!['ready', 'failed'].includes(db.getRun(replay.run.id)!.status)) db.transaction(() => completeRestorationRun(db, replay.run.id)); });
+    database(db => { const saved = db.export(replay.run.id); assertState(saved); if (!['ready', 'failed'].includes(saved.run.status)) db.transaction(() => completeRestorationRun(db, replay.run.id)); });
     return replay;
   }
   const { baseline, snapshot } = await pinnedBaseline(request.baselineHash), seed = await github().readSeed(request.seedRevision);
   const desired = FactSnapshotSchema.parse(JSON.parse(seed.seedFactsText)); if (hashRecord(desired) !== hashRecord(initialFacts())) throw new RemoteStateError('validation', 'Pinned seed facts are not the frozen initial scenario.');
   const crawled = await crawlRemoteScope(baseline, { sources: snapshot.sources, publishedFacts: snapshot.publishedFacts });
   await capture(request.launchAttemptId, snapshot.sources);
-  const started = new RemoteCoordinator({ ...databaseOptions(), clock: () => confirmedAt }).startRestoration(request, { baseline, beforeFacts: snapshot.publishedFacts, desiredFacts: desired, config: runtimeProviderConfig(), ...crawled, mode: 'live' });
+  const started = new RemoteCoordinator({ ...databaseOptions(), clock: () => confirmedAt, actor: runtime.actor }).startRestoration(request, { baseline, beforeFacts: snapshot.publishedFacts, desiredFacts: desired, config: runtimeProviderConfig(), ...crawled, mode: runtime.mode });
   assembleRestoration(started.attempt, baseline, snapshot.sources, JSON.parse(seed.seedManifestText), seed.seedFactsText, started.attempt.confirmedAt);
   database(db => db.transaction(() => completeRestorationRun(db, started.run.id)));
   return started;

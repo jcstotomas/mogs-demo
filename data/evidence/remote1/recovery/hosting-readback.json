@@ -1,0 +1,399 @@
+{
+  "format": "mogs-recovery-hosting-readback-v1",
+  "evidenceKind": "actual-isolated-recovery-target",
+  "verified": true,
+  "observedAt": "2026-10-03T22:14:31.419Z",
+  "expected": {
+    "target": {
+      "repository": "jcstotomas/mogs-demo",
+      "baseRef": "codex/recovery-base",
+      "productionOrigin": "https://mogs-recovery.vercel.app",
+      "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+      "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+      "statusProducerAppId": 5179329
+    },
+    "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b",
+    "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS"
+  },
+  "host": {
+    "production": {
+      "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+      "url": "https://mogs-recovery.vercel.app",
+      "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+      "readiness": "ready"
+    },
+    "byId": {
+      "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+      "url": "https://mogs-recovery-axrkbjl2b-jcstotomas-projects.vercel.app",
+      "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+      "readiness": "ready"
+    }
+  },
+  "baseline": {
+    "target": {
+      "repository": "jcstotomas/mogs-demo",
+      "baseRef": "codex/recovery-base",
+      "productionOrigin": "https://mogs-recovery.vercel.app",
+      "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+      "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+      "statusProducerAppId": 5179329
+    },
+    "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+    "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+    "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+    "deploymentUrl": "https://mogs-recovery.vercel.app",
+    "observedAt": "2026-10-03T22:14:30.352Z",
+    "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+    "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+    "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+    "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+    "assets": [
+      {
+        "assetId": "email:email/eligible.md",
+        "path": "content/email/eligible.md",
+        "pathname": "/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+        "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "path": "content/email/onboarding.md",
+        "pathname": "/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+        "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/launch.md",
+        "path": "content/site/launch.md",
+        "pathname": "/site/launch",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+        "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "sourceIds": [
+          "launch-title",
+          "starter-price",
+          "annual-savings",
+          "per-day",
+          "plan-gap",
+          "threshold",
+          "historical",
+          "annual-price",
+          "current-price",
+          "most-affordable",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/pricing.md",
+        "path": null,
+        "pathname": "/site/pricing",
+        "surface": "web",
+        "editable": false,
+        "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+        "sourceIds": [
+          "pricing-title",
+          "starter-monthly",
+          "starter-annual",
+          "legacy-rule",
+          "team-monthly",
+          "business-monthly",
+          "fact-version"
+        ]
+      }
+    ]
+  },
+  "publishedFacts": {
+    "scenarioId": "mogs-starter-2026-10-03",
+    "version": 2,
+    "company": "MOGS",
+    "phase": "confirmed",
+    "effectiveDate": "2026-10-03",
+    "plans": {
+      "starter": {
+        "monthlyCents": 4000,
+        "annualCents": 28800
+      },
+      "team": {
+        "monthlyCents": 8000,
+        "annualCents": 76800
+      },
+      "business": {
+        "monthlyCents": 20000,
+        "annualCents": 192000
+      }
+    },
+    "change": {
+      "id": "starter-monthly-30-to-40",
+      "plan": "starter",
+      "fromCents": 3000,
+      "toCents": 4000,
+      "billing": "monthly",
+      "appliesTo": "non_legacy_eligible",
+      "legacyRateCents": 3000,
+      "legacyCutoff": "2026-10-03T07:00:00.000Z"
+    },
+    "exceptions": [
+      "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+      "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+      "Annual prices and genuinely historical statements are unchanged."
+    ],
+    "derived": {
+      "annual_savings_percent": {
+        "unit": "percent",
+        "before": 20,
+        "after": 40
+      },
+      "per_day_usd": {
+        "unit": "usd_per_day",
+        "before": 1,
+        "after": 1.33
+      },
+      "lowest_monthly_usd": {
+        "unit": "usd",
+        "before": 30,
+        "after": 40
+      },
+      "lowest_annual_effective_monthly_usd": {
+        "unit": "usd",
+        "before": 24,
+        "after": 24
+      },
+      "team_starter_gap_usd": {
+        "unit": "usd",
+        "before": 50,
+        "after": 40
+      }
+    }
+  },
+  "sourceFileHashes": {
+    "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+    "email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+    "site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810"
+  },
+  "rendered": [
+    {
+      "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "htmlHash": "d58bc84f36fef5bc4eca0f27fdd02aa93fd74b6c8d492ca620f36117c12cd01b",
+      "assetId": "email:email/eligible.md",
+      "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+      "passageCount": 10,
+      "passagesHash": "4bbb1c2b0ba4a8c12460c40837de0ad5718141b6e2f333f544fdf1088a8a13cb",
+      "deploymentMetadata": {
+        "format": "mogs-deployment-meta-v1",
+        "artifactHash": "b6327ff67702f8bcc14bdea5a2700431b29acd767b1151bff5c19ac1b7eea7b4",
+        "contractVersion": 2,
+        "repository": "jcstotomas/mogs-demo",
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+        "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+        "sourceHashes": {
+          "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+          "email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810"
+        }
+      }
+    },
+    {
+      "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "htmlHash": "6d4ef7a916a780fe2e2c43e1760da3a32dc095d695ec9c8a41880382d766ed2d",
+      "assetId": "email:email/onboarding.md",
+      "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+      "passageCount": 10,
+      "passagesHash": "01c20a33fa1ecbce71ddb01893f2e316652870c6bd083a6dbd3a9ae3475a3943",
+      "deploymentMetadata": {
+        "format": "mogs-deployment-meta-v1",
+        "artifactHash": "b6327ff67702f8bcc14bdea5a2700431b29acd767b1151bff5c19ac1b7eea7b4",
+        "contractVersion": 2,
+        "repository": "jcstotomas/mogs-demo",
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+        "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+        "sourceHashes": {
+          "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+          "email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810"
+        }
+      }
+    },
+    {
+      "url": "https://mogs-recovery.vercel.app/site/launch",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "htmlHash": "5a9889679eff888fcf2f6b1d75e0287e3dfc3b3e0277348f4f8f6b5c7695ef98",
+      "assetId": "web:site/launch.md",
+      "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+      "passageCount": 13,
+      "passagesHash": "a1aaa472bd6f4a52b71566453eeea27182ab5a0db99e3ec1600589999692f321",
+      "deploymentMetadata": {
+        "format": "mogs-deployment-meta-v1",
+        "artifactHash": "b6327ff67702f8bcc14bdea5a2700431b29acd767b1151bff5c19ac1b7eea7b4",
+        "contractVersion": 2,
+        "repository": "jcstotomas/mogs-demo",
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+        "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+        "sourceHashes": {
+          "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+          "email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810"
+        }
+      }
+    },
+    {
+      "url": "https://mogs-recovery.vercel.app/site/pricing",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "htmlHash": "f58f87d471b6e6557e498d826b391be5e9bcbe1a8fe5929ab9f63f38efed2db3",
+      "assetId": "web:site/pricing.md",
+      "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+      "passageCount": 7,
+      "passagesHash": "762209b6a01ccc405321279f786157819766f04f5a2355f31e87b0c3b51f8847",
+      "deploymentMetadata": {
+        "format": "mogs-deployment-meta-v1",
+        "artifactHash": "b6327ff67702f8bcc14bdea5a2700431b29acd767b1151bff5c19ac1b7eea7b4",
+        "contractVersion": 2,
+        "repository": "jcstotomas/mogs-demo",
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+        "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+        "sourceHashes": {
+          "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+          "email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "assets": 4,
+    "web": 2,
+    "email": 2,
+    "passages": 40
+  },
+  "sitemap": {
+    "status": 200,
+    "origin": "https://mogs-recovery.vercel.app",
+    "hash": "0da21864277039e8635db437a498b64235562b8bc94a73fa6bd8a98cc60de515",
+    "urls": [
+      "https://mogs-recovery.vercel.app/assets/email/eligible",
+      "https://mogs-recovery.vercel.app/assets/email/onboarding",
+      "https://mogs-recovery.vercel.app/site/launch",
+      "https://mogs-recovery.vercel.app/site/pricing"
+    ]
+  },
+  "exclusions": [
+    {
+      "pathname": "/console",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/console/remote",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/api/v2/baseline",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/api/v2/runs/unused",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/api/facts",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/data/app.db",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/data/remote/app.db",
+      "status": 404,
+      "location": null
+    },
+    {
+      "pathname": "/.env.local",
+      "status": 404,
+      "location": null
+    }
+  ],
+  "primaryUnchanged": {
+    "production": {
+      "deploymentId": "dpl_7beAQpjQcnwkSAzbT9AUJ2W6zQZj",
+      "url": "https://mogs-demo.vercel.app",
+      "deployedSha": "308d64631320acf022ceef9620eb161369305c2f",
+      "readiness": "ready"
+    },
+    "pullRequest": {
+      "number": 3,
+      "url": "https://github.com/jcstotomas/mogs-demo/pull/3",
+      "merged": true,
+      "mergedAt": "2026-10-03T21:54:49Z",
+      "mergedSha": "308d64631320acf022ceef9620eb161369305c2f"
+    },
+    "matchesPr3Merge": true
+  },
+  "checks": {
+    "actualProviderIdentity": "passed",
+    "exactGitBlobsToAnonymousRenderedAssets": "passed",
+    "publicChrome": "passed",
+    "allFourAssets": "passed",
+    "sitemapOriginAndInventory": "passed",
+    "nonpublicRoutes404": "passed",
+    "primaryDeploymentStillPr3Merge": "passed",
+    "fetchedBaseHeadMatchesDeployedCommit": "passed"
+  },
+  "gitReadback": {
+    "repository": "jcstotomas/mogs-demo",
+    "baseRef": "codex/recovery-base",
+    "fetchedRemoteRef": "refs/remotes/origin/codex/recovery-base",
+    "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+    "method": "git fetch origin --no-tags via readRemoteSourceSnapshot, followed by exact fetched ref read; no checkout"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "format": "mogs-recovery-host-v1",
+  "operationId": "f19f5ff6-115f-4a6f-ad50-e4df26b9f8b9",
+  "createdAt": "2026-10-03T22:12:22.367Z",
+  "name": "mogs-recovery",
+  "teamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+  "repository": "jcstotomas/mogs-demo",
+  "repoId": 1403606624,
+  "branch": "codex/recovery-base",
+  "sha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+  "origin": "https://mogs-recovery.vercel.app",
+  "publicAuthorized": true,
+  "correctionCredit": false,
+  "stages": [
+    {
+      "at": "2026-10-03T22:12:22.550Z",
+      "event": "setup-journaled"
+    },
+    {
+      "at": "2026-10-03T22:12:22.666Z",
+      "event": "create-project-intent"
+    },
+    {
+      "at": "2026-10-03T22:12:22.692Z",
+      "event": "setup-failed",
+      "failure": "Vercel setup returned HTTP 400 (bad_request)."
+    },
+    {
+      "at": "2026-10-03T22:12:36.818Z",
+      "event": "setup-journaled"
+    },
+    {
+      "at": "2026-10-03T22:12:36.939Z",
+      "event": "create-project-intent"
+    },
+    {
+      "at": "2026-10-03T22:12:36.961Z",
+      "event": "setup-failed",
+      "failure": "Vercel setup returned HTTP 400 (bad_request): Invalid request: should NOT have additional property `nodeVersion`."
+    },
+    {
+      "at": "2026-10-03T22:12:45.887Z",
+      "event": "setup-journaled"
+    },
+    {
+      "at": "2026-10-03T22:12:46.099Z",
+      "event": "create-project-intent"
+    },
+    {
+      "at": "2026-10-03T22:12:47.520Z",
+      "event": "project-identity-observed",
+      "project": {
+        "id": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "name": "mogs-recovery",
+        "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "framework": null,
+        "nodeVersion": "24.x",
+        "rootDirectory": null,
+        "ssoProtection": {
+          "deploymentType": "all_except_custom_domains"
+        },
+        "passwordProtection": null,
+        "link": {
+          "type": "github",
+          "repo": "mogs-demo",
+          "repoId": 1403606624,
+          "org": "jcstotomas",
+          "productionBranch": "main"
+        }
+      }
+    },
+    {
+      "at": "2026-10-03T22:12:47.521Z",
+      "event": "production-branch-intent",
+      "branch": "codex/recovery-base"
+    },
+    {
+      "at": "2026-10-03T22:12:47.903Z",
+      "event": "public-auth-settings-intent"
+    },
+    {
+      "at": "2026-10-03T22:12:48.340Z",
+      "event": "public-project-settings-verified",
+      "project": {
+        "id": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "name": "mogs-recovery",
+        "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "framework": null,
+        "nodeVersion": "24.x",
+        "rootDirectory": null,
+        "ssoProtection": null,
+        "passwordProtection": null,
+        "link": {
+          "type": "github",
+          "repo": "mogs-demo",
+          "repoId": 1403606624,
+          "org": "jcstotomas",
+          "productionBranch": "codex/recovery-base"
+        }
+      }
+    },
+    {
+      "at": "2026-10-03T22:12:48.387Z",
+      "event": "public-origin-intent"
+    },
+    {
+      "at": "2026-10-03T22:12:48.552Z",
+      "event": "public-origin-verified",
+      "origin": "https://mogs-recovery.vercel.app"
+    },
+    {
+      "at": "2026-10-03T22:12:48.598Z",
+      "event": "production-deployment-intent",
+      "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:12:50.377Z",
+      "event": "deployment-created-or-recovered",
+      "deployment": {
+        "id": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+        "projectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "ownerId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "url": "mogs-recovery-axrkbjl2b-jcstotomas-projects.vercel.app",
+        "target": "production",
+        "readyState": "INITIALIZING",
+        "gitSource": {
+          "type": "github",
+          "repoId": 1403606624,
+          "ref": "codex/recovery-base",
+          "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+        },
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b"
+      },
+      "primarySettingsUnchanged": true
+    },
+    {
+      "at": "2026-10-03T22:15:47.275Z",
+      "event": "setup-journaled"
+    },
+    {
+      "at": "2026-10-03T22:15:47.511Z",
+      "event": "project-identity-observed",
+      "project": {
+        "id": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "name": "mogs-recovery",
+        "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "framework": null,
+        "nodeVersion": "24.x",
+        "rootDirectory": null,
+        "ssoProtection": null,
+        "passwordProtection": null,
+        "link": {
+          "type": "github",
+          "repo": "mogs-demo",
+          "repoId": 1403606624,
+          "org": "jcstotomas",
+          "productionBranch": "codex/recovery-base"
+        }
+      }
+    },
+    {
+      "at": "2026-10-03T22:15:47.595Z",
+      "event": "public-project-settings-verified",
+      "project": {
+        "id": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "name": "mogs-recovery",
+        "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "framework": null,
+        "nodeVersion": "24.x",
+        "rootDirectory": null,
+        "ssoProtection": null,
+        "passwordProtection": null,
+        "link": {
+          "type": "github",
+          "repo": "mogs-demo",
+          "repoId": 1403606624,
+          "org": "jcstotomas",
+          "productionBranch": "codex/recovery-base"
+        }
+      }
+    },
+    {
+      "at": "2026-10-03T22:15:47.781Z",
+      "event": "public-origin-verified",
+      "origin": "https://mogs-recovery.vercel.app"
+    },
+    {
+      "at": "2026-10-03T22:15:48.121Z",
+      "event": "deployment-created-or-recovered",
+      "deployment": {
+        "id": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+        "projectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+        "ownerId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+        "url": "mogs-recovery-axrkbjl2b-jcstotomas-projects.vercel.app",
+        "target": "production",
+        "readyState": "READY",
+        "gitSource": {
+          "type": "github",
+          "repoId": 1403606624,
+          "ref": "codex/recovery-base",
+          "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+        },
+        "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b"
+      },
+      "primarySettingsUnchanged": true
+    }
+  ],
+  "primaryBefore": {
+    "id": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+    "name": "mogs-demo",
+    "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "framework": null,
+    "nodeVersion": "24.x",
+    "rootDirectory": null,
+    "ssoProtection": null,
+    "passwordProtection": null,
+    "link": {
+      "type": "github",
+      "repo": "mogs-demo",
+      "repoId": 1403606624,
+      "org": "jcstotomas",
+      "productionBranch": "main"
+    }
+  },
+  "projectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+  "project": {
+    "id": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+    "name": "mogs-recovery",
+    "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "framework": null,
+    "nodeVersion": "24.x",
+    "rootDirectory": null,
+    "ssoProtection": null,
+    "passwordProtection": null,
+    "link": {
+      "type": "github",
+      "repo": "mogs-demo",
+      "repoId": 1403606624,
+      "org": "jcstotomas",
+      "productionBranch": "codex/recovery-base"
+    }
+  },
+  "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+  "deployment": {
+    "id": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+    "projectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+    "ownerId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "url": "mogs-recovery-axrkbjl2b-jcstotomas-projects.vercel.app",
+    "target": "production",
+    "readyState": "READY",
+    "gitSource": {
+      "type": "github",
+      "repoId": 1403606624,
+      "ref": "codex/recovery-base",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    "sourceCommit": "3786e7f8a331b6bf5d54f171624234c00324429b"
+  },
+  "primaryAfter": {
+    "id": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+    "name": "mogs-demo",
+    "accountId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "framework": null,
+    "nodeVersion": "24.x",
+    "rootDirectory": null,
+    "ssoProtection": null,
+    "passwordProtection": null,
+    "link": {
+      "type": "github",
+      "repo": "mogs-demo",
+      "repoId": 1403606624,
+      "org": "jcstotomas",
+      "productionBranch": "main"
+    }
+  },
+  "setupPassed": true,
+  "ready": true
+}

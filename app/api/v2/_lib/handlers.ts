@@ -10,7 +10,7 @@ const handlers = createRemoteHttpHandlers({
   baseline: remoteBaseline,
   confirm: confirmRemote,
   approve: approveRemote,
-  run: runId => { recoverRemoteRun(runId, options()); return getRemoteRun(runId); },
+  run: runId => { getRemoteRun(runId); recoverRemoteRun(runId, options()); return getRemoteRun(runId); },
   candidate: prepareRemoteCandidate,
   submit: submitRemote,
   abandon: abandonRemote,

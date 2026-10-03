@@ -1,0 +1,814 @@
+{
+  "format": "mogs-recovery-bootstrap-v1",
+  "operationId": "87bae29c-43e8-49f9-8f08-374e0fa68701",
+  "createdAt": "2026-10-03T22:06:56.227Z",
+  "repository": "jcstotomas/mogs-demo",
+  "repositoryId": 1403606624,
+  "branch": "codex/recovery-base",
+  "parentSha": "308d64631320acf022ceef9620eb161369305c2f",
+  "auditPath": "docs/recovery-target.md",
+  "authorization": "The user explicitly approved the separate public mogs-recovery project and isolated GitHub recovery branch on 2026-10-03.",
+  "purpose": "isolated-remote-test",
+  "correctionCredit": false,
+  "auditContent": "# MOGS recovery test target\n\nThis isolated target serves fictional MOGS pages and repository-backed email previews for remote recovery drills. It does not send email and its results have zero live correction credit.\n\nProduction branch: `codex/recovery-base`\nBaseline parent: `308d64631320acf022ceef9620eb161369305c2f`\nOperation: `87bae29c-43e8-49f9-8f08-374e0fa68701`\n\nThis bootstrap commit adds this audit file only. Mapped content, canonical facts, pristine seed data and public build inputs are preserved from the verified parent. Human GitHub merge remains a separate decision for test restoration PRs.\n",
+  "auditContentSha256": "59c77a597eaec32566c21f931cc845ee7cf291d484dc77673a33bb10577e7c78",
+  "expectedBlobSha": "67baf92295a8731f0e1fd0b6b8b1cb2a371dad67",
+  "commitMessage": "Bootstrap isolated MOGS recovery target\n\nOperation: 87bae29c-43e8-49f9-8f08-374e0fa68701",
+  "commitDate": "2026-10-03T22:06:56Z",
+  "gitIdentity": {
+    "name": "MOGS Recovery Test",
+    "email": "mogs-recovery@example.invalid",
+    "date": "2026-10-03T22:06:56Z"
+  },
+  "passed": true,
+  "stages": [
+    {
+      "at": "2026-10-03T22:06:56.228Z",
+      "stage": "operation-journaled"
+    },
+    {
+      "at": "2026-10-03T22:07:01.631Z",
+      "stage": "expected-object-and-byte-identities-recorded",
+      "sha": "75686e010871cf0fbe36fef531bba47037c4817d"
+    },
+    {
+      "at": "2026-10-03T22:07:13.553Z",
+      "stage": "operation-journaled"
+    },
+    {
+      "at": "2026-10-03T22:07:18.966Z",
+      "stage": "expected-object-and-byte-identities-recorded",
+      "sha": "75686e010871cf0fbe36fef531bba47037c4817d"
+    },
+    {
+      "at": "2026-10-03T22:07:19.376Z",
+      "stage": "creating-audit-blob",
+      "sha": "67baf92295a8731f0e1fd0b6b8b1cb2a371dad67"
+    },
+    {
+      "at": "2026-10-03T22:07:20.010Z",
+      "stage": "creating-audit-tree",
+      "sha": "765acfbd1eeba8c505152e8b51c0efce2165a69d"
+    },
+    {
+      "at": "2026-10-03T22:07:20.658Z",
+      "stage": "creating-audit-commit",
+      "sha": "75686e010871cf0fbe36fef531bba47037c4817d"
+    },
+    {
+      "at": "2026-10-03T22:07:21.318Z",
+      "stage": "setup-failed"
+    },
+    {
+      "at": "2026-10-03T22:08:35.587Z",
+      "stage": "operation-journaled"
+    },
+    {
+      "at": "2026-10-03T22:08:37.878Z",
+      "stage": "rest-commit-message-encoding-corrected",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:08:42.280Z",
+      "stage": "expected-object-and-byte-identities-recorded",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:08:42.804Z",
+      "stage": "creating-audit-tree",
+      "sha": "765acfbd1eeba8c505152e8b51c0efce2165a69d"
+    },
+    {
+      "at": "2026-10-03T22:08:46.623Z",
+      "stage": "creating-isolated-branch",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:08:52.412Z",
+      "stage": "isolated-branch-created-and-verified",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:09:06.337Z",
+      "stage": "operation-journaled"
+    },
+    {
+      "at": "2026-10-03T22:09:11.573Z",
+      "stage": "expected-object-and-byte-identities-recorded",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    },
+    {
+      "at": "2026-10-03T22:09:15.628Z",
+      "stage": "existing-branch-verified",
+      "sha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+    }
+  ],
+  "mainBeforeSha": "308d64631320acf022ceef9620eb161369305c2f",
+  "parentTreeSha": "68c8d29a75b346ec843333bfcd6373ac36eaad3d",
+  "parentLeaves": [
+    {
+      "path": ".env.example",
+      "sha": "0702c2cc4b1696afe6980eff42f96dc86e440d37",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": ".gitignore",
+      "sha": "7ad1ec9dd9524e52f1b0d4788b6614009169ca7a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha": "6da23681e002f48bee2324d2642a9187f9d38b69",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/_lib/handlers.ts",
+      "sha": "702c68813fd17af543445a7bca9a63b2278bd9b9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/_lib/http.ts",
+      "sha": "735073f24e71bbbd79ada1783ed10e8201cb5234",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/export/route.ts",
+      "sha": "817eb401d3d1fa59f29236d43d29b36b5c68f22d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/facts/route.ts",
+      "sha": "77aa160964f7b07c6dd5349409d1c971178c2058",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/groups/[groupId]/approve/route.ts",
+      "sha": "cfdc001b5af5343327d77490215bc586227cace5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/groups/[groupId]/open/route.ts",
+      "sha": "770f4f1447caddee75538f587faf519e7f5f3735",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/groups/route.ts",
+      "sha": "8a3682ef94586a72f21f5d2bb55904e44873b255",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/run/[id]/route.ts",
+      "sha": "a033aa585aecd21d7c1eaef322d74ba03d4a34a5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/runs/[runId]/export/route.ts",
+      "sha": "2b5b4d23572999d00782abb192b29a07692f2192",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/runs/[runId]/groups/route.ts",
+      "sha": "836382c9466e24596324023abe05047e021f98b0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/api/runs/[runId]/route.ts",
+      "sha": "2bf608117cc1a5bb3001205557fbbe0d14f98731",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/assets/email/[id]/page.tsx",
+      "sha": "fd2f3be38daf898166a38609db61a42bcb00a45a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/console/page.tsx",
+      "sha": "ef9fdd70c10a6223347a94a66e83584b8e6611c8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/console/review/page.tsx",
+      "sha": "9bad4cb93905b52ab493b88a2962764752c2b3de",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/globals.css",
+      "sha": "01688d160296eaaedc2a6c0ff9c3ec49bda5cce1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha": "ba1374add3d4f4417c88d73fb21481b453c9d2cc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/page.tsx",
+      "sha": "709ff1e34875b6f1ffaf6cff957d2c73bb1a79e7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/site/[...slug]/page.tsx",
+      "sha": "155d868d0f4a840a8a5c91e7e26ff578d52d4ce6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/site/pricing/page.tsx",
+      "sha": "621cf7be26ba1c44f3021e7123c6fea85f2bfd80",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "sha": "2fd286e49aa0e7b7d566ab78e23e1e535cc7f344",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/assets/email/[id]/page.tsx",
+      "sha": "744eb5e3976378d0c7b4a31c884f400f1a277c92",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/globals.css",
+      "sha": "e2410064df1ae20399621795ebaa45ffa5d71204",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/layout.tsx",
+      "sha": "438d1250c67bf1b521fec860be760092d9c71802",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/page.tsx",
+      "sha": "7687e70cbda059023ed753ee0542ffbf87000567",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/site/launch/page.tsx",
+      "sha": "c3c304559b189981eab2a9dd487a0767b8854a46",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/site/pricing/page.tsx",
+      "sha": "ea5a20207368f1132cf5d2638e94c4b04face06a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/app/sitemap.ts",
+      "sha": "f4d6e9c6bb462c1fa3be2ae7038c647b960bb536",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/components/public-asset.tsx",
+      "sha": "f567a9018adc66cb5123b25d8f7f1d9c841a78f0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/lib/generated.ts",
+      "sha": "0fdf62bffbcb550474541d7ebbd65321e3bc5dbc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/next-env.d.ts",
+      "sha": "ce4e94a6b10f160ee021fe18939af160d2927dcf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/next.config.ts",
+      "sha": "76228ac14c0ce3856aca72af8c091e26a86e1050",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/package.json",
+      "sha": "0bd1548ce9c3b165604346e7353c2976e0a3e621",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/scripts/deployment-meta.ts",
+      "sha": "a93fab92d583ee6bbc928ce1498c33082771a21f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "apps/public/tsconfig.json",
+      "sha": "775cec68ffc79954fb7b0fa545fcae59e68c4285",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "BUILD_PLAN.md",
+      "sha": "87b977a60caaa10dd55fdc899c582ea0c31d9491",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "components/launch-console.module.css",
+      "sha": "d3be138d4d9e4a253eda022fb75f23f677366a3d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "components/launch-console.tsx",
+      "sha": "7e6bd0bb0b775f034b72ac939e63a932986b718b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/claims.yaml",
+      "sha": "dd2280cfac629dd23c0ede739c84b4904ee4d5e3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/email/eligible.md",
+      "sha": "6614d651b9611e278eab66c71ff355315445eed0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/email/onboarding.md",
+      "sha": "c04088526037bbf73ab1310107c666f16bea65bc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/manifest.jsonl",
+      "sha": "57924a39521837b5fb660bb9228a3557df7a1ddc",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/seed.json",
+      "sha": "388ce112939e526ed80f60eda8f69861ba8f439a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "content/site/launch.md",
+      "sha": "e7d0b0370963e123430e0e51fa179120194d317c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/evidence/gate1-0e0710f5-ad96-4002-886a-14cb2a91a521.json",
+      "sha": "b7ca00b253d5133584c43bc2d510dc3eaa369bdf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/evidence/gate1-89c94f8e-0d11-40b6-8db3-09f686c097ff.json",
+      "sha": "32654cfa76b6ef7a5b7cc1205ed3b8f584e35cee",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/evidence/gate1-live-pending-ff57ceec-5f59-49e0-9a26-d9911b2fdd57.json",
+      "sha": "518258c3455e68e37cd1832169ba0c51368f1b30",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/facts.json",
+      "sha": "beefbe40e72820d4538fda4cf053fbf342c9bce0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/provider-smoke.json",
+      "sha": "7436813eac78352b89ae7513692d471846e5d933",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "data/seed/facts.json",
+      "sha": "71e6ae32a4d5d8b75b7ab53ab3f8d6fc5b040f5f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/GATE_1.md",
+      "sha": "1c59668f9260f01d5f6faec68a315b1ac49056b1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/STEP_0.md",
+      "sha": "f058e472db1ac79d50e5200887a6c5079bc5f02b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/api.json",
+      "sha": "4d8c4e8bfd9ec76881773cfe10e0dfed6ca16522",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/eval.json",
+      "sha": "625d314a6443386865e8aefcb53805f69b2b5b45",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/facts.confirmed.json",
+      "sha": "beefbe40e72820d4538fda4cf053fbf342c9bce0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/facts.initial.json",
+      "sha": "71e6ae32a4d5d8b75b7ab53ab3f8d6fc5b040f5f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/group.json",
+      "sha": "31bb0447283fe5b5c54080d0c1a3900f02d29c1f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/judgments.json",
+      "sha": "ea103bbe75d8d8a45d741ad59fbabfd2ac5b0bec",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/manifest.json",
+      "sha": "3f5cfe8acbd592401c20443d59df7a628be04577",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/pages.json",
+      "sha": "d078255a7d7dcbb33586f68ff07e5d29d443dc35",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/passages.json",
+      "sha": "d7eb075ae5eacc7baef7cb59f083051ca6ead10c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/patches.json",
+      "sha": "98d67a84f584a6a6f74516f99b3de13072bbac9a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/publication.json",
+      "sha": "db3efe2a2fda790a84853da8f4ad968f464a63aa",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/run.json",
+      "sha": "7c369c8bb7dccb66bef9575deb4b5ac30c83359b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/sources/email-eligible.md",
+      "sha": "a189e4077b612e6923ecc63f331669d953d30b9a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/sources/email-onboarding.md",
+      "sha": "49fab87c988ea0e1041fc47089907d0dcb29d373",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "fixtures/sources/site-roundtrip.md",
+      "sha": "eac2d94465b9d7b2e208bf224cb2f32f643fc406",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/assets/catalog.ts",
+      "sha": "b1cd811b41027ed0c66e484a5d7fcdb717aaae2e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/assets/source.ts",
+      "sha": "235b80725c53e1b6b12c89c2f32e55cf66af365d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/contracts/api.ts",
+      "sha": "8b3b391b6b6e84794686fb3fefce3e3fbfb75acb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/corrections.ts",
+      "sha": "a9f6c17099848bf1ace7d550b5ce142d39ea3195",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/crawl/index.ts",
+      "sha": "bca0c47f8f88f6ac3d40fae303031aa55e935028",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/db.ts",
+      "sha": "a639edf182820234cbb5736490847d87cf1e0ca8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/deployment/pricing.ts",
+      "sha": "9f3f7d1b5400849733e6a602a1519cd10ea7ab27",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/deployment/provenance.ts",
+      "sha": "3b1bc8b10df3eb35b07ccbc6cc4ba67bf55bc7af",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/deployment/public-artifact.ts",
+      "sha": "8c0445255c6d3ace46c43b18ad968cb4159cc238",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/facts/derive.ts",
+      "sha": "63103f7763bb58f65db19b61cebeb5c79f5f0872",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/fixtures.ts",
+      "sha": "5e7ee4faa5e7ced763862bb0f5ba5042237f67b3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/hash.ts",
+      "sha": "28322eafc1c78c8372e812cbe74424992e1c2688",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/pipeline/checks.ts",
+      "sha": "0e7907428dc3da9cd15c65e4fd8aeb6952f1c868",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/pipeline/index.ts",
+      "sha": "190a9701dce0699bbaf469cbecdd9f328e24fd8e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/providers/env.ts",
+      "sha": "7dde6ae631723330875a4fc0b65777f9fc49d37e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/providers/frontier.ts",
+      "sha": "2a81228a75dc1dacdd1865b171801589639174f5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/providers/index.ts",
+      "sha": "583dc9e3178b5c1f8eb451acfd1253e24e5bea90",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/providers/jev.ts",
+      "sha": "00d76c1464397ef9f1f8a59d4a6bc31f355c8a6b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/publication/contracts.ts",
+      "sha": "e7d8335ad1300f877f9e93e7b0643c050dfad6a7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/runs/contracts.ts",
+      "sha": "143b6c6ef2f4618f945cad693cd58d1002775656",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/runs/remote-types.ts",
+      "sha": "0ef7052fec36a4bb69a4b571bf49f87c14077725",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/runs/service.ts",
+      "sha": "7db46f89f650ca410b45941db82413eb38c2d9f7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "lib/types.ts",
+      "sha": "9a74750ef330c4d8f54d8db1a7038b2e4889e29c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "next-env.d.ts",
+      "sha": "ce4e94a6b10f160ee021fe18939af160d2927dcf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "next.config.ts",
+      "sha": "c29536e5b9ccb12956a733237592bae64d33c5f4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "package-lock.json",
+      "sha": "d4bf7dc6676250d27b335dae60014913c237aa04",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "package.json",
+      "sha": "dddb92cb20c4af6d8f7ac6da9b646e82c79f2a91",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "README.md",
+      "sha": "4ffb3bf394b7d5983dd8da3f88d07d5db7cd180d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/check-contracts.ts",
+      "sha": "79ce4bc7c486be642339428e6db8aa62cc93999f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/create-fixtures.ts",
+      "sha": "e438a25e2917942237890fb8c6c38f46aa28c237",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/eval.ts",
+      "sha": "2c300593e31e7be97055ab5d0056303f5dbfed41",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/gate1-smoke.ts",
+      "sha": "6c76a6985536c60a40c732be97889e4ec5982ea1",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/generate-site.ts",
+      "sha": "d9a78396ca7a68b7ec0ce3438d974335f84c231d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/provider-smoke.ts",
+      "sha": "148b09b39e524a506a5c9cc2d1cb5cd6145ea23d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/public-bootstrap.ts",
+      "sha": "dbf6d2b1520c7c874c14f6a24967dc2dfd4d268d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "scripts/reset.ts",
+      "sha": "a1ebdb84796312ff1c0181e99e307ee78132c0ef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "SPEC.md",
+      "sha": "68dab5426c439b43c84a015ec6006922c7d9c940",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/contracts.test.ts",
+      "sha": "777b8be8b445d451d9116a751c8ae569603121d5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/public-artifact.test.ts",
+      "sha": "e7c0e9f629741bc77488dd90fe098321408609c0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/runtime.test.ts",
+      "sha": "d3aee9738ce5ebd4e3d7f5f19290158b5f957d6d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "c3e8194f01ff2609026f8e4db0bd09d958e8d92b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "vercel.json",
+      "sha": "eae2d7e64dfcb5c2587aca871feed3af314e73a0",
+      "mode": "100644",
+      "type": "blob"
+    }
+  ],
+  "expectedTreeSha": "765acfbd1eeba8c505152e8b51c0efce2165a69d",
+  "expectedCommitSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+  "expectedPreservedHashes": {
+    "content/email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+    "content/email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+    "content/site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+    "data/facts.json": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+    "content/seed.json": "5752bbfee1c1fa8a9bc44327757fe51d12cbed930f12d7143cd698e4f503f37b",
+    "data/seed/facts.json": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "apps/public/package.json": "9f79f2e3046c77afbb320690d4dc0181ee0846236e1b9ba72ef8865918796062",
+    "apps/public/next.config.ts": "e2fa64dc64683302d6949e010f4681d2023e39d83da71d7d83c40ca82fd905fd",
+    "package.json": "b5920d40f1e3585d24c2b90d0f862ae5fe0e603f5814e49fed67077914f270dd",
+    "package-lock.json": "12f507e744a4f267a7e6820098ee0067d4f0ad041fd61c80c4ac00ea6a363ae8",
+    "scripts/public-bootstrap.ts": "68059b16379f4e9c5c2754691ce2f755e553e270be03e4418524e74b0d03bce5",
+    "vercel.json": "17628d1f0d7294c7fcb98e5bc7dcb34d5aa3b375e0fa1a2361974c1fe2266c48"
+  },
+  "commitEncodingCorrection": {
+    "previousExpectedSha": "75686e010871cf0fbe36fef531bba47037c4817d",
+    "correctedExpectedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+    "reason": "Initial precomputed commit encoding added a final LF. The GitHub Git database endpoint preserved the exact supplied message without LF. Readback confirmed the exact parent/tree/message/author and no branch had been created.",
+    "failedAt": "2026-10-03T22:07:21.318Z"
+  },
+  "verifiedPreservedHashes": {
+    "content/email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+    "content/email/onboarding.md": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+    "content/site/launch.md": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+    "data/facts.json": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+    "content/seed.json": "5752bbfee1c1fa8a9bc44327757fe51d12cbed930f12d7143cd698e4f503f37b",
+    "data/seed/facts.json": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "apps/public/package.json": "9f79f2e3046c77afbb320690d4dc0181ee0846236e1b9ba72ef8865918796062",
+    "apps/public/next.config.ts": "e2fa64dc64683302d6949e010f4681d2023e39d83da71d7d83c40ca82fd905fd",
+    "package.json": "b5920d40f1e3585d24c2b90d0f862ae5fe0e603f5814e49fed67077914f270dd",
+    "package-lock.json": "12f507e744a4f267a7e6820098ee0067d4f0ad041fd61c80c4ac00ea6a363ae8",
+    "scripts/public-bootstrap.ts": "68059b16379f4e9c5c2754691ce2f755e553e270be03e4418524e74b0d03bce5",
+    "vercel.json": "17628d1f0d7294c7fcb98e5bc7dcb34d5aa3b375e0fa1a2361974c1fe2266c48"
+  },
+  "mainAfterSha": "308d64631320acf022ceef9620eb161369305c2f",
+  "branchSha": "3786e7f8a331b6bf5d54f171624234c00324429b"
+}

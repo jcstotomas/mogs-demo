@@ -73,7 +73,7 @@ try {
   if (journal.baseSha && journal.baseSha !== baseSha) throw new Error('Base changed during probe; preserve this failed journal.'); journal.baseSha = baseSha; await save();
   await api('PATCH', prefix, { allow_auto_merge: false });
   await status(baseSha, 'pending');
-  await api('PUT', prefix + '/branches/' + target.baseRef + '/protection', { required_status_checks: { strict: true, checks: contexts.map(context => ({ context, app_id: config.appId })) }, enforce_admins: true, required_pull_request_reviews: { dismiss_stale_reviews: true, require_code_owner_reviews: false, required_approving_review_count: 0 }, restrictions: null, allow_force_pushes: false, allow_deletions: false });
+  await api('PUT', prefix + '/branches/' + encodeURIComponent(target.baseRef) + '/protection', { required_status_checks: { strict: true, checks: contexts.map(context => ({ context, app_id: config.appId })) }, enforce_admins: true, required_pull_request_reviews: { dismiss_stale_reviews: true, require_code_owner_reviews: false, required_approving_review_count: 0 }, restrictions: null, allow_force_pushes: false, allow_deletions: false });
   const remote = new GitHubRemote({ target, appSlug: config.appSlug, tokenProvider: provider, readLocal: () => null });
   const settings = await remote.readEnforcementSettings(); remote.assertEnforcementSettings(settings);
   const current = await makeProbe(baseSha, 'current');
