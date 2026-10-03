@@ -17,5 +17,8 @@ data/processing.json
 data/confirm-journal.json
 data/staging/
 data/readers/
+data/remote/
+apps/public/generated/
+.vercel/
 
 .DS_Store
