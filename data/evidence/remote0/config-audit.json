@@ -1,15 +1,23 @@
 {
   "contractVersion": 2,
-  "checkedAt": "2026-10-03T20:57:10.289Z",
+  "checkedAt": "2026-10-03T21:16:04.195Z",
   "remote": "origin\thttps://github.com/jcstotomas/mogs-demo.git (fetch)\norigin\thttps://github.com/jcstotomas/mogs-demo.git (push)",
   "repository": "jcstotomas/mogs-demo",
   "credentialsConfigured": {
-    "MOGS_GITHUB_TOKEN": false,
-    "MOGS_STATUS_PRODUCER_APP_ID": false,
-    "MOGS_STATUS_PRODUCER_APP_SLUG": false,
+    "MOGS_STATUS_PRODUCER_APP_ID": true,
+    "MOGS_STATUS_PRODUCER_APP_SLUG": true,
     "MOGS_PRODUCTION_ORIGIN": true,
     "MOGS_VERCEL_PROJECT_ID": true,
-    "MOGS_VERCEL_TEAM_ID": true
+    "MOGS_VERCEL_TEAM_ID": true,
+    "MOGS_GITHUB_TOKEN": false,
+    "MOGS_GITHUB_APP_CLIENT_ID": true,
+    "MOGS_GITHUB_INSTALLATION_ID": true,
+    "MOGS_GITHUB_PRIVATE_KEY_PATH": true
+  },
+  "githubAuth": {
+    "mode": "app-private-key",
+    "authenticationChecked": false,
+    "enforcementChecked": false
   },
   "provider": {
     "config": {
@@ -29,9 +37,5 @@
     "configMatchesValidatedRun": true,
     "freshProviderCalls": 0
   },
-  "blockers": [
-    "Missing local configuration: MOGS_GITHUB_TOKEN",
-    "Missing local configuration: MOGS_STATUS_PRODUCER_APP_ID",
-    "Missing local configuration: MOGS_STATUS_PRODUCER_APP_SLUG"
-  ]
+  "blockers": []
 }

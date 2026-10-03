@@ -6,6 +6,8 @@ import { RequiredContextSchema, ShaSchema, StatusEvidenceSchema, type Baseline, 
 import { assertStatusAllowed, authorizeStatusSuccess, type EnforcementEvidence } from './enforcement';
 import { FactSnapshotSchema } from '../types';
 import type { PullRequestState, RecoveryRemote } from './recovery';
+import type { GitHubAppTokenProvider } from './github-auth';
+import { localGitHubAppTokenProvider } from './github-config';
 
 type StatusEvidence = z.infer<typeof StatusEvidenceSchema>;
 type Context = z.infer<typeof RequiredContextSchema>;
@@ -49,6 +51,7 @@ interface TreeEntry { path: string; mode: string; type: string; sha: string }
 export interface GitHubOptions {
   target: Target;
   token?: string;
+  tokenProvider?: Pick<GitHubAppTokenProvider, 'getToken' | 'invalidate' | 'getAppMetadata'>;
   appSlug?: string;
   fetch?: typeof fetch;
   clock?: () => Date;
@@ -62,6 +65,7 @@ export interface GitHubOptions {
 export class GitHubRemote implements RecoveryRemote {
   readonly target: Target;
   private readonly token: string;
+  private readonly tokenProvider?: Pick<GitHubAppTokenProvider, 'getToken' | 'invalidate' | 'getAppMetadata'>;
   private readonly appSlug: string;
   private readonly request: typeof fetch;
   private readonly clock: () => Date;
@@ -73,14 +77,23 @@ export class GitHubRemote implements RecoveryRemote {
     this.request = options.fetch ?? fetch; this.clock = options.clock ?? (() => new Date());
     if (!/^[\w.-]+\/[\w.-]+$/.test(this.target.repository) || !this.target.baseRef || /[\0~^:?*\[\\]|\.\.|@\{|\/\//.test(this.target.baseRef)) throw new Error('Invalid configured repository/base ref.');
     this.prefix = '/repos/' + this.target.repository.split('/').map(segment).join('/');
+    this.tokenProvider = options.tokenProvider ?? (options.token === undefined && process.env.MOGS_GITHUB_PRIVATE_KEY_PATH ? localGitHubAppTokenProvider({ repository: this.target.repository, appId: this.target.statusProducerAppId, appSlug: this.appSlug, fetch: this.request, clock: this.clock }) : undefined);
   }
   private async api(method: 'GET' | 'POST' | 'PATCH', route: string, body?: unknown): Promise<unknown> {
-    if (!this.token) throw new RemoteStateError('validation', 'MOGS_GITHUB_TOKEN is required; no GitHub operation was attempted.');
-    const response = await this.request('https://api.github.com' + route, { method, redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(20_000), headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + this.token, 'X-GitHub-Api-Version': '2026-03-10', ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
-    if (!response.ok) throw new GitHubHttpError(response.status, method, route);
-    const source = await response.text();
-    if (Buffer.byteLength(source) > 8_000_000) throw new Error('GitHub response exceeds the bounded size.');
-    return source ? JSON.parse(source) : null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const token = this.tokenProvider ? await this.tokenProvider.getToken() : this.token;
+      if (!token) throw new RemoteStateError('validation', 'Configure local GitHub App credentials or MOGS_GITHUB_TOKEN; no GitHub operation was attempted.');
+      let response: Response;
+      try {
+        response = await this.request('https://api.github.com' + route, { method, redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(20_000), headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2026-03-10', ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
+      } catch { throw new Error('GitHub request failed or timed out; remote outcome may be unknown.'); }
+      if (response.status === 401 && attempt === 0 && this.tokenProvider) { this.tokenProvider.invalidate(token); continue; }
+      if (!response.ok) throw new GitHubHttpError(response.status, method, route);
+      const source = await response.text();
+      if (Buffer.byteLength(source) > 8_000_000) throw new Error('GitHub response exceeds the bounded size.');
+      try { return source ? JSON.parse(source) : null; } catch { throw new Error('GitHub returned invalid JSON.'); }
+    }
+    throw new Error('GitHub authentication retry was exhausted.');
   }
   private async optional(route: string): Promise<unknown | null> { try { return await this.api('GET', route); } catch (error) { if (error instanceof GitHubHttpError && error.status === 404) return null; throw error; } }
   private async paginated(route: string): Promise<unknown[]> {
@@ -108,7 +121,7 @@ export class GitHubRemote implements RecoveryRemote {
   }
   async validateStatusProducer(): Promise<number> {
     if (!/^[a-z0-9][a-z0-9-]*$/.test(this.appSlug)) throw new RemoteStateError('validation', 'A configured GitHub status producer App slug is required.');
-    const app = object(await this.api('GET', '/apps/' + segment(this.appSlug)));
+    const app = object(this.tokenProvider ? await this.tokenProvider.getAppMetadata() : await this.api('GET', '/apps/' + segment(this.appSlug)));
     if (number(app.id) !== this.target.statusProducerAppId || app.slug !== this.appSlug) throw new RemoteStateError('validation', 'Configured App slug and required status producer ID do not match.');
     return this.target.statusProducerAppId;
   }

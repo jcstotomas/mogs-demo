@@ -28,7 +28,8 @@
     "public:verify": "node --import tsx scripts/check-public-deployment.ts",
     "remote:check": "node --import tsx scripts/check-remote-contracts.ts",
     "remote:migrate": "node --import tsx scripts/migrate-remote.ts",
-    "remote:audit": "node --import tsx scripts/remote-audit.ts"
+    "remote:audit": "node --import tsx scripts/remote-audit.ts",
+    "github:check": "node --import tsx scripts/check-github-app.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "4.0.71",

@@ -6,7 +6,17 @@
 
 The revised [build plan](../BUILD_PLAN.md) separates Remote 0A local contracts from Remote 0B live enforcement. The committed types/database/API fixtures and passing local checks below qualify `4f3eff4` for Remote 0A. This reassessment reuses the recorded evidence; it does not claim a fresh runtime test or deployment. A/B/C may build against fixtures: A now includes corpus/evaluation preparation, B classification/corrections, and C console/review. The coordinator retains shared contracts/integration and completes Remote 0B in parallel.
 
-The failed GitHub enforcement result remains unchanged and blocks real correction/restoration submission and publication. A disposable coordinator enforcement probe is gate evidence only. No builder dispatch, new PR or deployment was performed by this planning revision. Active corpus expansion waits for the successful Remote 1 miniature; the full 22-asset timing/evaluation/rehearsal requirements remain pending.
+The failed GitHub enforcement result still blocks real correction/restoration submission and publication. The App authentication update below resolves the credential gap and records the private-repository plan limitation; it does not pass enforcement. A disposable coordinator enforcement probe is gate evidence only. No builder dispatch, new PR or deployment was performed by the planning revision. Active corpus expansion waits for the successful Remote 1 miniature; the full 22-asset timing/evaluation/rehearsal requirements remain pending.
+
+## GitHub App authentication update — 2026-10-03
+
+The user created [memberofgtmstaff](https://github.com/settings/apps/memberofgtmstaff), App ID `5179329`, and supplied the local private-key path. The coordinator authenticated the exact App and discovered installation `167640959` on repository `1403606624` (`jcstotomas/mogs-demo`). The private key stays outside the checkout; the ignored local configuration holds its path. Neither the key nor installation tokens are in the evidence export.
+
+`lib/submission/github-auth.ts` signs App JWTs using the supplied Client ID, verifies App/installation/repository/permission identity, and refreshes repository-scoped installation tokens in memory. Runtime tokens request Administration read, Contents/Pull requests/Commit statuses write, and automatic Metadata read. A separate read-only setup inspection successfully minted Administration write, proving that the App permission grant is sufficient for future branch setup.
+
+Live [authentication evidence](../data/evidence/remote0/github-app-auth.json) records successful authentication, `main.protected=false`, unchanged seed SHA `e573c2608ce3fa54f51cab67594355448aa1059b`, and a branch-protection HTTP 403 classified from GitHub's upgrade-required response. **The remaining blocker is private-repository plan availability:** enable GitHub Pro/an eligible organization plan, or explicitly authorize making the fictional public-content repository public. The public-preview authorization does not itself authorize changing repository visibility. No branch setting, status, PR, merge or deployment was changed during this authentication check.
+
+Checks: **111/111 tests**, typecheck, configuration audit and live authentication passed. A bounded auth review found and resolved one concurrent refresh/late-401 issue; the focused synthetic reproduction passed. Branch enforcement probes remain unrun. See [GitHub App setup](GITHUB_APP.md) for configuration and commands. Remote 0A fixture-backed builders remain unlocked under the split plan; the real submission path still waits for Remote 0B.
 
 ## Public baseline
 
