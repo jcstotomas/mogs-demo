@@ -1,0 +1,31 @@
+{
+  "id": "fixture-group",
+  "runId": "fixture-run",
+  "factVersion": 2,
+  "key": "2:direct_price:40:usd:public",
+  "title": "Starter public monthly price $30 to $40",
+  "memberIds": [
+    "fixture-patch-0",
+    "fixture-patch-1"
+  ],
+  "eligibleIds": [
+    "fixture-patch-0",
+    "fixture-patch-1"
+  ],
+  "excludedIds": [],
+  "bySurface": {
+    "web": {
+      "eligible": 1,
+      "excluded": 0
+    },
+    "email": {
+      "eligible": 1,
+      "excluded": 0
+    }
+  },
+  "membershipHash": "f4ab3522a49e8a4d30ac79a82bb0cbc58ca38143538d496a5fc3207e55dcd333",
+  "revision": 0,
+  "sealedAt": "2026-10-03T19:00:00.000Z",
+  "status": "sealed",
+  "publicationId": null
+}

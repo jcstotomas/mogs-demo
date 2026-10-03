@@ -1,0 +1,20 @@
+{
+  "id": "fixture-publication",
+  "runId": "fixture-run",
+  "groupId": "fixture-group",
+  "factVersion": 2,
+  "idempotencyKey": "fixture-approve",
+  "requestFingerprint": "421d3292ffedcff5b704c7c3c0e066c04b65abd5b5036a38be3fb5f88153a1b9",
+  "approvedRevision": 0,
+  "approvedMemberIds": [
+    "fixture-patch-0",
+    "fixture-patch-1"
+  ],
+  "actor": "test",
+  "status": "prepared",
+  "files": [],
+  "verification": [],
+  "createdAt": "2026-10-03T19:00:00.000Z",
+  "updatedAt": "2026-10-03T19:00:00.000Z",
+  "failure": null
+}

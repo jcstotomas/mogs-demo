@@ -1,0 +1,1120 @@
+{
+  "confirm": {
+    "request": {
+      "changeId": "starter-monthly-30-to-40",
+      "expectedFactVersion": 1,
+      "idempotencyKey": "fixture-confirm"
+    },
+    "response": {
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "confirmedAt": "2026-10-03T19:00:00.000Z",
+      "runId": "fixture-run"
+    },
+    "retryResponse": {
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "confirmedAt": "2026-10-03T19:00:00.000Z",
+      "runId": "fixture-run"
+    }
+  },
+  "run": {
+    "run": {
+      "id": "fixture-run",
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "mode": "fixture",
+      "scope": {
+        "assetIds": [
+          "web:site/contract.md",
+          "email:email/onboarding.md",
+          "email:email/eligible.md"
+        ],
+        "urls": [
+          "http://localhost:3000/site/contract",
+          "http://localhost:3000/assets/email/onboarding",
+          "http://localhost:3000/assets/email/eligible"
+        ],
+        "corpusHash": "89a25cfc4ac7176d2f5cf6f6c07ab87b8522ec3933e2c7f251c502889cbced6d"
+      },
+      "config": {
+        "adapter": "frontier",
+        "connection": "anthropic_direct",
+        "fixConnection": "anthropic_direct",
+        "judgeModel": "claude-sonnet-5-5",
+        "fixModel": "claude-sonnet-5-5",
+        "tRel": 0.2,
+        "tLabel": 0.7,
+        "concurrency": 4,
+        "timeoutMs": 20000,
+        "promptVersion": "step0-v1"
+      },
+      "confirmedAt": "2026-10-03T19:00:00.000Z",
+      "status": "drafting",
+      "stats": {
+        "assetsIndexed": 3,
+        "passagesIndexed": 9,
+        "candidates": 9,
+        "judged": 9,
+        "patchesDrafted": 2,
+        "withheld": 0,
+        "groups": 1,
+        "published": 0,
+        "verified": 0,
+        "byLabel": {
+          "contradicting": 3,
+          "consistent": 0,
+          "valid_exception": 1,
+          "unrelated": 5,
+          "insufficient_context": 0
+        },
+        "bySurface": {
+          "web": {
+            "assets": 1,
+            "passages": 3,
+            "contradictions": 2,
+            "patches": 1
+          },
+          "email": {
+            "assets": 2,
+            "passages": 6,
+            "contradictions": 1,
+            "patches": 1
+          }
+        },
+        "reviewActions": 0,
+        "machineMs": 0,
+        "humanMs": 0,
+        "firstSealedGroupMs": 0,
+        "allResultsReadyMs": null
+      },
+      "errors": [],
+      "updatedAt": "2026-10-03T19:00:00.000Z"
+    },
+    "groups": [
+      {
+        "id": "fixture-group",
+        "runId": "fixture-run",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price $30 to $40",
+        "memberIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "eligibleIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "f4ab3522a49e8a4d30ac79a82bb0cbc58ca38143538d496a5fc3207e55dcd333",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:00:00.000Z",
+        "status": "sealed",
+        "publicationId": null
+      }
+    ],
+    "publications": []
+  },
+  "groups": {
+    "runId": "fixture-run",
+    "groups": [
+      {
+        "id": "fixture-group",
+        "runId": "fixture-run",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price $30 to $40",
+        "memberIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "eligibleIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "f4ab3522a49e8a4d30ac79a82bb0cbc58ca38143538d496a5fc3207e55dcd333",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:00:00.000Z",
+        "status": "sealed",
+        "publicationId": null
+      }
+    ],
+    "patches": [
+      {
+        "id": "fixture-patch-0",
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "web:site/contract.md",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "Fixture: update the public monthly offer.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "86c2b97eb4167821be99ac157314513355fd4437e30b4d765aa5f8a94575ed39",
+        "expectedMetadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "fixture-group",
+        "editedByHuman": false
+      },
+      {
+        "id": "fixture-patch-1",
+        "runId": "fixture-run",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "email:email/onboarding.md",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "Fixture: update the public monthly offer.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+        "expectedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "d3109cd68823490e66721529c443c5fe4aed1c4f3a5d66c69af1371fb7a19c57",
+        "expectedMetadataHash": "334b8be22524fbfb82ef540be0c9f5b7a08b3da689a3f6e14a365b70eccaf852",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "tokens_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "fixture-group",
+        "editedByHuman": false
+      }
+    ],
+    "publications": []
+  },
+  "edit": {
+    "request": {
+      "action": "edit",
+      "expectedRevision": 0,
+      "replacement": "Starter is $40 a month."
+    },
+    "response": {
+      "patch": {
+        "id": "fixture-patch-0",
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "web:site/contract.md",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "Fixture: update the public monthly offer.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "86c2b97eb4167821be99ac157314513355fd4437e30b4d765aa5f8a94575ed39",
+        "expectedMetadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "fixture-group",
+        "editedByHuman": false
+      },
+      "group": {
+        "id": "fixture-group",
+        "runId": "fixture-run",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price $30 to $40",
+        "memberIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "eligibleIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "f4ab3522a49e8a4d30ac79a82bb0cbc58ca38143538d496a5fc3207e55dcd333",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:00:00.000Z",
+        "status": "sealed",
+        "publicationId": null
+      }
+    }
+  },
+  "drop": {
+    "request": {
+      "action": "drop",
+      "expectedRevision": 0
+    }
+  },
+  "approve": {
+    "request": {
+      "runId": "fixture-run",
+      "expectedRevision": 0,
+      "idempotencyKey": "fixture-approve"
+    },
+    "response": {
+      "publication": {
+        "id": "fixture-publication",
+        "runId": "fixture-run",
+        "groupId": "fixture-group",
+        "factVersion": 2,
+        "idempotencyKey": "fixture-approve",
+        "requestFingerprint": "421d3292ffedcff5b704c7c3c0e066c04b65abd5b5036a38be3fb5f88153a1b9",
+        "approvedRevision": 0,
+        "approvedMemberIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "actor": "test",
+        "status": "prepared",
+        "files": [],
+        "verification": [],
+        "createdAt": "2026-10-03T19:00:00.000Z",
+        "updatedAt": "2026-10-03T19:00:00.000Z",
+        "failure": null
+      }
+    }
+  },
+  "export": {
+    "run": {
+      "id": "fixture-run",
+      "changeId": "starter-monthly-30-to-40",
+      "factVersion": 2,
+      "mode": "fixture",
+      "scope": {
+        "assetIds": [
+          "web:site/contract.md",
+          "email:email/onboarding.md",
+          "email:email/eligible.md"
+        ],
+        "urls": [
+          "http://localhost:3000/site/contract",
+          "http://localhost:3000/assets/email/onboarding",
+          "http://localhost:3000/assets/email/eligible"
+        ],
+        "corpusHash": "89a25cfc4ac7176d2f5cf6f6c07ab87b8522ec3933e2c7f251c502889cbced6d"
+      },
+      "config": {
+        "adapter": "frontier",
+        "connection": "anthropic_direct",
+        "fixConnection": "anthropic_direct",
+        "judgeModel": "claude-sonnet-5-5",
+        "fixModel": "claude-sonnet-5-5",
+        "tRel": 0.2,
+        "tLabel": 0.7,
+        "concurrency": 4,
+        "timeoutMs": 20000,
+        "promptVersion": "step0-v1"
+      },
+      "confirmedAt": "2026-10-03T19:00:00.000Z",
+      "status": "drafting",
+      "stats": {
+        "assetsIndexed": 3,
+        "passagesIndexed": 9,
+        "candidates": 9,
+        "judged": 9,
+        "patchesDrafted": 2,
+        "withheld": 0,
+        "groups": 1,
+        "published": 0,
+        "verified": 0,
+        "byLabel": {
+          "contradicting": 3,
+          "consistent": 0,
+          "valid_exception": 1,
+          "unrelated": 5,
+          "insufficient_context": 0
+        },
+        "bySurface": {
+          "web": {
+            "assets": 1,
+            "passages": 3,
+            "contradictions": 2,
+            "patches": 1
+          },
+          "email": {
+            "assets": 2,
+            "passages": 6,
+            "contradictions": 1,
+            "patches": 1
+          }
+        },
+        "reviewActions": 0,
+        "machineMs": 0,
+        "humanMs": 0,
+        "firstSealedGroupMs": 0,
+        "allResultsReadyMs": null
+      },
+      "errors": [],
+      "updatedAt": "2026-10-03T19:00:00.000Z"
+    },
+    "pages": [
+      {
+        "assetId": "web:site/contract.md",
+        "file": "site/contract.md",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "metadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+        "crawledAt": "2026-10-03T19:00:00.000Z",
+        "meta": {
+          "title": "MOGS billing fixture",
+          "kind": "help",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false
+        }
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "file": "email/onboarding.md",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+        "metadataHash": "334b8be22524fbfb82ef540be0c9f5b7a08b3da689a3f6e14a365b70eccaf852",
+        "crawledAt": "2026-10-03T19:00:00.000Z",
+        "meta": {
+          "title": "MOGS onboarding fixture",
+          "kind": "email",
+          "audienceHint": "new_customers",
+          "legacyStarterEligible": false,
+          "journey": "onboarding"
+        }
+      },
+      {
+        "assetId": "email:email/eligible.md",
+        "file": "email/eligible.md",
+        "url": "http://localhost:3000/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "8857a753c24ad1f4dba43737e3789242bc72d2be0861a5232a43fb7b5630fa13",
+        "metadataHash": "394097888f61f6ebd7cec6a4fa5e8f4f35daab15fc2f525ec24a2e6b88b88b6e",
+        "crawledAt": "2026-10-03T19:00:00.000Z",
+        "meta": {
+          "title": "MOGS eligible-upgrade fixture",
+          "kind": "email",
+          "audienceHint": "existing_customers",
+          "legacyStarterEligible": true,
+          "journey": "eligible-upgrade"
+        }
+      }
+    ],
+    "passages": [
+      {
+        "id": "web:site/contract.md#starter-heading",
+        "assetId": "web:site/contract.md",
+        "sourceId": "starter-heading",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "editable": true,
+        "role": "heading",
+        "idx": 0,
+        "text": "Starter billing",
+        "blockHash": "3539fada96be501b0165d0e8e0ecec76b99eb9010cc14205adce0415ca324d59",
+        "contextHash": "02c35590944b34275081efaaecd611e71d1f638d8ce6139b3a33b43acba68c31",
+        "heading": "Starter billing",
+        "before": "",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "web:site/contract.md#starter-price",
+        "assetId": "web:site/contract.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "editable": true,
+        "role": "body",
+        "idx": 1,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "86c2b97eb4167821be99ac157314513355fd4437e30b4d765aa5f8a94575ed39",
+        "heading": "Starter billing",
+        "before": "Starter billing",
+        "after": "Save 20% on Starter with annual billing."
+      },
+      {
+        "id": "web:site/contract.md#starter-savings",
+        "assetId": "web:site/contract.md",
+        "sourceId": "starter-savings",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "editable": true,
+        "role": "list_item",
+        "idx": 2,
+        "text": "Save 20% on Starter with annual billing.",
+        "blockHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+        "contextHash": "3c2579d9246fa17f0a563b84f466ba9895344caffdf78c5afa4b9ccc47993e86",
+        "heading": "Starter billing",
+        "before": "Starter is $30 a month.",
+        "after": ""
+      },
+      {
+        "id": "email:email/onboarding.md#email-subject",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Welcome to MOGS, {{ first_name }}",
+        "blockHash": "7d1b0354096c74ba00a00b63b233b1433cddc7d25cdbe079ad5e66b1d6e9c1b7",
+        "contextHash": "099faad3fb46c830aee9bddeeb2a72ebeb7af7161956b2c8ece3c11734157af5",
+        "heading": "",
+        "before": "",
+        "after": "See https://mogs.example/get-started for setup."
+      },
+      {
+        "id": "email:email/onboarding.md#email-preheader",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "See https://mogs.example/get-started for setup.",
+        "blockHash": "2a8348ebd28e107b09879958b7862bca5c8c3906e6af86c88d1796fdd5db10c9",
+        "contextHash": "ffea34ec420e48397487741a7520d51c03e615862d388d29a92bc2fb08758689",
+        "heading": "",
+        "before": "Welcome to MOGS, {{ first_name }}",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/onboarding.md#starter-price",
+        "assetId": "email:email/onboarding.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "d3109cd68823490e66721529c443c5fe4aed1c4f3a5d66c69af1371fb7a19c57",
+        "heading": "",
+        "before": "See https://mogs.example/get-started for setup.",
+        "after": ""
+      },
+      {
+        "id": "email:email/eligible.md#email-subject",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-subject",
+        "url": "http://localhost:3000/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "subject",
+        "idx": 0,
+        "text": "Your active pre-change Starter monthly subscription",
+        "blockHash": "f56b9d49d41cc35d8c1e1ab7c333b72b0f1433cd1f8256585481daf2c653cf59",
+        "contextHash": "b6714c9006b64e813baa4da76e2754f9793bafc53a7880b0ad6a89c02f6689c7",
+        "heading": "",
+        "before": "",
+        "after": "Hello {{ first_name }}, review https://mogs.example/account."
+      },
+      {
+        "id": "email:email/eligible.md#email-preheader",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "email-preheader",
+        "url": "http://localhost:3000/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "preheader",
+        "idx": 1,
+        "text": "Hello {{ first_name }}, review https://mogs.example/account.",
+        "blockHash": "b9663a738238a49806ed2f0d917e1454bd5a9b16d0eadfaaaf28f19179530d2c",
+        "contextHash": "c96cf343ff6cc348150a5f9a89dc912027c29d0d16cf79c0a784f24097242311",
+        "heading": "",
+        "before": "Your active pre-change Starter monthly subscription",
+        "after": "Starter is $30 a month."
+      },
+      {
+        "id": "email:email/eligible.md#starter-price",
+        "assetId": "email:email/eligible.md",
+        "sourceId": "starter-price",
+        "url": "http://localhost:3000/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "role": "body",
+        "idx": 2,
+        "text": "Starter is $30 a month.",
+        "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "contextHash": "12f226282f45c3f76745739267575cddb077df6b60d9f9b935a3af5c0f16dc30",
+        "heading": "",
+        "before": "Hello {{ first_name }}, review https://mogs.example/account.",
+        "after": ""
+      }
+    ],
+    "judgments": [
+      {
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.99,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.99,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/eligible.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.99,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-heading",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-savings",
+        "factVersion": 2,
+        "relevant": 0.99,
+        "kind": "annual_savings",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/onboarding.md#email-subject",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/onboarding.md#email-preheader",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "new_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/eligible.md#email-subject",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      },
+      {
+        "runId": "fixture-run",
+        "passageId": "email:email/eligible.md#email-preheader",
+        "factVersion": 2,
+        "relevant": 0,
+        "kind": "none",
+        "audience": "existing_customers",
+        "billing": "unspecified",
+        "label": "unrelated",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    ],
+    "groups": [
+      {
+        "id": "fixture-group",
+        "runId": "fixture-run",
+        "factVersion": 2,
+        "key": "2:direct_price:40:usd:public",
+        "title": "Starter public monthly price $30 to $40",
+        "memberIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "eligibleIds": [
+          "fixture-patch-0",
+          "fixture-patch-1"
+        ],
+        "excludedIds": [],
+        "bySurface": {
+          "web": {
+            "eligible": 1,
+            "excluded": 0
+          },
+          "email": {
+            "eligible": 1,
+            "excluded": 0
+          }
+        },
+        "membershipHash": "f4ab3522a49e8a4d30ac79a82bb0cbc58ca38143538d496a5fc3207e55dcd333",
+        "revision": 0,
+        "sealedAt": "2026-10-03T19:00:00.000Z",
+        "status": "sealed",
+        "publicationId": null
+      }
+    ],
+    "patches": [
+      {
+        "id": "fixture-patch-0",
+        "runId": "fixture-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "web:site/contract.md",
+        "url": "http://localhost:3000/site/contract",
+        "surface": "web",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "Fixture: update the public monthly offer.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "86c2b97eb4167821be99ac157314513355fd4437e30b4d765aa5f8a94575ed39",
+        "expectedMetadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "fixture-group",
+        "editedByHuman": false
+      },
+      {
+        "id": "fixture-patch-1",
+        "runId": "fixture-run",
+        "passageId": "email:email/onboarding.md#starter-price",
+        "sourceId": "starter-price",
+        "assetId": "email:email/onboarding.md",
+        "url": "http://localhost:3000/assets/email/onboarding",
+        "surface": "email",
+        "factVersion": 2,
+        "kind": "direct_price",
+        "target": {
+          "value": 40,
+          "unit": "usd",
+          "scope": "public"
+        },
+        "original": "Starter is $30 a month.",
+        "replacement": "Starter is $40 a month.",
+        "rationale": "Fixture: update the public monthly offer.",
+        "withholdReason": null,
+        "originalCapturedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+        "expectedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+        "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+        "expectedContextHash": "d3109cd68823490e66721529c443c5fe4aed1c4f3a5d66c69af1371fb7a19c57",
+        "expectedMetadataHash": "334b8be22524fbfb82ef540be0c9f5b7a08b3da689a3f6e14a365b70eccaf852",
+        "checks": [
+          {
+            "name": "span_confined",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "numbers_allowed",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "qualifiers_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "rejudge_consistent",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_located",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "source_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "fact_fresh",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          },
+          {
+            "name": "tokens_kept",
+            "pass": true,
+            "detail": "Fixture only, not a live provider result."
+          }
+        ],
+        "revision": 0,
+        "status": "drafted",
+        "groupId": "fixture-group",
+        "editedByHuman": false
+      }
+    ],
+    "publications": [],
+    "reviewEvents": []
+  },
+  "errors": [
+    {
+      "status": 400,
+      "body": {
+        "error": {
+          "code": "validation",
+          "message": "Malformed request.",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "status": 404,
+      "body": {
+        "error": {
+          "code": "not_found",
+          "message": "Run not found.",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "stale",
+          "message": "Group revision changed.",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "busy",
+          "message": "Live run already exists.",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "idempotency_conflict",
+          "message": "Key has another payload.",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "status": 502,
+      "body": {
+        "error": {
+          "code": "provider_failure",
+          "message": "Provider request failed.",
+          "retryable": true
+        }
+      }
+    },
+    {
+      "status": 500,
+      "body": {
+        "error": {
+          "code": "runtime_failure",
+          "message": "Publication failed.",
+          "retryable": true
+        }
+      }
+    },
+    {
+      "status": 503,
+      "body": {
+        "error": {
+          "code": "interrupted",
+          "message": "Run interrupted.",
+          "retryable": true
+        }
+      }
+    }
+  ]
+}

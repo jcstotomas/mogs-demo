@@ -1,0 +1,67 @@
+[
+  {
+    "id": "fixture-row-0",
+    "passageId": "web:site/contract.md#starter-price",
+    "sourceId": "starter-price",
+    "assetId": "web:site/contract.md",
+    "url": "http://localhost:3000/site/contract",
+    "surface": "web",
+    "text": "Starter is $30 a month.",
+    "kind": "direct_price",
+    "templateId": "fixture-direct-pair",
+    "expectedLabel": "contradicting",
+    "target": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    },
+    "expectedReplacement": "Starter is $40 a month.",
+    "expectedWithhold": null,
+    "split": "featured",
+    "author": "agent",
+    "scenarioId": "mogs-starter-2026-10-03",
+    "expectedFactVersion": 2
+  },
+  {
+    "id": "fixture-row-1",
+    "passageId": "email:email/onboarding.md#starter-price",
+    "sourceId": "starter-price",
+    "assetId": "email:email/onboarding.md",
+    "url": "http://localhost:3000/assets/email/onboarding",
+    "surface": "email",
+    "text": "Starter is $30 a month.",
+    "kind": "direct_price",
+    "templateId": "fixture-direct-pair",
+    "expectedLabel": "contradicting",
+    "target": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    },
+    "expectedReplacement": "Starter is $40 a month.",
+    "expectedWithhold": null,
+    "split": "featured",
+    "author": "agent",
+    "scenarioId": "mogs-starter-2026-10-03",
+    "expectedFactVersion": 2
+  },
+  {
+    "id": "fixture-row-2",
+    "passageId": "email:email/eligible.md#starter-price",
+    "sourceId": "starter-price",
+    "assetId": "email:email/eligible.md",
+    "url": "http://localhost:3000/assets/email/eligible",
+    "surface": "email",
+    "text": "Starter is $30 a month.",
+    "kind": "direct_price",
+    "templateId": "fixture-direct-pair",
+    "expectedLabel": "valid_exception",
+    "target": null,
+    "expectedReplacement": null,
+    "expectedWithhold": null,
+    "split": "featured",
+    "author": "agent",
+    "scenarioId": "mogs-starter-2026-10-03",
+    "expectedFactVersion": 2
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "scenarioId": "mogs-starter-2026-10-03",
+  "version": 1,
+  "company": "MOGS",
+  "phase": "initial",
+  "effectiveDate": "2026-10-03",
+  "plans": {
+    "starter": {
+      "monthlyCents": 3000,
+      "annualCents": 28800
+    },
+    "team": {
+      "monthlyCents": 8000,
+      "annualCents": 76800
+    },
+    "business": {
+      "monthlyCents": 20000,
+      "annualCents": 192000
+    }
+  },
+  "change": {
+    "id": "starter-monthly-30-to-40",
+    "plan": "starter",
+    "fromCents": 3000,
+    "toCents": 4000,
+    "billing": "monthly",
+    "appliesTo": "non_legacy_eligible",
+    "legacyRateCents": 3000,
+    "legacyCutoff": "2026-10-03T07:00:00.000Z"
+  },
+  "exceptions": [
+    "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+    "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+    "Annual prices and genuinely historical statements are unchanged."
+  ],
+  "derived": {
+    "annual_savings_percent": {
+      "unit": "percent",
+      "before": 20,
+      "after": 40
+    },
+    "per_day_usd": {
+      "unit": "usd_per_day",
+      "before": 1,
+      "after": 1.33
+    },
+    "lowest_monthly_usd": {
+      "unit": "usd",
+      "before": 30,
+      "after": 40
+    },
+    "lowest_annual_effective_monthly_usd": {
+      "unit": "usd",
+      "before": 24,
+      "after": 24
+    },
+    "team_starter_gap_usd": {
+      "unit": "usd",
+      "before": 50,
+      "after": 40
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "fixture-eval",
+  "runId": "fixture-run",
+  "status": "fixture",
+  "corpusHash": "89a25cfc4ac7176d2f5cf6f6c07ab87b8522ec3933e2c7f251c502889cbced6d",
+  "labelHash": "9f19eb705f33eb7194d7a9ed396a821c918c8593b3ef86766ce1c05d446a8900",
+  "factHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+  "factVersion": 2,
+  "config": {
+    "adapter": "frontier",
+    "connection": "anthropic_direct",
+    "fixConnection": "anthropic_direct",
+    "judgeModel": "claude-sonnet-5-5",
+    "fixModel": "claude-sonnet-5-5",
+    "tRel": 0.2,
+    "tLabel": 0.7,
+    "concurrency": 4,
+    "timeoutMs": 20000,
+    "promptVersion": "step0-v1"
+  },
+  "contentRoot": "data/eval/fixture/content",
+  "databasePath": "data/eval/fixture/app.db",
+  "baseUrl": "http://localhost:3100",
+  "scriptedApprovals": [],
+  "metrics": {
+    "detection": {
+      "numerator": 0,
+      "denominator": 0
+    }
+  },
+  "missingIds": [],
+  "errors": [],
+  "createdAt": "2026-10-03T19:00:00.000Z"
+}

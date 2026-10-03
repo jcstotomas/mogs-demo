@@ -1,0 +1,139 @@
+[
+  {
+    "id": "fixture-patch-0",
+    "runId": "fixture-run",
+    "passageId": "web:site/contract.md#starter-price",
+    "sourceId": "starter-price",
+    "assetId": "web:site/contract.md",
+    "url": "http://localhost:3000/site/contract",
+    "surface": "web",
+    "factVersion": 2,
+    "kind": "direct_price",
+    "target": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    },
+    "original": "Starter is $30 a month.",
+    "replacement": "Starter is $40 a month.",
+    "rationale": "Fixture: update the public monthly offer.",
+    "withholdReason": null,
+    "originalCapturedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+    "expectedFileHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+    "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+    "expectedContextHash": "86c2b97eb4167821be99ac157314513355fd4437e30b4d765aa5f8a94575ed39",
+    "expectedMetadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+    "checks": [
+      {
+        "name": "span_confined",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "numbers_allowed",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "qualifiers_kept",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "rejudge_consistent",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "source_located",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "source_fresh",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "fact_fresh",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      }
+    ],
+    "revision": 0,
+    "status": "drafted",
+    "groupId": "fixture-group",
+    "editedByHuman": false
+  },
+  {
+    "id": "fixture-patch-1",
+    "runId": "fixture-run",
+    "passageId": "email:email/onboarding.md#starter-price",
+    "sourceId": "starter-price",
+    "assetId": "email:email/onboarding.md",
+    "url": "http://localhost:3000/assets/email/onboarding",
+    "surface": "email",
+    "factVersion": 2,
+    "kind": "direct_price",
+    "target": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    },
+    "original": "Starter is $30 a month.",
+    "replacement": "Starter is $40 a month.",
+    "rationale": "Fixture: update the public monthly offer.",
+    "withholdReason": null,
+    "originalCapturedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+    "expectedFileHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+    "expectedBlockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+    "expectedContextHash": "d3109cd68823490e66721529c443c5fe4aed1c4f3a5d66c69af1371fb7a19c57",
+    "expectedMetadataHash": "334b8be22524fbfb82ef540be0c9f5b7a08b3da689a3f6e14a365b70eccaf852",
+    "checks": [
+      {
+        "name": "span_confined",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "numbers_allowed",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "qualifiers_kept",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "rejudge_consistent",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "source_located",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "source_fresh",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "fact_fresh",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      },
+      {
+        "name": "tokens_kept",
+        "pass": true,
+        "detail": "Fixture only, not a live provider result."
+      }
+    ],
+    "revision": 0,
+    "status": "drafted",
+    "groupId": "fixture-group",
+    "editedByHuman": false
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "assetId": "web:site/contract.md",
+    "file": "site/contract.md",
+    "url": "http://localhost:3000/site/contract",
+    "surface": "web",
+    "editable": true,
+    "sourceHash": "17b20d10ba720e355199ed5af781af103d53d8db60cfc1437c4ba545695aed3f",
+    "metadataHash": "b7b66544009f5f47df6014a1f067a9bd62b9d537e86a3eaabcf69d9c406935ed",
+    "crawledAt": "2026-10-03T19:00:00.000Z",
+    "meta": {
+      "title": "MOGS billing fixture",
+      "kind": "help",
+      "audienceHint": "new_customers",
+      "legacyStarterEligible": false
+    }
+  },
+  {
+    "assetId": "email:email/onboarding.md",
+    "file": "email/onboarding.md",
+    "url": "http://localhost:3000/assets/email/onboarding",
+    "surface": "email",
+    "editable": true,
+    "sourceHash": "274b016e3355d7741131ceace8a1ef24e933b0995140489224b2cc18697a875d",
+    "metadataHash": "334b8be22524fbfb82ef540be0c9f5b7a08b3da689a3f6e14a365b70eccaf852",
+    "crawledAt": "2026-10-03T19:00:00.000Z",
+    "meta": {
+      "title": "MOGS onboarding fixture",
+      "kind": "email",
+      "audienceHint": "new_customers",
+      "legacyStarterEligible": false,
+      "journey": "onboarding"
+    }
+  },
+  {
+    "assetId": "email:email/eligible.md",
+    "file": "email/eligible.md",
+    "url": "http://localhost:3000/assets/email/eligible",
+    "surface": "email",
+    "editable": true,
+    "sourceHash": "8857a753c24ad1f4dba43737e3789242bc72d2be0861a5232a43fb7b5630fa13",
+    "metadataHash": "394097888f61f6ebd7cec6a4fa5e8f4f35daab15fc2f525ec24a2e6b88b88b6e",
+    "crawledAt": "2026-10-03T19:00:00.000Z",
+    "meta": {
+      "title": "MOGS eligible-upgrade fixture",
+      "kind": "email",
+      "audienceHint": "existing_customers",
+      "legacyStarterEligible": true,
+      "journey": "eligible-upgrade"
+    }
+  }
+]

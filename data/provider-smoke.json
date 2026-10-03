@@ -1,0 +1,206 @@
+{
+  "stage": 1,
+  "startedAt": "2026-10-03T19:08:50.562Z",
+  "completedAt": "2026-10-03T19:09:05.475Z",
+  "connections": {
+    "jev": "typesafe_http",
+    "frontier": "anthropic_direct"
+  },
+  "models": {
+    "jev": "jev-1.13.0",
+    "frontier": "claude-sonnet-5-5",
+    "fix": "claude-sonnet-5-5"
+  },
+  "jev": [
+    {
+      "name": "direct_price",
+      "expected": "contradicting",
+      "pass": true,
+      "elapsedMs": 255,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.92,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": 0.87,
+        "probabilities": {
+          "contradicting": 0.9,
+          "consistent": 0.03,
+          "valid_exception": 0.03,
+          "unrelated": 0,
+          "insufficient_context": 0.04
+        },
+        "confidenceSource": "jev",
+        "adapter": "jev",
+        "model": "jev-1.13.0",
+        "escalatedBy": null
+      }
+    },
+    {
+      "name": "eligible_grandfathering",
+      "expected": "valid_exception",
+      "pass": false,
+      "elapsedMs": 251,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "email:email/eligible.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.87,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "monthly",
+        "label": "insufficient_context",
+        "confidence": 0.24,
+        "probabilities": {
+          "contradicting": 0.38,
+          "consistent": 0.07,
+          "valid_exception": 0.34,
+          "unrelated": 0.01,
+          "insufficient_context": 0.2
+        },
+        "confidenceSource": "jev",
+        "adapter": "jev",
+        "model": "jev-1.13.0",
+        "escalatedBy": "low_confidence"
+      }
+    },
+    {
+      "name": "derived_savings",
+      "expected": "contradicting",
+      "pass": false,
+      "elapsedMs": 252,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "web:site/contract.md#starter-savings",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "annual_savings",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "insufficient_context",
+        "confidence": 0.4,
+        "probabilities": {
+          "contradicting": 0.28,
+          "consistent": 0.52,
+          "valid_exception": 0.08,
+          "unrelated": 0.02,
+          "insufficient_context": 0.1
+        },
+        "confidenceSource": "jev",
+        "adapter": "jev",
+        "model": "jev-1.13.0",
+        "escalatedBy": "low_confidence"
+      }
+    }
+  ],
+  "frontier": [
+    {
+      "name": "direct_price",
+      "expected": "contradicting",
+      "pass": true,
+      "elapsedMs": 3889,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "web:site/contract.md#starter-price",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "direct_price",
+        "audience": "new_customers",
+        "billing": "monthly",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    },
+    {
+      "name": "eligible_grandfathering",
+      "expected": "valid_exception",
+      "pass": true,
+      "elapsedMs": 6197,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "email:email/eligible.md#starter-price",
+        "factVersion": 2,
+        "relevant": 0.9,
+        "kind": "direct_price",
+        "audience": "existing_customers",
+        "billing": "monthly",
+        "label": "valid_exception",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    },
+    {
+      "name": "derived_savings",
+      "expected": "contradicting",
+      "pass": true,
+      "elapsedMs": 4413,
+      "judgment": {
+        "runId": "smoke-run",
+        "passageId": "web:site/contract.md#starter-savings",
+        "factVersion": 2,
+        "relevant": 1,
+        "kind": "annual_savings",
+        "audience": "new_customers",
+        "billing": "annual",
+        "label": "contradicting",
+        "confidence": null,
+        "probabilities": null,
+        "confidenceSource": "unavailable",
+        "adapter": "frontier",
+        "model": "claude-sonnet-5-5",
+        "escalatedBy": null
+      }
+    }
+  ],
+  "fix": {
+    "pass": true,
+    "model": "claude-sonnet-5-5",
+    "fix": {
+      "action": "replace",
+      "replacement": "Starter is $40 a month.",
+      "rationale": "The passage states the old public monthly Starter price of $30. The confirmed public monthly price for this non-legacy, new-customer audience is $40 (target value 40, unit usd). Only the dollar figure changes, and the 'a month' billing qualifier is kept. The legacy exception is not added, since that would be a new claim.",
+      "reason": null
+    },
+    "checks": {
+      "exact_target": true,
+      "span_confined": true,
+      "qualifiers_kept": true,
+      "source_roundtrip": true,
+      "fact_fresh": true,
+      "rejudge_consistent": true
+    },
+    "judgment": {
+      "runId": "smoke-run",
+      "passageId": "web:site/contract.md#starter-price",
+      "factVersion": 2,
+      "relevant": 1,
+      "kind": "direct_price",
+      "audience": "new_customers",
+      "billing": "monthly",
+      "label": "consistent",
+      "confidence": null,
+      "probabilities": null,
+      "confidenceSource": "unavailable",
+      "adapter": "frontier",
+      "model": "claude-sonnet-5-5",
+      "escalatedBy": null
+    },
+    "elapsedMs": 8454
+  },
+  "selectedAdapter": "frontier",
+  "gatePassed": true,
+  "workloadGate": "not_run_step0"
+}

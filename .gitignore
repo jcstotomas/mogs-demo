@@ -8,8 +8,8 @@ coverage/
 .env.*
 !.env.example
 
-data/*.db
-data/*.db-*
+data/**/*.db
+data/**/*.db-*
 data/eval/latest.json
 
 .DS_Store

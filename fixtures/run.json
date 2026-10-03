@@ -1,0 +1,72 @@
+{
+  "id": "fixture-run",
+  "changeId": "starter-monthly-30-to-40",
+  "factVersion": 2,
+  "mode": "fixture",
+  "scope": {
+    "assetIds": [
+      "web:site/contract.md",
+      "email:email/onboarding.md",
+      "email:email/eligible.md"
+    ],
+    "urls": [
+      "http://localhost:3000/site/contract",
+      "http://localhost:3000/assets/email/onboarding",
+      "http://localhost:3000/assets/email/eligible"
+    ],
+    "corpusHash": "89a25cfc4ac7176d2f5cf6f6c07ab87b8522ec3933e2c7f251c502889cbced6d"
+  },
+  "config": {
+    "adapter": "frontier",
+    "connection": "anthropic_direct",
+    "fixConnection": "anthropic_direct",
+    "judgeModel": "claude-sonnet-5-5",
+    "fixModel": "claude-sonnet-5-5",
+    "tRel": 0.2,
+    "tLabel": 0.7,
+    "concurrency": 4,
+    "timeoutMs": 20000,
+    "promptVersion": "step0-v1"
+  },
+  "confirmedAt": "2026-10-03T19:00:00.000Z",
+  "status": "drafting",
+  "stats": {
+    "assetsIndexed": 3,
+    "passagesIndexed": 9,
+    "candidates": 9,
+    "judged": 9,
+    "patchesDrafted": 2,
+    "withheld": 0,
+    "groups": 1,
+    "published": 0,
+    "verified": 0,
+    "byLabel": {
+      "contradicting": 3,
+      "consistent": 0,
+      "valid_exception": 1,
+      "unrelated": 5,
+      "insufficient_context": 0
+    },
+    "bySurface": {
+      "web": {
+        "assets": 1,
+        "passages": 3,
+        "contradictions": 2,
+        "patches": 1
+      },
+      "email": {
+        "assets": 2,
+        "passages": 6,
+        "contradictions": 1,
+        "patches": 1
+      }
+    },
+    "reviewActions": 0,
+    "machineMs": 0,
+    "humanMs": 0,
+    "firstSealedGroupMs": 0,
+    "allResultsReadyMs": null
+  },
+  "errors": [],
+  "updatedAt": "2026-10-03T19:00:00.000Z"
+}

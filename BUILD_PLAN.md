@@ -14,6 +14,8 @@ The dependency chain is **executable shared contracts → source/render/crawl �
 
 ## Step 0 — prove and freeze the shared contracts
 
+The committed Step 0 handoff is documented in [docs/STEP_0.md](docs/STEP_0.md), with frozen interfaces, verification results, and the provider decision.
+
 The coordinator completes and commits this baseline before dispatching lanes. Shared ownership is defined in the table below. Record actual results; the planning documents themselves are not proof that a provider or gate passed.
 
 1. Scaffold one Next.js App Router + TypeScript app in the existing repository. Add `dev`, `build`, `typecheck`, `test`, `eval`, and `reset` scripts, SQLite storage, and `.env.example`. Keep real provider keys outside Git.
