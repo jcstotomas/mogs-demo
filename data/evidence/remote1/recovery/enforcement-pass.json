@@ -1,0 +1,28 @@
+{
+  "repository": "jcstotomas/mogs-demo",
+  "baseRef": "codex/recovery-base",
+  "producerAppId": 5179329,
+  "checks": [
+    {
+      "context": "mogs/candidate",
+      "appId": 5179329
+    },
+    {
+      "context": "mogs/preview",
+      "appId": 5179329
+    }
+  ],
+  "strict": true,
+  "enforceAdmins": true,
+  "bypassActors": [],
+  "mergeQueue": false,
+  "autoMerge": false,
+  "probes": {
+    "pendingBlocked": true,
+    "failureBlocked": true,
+    "wrongHeadBlocked": true,
+    "currentHeadEligible": true
+  },
+  "testedSha": "25c0727a1d79f567a6b5b34c624eec9d73bffd2f",
+  "verifiedAt": "2026-10-03T22:17:33.077Z"
+}

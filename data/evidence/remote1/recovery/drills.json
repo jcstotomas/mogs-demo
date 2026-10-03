@@ -1,0 +1,1828 @@
+{
+  "format": "mogs-actual-recovery-drills-v1",
+  "operationId": "acb5cd4e-ac17-400d-8f40-26acdd3d88f9",
+  "createdAt": "2026-10-03T22:17:50.970Z",
+  "target": {
+    "repository": "jcstotomas/mogs-demo",
+    "baseRef": "codex/recovery-base",
+    "productionOrigin": "https://mogs-recovery.vercel.app",
+    "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+    "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "statusProducerAppId": 5179329
+  },
+  "testActors": true,
+  "correctionCredit": false,
+  "stages": [
+    {
+      "event": "a-restoration-intent",
+      "at": "2026-10-03T22:17:54.830Z"
+    },
+    {
+      "event": "a-submission-intent",
+      "at": "2026-10-03T22:18:04.308Z"
+    },
+    {
+      "event": "a-submitted",
+      "at": "2026-10-03T22:18:26.639Z",
+      "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+      "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/6",
+      "candidateSha": "47657332604e991ca0d7716786886606b5a3c3ce",
+      "humanActions": 0
+    }
+  ],
+  "a": {
+    "requests": {
+      "restore": {
+        "contractVersion": 2,
+        "idempotencyKey": "e673218c-7b62-4e88-9c87-e3d966c2cef3",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "expectedFactVersion": 2,
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "seedRevision": "e573c2608ce3fa54f51cab67594355448aa1059b"
+      },
+      "submit": {
+        "contractVersion": 2,
+        "idempotencyKey": "efb52964-3949-466d-a547-82a3fe6f081d",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "expectedAttemptRevision": 0,
+        "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "bundleHash": "d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+        "approvals": []
+      }
+    },
+    "baseline": {
+      "contractVersion": 2,
+      "baseline": {
+        "target": {
+          "repository": "jcstotomas/mogs-demo",
+          "baseRef": "codex/recovery-base",
+          "productionOrigin": "https://mogs-recovery.vercel.app",
+          "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+          "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+          "statusProducerAppId": 5179329
+        },
+        "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+        "deploymentUrl": "https://mogs-recovery.vercel.app",
+        "observedAt": "2026-10-03T22:17:53.043Z",
+        "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+        "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+        "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+        "assets": [
+          {
+            "assetId": "email:email/eligible.md",
+            "path": "content/email/eligible.md",
+            "pathname": "/assets/email/eligible",
+            "surface": "email",
+            "editable": true,
+            "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+            "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+            "sourceIds": [
+              "email-subject",
+              "email-preheader",
+              "greeting",
+              "starter-price",
+              "historical",
+              "annual-price",
+              "current-price",
+              "locations-addon",
+              "cancellation",
+              "ambiguous-offer"
+            ]
+          },
+          {
+            "assetId": "email:email/onboarding.md",
+            "path": "content/email/onboarding.md",
+            "pathname": "/assets/email/onboarding",
+            "surface": "email",
+            "editable": true,
+            "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+            "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+            "sourceIds": [
+              "email-subject",
+              "email-preheader",
+              "greeting",
+              "starter-price",
+              "historical",
+              "annual-price",
+              "current-price",
+              "locations-addon",
+              "cancellation",
+              "ambiguous-offer"
+            ]
+          },
+          {
+            "assetId": "web:site/launch.md",
+            "path": "content/site/launch.md",
+            "pathname": "/site/launch",
+            "surface": "web",
+            "editable": true,
+            "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+            "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+            "sourceIds": [
+              "launch-title",
+              "starter-price",
+              "annual-savings",
+              "per-day",
+              "plan-gap",
+              "threshold",
+              "historical",
+              "annual-price",
+              "current-price",
+              "most-affordable",
+              "locations-addon",
+              "cancellation",
+              "ambiguous-offer"
+            ]
+          },
+          {
+            "assetId": "web:site/pricing.md",
+            "path": null,
+            "pathname": "/site/pricing",
+            "surface": "web",
+            "editable": false,
+            "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+            "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+            "sourceIds": [
+              "pricing-title",
+              "starter-monthly",
+              "starter-annual",
+              "legacy-rule",
+              "team-monthly",
+              "business-monthly",
+              "fact-version"
+            ]
+          }
+        ]
+      },
+      "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+      "beforeFacts": {
+        "scenarioId": "mogs-starter-2026-10-03",
+        "version": 2,
+        "company": "MOGS",
+        "phase": "confirmed",
+        "effectiveDate": "2026-10-03",
+        "plans": {
+          "starter": {
+            "monthlyCents": 4000,
+            "annualCents": 28800
+          },
+          "team": {
+            "monthlyCents": 8000,
+            "annualCents": 76800
+          },
+          "business": {
+            "monthlyCents": 20000,
+            "annualCents": 192000
+          }
+        },
+        "change": {
+          "id": "starter-monthly-30-to-40",
+          "plan": "starter",
+          "fromCents": 3000,
+          "toCents": 4000,
+          "billing": "monthly",
+          "appliesTo": "non_legacy_eligible",
+          "legacyRateCents": 3000,
+          "legacyCutoff": "2026-10-03T07:00:00.000Z"
+        },
+        "exceptions": [
+          "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+          "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+          "Annual prices and genuinely historical statements are unchanged."
+        ],
+        "derived": {
+          "annual_savings_percent": {
+            "unit": "percent",
+            "before": 20,
+            "after": 40
+          },
+          "per_day_usd": {
+            "unit": "usd_per_day",
+            "before": 1,
+            "after": 1.33
+          },
+          "lowest_monthly_usd": {
+            "unit": "usd",
+            "before": 30,
+            "after": 40
+          },
+          "lowest_annual_effective_monthly_usd": {
+            "unit": "usd",
+            "before": 24,
+            "after": 24
+          },
+          "team_starter_gap_usd": {
+            "unit": "usd",
+            "before": 50,
+            "after": 40
+          }
+        }
+      },
+      "desiredFacts": {
+        "scenarioId": "mogs-starter-2026-10-03",
+        "version": 2,
+        "company": "MOGS",
+        "phase": "confirmed",
+        "effectiveDate": "2026-10-03",
+        "plans": {
+          "starter": {
+            "monthlyCents": 4000,
+            "annualCents": 28800
+          },
+          "team": {
+            "monthlyCents": 8000,
+            "annualCents": 76800
+          },
+          "business": {
+            "monthlyCents": 20000,
+            "annualCents": 192000
+          }
+        },
+        "change": {
+          "id": "starter-monthly-30-to-40",
+          "plan": "starter",
+          "fromCents": 3000,
+          "toCents": 4000,
+          "billing": "monthly",
+          "appliesTo": "non_legacy_eligible",
+          "legacyRateCents": 3000,
+          "legacyCutoff": "2026-10-03T07:00:00.000Z"
+        },
+        "exceptions": [
+          "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+          "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+          "Annual prices and genuinely historical statements are unchanged."
+        ],
+        "derived": {
+          "annual_savings_percent": {
+            "unit": "percent",
+            "before": 20,
+            "after": 40
+          },
+          "per_day_usd": {
+            "unit": "usd_per_day",
+            "before": 1,
+            "after": 1.33
+          },
+          "lowest_monthly_usd": {
+            "unit": "usd",
+            "before": 30,
+            "after": 40
+          },
+          "lowest_annual_effective_monthly_usd": {
+            "unit": "usd",
+            "before": 24,
+            "after": 24
+          },
+          "team_starter_gap_usd": {
+            "unit": "usd",
+            "before": 50,
+            "after": 40
+          }
+        }
+      },
+      "activeRunId": null,
+      "enforcement": {
+        "available": true,
+        "message": "Required checks, trusted App and strict base probes passed; GitHub merge remains a human decision."
+      }
+    },
+    "started": {
+      "attempt": {
+        "contractVersion": 2,
+        "id": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "purpose": "restoration",
+        "seedRevision": "e573c2608ce3fa54f51cab67594355448aa1059b",
+        "baseline": {
+          "target": {
+            "repository": "jcstotomas/mogs-demo",
+            "baseRef": "codex/recovery-base",
+            "productionOrigin": "https://mogs-recovery.vercel.app",
+            "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+            "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+            "statusProducerAppId": 5179329
+          },
+          "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+          "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+          "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+          "deploymentUrl": "https://mogs-recovery.vercel.app",
+          "observedAt": "2026-10-03T22:17:53.043Z",
+          "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+          "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+          "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+          "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+          "assets": [
+            {
+              "assetId": "email:email/eligible.md",
+              "path": "content/email/eligible.md",
+              "pathname": "/assets/email/eligible",
+              "surface": "email",
+              "editable": true,
+              "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+              "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+              "sourceIds": [
+                "email-subject",
+                "email-preheader",
+                "greeting",
+                "starter-price",
+                "historical",
+                "annual-price",
+                "current-price",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "email:email/onboarding.md",
+              "path": "content/email/onboarding.md",
+              "pathname": "/assets/email/onboarding",
+              "surface": "email",
+              "editable": true,
+              "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+              "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+              "sourceIds": [
+                "email-subject",
+                "email-preheader",
+                "greeting",
+                "starter-price",
+                "historical",
+                "annual-price",
+                "current-price",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "web:site/launch.md",
+              "path": "content/site/launch.md",
+              "pathname": "/site/launch",
+              "surface": "web",
+              "editable": true,
+              "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+              "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+              "sourceIds": [
+                "launch-title",
+                "starter-price",
+                "annual-savings",
+                "per-day",
+                "plan-gap",
+                "threshold",
+                "historical",
+                "annual-price",
+                "current-price",
+                "most-affordable",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "web:site/pricing.md",
+              "path": null,
+              "pathname": "/site/pricing",
+              "surface": "web",
+              "editable": false,
+              "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+              "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+              "sourceIds": [
+                "pricing-title",
+                "starter-monthly",
+                "starter-annual",
+                "legacy-rule",
+                "team-monthly",
+                "business-monthly",
+                "fact-version"
+              ]
+            }
+          ]
+        },
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "beforeFactsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "desiredFactsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "state": "active",
+        "revision": 0,
+        "confirmedAt": "2026-10-03T22:17:54.838Z",
+        "recoveryId": null,
+        "closedAt": null,
+        "closureReason": null
+      },
+      "run": {
+        "contractVersion": 2,
+        "id": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "changeId": "starter-monthly-30-to-40",
+        "desiredFactVersion": 1,
+        "mode": "fixture",
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "scope": {
+          "assetIds": [
+            "email:email/eligible.md",
+            "email:email/onboarding.md",
+            "web:site/launch.md",
+            "web:site/pricing.md"
+          ],
+          "urls": [
+            "https://mogs-recovery.vercel.app/assets/email/eligible",
+            "https://mogs-recovery.vercel.app/assets/email/onboarding",
+            "https://mogs-recovery.vercel.app/site/launch",
+            "https://mogs-recovery.vercel.app/site/pricing"
+          ],
+          "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+          "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c"
+        },
+        "config": {
+          "adapter": "frontier",
+          "connection": "anthropic_direct",
+          "fixConnection": "anthropic_direct",
+          "judgeModel": "claude-sonnet-5-5",
+          "fixModel": "claude-sonnet-5-5",
+          "tRel": 0.2,
+          "tLabel": 0.7,
+          "concurrency": 4,
+          "timeoutMs": 20000,
+          "promptVersion": "gate1-v2"
+        },
+        "confirmedAt": "2026-10-03T22:17:54.838Z",
+        "deadlineAt": "2026-10-03T22:20:54.838Z",
+        "fullRunDeadlineMs": 180000,
+        "status": "collecting",
+        "filteredPassageIds": [],
+        "stats": {
+          "assetsIndexed": 4,
+          "passagesIndexed": 40,
+          "candidates": 0,
+          "judged": 0,
+          "patchesDrafted": 0,
+          "withheld": 0,
+          "groups": 0,
+          "published": 0,
+          "verified": 0,
+          "byLabel": {
+            "contradicting": 0,
+            "consistent": 0,
+            "valid_exception": 0,
+            "unrelated": 0,
+            "insufficient_context": 0
+          },
+          "bySurface": {
+            "web": {
+              "assets": 2,
+              "passages": 20,
+              "contradictions": 0,
+              "patches": 0
+            },
+            "email": {
+              "assets": 2,
+              "passages": 20,
+              "contradictions": 0,
+              "patches": 0
+            }
+          },
+          "reviewActions": 0,
+          "machineMs": 0,
+          "humanMs": 0,
+          "firstSealedGroupMs": null,
+          "allResultsReadyMs": null
+        },
+        "errors": [],
+        "updatedAt": "2026-10-03T22:17:54.838Z"
+      }
+    },
+    "candidate": {
+      "candidate": {
+        "id": "candidate-de861834-b5ac-46e6-8344-8ab816643a7d",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "purpose": "restoration",
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "desiredFactsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "approvals": [],
+        "files": [
+          {
+            "path": "content/email/onboarding.md",
+            "beforeHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+            "afterHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef"
+          },
+          {
+            "path": "content/site/launch.md",
+            "beforeHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+            "afterHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+          },
+          {
+            "path": "data/facts.json",
+            "beforeHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+            "afterHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee"
+          }
+        ],
+        "bundleHash": "d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+        "treeHash": "a82901d4ee1cec4ac34521237061389ef9c4fde62fcb8939f14335588fd34c26",
+        "branch": "codex/restore-de861834-b5ac-46e6-8344-8ab816643a7d",
+        "candidateSha": null,
+        "commitMessage": "Restore frozen MOGS seed\n\nLaunch-Attempt: de861834-b5ac-46e6-8344-8ab816643a7d\nSeed-Revision: e573c2608ce3fa54f51cab67594355448aa1059b\nBundle: d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+        "createdAt": "2026-10-03T22:17:54.838Z"
+      },
+      "checks": {}
+    },
+    "submission": {
+      "id": "submission-de861834-b5ac-46e6-8344-8ab816643a7d",
+      "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+      "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+      "candidate": {
+        "id": "candidate-de861834-b5ac-46e6-8344-8ab816643a7d",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "purpose": "restoration",
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+        "desiredFactsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "approvals": [],
+        "files": [
+          {
+            "path": "content/email/onboarding.md",
+            "beforeHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+            "afterHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef"
+          },
+          {
+            "path": "content/site/launch.md",
+            "beforeHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+            "afterHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+          },
+          {
+            "path": "data/facts.json",
+            "beforeHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+            "afterHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee"
+          }
+        ],
+        "bundleHash": "d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+        "treeHash": "a82901d4ee1cec4ac34521237061389ef9c4fde62fcb8939f14335588fd34c26",
+        "branch": "codex/restore-de861834-b5ac-46e6-8344-8ab816643a7d",
+        "candidateSha": "47657332604e991ca0d7716786886606b5a3c3ce",
+        "commitMessage": "Restore frozen MOGS seed\n\nLaunch-Attempt: de861834-b5ac-46e6-8344-8ab816643a7d\nSeed-Revision: e573c2608ce3fa54f51cab67594355448aa1059b\nBundle: d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+        "createdAt": "2026-10-03T22:17:54.838Z"
+      },
+      "revision": 4,
+      "status": "submitted",
+      "journal": "pr_opened",
+      "operationId": "6f2e1a20-6db6-4192-9f71-f2bd94ba1f2b",
+      "requestFingerprint": "fa0c76037c8929240d5767bfe1634257396f016c8f8153bba7ed8f807fb312e8",
+      "prNumber": 6,
+      "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/6",
+      "observedHeadSha": "47657332604e991ca0d7716786886606b5a3c3ce",
+      "failure": null,
+      "createdAt": "2026-10-03T22:18:10.060Z",
+      "updatedAt": "2026-10-03T22:18:20.921Z"
+    },
+    "export": {
+      "contractVersion": 2,
+      "attempt": {
+        "contractVersion": 2,
+        "id": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "purpose": "restoration",
+        "seedRevision": "e573c2608ce3fa54f51cab67594355448aa1059b",
+        "baseline": {
+          "target": {
+            "repository": "jcstotomas/mogs-demo",
+            "baseRef": "codex/recovery-base",
+            "productionOrigin": "https://mogs-recovery.vercel.app",
+            "vercelProjectId": "prj_W1XVK4trIcZS6Sn24qTvewnGCAQU",
+            "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+            "statusProducerAppId": 5179329
+          },
+          "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+          "deployedSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+          "deploymentId": "dpl_HW5MZamBcz9cyHaRDBg8oNEZMnZS",
+          "deploymentUrl": "https://mogs-recovery.vercel.app",
+          "observedAt": "2026-10-03T22:17:53.043Z",
+          "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c",
+          "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+          "factsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+          "factsFileHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+          "assets": [
+            {
+              "assetId": "email:email/eligible.md",
+              "path": "content/email/eligible.md",
+              "pathname": "/assets/email/eligible",
+              "surface": "email",
+              "editable": true,
+              "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+              "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+              "sourceIds": [
+                "email-subject",
+                "email-preheader",
+                "greeting",
+                "starter-price",
+                "historical",
+                "annual-price",
+                "current-price",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "email:email/onboarding.md",
+              "path": "content/email/onboarding.md",
+              "pathname": "/assets/email/onboarding",
+              "surface": "email",
+              "editable": true,
+              "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+              "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+              "sourceIds": [
+                "email-subject",
+                "email-preheader",
+                "greeting",
+                "starter-price",
+                "historical",
+                "annual-price",
+                "current-price",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "web:site/launch.md",
+              "path": "content/site/launch.md",
+              "pathname": "/site/launch",
+              "surface": "web",
+              "editable": true,
+              "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+              "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+              "sourceIds": [
+                "launch-title",
+                "starter-price",
+                "annual-savings",
+                "per-day",
+                "plan-gap",
+                "threshold",
+                "historical",
+                "annual-price",
+                "current-price",
+                "most-affordable",
+                "locations-addon",
+                "cancellation",
+                "ambiguous-offer"
+              ]
+            },
+            {
+              "assetId": "web:site/pricing.md",
+              "path": null,
+              "pathname": "/site/pricing",
+              "surface": "web",
+              "editable": false,
+              "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+              "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+              "sourceIds": [
+                "pricing-title",
+                "starter-monthly",
+                "starter-annual",
+                "legacy-rule",
+                "team-monthly",
+                "business-monthly",
+                "fact-version"
+              ]
+            }
+          ]
+        },
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "beforeFactsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+        "desiredFactsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "state": "abandoned",
+        "revision": 2,
+        "confirmedAt": "2026-10-03T22:17:54.838Z",
+        "recoveryId": "86360f12-b01e-4703-a0a9-c95063900db9",
+        "closedAt": "2026-10-03T22:19:57.808Z",
+        "closureReason": "Required statuses retired and unmerged PR closure observed."
+      },
+      "facts": [
+        {
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "phase": "before",
+          "version": 2,
+          "hash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+          "snapshot": {
+            "scenarioId": "mogs-starter-2026-10-03",
+            "version": 2,
+            "company": "MOGS",
+            "phase": "confirmed",
+            "effectiveDate": "2026-10-03",
+            "plans": {
+              "starter": {
+                "monthlyCents": 4000,
+                "annualCents": 28800
+              },
+              "team": {
+                "monthlyCents": 8000,
+                "annualCents": 76800
+              },
+              "business": {
+                "monthlyCents": 20000,
+                "annualCents": 192000
+              }
+            },
+            "change": {
+              "id": "starter-monthly-30-to-40",
+              "plan": "starter",
+              "fromCents": 3000,
+              "toCents": 4000,
+              "billing": "monthly",
+              "appliesTo": "non_legacy_eligible",
+              "legacyRateCents": 3000,
+              "legacyCutoff": "2026-10-03T07:00:00.000Z"
+            },
+            "exceptions": [
+              "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+              "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+              "Annual prices and genuinely historical statements are unchanged."
+            ],
+            "derived": {
+              "annual_savings_percent": {
+                "unit": "percent",
+                "before": 20,
+                "after": 40
+              },
+              "per_day_usd": {
+                "unit": "usd_per_day",
+                "before": 1,
+                "after": 1.33
+              },
+              "lowest_monthly_usd": {
+                "unit": "usd",
+                "before": 30,
+                "after": 40
+              },
+              "lowest_annual_effective_monthly_usd": {
+                "unit": "usd",
+                "before": 24,
+                "after": 24
+              },
+              "team_starter_gap_usd": {
+                "unit": "usd",
+                "before": 50,
+                "after": 40
+              }
+            }
+          }
+        },
+        {
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "phase": "desired",
+          "version": 1,
+          "hash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+          "snapshot": {
+            "scenarioId": "mogs-starter-2026-10-03",
+            "version": 1,
+            "company": "MOGS",
+            "phase": "initial",
+            "effectiveDate": "2026-10-03",
+            "plans": {
+              "starter": {
+                "monthlyCents": 3000,
+                "annualCents": 28800
+              },
+              "team": {
+                "monthlyCents": 8000,
+                "annualCents": 76800
+              },
+              "business": {
+                "monthlyCents": 20000,
+                "annualCents": 192000
+              }
+            },
+            "change": {
+              "id": "starter-monthly-30-to-40",
+              "plan": "starter",
+              "fromCents": 3000,
+              "toCents": 4000,
+              "billing": "monthly",
+              "appliesTo": "non_legacy_eligible",
+              "legacyRateCents": 3000,
+              "legacyCutoff": "2026-10-03T07:00:00.000Z"
+            },
+            "exceptions": [
+              "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+              "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+              "Annual prices and genuinely historical statements are unchanged."
+            ],
+            "derived": {
+              "annual_savings_percent": {
+                "unit": "percent",
+                "before": 20,
+                "after": 40
+              },
+              "per_day_usd": {
+                "unit": "usd_per_day",
+                "before": 1,
+                "after": 1.33
+              },
+              "lowest_monthly_usd": {
+                "unit": "usd",
+                "before": 30,
+                "after": 40
+              },
+              "lowest_annual_effective_monthly_usd": {
+                "unit": "usd",
+                "before": 24,
+                "after": 24
+              },
+              "team_starter_gap_usd": {
+                "unit": "usd",
+                "before": 50,
+                "after": 40
+              }
+            }
+          }
+        }
+      ],
+      "run": {
+        "contractVersion": 2,
+        "id": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "changeId": "starter-monthly-30-to-40",
+        "desiredFactVersion": 1,
+        "mode": "fixture",
+        "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+        "scope": {
+          "assetIds": [
+            "email:email/eligible.md",
+            "email:email/onboarding.md",
+            "web:site/launch.md",
+            "web:site/pricing.md"
+          ],
+          "urls": [
+            "https://mogs-recovery.vercel.app/assets/email/eligible",
+            "https://mogs-recovery.vercel.app/assets/email/onboarding",
+            "https://mogs-recovery.vercel.app/site/launch",
+            "https://mogs-recovery.vercel.app/site/pricing"
+          ],
+          "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+          "inventoryHash": "ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c"
+        },
+        "config": {
+          "adapter": "frontier",
+          "connection": "anthropic_direct",
+          "fixConnection": "anthropic_direct",
+          "judgeModel": "claude-sonnet-5-5",
+          "fixModel": "claude-sonnet-5-5",
+          "tRel": 0.2,
+          "tLabel": 0.7,
+          "concurrency": 4,
+          "timeoutMs": 20000,
+          "promptVersion": "gate1-v2"
+        },
+        "confirmedAt": "2026-10-03T22:17:54.838Z",
+        "deadlineAt": "2026-10-03T22:20:54.838Z",
+        "fullRunDeadlineMs": 180000,
+        "status": "ready",
+        "filteredPassageIds": [],
+        "stats": {
+          "assetsIndexed": 4,
+          "passagesIndexed": 40,
+          "candidates": 0,
+          "judged": 0,
+          "patchesDrafted": 0,
+          "withheld": 0,
+          "groups": 0,
+          "published": 0,
+          "verified": 0,
+          "byLabel": {
+            "contradicting": 0,
+            "consistent": 0,
+            "valid_exception": 0,
+            "unrelated": 0,
+            "insufficient_context": 0
+          },
+          "bySurface": {
+            "web": {
+              "assets": 2,
+              "passages": 20,
+              "contradictions": 0,
+              "patches": 0
+            },
+            "email": {
+              "assets": 2,
+              "passages": 20,
+              "contradictions": 0,
+              "patches": 0
+            }
+          },
+          "reviewActions": 0,
+          "machineMs": 5558,
+          "humanMs": 0,
+          "firstSealedGroupMs": null,
+          "allResultsReadyMs": 5558
+        },
+        "errors": [],
+        "updatedAt": "2026-10-03T22:18:00.396Z"
+      },
+      "pages": [
+        {
+          "assetId": "email:email/eligible.md",
+          "file": "email/eligible.md",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+          "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+          "crawledAt": "2026-10-03T22:18:00.307Z",
+          "meta": {
+            "title": "MOGS eligible legacy email",
+            "kind": "email",
+            "audienceHint": "existing_customers",
+            "legacyStarterEligible": true,
+            "journey": "eligible_legacy"
+          }
+        },
+        {
+          "assetId": "email:email/onboarding.md",
+          "file": "email/onboarding.md",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "sourceHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+          "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+          "crawledAt": "2026-10-03T22:18:00.307Z",
+          "meta": {
+            "title": "MOGS onboarding email",
+            "kind": "email",
+            "audienceHint": "new_customers",
+            "legacyStarterEligible": false,
+            "journey": "onboarding"
+          }
+        },
+        {
+          "assetId": "web:site/launch.md",
+          "file": "site/launch.md",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "sourceHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+          "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+          "crawledAt": "2026-10-03T22:18:00.307Z",
+          "meta": {
+            "title": "MOGS launch guide",
+            "kind": "launch",
+            "audienceHint": "new_customers",
+            "legacyStarterEligible": false
+          }
+        },
+        {
+          "assetId": "web:site/pricing.md",
+          "file": null,
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "sourceHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+          "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+          "crawledAt": "2026-10-03T22:18:00.307Z",
+          "meta": {
+            "title": "MOGS canonical pricing",
+            "kind": "pricing",
+            "audienceHint": "new_customers",
+            "legacyStarterEligible": false
+          }
+        }
+      ],
+      "passages": [
+        {
+          "id": "email:email/eligible.md#email-subject",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "email-subject",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "subject",
+          "idx": 0,
+          "text": "Your MOGS account, {{ first_name }}",
+          "blockHash": "91576c06bd03ed515773f649583c4cc562b9fe4b82ac3662a18cbb03e36d05af",
+          "contextHash": "8b669157bd4a5b25f5c36ace0354e0e3bc354ac579bd7a81e51d827ac0dc5db2",
+          "heading": "",
+          "before": "",
+          "after": "A fictional MOGS email for active pre-change Starter monthly subscribers."
+        },
+        {
+          "id": "email:email/eligible.md#email-preheader",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "email-preheader",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "preheader",
+          "idx": 1,
+          "text": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+          "blockHash": "ec3b2a16dfb6aa5029759d35ac2a27fc0ad218e65a5e49322df2eacafc8eb1c0",
+          "contextHash": "e4081329d05d095c9b0f0ac5839a9829e317ae4cf09a0d6d210d56a8daefb23b",
+          "heading": "",
+          "before": "Your MOGS account, {{ first_name }}",
+          "after": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account."
+        },
+        {
+          "id": "email:email/eligible.md#greeting",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "greeting",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 2,
+          "text": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+          "blockHash": "363f9c2f433c1fa10478bfff5398460236b2f89f9169f39a17f1773768667613",
+          "contextHash": "63f78853366b643779b7296cf78aa3a4c7e47055a498f4765f1420c8d8c0da7f",
+          "heading": "",
+          "before": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+          "after": "Starter is $30 a month."
+        },
+        {
+          "id": "email:email/eligible.md#starter-price",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "starter-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 3,
+          "text": "Starter is $30 a month.",
+          "blockHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+          "contextHash": "8f32f1ae582fee9ca56729746d2487f0768f5f948d462b13046ff10c80d901b0",
+          "heading": "",
+          "before": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+          "after": "When we launched in 2023, Starter cost $30 a month."
+        },
+        {
+          "id": "email:email/eligible.md#historical",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "historical",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 4,
+          "text": "When we launched in 2023, Starter cost $30 a month.",
+          "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+          "contextHash": "2a0bd959f89b0469722b35c696f978ad1f510bf5c6b48ff554262f9d9a617e65",
+          "heading": "",
+          "before": "Starter is $30 a month.",
+          "after": "For new customers, Starter is $288 a year, or $24 a month billed annually."
+        },
+        {
+          "id": "email:email/eligible.md#annual-price",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "annual-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 5,
+          "text": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+          "blockHash": "892ccd3193e5bc5e62322710017d783e180b9638a2e2cece2d9a588a2ee0dd80",
+          "contextHash": "62028221191b3721649c186da9ae6c80a61775d5749f38bd2990408226888d0d",
+          "heading": "",
+          "before": "When we launched in 2023, Starter cost $30 a month.",
+          "after": "For new customers, Starter is $40 a month."
+        },
+        {
+          "id": "email:email/eligible.md#current-price",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "current-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 6,
+          "text": "For new customers, Starter is $40 a month.",
+          "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+          "contextHash": "c050d5b48a0f1ab6a63a34e40b412042ff04c8340ff4ebc3656260e64585bff2",
+          "heading": "",
+          "before": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+          "after": "The Locations add-on is $30 a month."
+        },
+        {
+          "id": "email:email/eligible.md#locations-addon",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "locations-addon",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 7,
+          "text": "The Locations add-on is $30 a month.",
+          "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+          "contextHash": "d6525fac95febd95009ebf4720b3d38702b5a49ca385dcb80dc33b8eddfe3166",
+          "heading": "",
+          "before": "For new customers, Starter is $40 a month.",
+          "after": "Cancel within 30 days."
+        },
+        {
+          "id": "email:email/eligible.md#cancellation",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "cancellation",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 8,
+          "text": "Cancel within 30 days.",
+          "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+          "contextHash": "e5eba4b84025f3e6f0e751e77db3fda1ecbacf11d10c0d29c8a58046ed7ceb3c",
+          "heading": "",
+          "before": "The Locations add-on is $30 a month.",
+          "after": "Plans from $30."
+        },
+        {
+          "id": "email:email/eligible.md#ambiguous-offer",
+          "assetId": "email:email/eligible.md",
+          "sourceId": "ambiguous-offer",
+          "url": "https://mogs-recovery.vercel.app/assets/email/eligible",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 9,
+          "text": "Plans from $30.",
+          "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+          "contextHash": "48d293904861b2b6929bdd776c43ef193b5d9222bc185bde218c6e6d17927d4d",
+          "heading": "",
+          "before": "Cancel within 30 days.",
+          "after": ""
+        },
+        {
+          "id": "email:email/onboarding.md#email-subject",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "email-subject",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "subject",
+          "idx": 0,
+          "text": "Welcome to MOGS, {{ first_name }}",
+          "blockHash": "7d1b0354096c74ba00a00b63b233b1433cddc7d25cdbe079ad5e66b1d6e9c1b7",
+          "contextHash": "19c6273d86ada84d70ece27fdcdeccb39ca90334a47f49b88c1cc383026f660b",
+          "heading": "",
+          "before": "",
+          "after": "A fictional MOGS onboarding email."
+        },
+        {
+          "id": "email:email/onboarding.md#email-preheader",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "email-preheader",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "preheader",
+          "idx": 1,
+          "text": "A fictional MOGS onboarding email.",
+          "blockHash": "553bd8769e2eac007190becc2f2e19d44bdabc138e7d93c741fcec7c4d764f19",
+          "contextHash": "bc015ab11fccd2d358f2e3ac529e48a71f268376a513ab810175d37f15f92333",
+          "heading": "",
+          "before": "Welcome to MOGS, {{ first_name }}",
+          "after": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup."
+        },
+        {
+          "id": "email:email/onboarding.md#greeting",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "greeting",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 2,
+          "text": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+          "blockHash": "97927ade4a0540fb75f3cd89034db9d0d77833f8240c67ff3000b954f0f6d827",
+          "contextHash": "93770e07d6a3150eda1055341a73419c1064242e6db81c0fd00472ea06e08e07",
+          "heading": "",
+          "before": "A fictional MOGS onboarding email.",
+          "after": "Starter is $40 a month."
+        },
+        {
+          "id": "email:email/onboarding.md#starter-price",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "starter-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 3,
+          "text": "Starter is $40 a month.",
+          "blockHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+          "contextHash": "ebb1917c3c2c1d1a83525b3d97a282b4dd050d6bf3f1f362af1b8a159e262ff3",
+          "heading": "",
+          "before": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+          "after": "When we launched in 2023, Starter cost $30 a month."
+        },
+        {
+          "id": "email:email/onboarding.md#historical",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "historical",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 4,
+          "text": "When we launched in 2023, Starter cost $30 a month.",
+          "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+          "contextHash": "33f6ceceae31eadca8310dd40bd5382b58374dff741f030b92f7428a680b2fec",
+          "heading": "",
+          "before": "Starter is $40 a month.",
+          "after": "Starter is $288 a year, or $24 a month billed annually."
+        },
+        {
+          "id": "email:email/onboarding.md#annual-price",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "annual-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 5,
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+          "contextHash": "d3e02e284595b25c3f47c6a69cff2c2419cfc2bea01559d6d033471a2808332a",
+          "heading": "",
+          "before": "When we launched in 2023, Starter cost $30 a month.",
+          "after": "For new customers, Starter is $40 a month."
+        },
+        {
+          "id": "email:email/onboarding.md#current-price",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "current-price",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 6,
+          "text": "For new customers, Starter is $40 a month.",
+          "blockHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+          "contextHash": "dda620485fdd5c397edd4877dac0bf93e3f4ddcc333d68d8fcf48f2285f6f2e0",
+          "heading": "",
+          "before": "Starter is $288 a year, or $24 a month billed annually.",
+          "after": "The Locations add-on is $30 a month."
+        },
+        {
+          "id": "email:email/onboarding.md#locations-addon",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "locations-addon",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 7,
+          "text": "The Locations add-on is $30 a month.",
+          "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+          "contextHash": "c7f3c8c716bb6aae0470b66d177c057807c2ed140f1f962e33158c1988c7fc40",
+          "heading": "",
+          "before": "For new customers, Starter is $40 a month.",
+          "after": "Cancel within 30 days."
+        },
+        {
+          "id": "email:email/onboarding.md#cancellation",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "cancellation",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 8,
+          "text": "Cancel within 30 days.",
+          "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+          "contextHash": "27754092f5581506a3d49552c747a84f1c206a51f012ae5fd1af0feaaf5fd6a5",
+          "heading": "",
+          "before": "The Locations add-on is $30 a month.",
+          "after": "Plans from $30."
+        },
+        {
+          "id": "email:email/onboarding.md#ambiguous-offer",
+          "assetId": "email:email/onboarding.md",
+          "sourceId": "ambiguous-offer",
+          "url": "https://mogs-recovery.vercel.app/assets/email/onboarding",
+          "surface": "email",
+          "editable": true,
+          "role": "body",
+          "idx": 9,
+          "text": "Plans from $30.",
+          "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+          "contextHash": "2896e43e121c78978de0c175870c4e82c6e6731395d4a7f490b3b89601e08165",
+          "heading": "",
+          "before": "Cancel within 30 days.",
+          "after": ""
+        },
+        {
+          "id": "web:site/launch.md#launch-title",
+          "assetId": "web:site/launch.md",
+          "sourceId": "launch-title",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "heading",
+          "idx": 0,
+          "text": "MOGS launch guide — fictional company",
+          "blockHash": "3fe179cfd041bccb6fdbd69b13dec52a02a27db6efd39e639af66429a3c9f90a",
+          "contextHash": "912e23cd22d1ac99bb79058bb44522cfed0eb9eb5fbaa6cefee5c9650cd60359",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "",
+          "after": "Starter is $40 a month."
+        },
+        {
+          "id": "web:site/launch.md#starter-price",
+          "assetId": "web:site/launch.md",
+          "sourceId": "starter-price",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 1,
+          "text": "Starter is $40 a month.",
+          "blockHash": "91727e50b6175cfd6d8a0f19e18df4fe2dde71ff53bcfd2fe551a492f203ff4f",
+          "contextHash": "c0e88679c37d622052dfd2194da2794da9caf5ff24fda205fb9ead8b9989092c",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "MOGS launch guide — fictional company",
+          "after": "Save 40% on Starter with annual billing."
+        },
+        {
+          "id": "web:site/launch.md#annual-savings",
+          "assetId": "web:site/launch.md",
+          "sourceId": "annual-savings",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 2,
+          "text": "Save 40% on Starter with annual billing.",
+          "blockHash": "c1ccdc129a8721240c09cf481768d163530f8d7d4343de9e08016a5c229cc821",
+          "contextHash": "59194cadb4934ac6c73ff8133da323f2e7eb8cad33cd279ee4e145ee24a58ca9",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Starter is $40 a month.",
+          "after": "Starter costs about $1.33 a day."
+        },
+        {
+          "id": "web:site/launch.md#per-day",
+          "assetId": "web:site/launch.md",
+          "sourceId": "per-day",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 3,
+          "text": "Starter costs about $1.33 a day.",
+          "blockHash": "784e7903a9809c7b7725e30b397d738fb77ef85518517e460fe2c9141a2e19cb",
+          "contextHash": "e21947698dc3e8357d24e6883eae632c6ad0640f9bc954ffbdca54cb505a0f64",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Save 40% on Starter with annual billing.",
+          "after": "Team is only $40 a month more than Starter."
+        },
+        {
+          "id": "web:site/launch.md#plan-gap",
+          "assetId": "web:site/launch.md",
+          "sourceId": "plan-gap",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 4,
+          "text": "Team is only $40 a month more than Starter.",
+          "blockHash": "4ef5d476aaae31d478762a0e2a7a80aa1ad06fab95d687d051640ce4c787c57a",
+          "contextHash": "5576b9177c28bad1fd4e255809c44b9c5c0714ada4b67e8fc0594f5d7480f322",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Starter costs about $1.33 a day.",
+          "after": "Get started for under $35 a month, billed monthly."
+        },
+        {
+          "id": "web:site/launch.md#threshold",
+          "assetId": "web:site/launch.md",
+          "sourceId": "threshold",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 5,
+          "text": "Get started for under $35 a month, billed monthly.",
+          "blockHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+          "contextHash": "3dc4daf195a04eb4afac72bf747b07b2d056584a007f0c47c58f769b5ef6ca34",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Team is only $40 a month more than Starter.",
+          "after": "When we launched in 2023, Starter cost $30 a month."
+        },
+        {
+          "id": "web:site/launch.md#historical",
+          "assetId": "web:site/launch.md",
+          "sourceId": "historical",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 6,
+          "text": "When we launched in 2023, Starter cost $30 a month.",
+          "blockHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+          "contextHash": "f2b9ce5fe7f7dd789adab1931e67749fe65acfb40b8aa5058d3acdf2bccc666a",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Get started for under $35 a month, billed monthly.",
+          "after": "Starter is $288 a year, or $24 a month billed annually."
+        },
+        {
+          "id": "web:site/launch.md#annual-price",
+          "assetId": "web:site/launch.md",
+          "sourceId": "annual-price",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 7,
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+          "contextHash": "2bab18b5a446edd9a37908ccc24c3a8bedd64b382d77afe588022fd65b3631eb",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "When we launched in 2023, Starter cost $30 a month.",
+          "after": "Starter is $40 a month for new customers."
+        },
+        {
+          "id": "web:site/launch.md#current-price",
+          "assetId": "web:site/launch.md",
+          "sourceId": "current-price",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 8,
+          "text": "Starter is $40 a month for new customers.",
+          "blockHash": "eeffbcbc0bba075e4c531a6fce60d766065226dc685b45346cff7e4fff9c855c",
+          "contextHash": "d469107cc965b5bab049983e2b51ffcdd2694d55a505bb7c3594626c80a370cf",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Starter is $288 a year, or $24 a month billed annually.",
+          "after": "Starter is our most affordable plan."
+        },
+        {
+          "id": "web:site/launch.md#most-affordable",
+          "assetId": "web:site/launch.md",
+          "sourceId": "most-affordable",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "list_item",
+          "idx": 9,
+          "text": "Starter is our most affordable plan.",
+          "blockHash": "ea2fb5f9aeadefc99c5e12c6f68aea80c6e34b7dcb15dba5afcb1ba74afb5222",
+          "contextHash": "dd41e1eef2527c16e5001e7ee024c962a4e74ba74bb9dcf836925e7c0a618580",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Starter is $40 a month for new customers.",
+          "after": "The Locations add-on is $30 a month."
+        },
+        {
+          "id": "web:site/launch.md#locations-addon",
+          "assetId": "web:site/launch.md",
+          "sourceId": "locations-addon",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 10,
+          "text": "The Locations add-on is $30 a month.",
+          "blockHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+          "contextHash": "bce76fae597a9b263b9b38f7ebc8446423cb900d6c4c8456e03bec4fc2dd4b7e",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Starter is our most affordable plan.",
+          "after": "Cancel within 30 days."
+        },
+        {
+          "id": "web:site/launch.md#cancellation",
+          "assetId": "web:site/launch.md",
+          "sourceId": "cancellation",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 11,
+          "text": "Cancel within 30 days.",
+          "blockHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+          "contextHash": "7cbf3a71682ef52c6b077347e377598f23d3effd9ab0b08447c955afdd3c948e",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "The Locations add-on is $30 a month.",
+          "after": "Plans from $30."
+        },
+        {
+          "id": "web:site/launch.md#ambiguous-offer",
+          "assetId": "web:site/launch.md",
+          "sourceId": "ambiguous-offer",
+          "url": "https://mogs-recovery.vercel.app/site/launch",
+          "surface": "web",
+          "editable": true,
+          "role": "body",
+          "idx": 12,
+          "text": "Plans from $30.",
+          "blockHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+          "contextHash": "bd01fa727bcf1ab81568dbe2e2996bfb0a1894757549752a1ee4ebd3588344ce",
+          "heading": "MOGS launch guide — fictional company",
+          "before": "Cancel within 30 days.",
+          "after": ""
+        },
+        {
+          "id": "web:site/pricing.md#pricing-title",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "pricing-title",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "heading",
+          "idx": 0,
+          "text": "MOGS pricing — fictional company",
+          "blockHash": "cb96ceed60f314d0f86fc9b64730dae550549767e7fb11c378c7a56b44dea7df",
+          "contextHash": "474668d2bbbbf2bcd0957a76c10d3da11462dc55d6fa7ea089dba6a42add270d",
+          "heading": "MOGS pricing — fictional company",
+          "before": "",
+          "after": "Starter is $40 a month for customers without legacy eligibility."
+        },
+        {
+          "id": "web:site/pricing.md#starter-monthly",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "starter-monthly",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 1,
+          "text": "Starter is $40 a month for customers without legacy eligibility.",
+          "blockHash": "1a60ed7a0921e63b671dc1c9ae09a2316c0b176b15c4f2b07ddb1e9ebbd539f1",
+          "contextHash": "e56442fb987f34a76572c52682fc7ae682e9f9e27167c4726718eacd846ad86c",
+          "heading": "MOGS pricing — fictional company",
+          "before": "MOGS pricing — fictional company",
+          "after": "Starter is $288 a year, or $24 a month billed annually."
+        },
+        {
+          "id": "web:site/pricing.md#starter-annual",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "starter-annual",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 2,
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "blockHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+          "contextHash": "4b6052a93bc107832343a4dcde8fae0ce4e6c64420da7f0418b1659fb43e44e8",
+          "heading": "MOGS pricing — fictional company",
+          "before": "Starter is $40 a month for customers without legacy eligibility.",
+          "after": "Active Starter monthly subscribers whose subscription began before 2026-10-03T07:00:00.000Z keep $30 a month."
+        },
+        {
+          "id": "web:site/pricing.md#legacy-rule",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "legacy-rule",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 3,
+          "text": "Active Starter monthly subscribers whose subscription began before 2026-10-03T07:00:00.000Z keep $30 a month.",
+          "blockHash": "ebac271d8bc6852995c5896f7624e39d81422111b591310e228233114416358b",
+          "contextHash": "968ece3be6ba76be405aa9e37eedd906f25bab7456a4adae9c2b9d48b115879c",
+          "heading": "MOGS pricing — fictional company",
+          "before": "Starter is $288 a year, or $24 a month billed annually.",
+          "after": "Team is $80 a month."
+        },
+        {
+          "id": "web:site/pricing.md#team-monthly",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "team-monthly",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 4,
+          "text": "Team is $80 a month.",
+          "blockHash": "9242c27521630de64ed3308159ecd1a9434e1312cc7ca1ca7f59475e23d1934f",
+          "contextHash": "7a347c4bae8a352ea1a9ee90d43eeb70b4d5121eb093ed1fe7c217e2609ee57a",
+          "heading": "MOGS pricing — fictional company",
+          "before": "Active Starter monthly subscribers whose subscription began before 2026-10-03T07:00:00.000Z keep $30 a month.",
+          "after": "Business is $200 a month."
+        },
+        {
+          "id": "web:site/pricing.md#business-monthly",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "business-monthly",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 5,
+          "text": "Business is $200 a month.",
+          "blockHash": "c8f35ff9a552e13c9ebb4f4b03d0e4aea7afb098695be1095fcca90121371667",
+          "contextHash": "f46b5b86e4ceb1cdd642b3d3744767a710051110977eccb428f870a7f49dad2f",
+          "heading": "MOGS pricing — fictional company",
+          "before": "Team is $80 a month.",
+          "after": "Fact snapshot 2; effective date 2026-10-03. This page renders directly from facts."
+        },
+        {
+          "id": "web:site/pricing.md#fact-version",
+          "assetId": "web:site/pricing.md",
+          "sourceId": "fact-version",
+          "url": "https://mogs-recovery.vercel.app/site/pricing",
+          "surface": "web",
+          "editable": false,
+          "role": "body",
+          "idx": 6,
+          "text": "Fact snapshot 2; effective date 2026-10-03. This page renders directly from facts.",
+          "blockHash": "b08b7af3322fac3d1e8ce460c5098b0b297dc2e91dc22960f15957908df43a0a",
+          "contextHash": "a78cf7d49275a93d9917464176f62ca4f96041ab04d76c36e09770d6d2695835",
+          "heading": "MOGS pricing — fictional company",
+          "before": "Business is $200 a month.",
+          "after": ""
+        }
+      ],
+      "groups": [],
+      "patches": [],
+      "judgments": [],
+      "approvals": [],
+      "submission": {
+        "id": "submission-de861834-b5ac-46e6-8344-8ab816643a7d",
+        "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+        "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+        "candidate": {
+          "id": "candidate-de861834-b5ac-46e6-8344-8ab816643a7d",
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+          "purpose": "restoration",
+          "baselineHash": "253ee953b17e763b2dfead6d8e41c8165d30a4217d40e687cb33c8c44a2ec2b8",
+          "baseSha": "3786e7f8a331b6bf5d54f171624234c00324429b",
+          "desiredFactsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+          "approvals": [],
+          "files": [
+            {
+              "path": "content/email/onboarding.md",
+              "beforeHash": "c7ea106f3b07a10a2c6b0f001fc7b989b0a4fd2f14eaafe4f2e14fdc6550a036",
+              "afterHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef"
+            },
+            {
+              "path": "content/site/launch.md",
+              "beforeHash": "34ff01fa0b4e22b9bfb864d8a84f67864f104a54dd714d9bb1b563a485358810",
+              "afterHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+            },
+            {
+              "path": "data/facts.json",
+              "beforeHash": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0",
+              "afterHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee"
+            }
+          ],
+          "bundleHash": "d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+          "treeHash": "a82901d4ee1cec4ac34521237061389ef9c4fde62fcb8939f14335588fd34c26",
+          "branch": "codex/restore-de861834-b5ac-46e6-8344-8ab816643a7d",
+          "candidateSha": "47657332604e991ca0d7716786886606b5a3c3ce",
+          "commitMessage": "Restore frozen MOGS seed\n\nLaunch-Attempt: de861834-b5ac-46e6-8344-8ab816643a7d\nSeed-Revision: e573c2608ce3fa54f51cab67594355448aa1059b\nBundle: d10aba87ee16d05d4e7aa95232ed19d4e988d1ca0e8bb572c7bcf64802e86e61",
+          "createdAt": "2026-10-03T22:17:54.838Z"
+        },
+        "revision": 5,
+        "status": "closed",
+        "journal": "closed",
+        "operationId": "6f2e1a20-6db6-4192-9f71-f2bd94ba1f2b",
+        "requestFingerprint": "fa0c76037c8929240d5767bfe1634257396f016c8f8153bba7ed8f807fb312e8",
+        "prNumber": 6,
+        "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/6",
+        "observedHeadSha": "47657332604e991ca0d7716786886606b5a3c3ce",
+        "failure": null,
+        "createdAt": "2026-10-03T22:18:10.060Z",
+        "updatedAt": "2026-10-03T22:19:57.807Z"
+      },
+      "candidateChecks": {},
+      "observations": [],
+      "recoveries": [
+        {
+          "id": "86360f12-b01e-4703-a0a9-c95063900db9",
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "submissionId": "submission-de861834-b5ac-46e6-8344-8ab816643a7d",
+          "action": "abandon",
+          "status": "reconciled",
+          "expectedAttemptRevision": 0,
+          "expectedSubmissionRevision": 4,
+          "requestFingerprint": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+          "retiredShas": [
+            "47657332604e991ca0d7716786886606b5a3c3ce"
+          ],
+          "statuses": [
+            {
+              "context": "mogs/preview",
+              "sha": "47657332604e991ca0d7716786886606b5a3c3ce",
+              "state": "failure",
+              "producerAppId": 5179329,
+              "evidenceHash": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+              "statusUrl": "https://api.github.com/repos/jcstotomas/mogs-demo/statuses/47657332604e991ca0d7716786886606b5a3c3ce",
+              "at": "2026-10-03T22:19:54Z"
+            },
+            {
+              "context": "mogs/candidate",
+              "sha": "47657332604e991ca0d7716786886606b5a3c3ce",
+              "state": "failure",
+              "producerAppId": 5179329,
+              "evidenceHash": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+              "statusUrl": "https://api.github.com/repos/jcstotomas/mogs-demo/statuses/47657332604e991ca0d7716786886606b5a3c3ce",
+              "at": "2026-10-03T22:19:53Z"
+            }
+          ],
+          "prClosed": true,
+          "mergedSha": null,
+          "observedDeploymentId": null,
+          "failure": null,
+          "createdAt": "2026-10-03T22:19:51.718Z",
+          "updatedAt": "2026-10-03T22:19:57.806Z"
+        }
+      ],
+      "reviewEvents": [
+        {
+          "contractVersion": 2,
+          "id": "restore-de861834-b5ac-46e6-8344-8ab816643a7d",
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+          "groupId": null,
+          "patchId": null,
+          "action": "restore",
+          "actor": "test",
+          "at": "2026-10-03T22:17:54.838Z",
+          "detail": "Started a separate seed-restoration attempt at revision e573c2608ce3fa54f51cab67594355448aa1059b; no remote content changed."
+        },
+        {
+          "contractVersion": 2,
+          "id": "6f2e1a20-6db6-4192-9f71-f2bd94ba1f2b",
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+          "groupId": null,
+          "patchId": null,
+          "action": "submit",
+          "actor": "test",
+          "at": "2026-10-03T22:18:10.060Z",
+          "detail": "Submitted the complete checked restoration bundle for one PR; human GitHub merge remains separate."
+        },
+        {
+          "contractVersion": 2,
+          "id": "86360f12-b01e-4703-a0a9-c95063900db9",
+          "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+          "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+          "groupId": null,
+          "patchId": null,
+          "action": "abandon",
+          "actor": "test",
+          "at": "2026-10-03T22:19:51.718Z",
+          "detail": "User requested stopping extra testing for demo delivery. Abandon this isolated test restoration without changing its head or merging."
+        }
+      ]
+    },
+    "stoppedBeforeStaleDrill": true
+  },
+  "demoPriority": {
+    "at": "2026-10-03T22:19:51.704Z",
+    "userDirection": "Relax testing and get to a demo sooner.",
+    "actualRecoveryDrills": "deferred; not passed",
+    "staleHeadMutation": "not performed",
+    "cleanupRequest": {
+      "contractVersion": 2,
+      "idempotencyKey": "fe3b5dbb-7a25-470b-a87e-0dcbe5c9c25f",
+      "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+      "runId": "374fe0fe-3e4d-4bf4-a3a4-3dd49ad70072",
+      "expectedAttemptRevision": 0,
+      "expectedSubmissionRevision": 4,
+      "reason": "User requested stopping extra testing for demo delivery. Abandon this isolated test restoration without changing its head or merging."
+    },
+    "cleanupRecovery": {
+      "id": "86360f12-b01e-4703-a0a9-c95063900db9",
+      "launchAttemptId": "de861834-b5ac-46e6-8344-8ab816643a7d",
+      "submissionId": "submission-de861834-b5ac-46e6-8344-8ab816643a7d",
+      "action": "abandon",
+      "status": "reconciled",
+      "expectedAttemptRevision": 0,
+      "expectedSubmissionRevision": 4,
+      "requestFingerprint": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+      "retiredShas": [
+        "47657332604e991ca0d7716786886606b5a3c3ce"
+      ],
+      "statuses": [
+        {
+          "context": "mogs/preview",
+          "sha": "47657332604e991ca0d7716786886606b5a3c3ce",
+          "state": "failure",
+          "producerAppId": 5179329,
+          "evidenceHash": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+          "statusUrl": "https://api.github.com/repos/jcstotomas/mogs-demo/statuses/47657332604e991ca0d7716786886606b5a3c3ce",
+          "at": "2026-10-03T22:19:54Z"
+        },
+        {
+          "context": "mogs/candidate",
+          "sha": "47657332604e991ca0d7716786886606b5a3c3ce",
+          "state": "failure",
+          "producerAppId": 5179329,
+          "evidenceHash": "8c4fae69b3b003570368f25cb86d026d38a495935e58db4f6c789e73fb385a35",
+          "statusUrl": "https://api.github.com/repos/jcstotomas/mogs-demo/statuses/47657332604e991ca0d7716786886606b5a3c3ce",
+          "at": "2026-10-03T22:19:53Z"
+        }
+      ],
+      "prClosed": true,
+      "mergedSha": null,
+      "observedDeploymentId": null,
+      "failure": null,
+      "createdAt": "2026-10-03T22:19:51.718Z",
+      "updatedAt": "2026-10-03T22:19:57.806Z"
+    }
+  }
+}
