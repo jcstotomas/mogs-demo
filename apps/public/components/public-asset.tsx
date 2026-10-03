@@ -8,7 +8,8 @@ export default async function PublicAsset({ pathname }: { pathname: string }) {
   if (!result) notFound();
   const { route, deployment } = result;
   const isEmail = route.kind === 'email';
-  return <div className={`public-page public-page--${route.kind}`}>
+  const isArticle = route.kind === 'web' && pathname !== '/site/launch';
+  return <div className={`public-page public-page--${route.kind}${isArticle ? ' public-page--article' : ''}`}>
     <a className="skip-link" href="#content">Skip to content</a>
     <SiteHeader pathname={pathname} />
     <div className="content-shell" id="content" tabIndex={-1}>
