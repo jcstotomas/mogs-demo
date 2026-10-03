@@ -23,8 +23,11 @@ export interface RemotePipelineOptions {
   };
 }
 type RemotePatch = ReturnType<typeof RemotePatchSchema.parse>;
-const active = new Map<string, Promise<void>>();
-const owner = randomUUID();
+// Next route bundles/hot reload can instantiate this module more than once.
+// Share process ownership so polling never retires a live sibling instance.
+const shared = globalThis as typeof globalThis & { __mogsRemotePipeline?: { active: Map<string, Promise<void>>; owner: string } };
+const registry = shared.__mogsRemotePipeline ??= { active: new Map(), owner: randomUUID() };
+const { active, owner } = registry;
 const fileFor = (db: RemoteDatabase) => path.join(path.dirname(db.file), 'pipeline-worker.json');
 type Lease = { owner: string; pid: number; runId: string; startedAt: string };
 function readLease(file: string): Lease | null {

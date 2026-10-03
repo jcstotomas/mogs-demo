@@ -152,3 +152,19 @@ test('an unavailable replacement judge remains an operation failure rather than 
     assert.ok(state.run.errors.some(e => e.code === 'provider_failure' && e.passageId === 'email:email/onboarding.md#starter-price'));
   } finally { s.cleanup(); }
 });
+
+test('a reloaded route module shares the live owner and polling does not interrupt its worker', async () => {
+  const s = sandbox(); let release!: () => void;
+  try {
+    let entered!: () => void;
+    const gate = new Promise<void>(resolve => { release = resolve; }), started = new Promise<void>(resolve => { entered = resolve; });
+    const classify = s.dependencies.classify!;
+    s.dependencies.classify = async (...args) => { entered(); await gate; return classify(...args); };
+    const work = processRemoteRun(s.start.run.id, s.options); await started;
+    const moduleUrl = new URL('../lib/pipeline/remote.ts?routeInstance=second', import.meta.url).href;
+    const reloaded = await import(moduleUrl) as typeof import('../lib/pipeline/remote');
+    assert.equal(reloaded.isRemoteRunProcessing(s.start.run.id), true);
+    reloaded.recoverRemoteRun(s.start.run.id, s.options); assert.equal(s.state().run.status, 'classifying');
+    release(); await work; assert.equal(s.state().run.status, 'ready');
+  } finally { release?.(); s.cleanup(); }
+});
