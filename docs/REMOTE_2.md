@@ -29,7 +29,25 @@ Source corpus commit: `89f4ba3fe71619bca6a3faa1e0b5a54f15520204`. Corpus hash: `
 - Anonymous readback resolved all 22 assets/110 passages against exact Git source, source IDs and hashes, frozen rubric, canonical initial facts and 22 sitemap paths. Private routes returned 404.
 - Both required trusted App statuses passed for this seed setup. Main remained at the verified miniature throughout preparation.
 
-A person must merge this setup PR. After the matching production seed is observed, open the live v2 console on port 3107, Confirm a new correction attempt, approve the four complete groups, review the correction PR/preview and make a separate human merge. Publication checks remain mandatory.
+The user merged setup PR #7 at `2026-10-03T22:51:27Z`, producing main commit `863999fdce74c3e6c53e49ab2ad61c8d20263e73`. The matching production deployment `dpl_8KJYQGxkVZhukCycY8RiKK1yhJ7B` is Ready at [mogs-demo.vercel.app](https://mogs-demo.vercel.app). Fresh coordinator readback resolved the exact 22-asset source, initial $30/version-1 facts and available live enforcement, with no active attempt. [Merge/deployment identity](../data/evidence/remote2/seed-production-identity.json) and [production baseline](../data/evidence/remote2/seed-production-baseline.json) preserve these observations. Seed setup has zero launch-repair credit.
+
+A fresh live correction run, `097e9332-aa63-428c-8c81-5e2b462a69bf`, was started through Confirm in the local console after the user's merge/continuation. The agent triggered analysis; it did not approve a group or submit content. Human group approvals, correction PR/preview, separate human merge and matching corrected production verification remain required. Publication checks remain mandatory.
+
+## Live 22-asset review handoff
+
+[Open the live review](http://localhost:3107/console/remote?runId=097e9332-aa63-428c-8c81-5e2b462a69bf). This is a fresh live run against the merged production seed, separate from the local recording.
+
+- Exactly 22 deployed assets/110 passages captured; 91/91 candidates judged, 19 lexical exclusions recorded.
+- Four complete groups: 9 plan-gap, 9 annual-savings, 9 daily-cost and 10 direct-price repairs. All 37 replacements exactly match the frozen expected corrections and pass their applicable checks. Protected/ambiguous text receives no replacement; all three required thresholds are withheld. Six items are withheld in total.
+- First complete group: **75.674s**. All results ready: **123.704s** from original Confirm. Both live analysis timing targets pass with no extraction/provider errors.
+- Zero human group approvals, zero submission actions, no correction PR and no preview/public correction verification at this handoff. Full deployed publication acceptance remains pending.
+- [Immutable live export](../data/evidence/remote2/live-analysis-097e9332-aa63-428c-8c81-5e2b462a69bf.json) and [focused output readback](../data/evidence/remote2/live-analysis-safety-readback.json) bind the results to the merged source and production deployment. The saved export is the unapproved review state; later approval/publication evidence must be exported separately.
+
+The console's pre-Confirm scope label was corrected to use the observed baseline inventory when run evidence is absent. Typecheck and the changed coordinator build passed, including the UI source check. The coordinator restarted after analysis reached `ready`, preserving its durable run and timing. Existing layout/mobile evidence is reused; the populated live review was checked for the correct scope and enabled group-approval controls.
+
+| Before | After | Why |
+|---|---|---|
+| A 22-asset baseline without run evidence displayed “Miniature scope.” | The badge uses the baseline inventory and displays “Required 22-asset scope.” | Keep the pre-Confirm scope label consistent with captured assets. |
 
 ## Provider runs and concrete fixes
 
@@ -60,4 +78,4 @@ Typecheck, coordinator/public builds, UI source checks and focused artifact, cor
 
 Coordinator build commands were `npm run typecheck`, `MOGS_BUILD_DIR=.next/full-review npm run build`, and `npm run public:build`. The artifact checks ran the existing miniature and new full-scope files (six assertions). Builder handoffs record focused corpus/preparation checks and twelve complete-group pipeline checks; the two concrete scope/qualifier regressions were rerun after the live failures. The final immutable run and seed readback records preserve their exact counts and identities.
 
-Pending: actual seed merge/production observation, complete deployed correction with human approvals and correction merge, deployed 90/180 timing, production repair scoring, full evaluation, recovery drills and rehearsals. No fixture/local result supplies those gates. The 200-asset benchmark remains deferred.
+Pending: complete deployed correction with human group approvals, correction PR/preview, human merge and corrected public verification; production repair scoring, full evaluation, recovery drills and rehearsals. The live analysis timing targets passed; the local recordings supply no deployed gate credit. The 200-asset benchmark remains deferred.

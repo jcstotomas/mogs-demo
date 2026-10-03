@@ -1,14 +1,15 @@
 # MOGS
 
-Launch Correction Agent for fictional MOGS: confirm desired facts → crawl/classify/draft/check → approve groups → submit one real GitHub PR → verify its preview → human merge → verify the public deployment. The deployed miniature has completed this flow with four human group approvals and five verified content corrections. [PR #3](https://github.com/jcstotomas/mogs-demo/pull/3) was human-merged, and the matching corrected deployment is publicly verified at [mogs-demo.vercel.app](https://mogs-demo.vercel.app). Trusted App-bound checks and strict branch protection are verified.
+Launch Correction Agent for fictional MOGS: confirm desired facts → crawl/classify/draft/check → approve groups → submit one real GitHub PR → verify its preview → human merge → verify the public deployment. The deployed miniature completed this flow with four human group approvals and five verified content corrections through [PR #3](https://github.com/jcstotomas/mogs-demo/pull/3). The user then merged [seed PR #7](https://github.com/jcstotomas/mogs-demo/pull/7); [production](https://mogs-demo.vercel.app) now serves the verified 22-asset $30 baseline for the fresh full-scope correction. Trusted App-bound checks and strict branch protection remain available.
 
-Read [SPEC.md](SPEC.md) for behavior and [BUILD_PLAN.md](BUILD_PLAN.md) for sequence/ownership. [The 22-asset build](docs/REMOTE_2.md) records the expanded demo and pending human seed merge. [The miniature record](docs/REMOTE_1.md), [Step 0](docs/STEP_0.md) and [local Gate 1](docs/GATE_1.md) preserve earlier evidence.
+Read [SPEC.md](SPEC.md) for behavior and [BUILD_PLAN.md](BUILD_PLAN.md) for sequence/ownership. [The 22-asset build](docs/REMOTE_2.md) records the expanded demo, human seed merge and fresh live correction. [The miniature record](docs/REMOTE_1.md), [Step 0](docs/STEP_0.md) and [local Gate 1](docs/GATE_1.md) preserve earlier evidence.
 
 ## Expanded demo
 
 - [22-asset analysis review](http://localhost:3107/console/remote?recording=required-22): real provider results from an isolated local run; approval and publication controls are disabled.
 - [Public seed preview](https://mogs-demo-pngdru8o8-jcstotomas-projects.vercel.app): 20 web pages and two email templates, including the approved public design, at the pristine $30 seed.
-- [Seed setup PR #7](https://github.com/jcstotomas/mogs-demo/pull/7): both required App checks passed after exact-source preview readback. A human merge publishes that baseline; then the local v2 console can start a fresh deployed correction.
+- [Live 22-asset correction review](http://localhost:3107/console/remote?runId=097e9332-aa63-428c-8c81-5e2b462a69bf): fresh analysis against verified production; group approvals remain a human decision.
+- [Seed setup PR #7](https://github.com/jcstotomas/mogs-demo/pull/7): human-merged, with its matching production baseline observed after both required App checks and exact-source preview readback.
 
 This is a built full-scope demo and a verified seed preview. Full deployed correction publication, evaluation and rehearsals remain pending.
 
@@ -16,8 +17,8 @@ This is a built full-scope demo and a verified seed preview. Full deployed corre
 
 1. Open the [completed local review](http://localhost:3104/console/remote?runId=07c47d90-b32a-45cf-9b33-97571ca7819c). Review the four approved groups, their original/proposed text and rationale, the withheld threshold case, and the preserved eligible email.
 2. Open [PR #3](https://github.com/jcstotomas/mogs-demo/pull/3) to show the combined content/fact changes, required checks, verified preview and separate human merge.
-3. Show the public [launch guide](https://mogs-demo.vercel.app/site/launch), [canonical pricing](https://mogs-demo.vercel.app/site/pricing), [onboarding template](https://mogs-demo.vercel.app/assets/email/onboarding) and [eligible legacy template](https://mogs-demo.vercel.app/assets/email/eligible). The public offer is $40; the explicit eligible legacy claim remains $30. These are published templates, not sent emails.
-4. Open the expanded public seed preview above to show the approved design and additional corpus pages. The completed miniature's corrected production result is in step 3; the seed preview intentionally uses the original $30 scenario.
+3. The miniature's recorded public result had a $40 offer and preserved the $30 eligible legacy claim. Current production has been restored to the expanded $30 seed through PR #7; the Remote 1 record retains the earlier corrected deployment evidence.
+4. Open the fresh live review and current public [launch guide](https://mogs-demo.vercel.app/site/launch), [canonical pricing](https://mogs-demo.vercel.app/site/pricing), [onboarding template](https://mogs-demo.vercel.app/assets/email/onboarding) and [eligible legacy template](https://mogs-demo.vercel.app/assets/email/eligible). Review the full correction groups before approving inclusion in a new PR. These are published templates, not sent emails.
 
 The review screen displays a **recorded, completed live run**, not a fresh analysis. A fixture replay must be clearly labeled as fixture evidence. To repeat the real $30→$40 story, create the separate checked seed-restoration PR, have a person merge it, verify the restored $30 production baseline, then confirm a new correction attempt. Local reset never restores the remote site.
 
@@ -41,7 +42,7 @@ The Step 0 gate selected the Anthropic frontier judge; Jev did not pass the elig
 
 The v2 miniature contains four assets: one editable web page, two paired emails and read-only canonical pricing. Its analysis, human approvals, combined candidate, real PR, preview, human merge and public verification are recorded. [Remote 0](docs/REMOTE_0.md) records the committed foundation, passing enforcement and preserved setup failures. The builders and coordinator are integrated. The existing unversioned `/console` and API retain the separate v1 local publication flow; `/console/remote` is the v2 review surface.
 
-The worker/console stays local with durable SQLite; only content is publicly deployed. The required **20-web/two-email corpus is built**, and local real-provider timing is recorded in Remote 2. The **deployed** 90/180-second timing and complete publication gate, isolated evaluation and remaining actual recovery drills/rehearsals are pending or deferred. The separate 180-web/20-email scale milestone remains deferred.
+The worker/console stays local with durable SQLite; only content is publicly deployed. The required **20-web/two-email corpus is built**, and the fresh live run passed both analysis timing targets: **75.674s first group / 123.704s all results**. Its 37 checked corrections await human group approvals. Correction publication, isolated evaluation and remaining recovery drills/rehearsals are pending or deferred. The separate 180-web/20-email scale milestone remains deferred.
 
 For targeted setup work, `npm run remote:check` checks frozen contracts and `npm run remote:audit` inspects configuration/provider identity without printing keys. `npm run remote:migrate` archives v1 history through an online backup into the separate ignored v2 database for a fresh installation; it leaves the original database in place. These are setup tools, not a required demo startup checklist.
 

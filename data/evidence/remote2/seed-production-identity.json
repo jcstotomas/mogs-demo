@@ -1,0 +1,17 @@
+{
+  "format": "mogs-required-seed-production-identity-v1",
+  "pr": "https://github.com/jcstotomas/mogs-demo/pull/7",
+  "headSha": "38418a55b71f111e9310c28487fe699dc03c1d60",
+  "mergeSha": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+  "mergedAt": "2026-10-03T22:51:27Z",
+  "mergedBy": "jcstotomas",
+  "mainSha": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+  "production": {
+    "deploymentId": "dpl_8KJYQGxkVZhukCycY8RiKK1yhJ7B",
+    "url": "https://mogs-demo.vercel.app",
+    "deployedSha": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+    "readiness": "ready"
+  },
+  "observedAt": "2026-10-03T22:52:33.708Z",
+  "launchRepairCredit": false
+}

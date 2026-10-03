@@ -1,0 +1,508 @@
+{
+  "contractVersion": 2,
+  "baseline": {
+    "target": {
+      "repository": "jcstotomas/mogs-demo",
+      "baseRef": "main",
+      "productionOrigin": "https://mogs-demo.vercel.app",
+      "vercelProjectId": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+      "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+      "statusProducerAppId": 5179329
+    },
+    "baseSha": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+    "deployedSha": "863999fdce74c3e6c53e49ab2ad61c8d20263e73",
+    "deploymentId": "dpl_8KJYQGxkVZhukCycY8RiKK1yhJ7B",
+    "deploymentUrl": "https://mogs-demo.vercel.app",
+    "observedAt": "2026-10-03T22:52:43.822Z",
+    "inventoryHash": "6d4d29a14d8852cccfa1fb901f0d7e8d82b8813ef87d05f191fb785bab999413",
+    "corpusHash": "22072aae8d911d414640982cfa59b86fcbf210c5c9854500157d3c595337d4a2",
+    "factsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+    "factsFileHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "assets": [
+      {
+        "assetId": "email:email/eligible.md",
+        "path": "content/email/eligible.md",
+        "pathname": "/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+        "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "path": "content/email/onboarding.md",
+        "pathname": "/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/account-rules.md",
+        "path": "content/site/account-rules.md",
+        "pathname": "/site/account-rules",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "2eea5b0befbe958e4a08e9894571926eee4f26ee6719cd7a18c1cfddf0652b85",
+        "metadataHash": "b3d45c899c0c4def172b0a03b42a5c9ca346d6ffc732cc8b5124e4813e46ee0c",
+        "sourceIds": [
+          "account-rules-title",
+          "legacy-active",
+          "historical-release",
+          "annual-current",
+          "unrelated-addon",
+          "account-section-heading",
+          "account-before",
+          "unknown-eligibility",
+          "account-after",
+          "threshold-t1"
+        ]
+      },
+      {
+        "assetId": "web:site/annual-calculator.md",
+        "path": "content/site/annual-calculator.md",
+        "pathname": "/site/annual-calculator",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "18b5d8dc9e3f731a2cde58331144dbee9182f4093e0532bac3573e4595773dfd",
+        "metadataHash": "c9aa1fa6bc33ec6f62b871ed9f3d59fa6b182f6b2522114479d59fb60df7d6e6",
+        "sourceIds": [
+          "annual-calculator-title",
+          "savings-t3",
+          "gap-t2"
+        ]
+      },
+      {
+        "assetId": "web:site/annual-comparison.md",
+        "path": "content/site/annual-comparison.md",
+        "pathname": "/site/annual-comparison",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "1f3379cd3ab7eb4a594c7efc8cda441a2448c04ac5198331b9dc42a286e6c329",
+        "metadataHash": "177616665bee8f43380e87c61d8266d535fe14c9de0082d19db21b560733cfba",
+        "sourceIds": [
+          "annual-comparison-title",
+          "savings-h3",
+          "gap-h2"
+        ]
+      },
+      {
+        "assetId": "web:site/annual-faq.md",
+        "path": "content/site/annual-faq.md",
+        "pathname": "/site/annual-faq",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "c7b9504b685edcdff59e7d931da2ebcd94dd79f89403277574d980dca4edb8aa",
+        "metadataHash": "4e277ccdf1ca76a986ef46bb7933db175c82b9b7295ac2fa19727039a3e8e0b2",
+        "sourceIds": [
+          "annual-faq-title",
+          "savings-h5",
+          "gap-h3"
+        ]
+      },
+      {
+        "assetId": "web:site/annual-help.md",
+        "path": "content/site/annual-help.md",
+        "pathname": "/site/annual-help",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "e76a7fa1a26b240a5678ad090cc197df6015c7416fd8804c237483091a4995ff",
+        "metadataHash": "dfbebd95eaccfa37722f617be218d0438ac0d8d2a26c867bb7ca8a482d5f2aab",
+        "sourceIds": [
+          "annual-help-title",
+          "savings-h4",
+          "daily-h3"
+        ]
+      },
+      {
+        "assetId": "web:site/annual-overview.md",
+        "path": "content/site/annual-overview.md",
+        "pathname": "/site/annual-overview",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "95ac7651314e97a7fad3fb3cb6ff76d4e5d1a7e355d974000e6954745f892daf",
+        "metadataHash": "a9ddb1734a2e5b97f9400002799a3d025a2792bc4085e7bb0d59b7322bef431c",
+        "sourceIds": [
+          "annual-overview-title",
+          "annual-comparison-heading",
+          "savings-t2",
+          "daily-equivalent-heading",
+          "daily-t2"
+        ]
+      },
+      {
+        "assetId": "web:site/billing-choice.md",
+        "path": "content/site/billing-choice.md",
+        "pathname": "/site/billing-choice",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "1fc408bb396c97d4d4b4d23c63bad872d9f57a6ad936f8c8ab0fdbb262b545be",
+        "metadataHash": "9ee6afdfc60afa5b310a6e36edbd607431928af7cb337623149fa79d11315422",
+        "sourceIds": [
+          "billing-choice-title",
+          "direct-h5",
+          "daily-h2"
+        ]
+      },
+      {
+        "assetId": "web:site/daily-help.md",
+        "path": "content/site/daily-help.md",
+        "pathname": "/site/daily-help",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "5e2e0de229da8abb10f6f9ebda0bff837fc67545e513bd70492437a95b7557e4",
+        "metadataHash": "51b8f3a5ecabfd819996f1a4a44a53cbcbac2d71d493f7ac3b1c8776894142e6",
+        "sourceIds": [
+          "daily-help-title",
+          "daily-h4",
+          "gap-h4"
+        ]
+      },
+      {
+        "assetId": "web:site/daily-planner.md",
+        "path": "content/site/daily-planner.md",
+        "pathname": "/site/daily-planner",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "06d0bf87f5a1cf6878e4acfea0205b75fc53b9810b2b40e02d3a615591e8cbb0",
+        "metadataHash": "6163c014267159a3e6b5507503ca74acef0ff2526f8cdb6a298bb8d6d1e1bb1c",
+        "sourceIds": [
+          "daily-planner-title",
+          "daily-t3",
+          "gap-t3"
+        ]
+      },
+      {
+        "assetId": "web:site/launch.md",
+        "path": "content/site/launch.md",
+        "pathname": "/site/launch",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "sourceIds": [
+          "launch-title",
+          "starter-price",
+          "annual-savings",
+          "per-day",
+          "plan-gap",
+          "threshold",
+          "historical",
+          "annual-price",
+          "current-price",
+          "most-affordable",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/monthly-checkout.md",
+        "path": "content/site/monthly-checkout.md",
+        "pathname": "/site/monthly-checkout",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "bbb82305e07f37c21cca5b3302eb5985058d2ef7584c4cfe1071f6b602e12154",
+        "metadataHash": "235c34627354a65675d2290600c9d9c90085700df360567453907c2ad0c02af5",
+        "sourceIds": [
+          "monthly-checkout-title",
+          "direct-t2",
+          "daily-t1"
+        ]
+      },
+      {
+        "assetId": "web:site/monthly-help.md",
+        "path": "content/site/monthly-help.md",
+        "pathname": "/site/monthly-help",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "fb9f322dda701d9780e688979f8f87f3b63958199e18246c879313385c45396e",
+        "metadataHash": "a8c985ac22a1dcb01a51465037d8281b366510a4a15fa5cfb95b81d24dd781c4",
+        "sourceIds": [
+          "monthly-help-title",
+          "direct-t3",
+          "monthly-comparison-heading",
+          "gap-t1"
+        ]
+      },
+      {
+        "assetId": "web:site/monthly-plans.md",
+        "path": "content/site/monthly-plans.md",
+        "pathname": "/site/monthly-plans",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "661f888e270380baf2253636c592fbbd8964ef602dde70160d844b5917e18e72",
+        "metadataHash": "83a6739e62eaac87bba4f6aca98bf953d3e04becdb7ee230013ce18c4c7b3f08",
+        "sourceIds": [
+          "monthly-plans-title",
+          "direct-h4",
+          "savings-h2"
+        ]
+      },
+      {
+        "assetId": "web:site/offer-context.md",
+        "path": "content/site/offer-context.md",
+        "pathname": "/site/offer-context",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "ce02a85812a4fd0ced2f1716d46483d2b6583c5de4408953e0b2c57754c6d82c",
+        "metadataHash": "93a4776fa46c06d05df964288f07ddce785fe443ea612882efc94bb36711c439",
+        "sourceIds": [
+          "offer-context-title",
+          "offer-before-plan",
+          "unknown-plan",
+          "offer-separator-one",
+          "unknown-billing",
+          "offer-separator-two",
+          "already-current",
+          "unrelated-service",
+          "threshold-h1"
+        ]
+      },
+      {
+        "assetId": "web:site/plan-comparison.md",
+        "path": "content/site/plan-comparison.md",
+        "pathname": "/site/plan-comparison",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "647c9b3e08100830234564518be4f4d099f091f633a9367a072324fcb4ad2756",
+        "metadataHash": "4dfab19b95b0b4b74ba8524cb80d51934680b07dd4896af69fa70ad9a5e7fa10",
+        "sourceIds": [
+          "plan-comparison-title",
+          "daily-h5",
+          "gap-h5"
+        ]
+      },
+      {
+        "assetId": "web:site/pricing.md",
+        "path": null,
+        "pathname": "/site/pricing",
+        "surface": "web",
+        "editable": false,
+        "sourceHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+        "sourceIds": [
+          "pricing-title",
+          "starter-monthly",
+          "starter-annual",
+          "legacy-rule",
+          "team-monthly",
+          "business-monthly",
+          "fact-version"
+        ]
+      },
+      {
+        "assetId": "web:site/starter-basics.md",
+        "path": "content/site/starter-basics.md",
+        "pathname": "/site/starter-basics",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "b57129c79cfe74a8d137f34e26ce242b6b2063911efa1a725082095e9609d1fc",
+        "metadataHash": "6752cb9547ce857d4f6c2d5d68796af76e4f4604f10cd43b66e08b56bb05d46a",
+        "sourceIds": [
+          "starter-basics-title",
+          "direct-t1",
+          "savings-t1"
+        ]
+      },
+      {
+        "assetId": "web:site/starter-cost.md",
+        "path": "content/site/starter-cost.md",
+        "pathname": "/site/starter-cost",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "d1e45f97fb643fdf1794c9c970840fc70876ebc42e35704d7a059b5035884f3d",
+        "metadataHash": "125489f259161dd654eeb0218dbbc4f42d2555920592d0e59f57623f9c66a5a0",
+        "sourceIds": [
+          "starter-cost-title",
+          "direct-h3",
+          "gap-h1"
+        ]
+      },
+      {
+        "assetId": "web:site/starter-offer.md",
+        "path": "content/site/starter-offer.md",
+        "pathname": "/site/starter-offer",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "03943976d0244a16875fefdda1f30b8fbc4749e44a24e378d60751eb10709314",
+        "metadataHash": "5e545e4aec56e2c7e9ccbf7cc8b3b479664ced6e31a7f1a3148b7ded1fda4e2d",
+        "sourceIds": [
+          "starter-offer-title",
+          "direct-h1",
+          "savings-h1"
+        ]
+      },
+      {
+        "assetId": "web:site/starter-renewal.md",
+        "path": "content/site/starter-renewal.md",
+        "pathname": "/site/starter-renewal",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "d1ec7093fb98a6884f4b7096cd27a83c610ee068468d188030b51c9740bec103",
+        "metadataHash": "91e3ce6c368e654427b619761a210e7cf61c69b8ee65174b4553da2b54e77118",
+        "sourceIds": [
+          "starter-renewal-title",
+          "direct-h2",
+          "daily-h1"
+        ]
+      }
+    ]
+  },
+  "baselineHash": "e0643c1485ce5273e1b3d6aed74bbcca9290e48945b185fcfcfa05a51833d43a",
+  "beforeFacts": {
+    "scenarioId": "mogs-starter-2026-10-03",
+    "version": 1,
+    "company": "MOGS",
+    "phase": "initial",
+    "effectiveDate": "2026-10-03",
+    "plans": {
+      "starter": {
+        "monthlyCents": 3000,
+        "annualCents": 28800
+      },
+      "team": {
+        "monthlyCents": 8000,
+        "annualCents": 76800
+      },
+      "business": {
+        "monthlyCents": 20000,
+        "annualCents": 192000
+      }
+    },
+    "change": {
+      "id": "starter-monthly-30-to-40",
+      "plan": "starter",
+      "fromCents": 3000,
+      "toCents": 4000,
+      "billing": "monthly",
+      "appliesTo": "non_legacy_eligible",
+      "legacyRateCents": 3000,
+      "legacyCutoff": "2026-10-03T07:00:00.000Z"
+    },
+    "exceptions": [
+      "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+      "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+      "Annual prices and genuinely historical statements are unchanged."
+    ],
+    "derived": {
+      "annual_savings_percent": {
+        "unit": "percent",
+        "before": 20,
+        "after": 40
+      },
+      "per_day_usd": {
+        "unit": "usd_per_day",
+        "before": 1,
+        "after": 1.33
+      },
+      "lowest_monthly_usd": {
+        "unit": "usd",
+        "before": 30,
+        "after": 40
+      },
+      "lowest_annual_effective_monthly_usd": {
+        "unit": "usd",
+        "before": 24,
+        "after": 24
+      },
+      "team_starter_gap_usd": {
+        "unit": "usd",
+        "before": 50,
+        "after": 40
+      }
+    }
+  },
+  "desiredFacts": {
+    "scenarioId": "mogs-starter-2026-10-03",
+    "version": 2,
+    "company": "MOGS",
+    "phase": "confirmed",
+    "effectiveDate": "2026-10-03",
+    "plans": {
+      "starter": {
+        "monthlyCents": 4000,
+        "annualCents": 28800
+      },
+      "team": {
+        "monthlyCents": 8000,
+        "annualCents": 76800
+      },
+      "business": {
+        "monthlyCents": 20000,
+        "annualCents": 192000
+      }
+    },
+    "change": {
+      "id": "starter-monthly-30-to-40",
+      "plan": "starter",
+      "fromCents": 3000,
+      "toCents": 4000,
+      "billing": "monthly",
+      "appliesTo": "non_legacy_eligible",
+      "legacyRateCents": 3000,
+      "legacyCutoff": "2026-10-03T07:00:00.000Z"
+    },
+    "exceptions": [
+      "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+      "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+      "Annual prices and genuinely historical statements are unchanged."
+    ],
+    "derived": {
+      "annual_savings_percent": {
+        "unit": "percent",
+        "before": 20,
+        "after": 40
+      },
+      "per_day_usd": {
+        "unit": "usd_per_day",
+        "before": 1,
+        "after": 1.33
+      },
+      "lowest_monthly_usd": {
+        "unit": "usd",
+        "before": 30,
+        "after": 40
+      },
+      "lowest_annual_effective_monthly_usd": {
+        "unit": "usd",
+        "before": 24,
+        "after": 24
+      },
+      "team_starter_gap_usd": {
+        "unit": "usd",
+        "before": 50,
+        "after": 40
+      }
+    }
+  },
+  "activeRunId": null,
+  "enforcement": {
+    "available": true,
+    "message": "Required checks, trusted App and strict base probes passed; GitHub merge remains a human decision."
+  }
+}
