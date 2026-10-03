@@ -1,0 +1,64 @@
+scenario: mogs-starter-2026-10-03
+scope: miniature-gate-1
+author: agent
+split: featured
+assets:
+  - file: site/launch.md
+    surface: web
+    meta:
+      title: MOGS launch guide
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - { id: launch-title, role: heading, text: "MOGS launch guide — fictional company", kind: none, label: unrelated }
+      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: contradicting, replacement: "Starter is $40 a month.", template: miniature-direct-pair }
+      - { id: annual-savings, role: body, text: "Save 20% on Starter with annual billing.", kind: annual_savings, label: contradicting, replacement: "Save 40% on Starter with annual billing." }
+      - { id: per-day, role: body, text: "Starter costs about a dollar a day.", kind: per_day, label: contradicting, replacement: "Starter costs about $1.33 a day." }
+      - { id: plan-gap, role: body, text: "Team is only $50 a month more than Starter.", kind: plan_gap, label: contradicting, replacement: "Team is only $40 a month more than Starter." }
+      - { id: threshold, role: body, text: "Get started for under $35 a month, billed monthly.", kind: threshold, label: contradicting, withhold: "No deterministic safe target for threshold wording." }
+      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
+      - { id: annual-price, role: body, text: "Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
+      - { id: current-price, role: body, text: "Starter is $40 a month for new customers.", kind: direct_price, label: consistent }
+      - { id: most-affordable, role: list_item, text: "Starter is our most affordable plan.", kind: other_pricing, label: consistent }
+      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
+      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
+      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
+  - file: email/onboarding.md
+    surface: email
+    meta:
+      title: MOGS onboarding email
+      kind: email
+      audienceHint: new_customers
+      legacyStarterEligible: false
+      journey: onboarding
+    blocks:
+      - { id: email-subject, role: subject, text: "Welcome to MOGS, {{ first_name }}", kind: none, label: unrelated }
+      - { id: email-preheader, role: preheader, text: "A fictional MOGS onboarding email.", kind: none, label: unrelated }
+      - { id: greeting, role: body, text: "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.", kind: none, label: unrelated }
+      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: contradicting, replacement: "Starter is $40 a month.", template: miniature-direct-pair }
+      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
+      - { id: annual-price, role: body, text: "Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
+      - { id: current-price, role: body, text: "For new customers, Starter is $40 a month.", kind: direct_price, label: consistent }
+      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
+      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
+      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
+  - file: email/eligible.md
+    surface: email
+    meta:
+      title: MOGS eligible legacy email
+      kind: email
+      audienceHint: existing_customers
+      legacyStarterEligible: true
+      journey: eligible_legacy
+    blocks:
+      - { id: email-subject, role: subject, text: "Your MOGS account, {{ first_name }}", kind: none, label: unrelated }
+      - { id: email-preheader, role: preheader, text: "A fictional MOGS email for active pre-change Starter monthly subscribers.", kind: other_pricing, label: valid_exception }
+      - { id: greeting, role: body, text: "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.", kind: none, label: unrelated }
+      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: valid_exception, template: miniature-direct-pair }
+      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
+      - { id: annual-price, role: body, text: "For new customers, Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
+      - { id: current-price, role: body, text: "For new customers, Starter is $40 a month.", kind: direct_price, label: consistent }
+      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
+      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
+      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
