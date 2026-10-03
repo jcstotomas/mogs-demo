@@ -1,0 +1,260 @@
+{
+  "date": "2026-10-03",
+  "mode": "isolated UI fixtures",
+  "runId": "fixture-run",
+  "liveMutations": 0,
+  "checks": {
+    "uiCheck": "pass: 2 stylesheets",
+    "tests": "29 passed, 0 failed (9 UI guardrail tests)",
+    "typecheck": "pass",
+    "productionBuild": "pass, 13 dynamic filesystem tracing warnings in existing asset/runtime modules"
+  },
+  "desktop": [
+    {
+      "state": "initial",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Confirm price change",
+          "disabled": false
+        }
+      ],
+      "states": [],
+      "alerts": [],
+      "hasWithheld": false,
+      "hasFixture": false,
+      "overlay": false
+    },
+    {
+      "state": "collecting",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [
+        "Preparing",
+        "Web",
+        "Email"
+      ],
+      "alerts": [],
+      "hasWithheld": false,
+      "hasFixture": true,
+      "overlay": false
+    },
+    {
+      "state": "withheld",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [
+        "Blocked",
+        "Web · Excluded from approval",
+        "Email"
+      ],
+      "alerts": [],
+      "hasWithheld": true,
+      "hasFixture": true,
+      "overlay": false
+    },
+    {
+      "state": "failed_publish",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [
+        "Publish failed",
+        "Web",
+        "Email"
+      ],
+      "alerts": [],
+      "hasWithheld": false,
+      "hasFixture": true,
+      "overlay": false
+    },
+    {
+      "state": "failed_verify",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [
+        "Verification failed",
+        "Web",
+        "Email"
+      ],
+      "alerts": [],
+      "overlay": false
+    },
+    {
+      "state": "verified",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [
+        "Verified locally",
+        "Web",
+        "Email"
+      ],
+      "alerts": [],
+      "overlay": false
+    },
+    {
+      "state": "connection_error",
+      "width": 1440,
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Refresh results",
+          "disabled": false
+        },
+        {
+          "text": "Review started",
+          "disabled": true
+        }
+      ],
+      "states": [],
+      "alerts": [
+        "Results could not refresh.UI fixture: results are unavailable. Refresh to retry.Refresh results"
+      ],
+      "overlay": false
+    }
+  ],
+  "mobile": [
+    {
+      "state": "initial",
+      "width": 375,
+      "overflow": false,
+      "states": [],
+      "enabledActions": [
+        "Confirm price change"
+      ],
+      "overlay": false
+    },
+    {
+      "state": "collecting",
+      "width": 375,
+      "overflow": false,
+      "states": [
+        "Preparing",
+        "Web",
+        "Email"
+      ],
+      "enabledActions": [],
+      "overlay": false
+    },
+    {
+      "state": "withheld",
+      "width": 375,
+      "overflow": false,
+      "states": [
+        "Blocked",
+        "Web · Excluded from approval",
+        "Email"
+      ],
+      "enabledActions": [],
+      "overlay": false
+    },
+    {
+      "state": "failed_publish",
+      "width": 375,
+      "overflow": false,
+      "states": [
+        "Publish failed",
+        "Web",
+        "Email"
+      ],
+      "enabledActions": [],
+      "overlay": false
+    },
+    {
+      "state": "failed_verify",
+      "width": 375,
+      "overflow": false,
+      "states": [
+        "Verification failed",
+        "Web",
+        "Email"
+      ],
+      "enabledActions": [],
+      "overlay": false
+    },
+    {
+      "state": "verified",
+      "width": 375,
+      "overflow": false,
+      "states": [
+        "Verified locally",
+        "Web",
+        "Email"
+      ],
+      "enabledActions": [],
+      "overlay": false
+    }
+  ],
+  "extraChecks": {
+    "sealed": {
+      "widths": [
+        1440,
+        375,
+        320
+      ],
+      "overflow": false,
+      "minSupportingTextPx": 12,
+      "minStandaloneControlHeightPx": 44
+    },
+    "longIdentifierAt320": {
+      "overflow": false
+    },
+    "desktopCssZoom200Percent": {
+      "overflow": false,
+      "nativeBrowserTextZoom": false
+    },
+    "keyboard": {
+      "skipLink": true,
+      "visibleOutline": "3px",
+      "keyboardButtonTransition": "0s"
+    },
+    "reducedMotion": {
+      "browserPreference": "reduce",
+      "unfocusedEnabledButtonTransition": "0s",
+      "buttonTransform": "none"
+    },
+    "consoleErrorsInSealedState": 0
+  },
+  "screenshots": {
+    "before": "desktop-before.jpg",
+    "after": "desktop-after.jpg",
+    "mobile": "mobile-sealed.jpg",
+    "beforeMethod": "Original HEAD globals/module styles applied to fixture DOM in browser; source files were not reverted."
+  },
+  "limits": [
+    "Fixture UI states are visual evidence only; no live confirmation or approval was performed.",
+    "No real device gesture test or native browser text-zoom test.",
+    "Pointer press behavior in no-preference mode is statically gated and regression-tested; the inspection browser reported reduced motion.",
+    "Static checker does not prove computed contrast, CSS cascade, accessible names, or application state correctness."
+  ]
+}

@@ -4,7 +4,23 @@ import { extractRenderedAsset, parseSource, renderSource } from '../assets/sourc
 import { renderCanonicalPricingFromFacts } from './pricing';
 import { BaselineSchema, ShaSchema, type Baseline } from '../runs/remote-types';
 import { HashSchema, type FactSnapshot } from '../types';
-import { hashRecord } from '../hash';
+import { hashRecord, sha256 } from '../hash';
+
+export function renderedSourceBody(html: string): string {
+  const $ = load(html), main = $('main');
+  if (main.length !== 1 || $('[data-source-id]').length !== main.find('[data-source-id]').length) throw new Error('Rendered source blocks must appear in one source main.');
+  return main.html() ?? '';
+}
+
+/** Bound the current miniature public template; plain renderer documents have no chrome. */
+export function assertPublicChrome(html: string, title: string, email: boolean, sourceCommit: string, required = false): void {
+  const $ = load(html), wrappers = $('.source-body');
+  if (!wrappers.length) { if (required) throw new Error('Deployed asset is missing its public template.'); return; }
+  if (wrappers.length !== 1 || wrappers.find('main').length !== 1 || wrappers.children('main').length !== 1) throw new Error('Unexpected public source wrapper.');
+  const outside = $('body').clone(); outside.find('main,script,style').remove();
+  const expected = ['Skip to content', 'MOGS', 'Pricing', 'Launch guide', 'Onboarding email', 'Legacy email', 'Fictional company · ' + (email ? 'Repository-backed email preview' : 'Published site content'), title + (email ? ' preview' : ''), email ? 'This page previews a template. No email is sent.' : 'MOGS is a fictional team scheduling company.', 'Fictional MOGS demo · Source revision ' + sourceCommit.slice(0, 7)].join('');
+  if (outside.text().replace(/\s/g, '') !== expected.replace(/\s/g, '')) throw new Error('Unmapped public copy differs from the committed miniature template.');
+}
 
 export const DeploymentMetadataSchema = z.object({
   format: z.literal('mogs-deployment-meta-v1'), artifactHash: HashSchema,
@@ -37,8 +53,10 @@ export async function observeBaseline(input: Baseline, options: { sources: Recor
     const relativeFile = asset.path === null ? null : asset.path.slice('content/'.length);
     if (metadata.repository !== baseline.target.repository || metadata.sourceCommit !== baseline.deployedSha || metadata.inventoryHash !== baseline.inventoryHash || metadata.factsHash !== baseline.factsHash || metadata.factsFileHash !== baseline.factsFileHash || page.assetId !== asset.assetId || page.file !== relativeFile || page.surface !== asset.surface || page.editable !== asset.editable || page.sourceHash !== asset.sourceHash || page.metadataHash !== asset.metadataHash || hashRecord(passages.map(p => p.sourceId)) !== hashRecord(asset.sourceIds)) throw new Error('Deployed asset/revision differs from pinned baseline: ' + asset.pathname);
     const expectedHtml = relativeFile === null ? renderCanonicalPricingFromFacts(options.publishedFacts) : renderSource(parseSource(options.sources[relativeFile], relativeFile, asset.surface));
+    if (relativeFile !== null && sha256(options.sources[relativeFile]) !== asset.sourceHash) throw new Error('Source bytes differ from pinned baseline: ' + asset.pathname);
     const expected = extractRenderedAsset(expectedHtml, url.href);
-    if (hashRecord(expected.passages.map(p => [p.id, p.role, p.text])) !== hashRecord(passages.map(p => [p.id, p.role, p.text]))) throw new Error('Rendered text differs from committed source: ' + asset.pathname);
+    if (renderedSourceBody(html) !== renderedSourceBody(expectedHtml) || hashRecord(expected.passages.map(p => [p.id, p.role, p.text])) !== hashRecord(passages.map(p => [p.id, p.role, p.text]))) throw new Error('Rendered text differs from committed source: ' + asset.pathname);
+    assertPublicChrome(html, expected.page.meta.title, asset.surface === 'email', baseline.deployedSha, !options.fetch && !options.localTestOrigin);
   }
   return { ...baseline, observedAt: new Date().toISOString() };
 }

@@ -18,7 +18,17 @@
     "generate:site": "node --import tsx scripts/generate-site.ts",
     "fixtures": "node --import tsx scripts/create-fixtures.ts",
     "eval": "node --import tsx scripts/eval.ts",
-    "reset": "node --import tsx scripts/reset.ts"
+    "reset": "node --import tsx scripts/reset.ts",
+    "ui:check": "node --import tsx scripts/check-ui.ts",
+    "pretest": "npm run ui:check",
+    "prebuild": "npm run ui:check",
+    "public:seed": "npm --prefix apps/public run bootstrap:seed",
+    "public:build": "npm run ui:check && node --import tsx scripts/check-ui.ts apps/public && npm --prefix apps/public run build",
+    "public:start": "node --import tsx scripts/serve-public.ts",
+    "public:verify": "node --import tsx scripts/check-public-deployment.ts",
+    "remote:check": "node --import tsx scripts/check-remote-contracts.ts",
+    "remote:migrate": "node --import tsx scripts/migrate-remote.ts",
+    "remote:audit": "node --import tsx scripts/remote-audit.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "4.0.71",
@@ -35,6 +45,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "tsx": "4.23.15",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "postcss": "8.5.23"
   }
 }

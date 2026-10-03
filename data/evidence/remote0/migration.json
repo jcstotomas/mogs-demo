@@ -1,0 +1,27 @@
+{
+  "contractVersion": 2,
+  "checkedAt": "2026-10-03T20:59:03.128Z",
+  "source": "data/app.db",
+  "destination": "data/remote/app.db",
+  "archiveId": "9e414989fafbb914833fcd2c23f29e7b9ff7a14157770f806a16d9fb3e15f8da",
+  "rawRowsPreserved": 105,
+  "tableCounts": {
+    "fact_snapshots": 2,
+    "runs": 1,
+    "pages": 3,
+    "passages": 33,
+    "judgments": 24,
+    "correction_groups": 4,
+    "patches": 6,
+    "group_members": 5,
+    "publications": 4,
+    "review_events": 18,
+    "idempotency": 5
+  },
+  "sourceBeforeHash": "9e414989fafbb914833fcd2c23f29e7b9ff7a14157770f806a16d9fb3e15f8da",
+  "sourceAfterHash": "9e414989fafbb914833fcd2c23f29e7b9ff7a14157770f806a16d9fb3e15f8da",
+  "observedSourceUnchanged": true,
+  "archiveMatchesSource": true,
+  "activeV2Attempts": 0,
+  "note": "Online read-only backup imported into separate v2 state. Source hashes are observed before/after the operation; concurrent v1 writes would change that observation. This records historical migration, not remote publication or a contract gate pass."
+}

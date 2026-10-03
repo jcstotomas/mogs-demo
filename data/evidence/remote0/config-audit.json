@@ -1,0 +1,37 @@
+{
+  "contractVersion": 2,
+  "checkedAt": "2026-10-03T20:57:10.289Z",
+  "remote": "origin\thttps://github.com/jcstotomas/mogs-demo.git (fetch)\norigin\thttps://github.com/jcstotomas/mogs-demo.git (push)",
+  "repository": "jcstotomas/mogs-demo",
+  "credentialsConfigured": {
+    "MOGS_GITHUB_TOKEN": false,
+    "MOGS_STATUS_PRODUCER_APP_ID": false,
+    "MOGS_STATUS_PRODUCER_APP_SLUG": false,
+    "MOGS_PRODUCTION_ORIGIN": true,
+    "MOGS_VERCEL_PROJECT_ID": true,
+    "MOGS_VERCEL_TEAM_ID": true
+  },
+  "provider": {
+    "config": {
+      "adapter": "frontier",
+      "connection": "anthropic_direct",
+      "fixConnection": "anthropic_direct",
+      "judgeModel": "claude-sonnet-5-5",
+      "fixModel": "claude-sonnet-5-5",
+      "tRel": 0.2,
+      "tLabel": 0.7,
+      "concurrency": 4,
+      "timeoutMs": 20000,
+      "promptVersion": "gate1-v2"
+    },
+    "credentialsConfigured": true,
+    "reusedEvidence": "gate1-live-complete-ff57ceec-5f59-49e0-9a26-d9911b2fdd57",
+    "configMatchesValidatedRun": true,
+    "freshProviderCalls": 0
+  },
+  "blockers": [
+    "Missing local configuration: MOGS_GITHUB_TOKEN",
+    "Missing local configuration: MOGS_STATUS_PRODUCER_APP_ID",
+    "Missing local configuration: MOGS_STATUS_PRODUCER_APP_SLUG"
+  ]
+}

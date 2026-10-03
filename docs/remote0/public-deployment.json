@@ -1,0 +1,109 @@
+{
+  "observedAt": "2026-10-03T20:48:06Z",
+  "gatePassed": false,
+  "repository": {
+    "fullName": "jcstotomas/mogs-demo",
+    "remote": "https://github.com/jcstotomas/mogs-demo.git",
+    "repositoryIdFromVercel": 1403606624,
+    "branch": "main",
+    "head": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "seedBaselineCommit": "0cdfcbfee6990e6c4bcd7a1fd1f6515a17472927",
+    "firstGitDeploymentCommit": "e2dca9a535ed3f81edab3ea4e8f33d402a9df679",
+    "currentDeploymentCommit": "e573c2608ce3fa54f51cab67594355448aa1059b"
+  },
+  "vercel": {
+    "scope": "jcstotomas-projects",
+    "teamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+    "projectName": "mogs-demo",
+    "projectId": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+    "deploymentId": "dpl_J4vVHRyNZC5QfB9BafiaaeurmzDJ",
+    "target": "production",
+    "status": "READY",
+    "productionUrl": "https://mogs-demo.vercel.app",
+    "immutableUrl": "https://mogs-demo-pmrmogsx4-jcstotomas-projects.vercel.app",
+    "publicOriginProductionVariable": "https://mogs-demo.vercel.app",
+    "gitLink": {
+      "type": "github",
+      "organization": "jcstotomas",
+      "repository": "mogs-demo",
+      "productionBranch": "main"
+    },
+    "ssoProtectionReadback": null,
+    "passwordProtectionReadback": null
+  },
+  "artifact": {
+    "mode": "commit",
+    "format": "mogs-deployment-meta-v1",
+    "contractVersion": 2,
+    "sourceCommit": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "artifactHash": "98edea2a5c00def33c148f1bd4000869da40bcbc2854e4946a6598f2e5bb191a",
+    "factsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+    "factsFileHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "inventoryHash": "e2a7a3f6835759dadd8881f87f1eeeef73a88c7e62d2873647924d53e74e5605",
+    "sourceHashes": {
+      "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+      "email/onboarding.md": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+      "site/launch.md": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+    },
+    "seedSourceCount": 3,
+    "seedBlockCount": 33,
+    "seedStarterMonthlyCents": 3000,
+    "sourceBytesMatchCommittedSeed": true,
+    "factsBytesMatchCommittedSeed": true
+  },
+  "liveRoutes": {
+    "/": 200,
+    "/site/pricing": 200,
+    "/site/launch": 200,
+    "/assets/email/onboarding": 200,
+    "/assets/email/eligible": 200,
+    "/sitemap.xml": 200,
+    "/console": 404,
+    "/api/facts": 404
+  },
+  "sourceIdsOnLiveAssets": {
+    "/site/launch": 13,
+    "/assets/email/onboarding": 10,
+    "/assets/email/eligible": 10
+  },
+  "anonymousImmutableRoutes": {
+    "/": 200,
+    "/site/pricing": 200,
+    "/site/launch": 200,
+    "/assets/email/onboarding": 200,
+    "/assets/email/eligible": 200,
+    "/sitemap.xml": 200,
+    "/console": 404,
+    "/api/facts": 404
+  },
+  "sitemap": {
+    "origin": "https://mogs-demo.vercel.app",
+    "linkCount": 4,
+    "allLinksAnonymously200": true
+  },
+  "baselineObserver": {
+    "productionOrigin": "passed",
+    "immutableOrigin": "passed",
+    "assetCount": 4,
+    "ephemeralStatusProducerAppIdPlaceholder": 1,
+    "databaseStateWritten": false
+  },
+  "priorFailedCheck": {
+    "deploymentCommit": "e2dca9a535ed3f81edab3ea4e8f33d402a9df679",
+    "path": "/site/pricing",
+    "status": 404,
+    "resolution": "cleanUrls true in current vercel.json; current path returns 200"
+  },
+  "remainingGates": [
+    "A candidate pull request's commit-specific preview has not yet been exercised.",
+    "Trusted GitHub status contexts, strict base-current-head enforcement, and branch protection are not yet verified."
+  ],
+  "protectionChange": {
+    "firstAttempt": "Rejected by automatic approval review before execution for missing explicit human approval",
+    "humanApproval": "Yes, make MOGS previews public",
+    "approvedProjectOnly": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+    "apiPatchStatus": 200,
+    "apiReadbackStatus": 200,
+    "anonymousImmutableRouteVerified": true
+  }
+}

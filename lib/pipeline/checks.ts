@@ -112,6 +112,16 @@ function tokenCheck(original: string, replacement: string): CheckResult {
   return result(JSON.stringify(before) === JSON.stringify(after), 'Email Liquid tags and URLs ' + (JSON.stringify(before) === JSON.stringify(after) ? 'retain exact order and occurrences.' : 'changed or moved.'));
 }
 
+/** Shared deterministic checks for both v1 edits and paired v2 candidate trees. */
+export function checkTextChange(original: string, replacement: string, target: Target | null, surface: Patch['surface']): Check[] {
+  return [
+    { name: 'span_confined', ...spanCheck(original, replacement) },
+    { name: 'numbers_allowed', ...numbersCheck(original, replacement, target) },
+    { name: 'qualifiers_kept', ...qualifierCheck(original, replacement) },
+    ...(surface === 'email' ? [{ name: 'tokens_kept' as const, ...tokenCheck(original, replacement) }] : []),
+  ];
+}
+
 /** Check the captured/current revision and the actual on-disk source before spending a rejudge call. */
 export async function checkPatch(patch: Patch, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot, contentRoot?: string): Promise<Check[]> {
   const replacement = patch.replacement;

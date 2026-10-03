@@ -31,9 +31,15 @@ Other coordinated extensions are the GET facts and group-open schemas/fixtures, 
 
 Checks passed: typecheck, production build, typed fixture checks, and 20 meaningful contract/runtime tests. Reset restored exact live seed source/fact hashes and preserved both evidence exports. Multi-file filesystem writes and SQLite are recoverable operations; they do not form an intrinsically atomic filesystem transaction.
 
-## Human handoff and next gate
+## Human live completion and next gate
 
-Live run `ff57ceec-5f59-49e0-9a26-d9911b2fdd57` is prepared in the console with four sealed groups and five eligible patches. First sealed group: 27,011 ms; all results ready: 27,026 ms. It has **zero publications and zero review actions**. The HTTP Confirm path, background processing, console restoration, and documented run/groups/export aliases passed. Missing run ID returns 400; an unknown run returns 404. Snapshot: `data/evidence/gate1-live-pending-ff57ceec-5f59-49e0-9a26-d9911b2fdd57.json`.
+Live run `ff57ceec-5f59-49e0-9a26-d9911b2fdd57` was handed off with four sealed groups and five eligible patches. First sealed group: 27,011 ms; all results ready: 27,026 ms. The original snapshot records **zero publications and zero review actions** and remains preserved: `data/evidence/gate1-live-pending-ff57ceec-5f59-49e0-9a26-d9911b2fdd57.json`. The HTTP Confirm path, background processing, console restoration, and documented run/groups/export aliases passed. Missing run ID returns 400; an unknown run returns 404.
+
+The human reviewer subsequently approved all four groups on October 3, 2026, between 19:57:37 and 19:58:19 UTC. The recorded order was annual savings, direct price, per-day cost, then plan gap, at revisions 0, 1, 2, and 3. Each publication completed served observation and a fresh frontier judgment; **five of five repairs verified**, with **four human approval actions** and no run errors. The direct-price group published both the web and onboarding-email correction. Publication before/after hashes form an unbroken chain from the seed through all four web-file writes to the current files.
+
+An independent check at 20:03 UTC parsed the typed export, fetched all three editable assets and canonical pricing, and matched all served blocks to the current source. The exact source differs from the seed only by the five expected fixture repairs. All 27 protected manifest blocks, the withheld threshold block, metadata, Liquid tags, and URLs are unchanged; the entire eligible email remains byte-for-byte identical to its seed. The console displayed four verified groups, five published/verified corrections, and no remaining approval buttons or browser errors. The check made no additional provider calls. Completed evidence: `data/evidence/gate1-live-complete-ff57ceec-5f59-49e0-9a26-d9911b2fdd57.json`. Browser capture: `/private/tmp/mogs-gate1-human-complete.png`.
+
+The recorded review elapsed time includes the interval from first group opening to last approval, including waiting and browser inspection. It is not a measurement of active human attention and establishes no human baseline.
 
 Final review wording and narrow-screen corrections:
 
@@ -45,8 +51,6 @@ Final review wording and narrow-screen corrections:
 
 Populated review screens were inspected at 1440px, 375px, and 320px. Visible keyboard focus and reduced motion passed. The final text-zoom recheck is recorded with the browser evidence. Screenshots are saved under `/private/tmp/mogs-review-*` and `/private/tmp/mogs-context-copy-320.png`. The parallel frontend guardrail/style changes in this checkout are preserved separately from this integration commit.
 
-Open `/console`, confirm the price change, open the direct-price group and approve its displayed revision, then review and approve annual savings on the same web page. The console requires one human approval per complete group and displays the served verification result. The test harness cannot use the live demo content, facts, or database paths.
-
-**Human live approval is pending.** Corpus expansion, evaluation lane D, the 22-asset timing gate, and full rehearsals have not started.
+**The v1 local Gate 1 is complete.** This proves the three-asset miniature and local publication flow. It does not satisfy the revised deployed v2 gates. Remote 0 contracts and deployment binding come next under `BUILD_PLAN.md`; a real PR, preview, human merge, public deployment, 22-asset timing gate, evaluation, and full remote rehearsals remain unverified. Implementation lanes remain paused until Remote 0 passes. The test harness cannot use the live demo content, facts, or database paths.
 
 For an isolated rerun, choose a fresh `MOGS_GATE1_ROOT`, prepare it with `npm run gate1:smoke -- prepare`, and run a local server with `MOGS_CONTENT_ROOT`, `MOGS_FACTS_PATH`, `MOGS_DATABASE_PATH`, and `MOGS_BASE_URL` pointing to that copy. Use a separate `MOGS_BUILD_DIR` for concurrent Next servers. Run `npm run gate1:smoke` with that root/base URL and the seed commit recorded in `MOGS_SEED_REVISION`. Provider keys stay in ignored `.env.local`.

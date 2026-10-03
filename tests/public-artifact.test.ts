@@ -8,9 +8,18 @@ import { confirmedFacts } from '../lib/facts/derive';
 import { sha256 } from '../lib/hash';
 import { hashRecord } from '../lib/hash';
 import { createDeploymentMetadata, createPublicArtifact, MINIATURE_SOURCE_FILES } from '../lib/deployment/public-artifact';
+import { assertPublicChrome } from '../lib/deployment/provenance';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceCommit = 'a'.repeat(40);
+
+test('public template rejects unmarked wrapper offers and a missing deployed wrapper', () => {
+  const title = 'MOGS canonical pricing';
+  const html = '<body><a>Skip to content</a><header><a>MOGS</a><nav><a>Pricing</a><a>Launch guide</a><a>Onboarding email</a><a>Legacy email</a></nav></header><div><p>Fictional company · Published site content</p><h1>' + title + '</h1><p>MOGS is a fictional team scheduling company.</p><div class="source-body"><main><p data-source-id="price">Reviewed price</p></main></div></div><footer>Fictional MOGS demo · Source revision aaaaaaa</footer></body>';
+  assertPublicChrome(html, title, false, sourceCommit, true);
+  assert.throws(() => assertPublicChrome(html.replace('</footer>', '</footer><p>Unmarked special offer: $5.</p>'), title, false, sourceCommit, true), /Unmapped public copy/);
+  assert.throws(() => assertPublicChrome(html.replace('class="source-body"', ''), title, false, sourceCommit, true), /missing its public template/);
+});
 
 async function seedInputs() {
   const [seedManifestText, factText] = await Promise.all([

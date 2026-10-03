@@ -1,0 +1,91 @@
+{
+  "contractVersion": 2,
+  "checkedAt": "2026-10-03T20:53:30.095Z",
+  "sourceCommit": "e573c2608ce3fa54f51cab67594355448aa1059b",
+  "deploymentId": "dpl_J4vVHRyNZC5QfB9BafiaaeurmzDJ",
+  "origin": "https://mogs-demo.vercel.app",
+  "metadata": {
+    "format": "mogs-deployment-meta-v1",
+    "artifactHash": "98edea2a5c00def33c148f1bd4000869da40bcbc2854e4946a6598f2e5bb191a",
+    "contractVersion": 2,
+    "repository": "jcstotomas/mogs-demo",
+    "sourceCommit": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "inventoryHash": "e2a7a3f6835759dadd8881f87f1eeeef73a88c7e62d2873647924d53e74e5605",
+    "factsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+    "factsFileHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "sourceHashes": {
+      "email/eligible.md": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+      "email/onboarding.md": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+      "site/launch.md": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+    }
+  },
+  "results": [
+    {
+      "pathname": "/assets/email/eligible",
+      "status": 200,
+      "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+      "passages": 10
+    },
+    {
+      "pathname": "/assets/email/onboarding",
+      "status": 200,
+      "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+      "passages": 10
+    },
+    {
+      "pathname": "/site/launch",
+      "status": 200,
+      "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+      "passages": 13
+    },
+    {
+      "pathname": "/site/pricing",
+      "status": 200,
+      "sourceHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+      "passages": 7
+    }
+  ],
+  "sitemap": [
+    "https://mogs-demo.vercel.app/assets/email/eligible",
+    "https://mogs-demo.vercel.app/assets/email/onboarding",
+    "https://mogs-demo.vercel.app/site/launch",
+    "https://mogs-demo.vercel.app/site/pricing"
+  ],
+  "exclusions": [
+    {
+      "pathname": "/console",
+      "status": 404
+    },
+    {
+      "pathname": "/api/facts",
+      "status": 404
+    },
+    {
+      "pathname": "/api/v2/runs",
+      "status": 404
+    },
+    {
+      "pathname": "/data/app.db",
+      "status": 404
+    },
+    {
+      "pathname": "/data/facts.json",
+      "status": 404
+    },
+    {
+      "pathname": "/.env.local",
+      "status": 404
+    },
+    {
+      "pathname": "/SPEC.md",
+      "status": 404
+    },
+    {
+      "pathname": "/generated/public-artifact.json",
+      "status": 404
+    }
+  ],
+  "pass": true,
+  "freshProviderCalls": 0,
+  "note": "Anonymous readback of all four miniature assets against exact committed source/fact/artifact bytes. This proves baseline rendering and route isolation, not semantic correction, PR preview, merge enforcement, or the 22-asset gate."
+}

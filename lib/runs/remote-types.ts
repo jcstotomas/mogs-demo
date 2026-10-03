@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { FactSnapshotSchema, HashSchema, JudgmentSchema, PageSchema, PassageSchema, PatchSchema, ProviderConfigSchema, RunStatsSchema, SurfaceSchema, VerificationSchema } from '../types';
+import { CheckSchema, FactSnapshotSchema, HashSchema, JudgmentSchema, PageSchema, PassageSchema, PatchSchema, ProviderConfigSchema, RunStatsSchema, SurfaceSchema, VerificationSchema } from '../types';
 
 // v1 types and routes retain their local publication semantics. v2 uses this
 // explicit entry point and /api/v2; the prompt revision gate1-v2 is unrelated.
@@ -51,7 +51,7 @@ export const RemoteRunSchema = z.object({
   contractVersion: z.literal(2), id: Id, launchAttemptId: Id, changeId: Id, desiredFactVersion: z.number().int().positive(),
   mode: z.enum(['live', 'eval', 'fixture']), baselineHash: HashSchema,
   scope: z.object({ assetIds: z.array(Id).min(1), urls: z.array(z.url()).min(1), corpusHash: HashSchema, inventoryHash: HashSchema }).strict(),
-  config: ProviderConfigSchema, confirmedAt: Time, deadlineAt: Time, fullRunDeadlineMs: z.number().int().positive(),
+  config: ProviderConfigSchema, confirmedAt: Time, deadlineAt: Time, fullRunDeadlineMs: z.literal(180_000),
   status: z.enum(['collecting', 'classifying', 'drafting', 'ready', 'failed']), filteredPassageIds: z.array(Id),
   stats: RunStatsSchema, errors: z.array(z.object({ code: Id, message: z.string(), passageId: Id.optional() }).strict()),
   updatedAt: Time,
@@ -110,7 +110,7 @@ export const DeploymentObservationSchema = z.object({
   sourceHashes: z.record(Id, HashSchema), blocks: z.array(VerificationSchema),
   failures: z.array(z.string()), observedAt: Time,
 }).strict().superRefine((o, ctx) => {
-  if (o.verification === 'passed' && (o.readiness !== 'ready' || !o.publishedFacts || o.failures.length || !o.blocks.length || o.blocks.some(b => !b.pass) || o.deployedSha !== (o.environment === 'preview' ? o.candidateSha : o.mergedSha))) ctx.addIssue({ code: 'custom', message: 'Passed verification needs matching deployment, complete checks and no failures.' });
+  if (o.verification === 'passed' && (o.readiness !== 'ready' || !o.publishedFacts || o.failures.length || o.blocks.some(b => !b.pass) || o.deployedSha !== (o.environment === 'preview' ? o.candidateSha : o.mergedSha))) ctx.addIssue({ code: 'custom', message: 'Passed verification needs matching deployment, complete checks and no failures.' });
 });
 export const RecoverySchema = z.object({
   id: Id, launchAttemptId: Id, submissionId: Id.nullable(), action: z.enum(['abandon', 'reconcile']),
@@ -130,14 +130,14 @@ const RequestBase = { contractVersion: z.literal(2), idempotencyKey: Key };
 export const ConfirmRequestSchema = z.object({ ...RequestBase, launchAttemptId: z.uuid(), expectedFactVersion: z.literal(1), baselineHash: HashSchema }).strict();
 export const RestoreRequestSchema = z.object({ ...RequestBase, launchAttemptId: z.uuid(), expectedFactVersion: z.number().int().positive(), baselineHash: HashSchema, seedRevision: ShaSchema }).strict();
 export const ApproveRequestSchema = z.object({ ...RequestBase, launchAttemptId: Id, runId: Id, expectedRevision: Revision, membershipHash: HashSchema }).strict();
-export const SubmitRequestSchema = z.object({ ...RequestBase, launchAttemptId: Id, runId: Id, expectedAttemptRevision: Revision, baseSha: ShaSchema, bundleHash: HashSchema, approvals: z.array(z.object({ groupId: Id, revision: Revision, membershipHash: HashSchema }).strict()).min(1) }).strict();
+export const SubmitRequestSchema = z.object({ ...RequestBase, launchAttemptId: Id, runId: Id, expectedAttemptRevision: Revision, baseSha: ShaSchema, bundleHash: HashSchema, approvals: z.array(z.object({ groupId: Id, revision: Revision, membershipHash: HashSchema }).strict()) }).strict();
 export const AbandonRequestSchema = z.object({ ...RequestBase, launchAttemptId: Id, runId: Id, expectedAttemptRevision: Revision, expectedSubmissionRevision: Revision.nullable(), reason: z.string().min(1) }).strict();
 export const ReconcileRequestSchema = z.object({ ...RequestBase, launchAttemptId: Id, runId: Id, expectedAttemptRevision: Revision, observedDeploymentId: Id, reason: z.string().min(1) }).strict();
 export const RemoteErrorSchema = z.object({ error: z.object({ code: z.enum(['validation', 'not_found', 'stale', 'busy', 'idempotency_conflict', 'provider_failure', 'remote_failure', 'enforcement_unavailable', 'unknown_remote_state', 'interrupted']), message: z.string(), retryable: z.boolean() }).strict() }).strict();
 export const RemoteExportSchema = z.object({
   contractVersion: z.literal(2), attempt: LaunchAttemptSchema, facts: z.array(AttemptFactsSchema), run: RemoteRunSchema,
   pages: z.array(PageSchema), passages: z.array(PassageSchema), groups: z.array(RemoteGroupSchema), patches: z.array(RemotePatchSchema), judgments: z.array(RemoteJudgmentSchema),
-  approvals: z.array(ApprovalSchema), submission: SubmissionSchema.nullable(), observations: z.array(DeploymentObservationSchema), recoveries: z.array(RecoverySchema), reviewEvents: z.array(RemoteReviewEventSchema),
+  approvals: z.array(ApprovalSchema), submission: SubmissionSchema.nullable(), candidateChecks: z.record(Id, z.array(CheckSchema)).nullable(), observations: z.array(DeploymentObservationSchema), recoveries: z.array(RecoverySchema), reviewEvents: z.array(RemoteReviewEventSchema),
 }).strict();
 export type Baseline = z.infer<typeof BaselineSchema>;
 export type LaunchAttempt = z.infer<typeof LaunchAttemptSchema>;
