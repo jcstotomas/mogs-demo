@@ -19,7 +19,7 @@ Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=
 <!-- /source-id: greeting -->
 
 <!-- source-id: starter-price role: body -->
-Starter is $30 a month.
+Starter is $40 a month.
 <!-- /source-id: starter-price -->
 
 <!-- source-id: historical role: body -->
