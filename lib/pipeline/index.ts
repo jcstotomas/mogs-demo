@@ -14,10 +14,35 @@ export function prefilter(p: Passage): boolean {
   return PRICE_LANGUAGE.test(p.text);
 }
 
+function statedBilling(text: string): Judgment['billing'][] {
+  const monthly = /\b(?:monthly|month-to-month)\b|\b(?:a|per|each|every)\s+(?:calendar\s+)?month\b|\bmonth\s+by\s+month\b|\/\s*mo(?:nth)?\b/i.test(text);
+  const annual = /\b(?:annual|annually|yearly)\b|\b(?:a|per|each|every)\s+(?:calendar\s+)?year\b|\/\s*(?:yr|year)\b/i.test(text);
+  return [...(monthly ? ['monthly' as const] : []), ...(annual ? ['annual' as const] : [])];
+}
+
+/** Missing plan/interval cannot be filled by the facts or another price nearby. */
+export function normalizeDirectPriceScope(judgment: Judgment, passage: Pick<Passage, 'text' | 'heading'>): Judgment {
+  if (judgment.kind !== 'direct_price' || judgment.label === 'unrelated') return judgment;
+  const starter = /\bstarter\b/i, competingPlan = /\b(?:team|business)\b/i;
+  const planResolved = starter.test(passage.text)
+    || (!competingPlan.test(passage.text) && starter.test(passage.heading) && !competingPlan.test(passage.heading));
+  const bodyBilling = statedBilling(passage.text), headingBilling = statedBilling(passage.heading);
+  // A body can explicitly compare monthly and annual prices. The returned
+  // principal billing must be supported there; heading-only scope must be unique.
+  const billingResolved = bodyBilling.length > 0
+    ? bodyBilling.includes(judgment.billing)
+    : headingBilling.length === 1 && headingBilling[0] === judgment.billing;
+  if (planResolved && billingResolved) return judgment;
+  return JudgmentSchema.parse({
+    ...judgment, label: 'insufficient_context', escalatedBy: 'scope_conflict',
+    ...(!billingResolved ? { billing: 'unspecified' } : {}),
+  });
+}
+
 export async function classifyPassage(runId: string, p: Passage, page: Page, beforeFacts: FactSnapshot, afterFacts: FactSnapshot): Promise<Judgment> {
   if (p.assetId !== page.assetId || p.surface !== page.surface || p.url !== page.url) throw new Error('Passage and asset identity mismatch.');
   if (afterFacts.phase !== 'confirmed' || afterFacts.version !== beforeFacts.version + 1 || afterFacts.scenarioId !== beforeFacts.scenarioId) throw new Error('Classification needs the confirmed fact transition.');
-  return JudgmentSchema.parse(await judge(runId, p, page, beforeFacts, afterFacts));
+  return normalizeDirectPriceScope(JudgmentSchema.parse(await judge(runId, p, page, beforeFacts, afterFacts)), p);
 }
 
 export async function draftPatch(runId: string, p: Passage, page: Page, j: Judgment, beforeFacts: FactSnapshot, afterFacts: FactSnapshot): Promise<Patch | null> {
