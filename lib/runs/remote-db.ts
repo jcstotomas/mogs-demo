@@ -21,7 +21,7 @@ type RemotePatch = z.infer<typeof RemotePatchSchema>;
 type RemoteJudgment = z.infer<typeof RemoteJudgmentSchema>;
 type JsonRow = Record<string, string | number | null>;
 export class RemoteStateError extends Error {
-  constructor(readonly code: 'stale' | 'busy' | 'idempotency_conflict' | 'validation' | 'not_found', message: string) { super(message); }
+  constructor(readonly code: 'stale' | 'busy' | 'idempotency_conflict' | 'validation' | 'not_found' | 'enforcement_unavailable' | 'unknown_remote_state', message: string) { super(message); }
 }
 function fail(message: string): never { throw new RemoteStateError('stale', message); }
 const same = (a: unknown, b: unknown) => hashRecord(a) === hashRecord(b);
@@ -347,10 +347,14 @@ export class RemoteDatabase {
   }
   private ownedRun(value: { runId: string; launchAttemptId: string }): RemoteRun { const run = this.getRun(value.runId); if (!run || run.launchAttemptId !== value.launchAttemptId) fail('Cross-run/attempt reference.'); return run; }
   private assertClassifiedScope(run: RemoteRun): void {
-    const passages = this.passages(run.id), judgments = this.judgments(run.id), pages = this.pages(run.id), baseline = this.getAttempt(run.launchAttemptId)!.baseline;
+    const passages = this.passages(run.id), judgments = this.judgments(run.id), pages = this.pages(run.id), attempt = this.getAttempt(run.launchAttemptId)!, baseline = attempt.baseline;
     const captured = passages.map(p => [p.assetId, p.sourceId].join('\0')).sort();
     const required = baseline.assets.flatMap(a => a.sourceIds.map(sourceId => [a.assetId, sourceId].join('\0'))).sort();
     const classified = [...judgments.map(j => j.passageId), ...run.filteredPassageIds];
+    if (attempt.purpose === 'restoration') {
+      if (run.errors.length || pages.length !== run.scope.assetIds.length || !same(captured, required) || !passages.length || judgments.length || run.filteredPassageIds.length || this.patches(run.id).length || this.groups(run.id).length || this.approvals(run.id).length || run.stats.judged || run.stats.patchesDrafted || run.stats.withheld || run.stats.groups) fail('Restoration readiness requires the full captured scope and zero correction work.');
+      return;
+    }
     if (run.errors.length || pages.length !== run.scope.assetIds.length || !same(captured, required) || passages.length !== classified.length || new Set(classified).size !== classified.length || !passages.length || passages.some(p => !classified.includes(p.id))) fail('Full-scope classification must finish before sealing or readiness.');
   }
   private boundRun(value: { runId: string; launchAttemptId: string }): RemoteRun { this.ownedRun(value); return this.writableRun(value.runId); }

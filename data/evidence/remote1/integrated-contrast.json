@@ -1,0 +1,66 @@
+[
+  {
+    "state": "initial",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.6,
+    "overflow": false
+  },
+  {
+    "state": "collecting",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "sealed",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "withheld",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "failedsubmission",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "failedpreview",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "mergedfailure",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  },
+  {
+    "state": "verified",
+    "failures": [],
+    "h1": 1,
+    "main": 1,
+    "minimumNormalTextRatio": 4.55,
+    "overflow": false
+  }
+]

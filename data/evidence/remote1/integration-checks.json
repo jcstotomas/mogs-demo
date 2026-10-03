@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-03T21:40:47.433Z",
+  "runId": "07c47d90-b32a-45cf-9b33-97571ca7819c",
+  "tests": {
+    "passed": 160,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "build": {
+    "mode": "webpack",
+    "directory": ".next/miniature-integration",
+    "result": "passed"
+  },
+  "http": {
+    "baseline": 200,
+    "malformedConfirm": 400,
+    "crossOriginConfirm": 400,
+    "restartResumedSameRun": true,
+    "pollingPreservedJudgmentsAndPatches": true
+  },
+  "publicBaseline": {
+    "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "deploymentId": "dpl_J4vVHRyNZC5QfB9BafiaaeurmzDJ",
+    "starterMonthlyCents": 3000,
+    "unchanged": true,
+    "factsVersion": 1
+  },
+  "approvals": 0,
+  "submission": null,
+  "remote0B": "passed",
+  "remote1": "awaiting_human_group_review",
+  "fullScope": "not_started",
+  "browser": {
+    "responsive": [
+      1440,
+      375,
+      320
+    ],
+    "textEnlargement": "Native Chrome 200% page zoom; reset after inspection",
+    "contrast": "8 states passed; minimum normal text 4.55:1",
+    "focus": "3px visible outline",
+    "pointer": "Enabled read-only refresh hover; reduced motion active"
+  }
+}

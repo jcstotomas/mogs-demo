@@ -1,0 +1,23 @@
+[
+  {
+    "h1": 1,
+    "main": 1,
+    "overflow": false,
+    "smallestButton": 44,
+    "width": 1440
+  },
+  {
+    "h1": 1,
+    "main": 1,
+    "overflow": false,
+    "smallestButton": 44,
+    "width": 375
+  },
+  {
+    "h1": 1,
+    "main": 1,
+    "overflow": false,
+    "smallestButton": 44,
+    "width": 320
+  }
+]

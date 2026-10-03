@@ -119,6 +119,11 @@ export class GitHubRemote implements RecoveryRemote {
     const ref = object(await this.api('GET', this.prefix + '/git/ref/heads/' + referencePath(this.target.baseRef)));
     if (text(ref.ref) !== 'refs/heads/' + this.target.baseRef || sha(object(ref.object).sha) !== candidate.baseSha) throw new RemoteStateError('stale', 'Base head changed; abandon this attempt before creating a new candidate.');
   }
+  async readBaseSha(): Promise<string> {
+    const ref = object(await this.api('GET', this.prefix + '/git/ref/heads/' + referencePath(this.target.baseRef)));
+    if (text(ref.ref) !== 'refs/heads/' + this.target.baseRef) throw new Error('Configured base branch identity mismatch.');
+    return sha(object(ref.object).sha);
+  }
   async validateStatusProducer(): Promise<number> {
     if (!/^[a-z0-9][a-z0-9-]*$/.test(this.appSlug)) throw new RemoteStateError('validation', 'A configured GitHub status producer App slug is required.');
     const app = object(this.tokenProvider ? await this.tokenProvider.getAppMetadata() : await this.api('GET', '/apps/' + segment(this.appSlug)));

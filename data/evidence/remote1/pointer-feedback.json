@@ -1,0 +1,15 @@
+{
+  "pointerBefore": {
+    "background": "rgb(255, 254, 250)",
+    "height": 44,
+    "hover": false,
+    "transition": "all"
+  },
+  "pointerAfter": {
+    "background": "rgb(239, 239, 231)",
+    "height": 44,
+    "hover": true,
+    "transition": "all"
+  },
+  "action": "Read-only evidence refresh; no group approval or submission."
+}

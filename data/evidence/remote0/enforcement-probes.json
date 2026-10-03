@@ -1,0 +1,80 @@
+{
+  "id": "6ecc84ce-79ed-4f00-b43c-66c4d1415a97",
+  "repository": "jcstotomas/mogs-demo",
+  "passed": true,
+  "closed": true,
+  "probes": [
+    {
+      "number": 1,
+      "url": "https://github.com/jcstotomas/mogs-demo/pull/1",
+      "sha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+      "branch": "codex/enforcement-6ecc84ce-79ed-4f00-b43c-66c4d1415a97-current",
+      "kind": "current"
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/jcstotomas/mogs-demo/pull/2",
+      "sha": "175dc93c650a8a6d099054dc958376ad474a3352",
+      "branch": "codex/enforcement-6ecc84ce-79ed-4f00-b43c-66c4d1415a97-behind",
+      "kind": "behind"
+    }
+  ],
+  "stages": [
+    {
+      "name": "pending-blocked",
+      "number": 1,
+      "sha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+      "mergeable": true,
+      "mergeableState": "blocked",
+      "expected": [
+        "blocked"
+      ],
+      "observedAt": "2026-10-03T21:21:46.465Z"
+    },
+    {
+      "name": "failure-blocked",
+      "number": 1,
+      "sha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+      "mergeable": true,
+      "mergeableState": "blocked",
+      "expected": [
+        "blocked"
+      ],
+      "observedAt": "2026-10-03T21:21:48.714Z"
+    },
+    {
+      "name": "wrong-head-blocked",
+      "number": 1,
+      "sha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+      "mergeable": true,
+      "mergeableState": "blocked",
+      "expected": [
+        "blocked"
+      ],
+      "observedAt": "2026-10-03T21:21:51.801Z"
+    },
+    {
+      "name": "current-head-eligible",
+      "number": 1,
+      "sha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+      "mergeable": true,
+      "mergeableState": "clean",
+      "expected": [
+        "clean"
+      ],
+      "observedAt": "2026-10-03T21:22:01.520Z"
+    },
+    {
+      "name": "strict-base-behind-blocked",
+      "number": 2,
+      "sha": "175dc93c650a8a6d099054dc958376ad474a3352",
+      "mergeable": true,
+      "mergeableState": "behind",
+      "expected": [
+        "behind"
+      ],
+      "observedAt": "2026-10-03T21:22:07.491Z"
+    }
+  ],
+  "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b"
+}

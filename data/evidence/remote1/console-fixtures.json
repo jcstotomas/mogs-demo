@@ -1,0 +1,261 @@
+{
+  "contractVersion": 2,
+  "evidenceKind": "isolated_ui_fixture_browser",
+  "implementationCommit": "1c2bbb80a4eeeddf40298638d5cf8b130a6460fd",
+  "origin": "http://127.0.0.1:3103",
+  "route": "/console/remote?fixture=<state>",
+  "fixtureNotice": "Isolated UI fixture. Counts, checks, timings, approvals, PR and deployment identities are synthetic. Fixture controls cannot approve, submit, merge or publish.",
+  "recordedAt": "2026-10-03T21:33:43.881Z",
+  "fixtureCounts": {
+    "scopedAssets": 4,
+    "passages": 40,
+    "judgments": 30,
+    "lexicalExclusions": 10,
+    "groups": 4,
+    "checkedCorrections": 5,
+    "withheldCorrections": 1,
+    "ambiguousClaims": 3,
+    "protectedClaims": 20
+  },
+  "states": [
+    {
+      "state": "initial",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "initial",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "collecting",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "collecting",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "sealed",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "sealed",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "withheld",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "withheld",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "failedsubmission",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "failedsubmission",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "failedpreview",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "failedpreview",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "mergedfailure",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "mergedfailure",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "verified",
+      "width": 1440,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    },
+    {
+      "state": "verified",
+      "width": 375,
+      "height": 1000,
+      "horizontalOverflow": false,
+      "h1Count": 1,
+      "mainCount": 1,
+      "mutationButtonsDisabled": true,
+      "externalFixtureLinks": 0,
+      "syntheticNoticeVisible": true
+    }
+  ],
+  "populatedReview": {
+    "widths": [
+      1440,
+      375,
+      320
+    ],
+    "originalBeforeProposed": true,
+    "mobilePairsStacked": true,
+    "horizontalOverflow": false,
+    "webEmailSurfaceCountsVisible": true,
+    "applicableChecksDisclosed": true,
+    "minimumMeasuredButtonHeightAt1440And375": 44
+  },
+  "keyboard320": {
+    "skipLinkExposedByTab": true,
+    "skipLinkTopPx": 12,
+    "skipLinkOutlinePx": 3,
+    "enterMovesFocusToMainId": "remote-main",
+    "enterOpensCheckDisclosure": true,
+    "disclosureHeightPx": 44,
+    "disclosureFocusOutlinePx": 3,
+    "brandHeightPx": 44
+  },
+  "reducedMotion": {
+    "osPreferenceReduce": true,
+    "measuredButtonTransitionDurations": [
+      "0s"
+    ],
+    "keyboardMainTransitionDuration": "0s"
+  },
+  "remainingUnverified": [
+    "200 percent text zoom and reflow",
+    "Pointer hover and active feedback on enabled controls",
+    "Computed text, control and focus contrast"
+  ],
+  "gapReason": "Follow-up subagent browser surface was unavailable after the prior turn. Coordinator retains active browser access for integrated verification.",
+  "boundaries": [
+    "All counts, timings, approvals, model checks, PR and deployment identities are synthetic fixtures.",
+    "No provider, real PR, merge, deployment, rendered production or v2 acceptance gate was established by these screenshots.",
+    "Existing local v1 console and approved source content were preserved."
+  ],
+  "viewportRestored": true,
+  "screenshots": [
+    "console-initial-1440.jpg",
+    "console-collecting-1440.jpg",
+    "console-sealed-1440.jpg",
+    "console-withheld-1440.jpg",
+    "console-failedsubmission-1440.jpg",
+    "console-failedpreview-1440.jpg",
+    "console-mergedfailure-1440.jpg",
+    "console-verified-1440.jpg",
+    "console-initial-375.jpg",
+    "console-collecting-375.jpg",
+    "console-sealed-375.jpg",
+    "console-withheld-375.jpg",
+    "console-failedsubmission-375.jpg",
+    "console-failedpreview-375.jpg",
+    "console-mergedfailure-375.jpg",
+    "console-verified-375.jpg",
+    "console-sealed-desktop.jpg",
+    "console-sealed-mobile.jpg",
+    "console-keyboard-320.jpg"
+  ]
+}

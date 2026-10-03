@@ -1,0 +1,23 @@
+{
+  "repository": "jcstotomas/mogs-demo",
+  "baseRef": "main",
+  "producerAppId": 5179329,
+  "checks": [
+    {
+      "context": "mogs/candidate",
+      "appId": 5179329
+    },
+    {
+      "context": "mogs/preview",
+      "appId": 5179329
+    }
+  ],
+  "strict": true,
+  "enforceAdmins": true,
+  "bypassActors": [],
+  "mergeQueue": false,
+  "autoMerge": false,
+  "allowForcePushes": false,
+  "allowDeletions": false,
+  "observedAt": "2026-10-03T21:29:46.025Z"
+}

@@ -204,7 +204,7 @@ export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initial
       {!fixture && evidence?.run.mode !== undefined && evidence.run.mode !== 'live' ? <aside className={remote.notice}>Recorded {evidence.run.mode} run. Live approval and submission controls are disabled; these results carry no human publication credit.</aside> : null}
       {error ? <div className={styles.error} role="alert"><strong>Action paused</strong><p>{error}</p><button className={styles.secondary} disabled={!!busy} onClick={refreshResults}>Refresh recorded results</button></div> : null}
       <section className={styles.change} aria-labelledby="change-title"><div><p className={styles.eyebrow}>Desired product change</p><h2 id="change-title">Starter monthly pricing</h2>
-        <div className={styles.price}><span>{currency(before?.change.fromCents ?? 3000)}</span><span className={styles.arrow} aria-label="changes to">→</span><strong>{currency(desired?.change.toCents ?? 4000)}</strong><small>per month</small></div>
+        <div className={styles.price}><span>{currency(before?.change.fromCents ?? 3000)}</span><span className={`${styles.arrow} ${remote.priceArrow}`} aria-label="changes to">→</span><strong>{currency(desired?.change.toCents ?? 4000)}</strong><small>per month</small></div>
         <p className={styles.muted}>Active Starter monthly subscribers who began before the recorded cutoff keep $30. Annual pricing and historical statements stay unchanged.</p>
         <dl className={remote.facts}><div><dt>Observed deployed price</dt><dd>{deployed ? currency(deployed.plans.starter.monthlyCents) : 'Unavailable'}</dd></div><div><dt>Desired price</dt><dd>{currency(desired?.plans.starter.monthlyCents ?? 4000)}</dd></div></dl>
       </div><div className={styles.changeAction}><span className={styles.badge}>{evidence ? prefix + (terminal ? 'Attempt closed' : 'Desired facts recorded') : loading ? 'Loading deployed baseline' : 'Awaiting Confirm'}</span>
@@ -218,15 +218,15 @@ export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initial
       <nav className={remote.fixtureNav} aria-label="Captured public assets">{assets.map(asset => <span key={asset.assetId}>{productionUrl ? <a href={productionUrl + asset.pathname} target="_blank" rel="noreferrer">{evidence?.pages.find(page => page.assetId === asset.assetId)?.meta.title ?? asset.pathname}</a> : <span>{asset.pathname} · fixture link disabled</span>}</span>)}</nav>
       <p className={remote.status} role="status" aria-live="polite">{status || (loading ? 'Loading recorded baseline…' : '')}</p>
       {evidence ? <>
-        <section className={styles.progressSection} aria-labelledby="progress-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Full-scope analysis</p><h2 id="progress-title">{prefix}{runNames[evidence.run.status]}</h2></div><span className={evidence.run.status === 'failed' ? styles.warningBadge : styles.badge}>{evidence.run.status}</span></div>
+        <section className={styles.progressSection} aria-labelledby="progress-title"><div className={styles.sectionHeading}><div><p className={`${styles.eyebrow} ${remote.supportingText}`}>Full-scope analysis</p><h2 id="progress-title">{prefix}{runNames[evidence.run.status]}</h2></div><span className={evidence.run.status === 'failed' ? styles.warningBadge : styles.badge}>{evidence.run.status}</span></div>
           <progress className={styles.progress} aria-label="Assets indexed" max={evidence.run.scope.assetIds.length} value={evidence.run.stats.assetsIndexed} />
           <dl className={styles.stats}>{[
             ['Assets indexed', `${evidence.run.stats.assetsIndexed} / ${evidence.run.scope.assetIds.length}`], ['Blocks read', evidence.run.stats.passagesIndexed],
             ['Claims checked', `${evidence.run.stats.judged} / ${evidence.run.stats.candidates}`], ['Lexically excluded', evidence.run.filteredPassageIds.length],
             ['Checked corrections', evidence.run.stats.patchesDrafted], ['Withheld corrections', evidence.run.stats.withheld],
             ['First complete group', duration(evidence.run.stats.firstSealedGroupMs)], ['All results ready', duration(evidence.run.stats.allResultsReadyMs)],
-          ].map(([label, value]) => <div className={styles.stat} key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-          <p className={styles.small}>{evidence.run.scope.assetIds.length === 22 ? 'Required analysis gates: first complete group ≤90s; all results ≤180s from Confirm.' : 'Miniature timings do not satisfy the required 22-asset workload gate.'}</p>
+          ].map(([label, value]) => <div className={styles.stat} key={label}><dt className={remote.supportingText}>{label}</dt><dd>{value}</dd></div>)}</dl>
+          <p className={`${styles.small} ${remote.supportingText}`}>{evidence.run.scope.assetIds.length === 22 ? 'Required analysis gates: first complete group ≤90s; all results ≤180s from Confirm.' : 'Miniature timings do not satisfy the required 22-asset workload gate.'}</p>
           {evidence.run.errors.length ? <div className={styles.error} role="alert"><strong>{evidence.run.errors.length} unresolved analysis errors</strong><ul className={styles.errorList}>{evidence.run.errors.map((item, index) => <li key={`${item.code}:${index}`}>{item.message}</li>)}</ul><p>Incomplete results block approval and submission.</p></div> : null}
         </section>
         <section className={styles.section} id="review" aria-labelledby="review-title"><div className={styles.sectionHeading}><h2 id="review-title">Complete correction groups</h2><span className={styles.count}>{evidence.groups.length}</span></div><p className={styles.sectionDescription}>Review current and proposed text, the complete member set, exclusions and checks. Each approval applies to the displayed revision only.</p>
@@ -280,7 +280,7 @@ export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initial
             </> : null}
           </section> : null}
         </section>
-        <section className={styles.evidence} aria-labelledby="evidence-title"><h2 id="evidence-title">Recorded evidence</h2><p>{counts?.approvals ?? 0} human group approvals · {counts?.submissions ?? 0} submission actions · {counts?.abandonments ?? 0} abandonment actions · {counts?.reconciliations ?? 0} reconciliation actions. Fixture/test actions and polling add no human credit.</p>
+        <section className={styles.evidence} aria-labelledby="evidence-title"><h2 id="evidence-title">Recorded evidence</h2><p className={remote.supportingText}>{counts?.approvals ?? 0} human group approvals · {counts?.submissions ?? 0} submission actions · {counts?.abandonments ?? 0} abandonment actions · {counts?.reconciliations ?? 0} reconciliation actions. Fixture/test actions and polling add no human credit.</p>
           <details><summary>Run and source identities</summary><dl className={remote.evidenceList}>{[
             ['Run', evidence.run.id], ['Attempt', evidence.attempt.id], ['Attempt state', evidence.attempt.state], ['Base commit', evidence.attempt.baseline.baseSha],
             ['Before facts', evidence.attempt.beforeFactsHash], ['Desired facts', evidence.attempt.desiredFactsHash], ['Candidate commit', evidence.submission?.candidate.candidateSha ?? 'Unavailable'],

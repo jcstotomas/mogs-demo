@@ -6,7 +6,24 @@
 
 The revised [build plan](../BUILD_PLAN.md) separates Remote 0A local contracts from Remote 0B live enforcement. The committed types/database/API fixtures and passing local checks below qualify `4f3eff4` for Remote 0A. This reassessment reuses the recorded evidence; it does not claim a fresh runtime test or deployment. A/B/C may build against fixtures: A now includes corpus/evaluation preparation, B classification/corrections, and C console/review. The coordinator retains shared contracts/integration and completes Remote 0B in parallel.
 
-The failed GitHub enforcement result still blocks real correction/restoration submission and publication. The App authentication update below resolves the credential gap and records the private-repository plan limitation; it does not pass enforcement. A disposable coordinator enforcement probe is gate evidence only. No builder dispatch, new PR or deployment was performed by the planning revision. Active corpus expansion waits for the successful Remote 1 miniature; the full 22-asset timing/evaluation/rehearsal requirements remain pending.
+**Current live enforcement result: passed on 2026-10-03.** The user made the repository public, and the coordinator configured and observed the App-bound required checks and completed the disposable eligibility probes below. Remote 0B is complete in the coordinator integration checkpoint: 160 tests, typecheck, the local webpack build, actual baseline readback and the integrated browser checks passed. The [miniature handoff](REMOTE_1.md) records the results and exact run; its checkpoint commit is reported in the chat. A/B/C are integrated against Remote 0A. Active corpus expansion waits for successful Remote 1; the full 22-asset timing/evaluation/rehearsal requirements remain pending.
+
+## Live enforcement update — 2026-10-03
+
+The current repository is public `jcstotomas/mogs-demo` (repository ID `1403606624`), with App `memberofgtmstaff`, App ID `5179329`, installation `167640959`. The remote base remains `e573c2608ce3fa54f51cab67594355448aa1059b`; the probes changed audit files on separate branches and were closed without merging. Public launch source and canonical facts were unchanged.
+
+[Current protection readback](../data/evidence/remote0/github-enforcement-current.json), observed at `2026-10-03T21:29:46.025Z`, records both `mogs/candidate` and `mogs/preview` required from App ID `5179329`, strict up-to-date checks, administrator enforcement, zero bypass actors, no merge queue or automatic merge, and disabled force pushes/deletions.
+
+[Enforcement proof](../data/evidence/remote0/enforcement-pass.json), recorded at `2026-10-03T21:22:07.492Z`, is backed by the [actual probe journal](../data/evidence/remote0/enforcement-probes.json), operation `6ecc84ce-79ed-4f00-b43c-66c4d1415a97`:
+
+| Probe | Actual head | Observed GitHub eligibility |
+|---|---|---|
+| [Audit PR #1](https://github.com/jcstotomas/mogs-demo/pull/1) | `f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6` | Pending, failure and success on a different commit each left the current head `blocked`; success on the current head produced `clean` |
+| [Audit PR #2](https://github.com/jcstotomas/mogs-demo/pull/2) | `175dc93c650a8a6d099054dc958376ad474a3352` | Passing head statuses on an older base produced `behind` under strict checks |
+
+Both audit PRs are recorded closed and unmerged. These are observations of merge eligibility; no merge request was attempted. They carry no launch approval, correction, preview verification or publication credit. The real miniature correction PR, verified candidate preview, human merge and matching public verification remain Remote 1 work.
+
+Local host/source adapter coverage is recorded in [remote-host.test.ts](../tests/remote-host.test.ts): seven focused tests passed for canonical production-origin binding after provider identity validation, project/team/repository/SHA/environment rejection, preview selection, readiness/error handling, and exact pinned Git reads including invalid UTF-8 rejection. These provider-free tests establish local adapter behavior; they do not establish a live corrected preview or deployment. The [integrated check record](../data/evidence/remote1/integration-checks.json) and [miniature handoff](REMOTE_1.md) supply the current passing local/runtime evidence; corrected preview and production proof remain pending.
 
 ## GitHub App authentication update — 2026-10-03
 
@@ -14,15 +31,17 @@ The user created [memberofgtmstaff](https://github.com/settings/apps/memberofgtm
 
 `lib/submission/github-auth.ts` signs App JWTs using the supplied Client ID, verifies App/installation/repository/permission identity, and refreshes repository-scoped installation tokens in memory. Runtime tokens request Administration read, Contents/Pull requests/Commit statuses write, and automatic Metadata read. A separate read-only setup inspection successfully minted Administration write, proving that the App permission grant is sufficient for future branch setup.
 
-Live [authentication evidence](../data/evidence/remote0/github-app-auth.json) records successful authentication, `main.protected=false`, unchanged seed SHA `e573c2608ce3fa54f51cab67594355448aa1059b`, and a branch-protection HTTP 403 classified from GitHub's upgrade-required response. **The remaining blocker is private-repository plan availability:** enable GitHub Pro/an eligible organization plan, or explicitly authorize making the fictional public-content repository public. The public-preview authorization does not itself authorize changing repository visibility. No branch setting, status, PR, merge or deployment was changed during this authentication check.
+The earlier authentication checkpoint, committed at `48d1d6c`, recorded successful authentication, `main.protected=false`, unchanged seed SHA `e573c2608ce3fa54f51cab67594355448aa1059b`, and a branch-protection HTTP 403 classified from GitHub's upgrade-required response while the repository was private. The [private-repository authentication failure](../data/evidence/remote0/github-app-auth-private-history.json) remains saved historical evidence. No branch setting, status, PR, merge or deployment was changed during that authentication check.
 
-Checks: **111/111 tests**, typecheck, configuration audit and live authentication passed. A bounded auth review found and resolved one concurrent refresh/late-401 issue; the focused synthetic reproduction passed. Branch enforcement probes remain unrun. See [GitHub App setup](GITHUB_APP.md) for configuration and commands. Remote 0A fixture-backed builders remain unlocked under the split plan; the real submission path still waits for Remote 0B.
+The saved [authentication readback](../data/evidence/remote0/github-app-auth.json) now records the subsequent check at `2026-10-03T21:19:31.711Z`, after visibility changed and before protection was configured: App authentication passed, but branch-protection inspection returned HTTP 404. Its `enforcementProven: false` describes that earlier check; the later passing proof and protection readback above are the current enforcement evidence.
+
+Authentication checkpoint checks: **111/111 tests**, typecheck, configuration audit and live authentication passed. A bounded auth review found and resolved one concurrent refresh/late-401 issue; the focused synthetic reproduction passed. These counts belong to `48d1d6c`, not the current integrated milestone. See [GitHub App setup](GITHUB_APP.md) for configuration and the later enforcement result.
 
 ## Public baseline
 
 | Identity | Observed value |
 |---|---|
-| Repository | Private `jcstotomas/mogs-demo`, connected account has administrator access |
+| Repository | Public `jcstotomas/mogs-demo`, repository ID `1403606624`; initially private at foundation setup |
 | Remote `main` and deployed Git SHA | `e573c2608ce3fa54f51cab67594355448aa1059b` |
 | Production site | [mogs-demo.vercel.app](https://mogs-demo.vercel.app) |
 | Immutable deployment | [mogs-demo-pmrmogsx4-jcstotomas-projects.vercel.app](https://mogs-demo-pmrmogsx4-jcstotomas-projects.vercel.app) |
@@ -53,9 +72,11 @@ The coordinator readback is [public-readback.json](../data/evidence/remote0/publ
 
 Candidate combined checks are immutable beside their exact images and are included in v2 exports as `candidateChecks`. Before submission they are null. Fixture approvals/PRs/SHAs are labeled synthetic; test approval events are excluded from human counts. The coverage miniature has 33 featured rows and **zero independent held-out representatives**; its gate is `not_eligible`. [corpus-coverage.md](remote0/corpus-coverage.md) is a proposal for A's later expansion, not implemented 22-asset coverage.
 
-Existing v1 unversioned handlers retain local publication behavior. Posting a v2 Confirm DTO to the live `/api/facts` returned HTTP 400 for the unsupported v2 fields. The v2 DTOs and services are executable; v2 HTTP/console wiring remains assigned to the later lanes. No A–D implementation was dispatched.
+At the foundation checkpoint, existing v1 unversioned handlers retained local publication behavior. Posting a v2 Confirm DTO to the local `/api/facts` returned HTTP 400 for unsupported v2 fields. V2 DTOs and services were executable, HTTP/console wiring remained pending, and no A–D implementation had been dispatched. The approved split subsequently unlocked the three A/B/C builders; their current miniature integration is a separate milestone.
 
 ## Checks and evidence
+
+The table below records the original executable foundation at `4f3eff4`. Later authentication and enforcement results are dated above; integrated miniature checks will be recorded by the coordinator separately.
 
 | Check | Result |
 |---|---|
@@ -84,11 +105,11 @@ Focused browser checks covered the real public pricing page at 1440, 375 and 320
 
 Reused the validated direct Anthropic frontier configuration, `claude-sonnet-5-5`, prompt `gate1-v2`, relevance 0.2, label threshold 0.7, concurrency four and 20,000 ms request timeout. The current configuration exactly matches saved completed local run `ff57ceec-5f59-49e0-9a26-d9911b2fdd57`; no fresh billed calls were made for this checkpoint. The original Step 0 smoke passed direct price, eligible grandfathering, derived savings and structured checked fix with frontier. Jev passed direct price but failed eligible grandfathering and savings. Frontier confidence/probabilities remain unavailable; they are never represented as Jev scores. See [STEP_0.md](STEP_0.md), [GATE_1.md](GATE_1.md), and [config-audit.json](../data/evidence/remote0/config-audit.json).
 
-## Recorded enforcement blockers and original next action
+## Historical enforcement blockers and original next action — foundation `4f3eff4`
 
 1. Configure the custom GitHub App installation token, App ID and slug in ignored `.env.local`: `MOGS_GITHUB_TOKEN`, `MOGS_STATUS_PRODUCER_APP_ID`, `MOGS_STATUS_PRODUCER_APP_SLUG`. Its permissions are contents, pull requests, commit statuses and administration write for this repository. The connected GitHub integration cannot administer branch protection.
-2. Configure both required contexts bound to that App; require strict current-base checks, administrators/no bypass, no force push/deletion, no merge queue or automatic merge. The connected read currently reports `main.protected=false`, checks empty/enforcement off; protection detail read returns HTTP 403. [github-enforcement.json](../data/evidence/remote0/github-enforcement.json) records this failed gate. Private-repository enforcement availability has not been established; report any account limitation directly.
-3. Prove real pending/failing/wrong-head rejection and successful current-head eligibility on a disposable probe PR, with the trusted producer and candidate-specific preview/deployment identities. Local fault tests and public seed observations cannot replace these checks.
+2. Configure both required contexts bound to that App; require strict current-base checks, administrators/no bypass, no force push/deletion, no merge queue or automatic merge. At that checkpoint, the connected read reported `main.protected=false`, checks empty/enforcement off, and a protection-detail HTTP 403. [github-enforcement.json](../data/evidence/remote0/github-enforcement.json) retains this failed setup result; private-repository enforcement availability had not been established.
+3. Observe pending/failing/wrong-head blocking and successful current-head eligibility on a disposable probe PR with the trusted producer. This setup check has since passed as recorded above. Candidate-specific preview/deployment verification still belongs to the real correction flow; local fault tests and public seed observations cannot supply it.
 4. Under the original combined gate, all dispatch waited for this evidence and D followed A. The approved split above supersedes that sequence: local builders may start at Remote 0A; commit passing Remote 0B evidence before the real Remote 1 submission. Remote 1 still exercises human complete-group approval and the actual correction PR/preview/merge/public path before asset expansion.
 
-Local partial commits include public bootstrap `328ffb1` and routing fix `635eb2f`. The foundation checkpoint commit containing this record remains **local only**, and its hash is reported in the coordinator handoff. Primary local `main` and remote `main` have diverged: the remote seed has separate audit/trigger commits and the routing cherry-pick. The ignored `data/remote/source` checkout preserves the actual public Git baseline. Do not push primary `main` over it or deploy the repaired v1 working content. Dispatch authority now comes from the explicit Remote 0A qualification in the build plan; this record never establishes passing live enforcement.
+Local partial commits include public bootstrap `328ffb1` and routing fix `635eb2f`. Foundation commit `4f3eff4` and authentication commit `48d1d6c` remain **local only**. Primary local `main` and remote `main` have diverged: the remote seed has separate audit/trigger commits and the routing cherry-pick. The ignored `data/remote/source` checkout preserves the actual public Git baseline. Do not push primary `main` over it or deploy the repaired v1 working content. Dispatch authority comes from Remote 0A in the build plan. The new live enforcement result is recorded above; complete Remote 0B qualification awaits the integrated checks and committed coordinator handoff.

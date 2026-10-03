@@ -1,4 +1,6 @@
 .status { margin-top: 16px; min-height: 24px; color: #43533c; font-size: 14px; }
+.shellWrap p.supportingText, .shellWrap dt.supportingText { color: #52634b; }
+.shellWrap span.priceArrow { color: #66755c; }
 .notice { padding: 16px 24px; margin-bottom: 24px; border: 1px solid #d9c8a5; background: #f8ecd8; border-radius: 8px; font-size: 14px; color: #624717; line-height: 1.55; }
 .fixtureNav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; }
 .fixtureNav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
@@ -18,7 +20,7 @@
 .recovery { margin-top: 24px; padding: 24px; background: #fcf0e8; border: 1px solid #dcbca8; border-radius: 8px; }
 .recovery p { margin-top: 12px; font-size: 14px; }
 .recovery label { display: block; margin-top: 16px; font-size: 14px; font-weight: 600; }
-.reason { display: block; width: 100%; font: inherit; color: #243d2f; background: #fffefa; border: 1px solid #84927b; border-radius: 6px; min-height: 88px; padding: 12px; margin: 8px 0 16px; resize: vertical; }
+.reason { display: block; width: 100%; font: inherit; color: #243d2f; background: #fffefa; border: 1px solid #7d8a74; border-radius: 6px; min-height: 88px; padding: 12px; margin: 8px 0 16px; resize: vertical; }
 .reason:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
 .evidenceList { display: grid; grid-template-columns: minmax(100px, 160px) minmax(0, 1fr); gap: 8px 16px; }
 .evidenceList dd { margin: 0; overflow-wrap: anywhere; }

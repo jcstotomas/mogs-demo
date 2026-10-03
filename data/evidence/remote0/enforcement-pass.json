@@ -1,0 +1,28 @@
+{
+  "repository": "jcstotomas/mogs-demo",
+  "baseRef": "main",
+  "producerAppId": 5179329,
+  "checks": [
+    {
+      "context": "mogs/candidate",
+      "appId": 5179329
+    },
+    {
+      "context": "mogs/preview",
+      "appId": 5179329
+    }
+  ],
+  "strict": true,
+  "enforceAdmins": true,
+  "bypassActors": [],
+  "mergeQueue": false,
+  "autoMerge": false,
+  "probes": {
+    "pendingBlocked": true,
+    "failureBlocked": true,
+    "wrongHeadBlocked": true,
+    "currentHeadEligible": true
+  },
+  "testedSha": "f5bd4a0cedf4b42a20cbf5fe46ecd2e7167ac6e6",
+  "verifiedAt": "2026-10-03T21:22:07.492Z"
+}

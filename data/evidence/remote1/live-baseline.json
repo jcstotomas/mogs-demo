@@ -1,0 +1,240 @@
+{
+  "contractVersion": 2,
+  "baseline": {
+    "target": {
+      "repository": "jcstotomas/mogs-demo",
+      "baseRef": "main",
+      "productionOrigin": "https://mogs-demo.vercel.app",
+      "vercelProjectId": "prj_hT55y9ozmq67qLkneP8csBNUuVTr",
+      "vercelTeamId": "team_tTySQ8aRrx08Ma0X2AMFm40d",
+      "statusProducerAppId": 5179329
+    },
+    "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "deployedSha": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "deploymentId": "dpl_J4vVHRyNZC5QfB9BafiaaeurmzDJ",
+    "deploymentUrl": "https://mogs-demo.vercel.app",
+    "observedAt": "2026-10-03T21:34:26.275Z",
+    "inventoryHash": "e2a7a3f6835759dadd8881f87f1eeeef73a88c7e62d2873647924d53e74e5605",
+    "corpusHash": "d06e2ce4f49190e3468f37991cb05f269c116c43857bea0600574f038c75b14c",
+    "factsHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+    "factsFileHash": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee",
+    "assets": [
+      {
+        "assetId": "email:email/eligible.md",
+        "path": "content/email/eligible.md",
+        "pathname": "/assets/email/eligible",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0",
+        "metadataHash": "0603521c914da2bc1ab5cc8b2691f4a7b15179ad3cd6698019e7c77ede70b6f4",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "email:email/onboarding.md",
+        "path": "content/email/onboarding.md",
+        "pathname": "/assets/email/onboarding",
+        "surface": "email",
+        "editable": true,
+        "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef",
+        "metadataHash": "8438ebfcfbc7b665b29145bc82a3e087826b11449b94e2a21e596e52dd115213",
+        "sourceIds": [
+          "email-subject",
+          "email-preheader",
+          "greeting",
+          "starter-price",
+          "historical",
+          "annual-price",
+          "current-price",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/launch.md",
+        "path": "content/site/launch.md",
+        "pathname": "/site/launch",
+        "surface": "web",
+        "editable": true,
+        "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780",
+        "metadataHash": "9c77871d4d727bcbed41bfa48c165802d2a8ae39d831f64205f920cf14d68777",
+        "sourceIds": [
+          "launch-title",
+          "starter-price",
+          "annual-savings",
+          "per-day",
+          "plan-gap",
+          "threshold",
+          "historical",
+          "annual-price",
+          "current-price",
+          "most-affordable",
+          "locations-addon",
+          "cancellation",
+          "ambiguous-offer"
+        ]
+      },
+      {
+        "assetId": "web:site/pricing.md",
+        "path": null,
+        "pathname": "/site/pricing",
+        "surface": "web",
+        "editable": false,
+        "sourceHash": "a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664",
+        "metadataHash": "d6ff2ef1718e40aca4e9adc5aad90bcbd416d2e185664194faac312db7688edc",
+        "sourceIds": [
+          "pricing-title",
+          "starter-monthly",
+          "starter-annual",
+          "legacy-rule",
+          "team-monthly",
+          "business-monthly",
+          "fact-version"
+        ]
+      }
+    ]
+  },
+  "baselineHash": "b5c52060ecf8ec57fc55ee32538349f736c09b9b634c7e00f886baecd5debe3b",
+  "beforeFacts": {
+    "scenarioId": "mogs-starter-2026-10-03",
+    "version": 1,
+    "company": "MOGS",
+    "phase": "initial",
+    "effectiveDate": "2026-10-03",
+    "plans": {
+      "starter": {
+        "monthlyCents": 3000,
+        "annualCents": 28800
+      },
+      "team": {
+        "monthlyCents": 8000,
+        "annualCents": 76800
+      },
+      "business": {
+        "monthlyCents": 20000,
+        "annualCents": 192000
+      }
+    },
+    "change": {
+      "id": "starter-monthly-30-to-40",
+      "plan": "starter",
+      "fromCents": 3000,
+      "toCents": 4000,
+      "billing": "monthly",
+      "appliesTo": "non_legacy_eligible",
+      "legacyRateCents": 3000,
+      "legacyCutoff": "2026-10-03T07:00:00.000Z"
+    },
+    "exceptions": [
+      "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+      "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+      "Annual prices and genuinely historical statements are unchanged."
+    ],
+    "derived": {
+      "annual_savings_percent": {
+        "unit": "percent",
+        "before": 20,
+        "after": 40
+      },
+      "per_day_usd": {
+        "unit": "usd_per_day",
+        "before": 1,
+        "after": 1.33
+      },
+      "lowest_monthly_usd": {
+        "unit": "usd",
+        "before": 30,
+        "after": 40
+      },
+      "lowest_annual_effective_monthly_usd": {
+        "unit": "usd",
+        "before": 24,
+        "after": 24
+      },
+      "team_starter_gap_usd": {
+        "unit": "usd",
+        "before": 50,
+        "after": 40
+      }
+    }
+  },
+  "desiredFacts": {
+    "scenarioId": "mogs-starter-2026-10-03",
+    "version": 2,
+    "company": "MOGS",
+    "phase": "confirmed",
+    "effectiveDate": "2026-10-03",
+    "plans": {
+      "starter": {
+        "monthlyCents": 4000,
+        "annualCents": 28800
+      },
+      "team": {
+        "monthlyCents": 8000,
+        "annualCents": 76800
+      },
+      "business": {
+        "monthlyCents": 20000,
+        "annualCents": 192000
+      }
+    },
+    "change": {
+      "id": "starter-monthly-30-to-40",
+      "plan": "starter",
+      "fromCents": 3000,
+      "toCents": 4000,
+      "billing": "monthly",
+      "appliesTo": "non_legacy_eligible",
+      "legacyRateCents": 3000,
+      "legacyCutoff": "2026-10-03T07:00:00.000Z"
+    },
+    "exceptions": [
+      "Only active Starter monthly subscriptions begun before the cutoff keep $30.",
+      "Existing customer alone is not eligibility; lapsed win-back customers pay $40.",
+      "Annual prices and genuinely historical statements are unchanged."
+    ],
+    "derived": {
+      "annual_savings_percent": {
+        "unit": "percent",
+        "before": 20,
+        "after": 40
+      },
+      "per_day_usd": {
+        "unit": "usd_per_day",
+        "before": 1,
+        "after": 1.33
+      },
+      "lowest_monthly_usd": {
+        "unit": "usd",
+        "before": 30,
+        "after": 40
+      },
+      "lowest_annual_effective_monthly_usd": {
+        "unit": "usd",
+        "before": 24,
+        "after": 24
+      },
+      "team_starter_gap_usd": {
+        "unit": "usd",
+        "before": 50,
+        "after": 40
+      }
+    }
+  },
+  "activeRunId": null,
+  "enforcement": {
+    "available": true,
+    "message": "Required checks, trusted App and strict base probes passed; GitHub merge remains a human decision."
+  }
+}

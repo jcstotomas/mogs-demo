@@ -1,0 +1,14 @@
+{
+  "background": "rgb(255, 254, 250)",
+  "border": "rgb(125, 138, 116)",
+  "borderOutsideRatio": 3.26,
+  "focusOutsideRatio": 3.87,
+  "focusVisible": true,
+  "id": "recovery-reason",
+  "outlineColor": "rgb(174, 105, 36)",
+  "outlineWidth": "3px",
+  "reduceMotion": true,
+  "refreshTransitionDuration": "0s",
+  "surroundingBackground": "rgb(252, 240, 232)",
+  "tag": "TEXTAREA"
+}

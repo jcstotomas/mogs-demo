@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-03T21:14:30.200Z",
+  "checkedAt": "2026-10-03T21:19:31.711Z",
   "repository": "jcstotomas/mogs-demo",
   "appId": 5179329,
   "appSlug": "memberofgtmstaff",
@@ -8,7 +8,7 @@
   "installation": {
     "installationId": 167640959,
     "repositoryId": 1403606624,
-    "expiresAt": "2026-10-03T22:14:31.000Z",
+    "expiresAt": "2026-10-03T22:19:32.000Z",
     "permissions": {
       "administration": "read",
       "contents": "write",
@@ -18,24 +18,5 @@
     }
   },
   "settingsSufficient": false,
-  "blocker": "Private-repository branch protection requires GitHub Pro or an eligible organization plan.",
-  "setupInspection": {
-    "setupAdministrationWriteAvailable": true,
-    "results": [
-      {
-        "endpoint": "/branches/main",
-        "status": 200,
-        "protected": false,
-        "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b",
-        "planUnavailable": false,
-        "permissionDenied": false
-      },
-      {
-        "endpoint": "/branches/main/protection",
-        "status": 403,
-        "planUnavailable": true,
-        "permissionDenied": false
-      }
-    ]
-  }
+  "blocker": "Branch protection inspection returned HTTP 404."
 }
