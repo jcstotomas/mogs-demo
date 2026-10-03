@@ -18,6 +18,7 @@ data/confirm-journal.json
 data/staging/
 data/readers/
 data/remote/
+data/remote2/
 apps/public/generated/
 .vercel/
 
