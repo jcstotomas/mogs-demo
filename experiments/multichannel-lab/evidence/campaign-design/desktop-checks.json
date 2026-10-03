@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-03",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "actualServer": "http://127.0.0.1:3212",
+  "runtime": "campaign-review-final",
+  "assetOpening": "Design visible before any location is selected",
+  "emailPreview": "Static formatting and embedded image verified; scripts and remote images absent",
+  "highlight": {
+    "textColor": "rgb(18, 56, 42)",
+    "targetBackground": "rgb(252, 233, 169)",
+    "outline": "3px",
+    "verifiedText": "Good things"
+  },
+  "deckLocation": {
+    "claim": "Save 20% on Starter with annual billing.",
+    "jumpedToPage": 4,
+    "pageCount": 5
+  },
+  "horizontalPageOverflow": false,
+  "modelCalls": 0,
+  "screenshots": [
+    "final-email-desktop.png",
+    "final-creative-desktop.png",
+    "after-deck-desktop.png",
+    "deck-finding-desktop.png",
+    "email-highlight-desktop.png"
+  ],
+  "limitations": [
+    "Deck and image source bytes unchanged by the v4 email wrapping fix; earlier matching-source screenshots retained.",
+    "This browser check verifies source previews and existing local findings, not model orchestration or publication."
+  ]
+}

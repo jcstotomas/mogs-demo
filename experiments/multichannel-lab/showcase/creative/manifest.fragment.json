@@ -1,0 +1,82 @@
+{
+  "assets": [
+    {
+      "filename": "mogs-launch.png",
+      "file": "creative/mogs-launch.png",
+      "surface": "creative",
+      "context": {
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "Make room for good work"
+      },
+      "sha256": "04f4d045354a1a18239753d132c2e6d42d6729d55fa81d7761dfaa52bb444d89",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        }
+      ]
+    },
+    {
+      "filename": "mogs-annual.png",
+      "file": "creative/mogs-annual.png",
+      "surface": "creative",
+      "context": {
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "A little more room to grow"
+      },
+      "sha256": "a2c6c5c710d38716e85736c3043475d2c9aa1b85062eef15f0dcced8ce471b5c",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Starter is $288 a year.",
+          "label": "consistent"
+        }
+      ]
+    },
+    {
+      "filename": "mogs-legacy.png",
+      "file": "creative/mogs-legacy.png",
+      "surface": "creative",
+      "context": {
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "Good things stay with you"
+      },
+      "sha256": "f7ec756631870063320efbd00768d787a979359b31aa10ae4559a0332b7a8877",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        }
+      ]
+    }
+  ]
+}

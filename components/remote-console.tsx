@@ -64,10 +64,11 @@ function safeExternal(url: string | null) {
   try { return new URL(url).protocol === 'https:' ? url : null; } catch { return null; }
 }
 
-export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initialBaseline, initialRunId, recordingNotice = null, recordingOrigin = null }: {
+export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initialBaseline, initialRunId, recordingNotice = null, recordingOrigin = null, multichannelEnabled = false }: {
   fixture: FixtureState | null; fixtureNotice: string | null; initialEvidence: RemoteExport | null;
   initialBaseline: RemoteBaselineView | null; initialRunId: string | null;
   recordingNotice?: string | null; recordingOrigin?: string | null;
+  multichannelEnabled?: boolean;
 }) {
   const [baseline, setBaseline] = useState(initialBaseline);
   const [evidence, setEvidence] = useState(initialEvidence);
@@ -202,7 +203,7 @@ export function RemoteConsole({ fixture, fixtureNotice, initialEvidence, initial
   return <div className={`${styles.shell} ${remote.shellWrap}`}>
     <a className={styles.skip} href="#remote-main">Skip to launch review</a>
     <header className={styles.topbar}><a className={styles.brand} href="/console/remote">MOGS <span>Fictional launch review</span></a>
-      <nav aria-label="Launch navigation"><a href="#review">Review groups</a><a href="#delivery">Delivery evidence</a><a href="/console">Local v1 history</a></nav>
+      <nav aria-label="Launch navigation">{multichannelEnabled ? <a href="/console/campaign">Campaign assets</a> : null}<a href="#review">Review groups</a><a href="#delivery">Delivery evidence</a><a href="/console">Local v1 history</a></nav>
     </header>
     <main className={styles.main} id="remote-main" tabIndex={-1}>
       <div className={styles.intro}><p className={styles.eyebrow}>{recordingNotice ? 'Local real-provider analysis' : 'Deployed launch correction'}</p><h1>{recordingNotice ? 'Review the 22-asset analysis' : 'Review a price change'}</h1>

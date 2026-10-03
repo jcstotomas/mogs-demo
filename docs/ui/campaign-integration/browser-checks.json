@@ -1,0 +1,25 @@
+{
+  "desktop": {
+    "focus": "Continue website review",
+    "outline": "solid",
+    "outlineWidth": "3px",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  "desktopFrame": {
+    "scrollWidth": 1376,
+    "width": 1376
+  },
+  "mobile": {
+    "scrollWidth": 375,
+    "width": 375
+  },
+  "mobileFrame": {
+    "scrollWidth": 343,
+    "width": 343
+  },
+  "emailHighlight": true,
+  "deckHighlightPage": 4,
+  "creativeHighlight": true,
+  "newMotion": false
+}

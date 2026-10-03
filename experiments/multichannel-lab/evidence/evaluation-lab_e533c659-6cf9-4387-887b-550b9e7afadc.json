@@ -1,0 +1,1197 @@
+{
+  "contractVersion": "mogs-lab-evaluation-v1",
+  "runId": "lab_e533c659-6cf9-4387-887b-550b9e7afadc",
+  "createdAt": "2026-10-03T22:07:21.111Z",
+  "manifestHash": "1d48d9a5c3a1307caead6a3a461dce352fcdc04a3ab31d40ef81266abf845e10",
+  "factsHash": "2cdaf412beee8802e09f9dc358e7792e78ed80421381844fd56b6b72fb206fe1",
+  "engine": "mogs-explicit-pricing-rules-v1",
+  "evidenceMode": "real local parsers and OCR; deterministic MOGS rules; synthetic corpus",
+  "assets": 12,
+  "surfaces": {
+    "email": 4,
+    "deck": 4,
+    "creative": 4
+  },
+  "units": 112,
+  "checked": 112,
+  "expected": 65,
+  "passed": 65,
+  "failed": 0,
+  "runStatus": "partial",
+  "coverage": [
+    {
+      "filename": "email-new.html",
+      "status": "partial",
+      "warnings": [
+        "1 visual or embedded region(s) have no reliable text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "email-legacy.html",
+      "status": "partial",
+      "warnings": [
+        "1 visual or embedded region(s) have no reliable text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "email-mixed.html",
+      "status": "partial",
+      "warnings": [
+        "1 visual or embedded region(s) have no reliable text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "email-conditional.html",
+      "status": "partial",
+      "warnings": [
+        "Unresolved template/conditional branches: all email corrections are withheld until rendered variants are provided.",
+        "1 visual or embedded region(s) have no reliable text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "deck-new.pdf",
+      "status": "ready",
+      "warnings": [],
+      "error": null
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "status": "ready",
+      "warnings": [],
+      "error": null
+    },
+    {
+      "filename": "deck-history.pdf",
+      "status": "ready",
+      "warnings": [],
+      "error": null
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "status": "ready",
+      "warnings": [],
+      "error": null
+    },
+    {
+      "filename": "creative-new.png",
+      "status": "partial",
+      "warnings": [
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    },
+    {
+      "filename": "creative-legacy.png",
+      "status": "partial",
+      "warnings": [
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "status": "partial",
+      "warnings": [
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "status": "partial",
+      "warnings": [
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    }
+  ],
+  "outcomes": [
+    {
+      "filename": "email-new.html",
+      "text": "Hello {{ first_name }}, Starter is $30 a month.",
+      "observedText": "Hello {{ first_name }}, Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Hello {{ first_name }}, Starter is $40 a month.",
+      "observedReplacement": "Hello {{ first_name }}, Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Starter costs about a dollar a day.",
+      "observedText": "Starter costs about a dollar a day.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter costs about $1.33 a day.",
+      "observedReplacement": "Starter costs about $1.33 a day.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Team is only $50 a month more than Starter.",
+      "observedText": "Team is only $50 a month more than Starter.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Team is only $40 a month more than Starter.",
+      "observedReplacement": "Team is only $40 a month more than Starter.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "subject",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "preheader",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "email-new.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "plainText",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Hello {{ first_name }}, Starter is $30 a month.",
+      "observedText": "Hello {{ first_name }}, Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Starter costs about a dollar a day.",
+      "observedText": "Starter costs about a dollar a day.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Team is only $50 a month more than Starter.",
+      "observedText": "Team is only $50 a month more than Starter.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "subject",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "preheader",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "plainText",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "text": "Starter is $30 a month for new customers.",
+      "observedText": "Starter is $30 a month for new customers.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month for new customers.",
+      "observedReplacement": "Starter is $40 a month for new customers.",
+      "pass": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "text": "Starter is $30 a month for legacy-eligible subscribers.",
+      "observedText": "Starter is $30 a month for legacy-eligible subscribers.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-conditional.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-conditional.html",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "email-conditional.html",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 1,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Starter monthly | $30",
+      "observedText": "Starter monthly | $30",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter monthly | $40",
+      "observedReplacement": "Starter monthly | $40",
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 2,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Starter costs about a dollar a day.",
+      "observedText": "Starter costs about a dollar a day.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter costs about $1.33 a day.",
+      "observedReplacement": "Starter costs about $1.33 a day.",
+      "pass": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "text": "Team is only $50 a month more than Starter.",
+      "observedText": "Team is only $50 a month more than Starter.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Team is only $40 a month more than Starter.",
+      "observedReplacement": "Team is only $40 a month more than Starter.",
+      "pass": true
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-history.pdf",
+      "text": "When we launched in 2023, Starter cost $30 a month.",
+      "observedText": "When we launched in 2023, Starter cost $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-history.pdf",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-history.pdf",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-history.pdf",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "text": "Starter is under $35 a month, billed monthly for new customers.",
+      "observedText": "Starter is under $35 a month, billed monthly for new customers.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-new.png",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "creative-new.png",
+      "text": "Starter costs about a dollar a day.",
+      "observedText": "Starter costs about a dollar a day.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter costs about $1.33 a day.",
+      "observedReplacement": "Starter costs about $1.33 a day.",
+      "pass": true
+    },
+    {
+      "filename": "creative-new.png",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month",
+      "exactTextMatch": false,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-new.png",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-legacy.png",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-legacy.png",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually",
+      "exactTextMatch": false,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-legacy.png",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-legacy.png",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "text": "Team is only $50 a month more than Starter.",
+      "observedText": "Team is only $50 a month more than Starter.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Team is only $40 a month more than Starter.",
+      "observedReplacement": "Team is only $40 a month more than Starter.",
+      "pass": true
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually",
+      "exactTextMatch": false,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually",
+      "exactTextMatch": false,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "text": "The Locations add-on is $30 a month.",
+      "observedText": "The Locations add-on is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "unrelated",
+      "observedLabel": "unrelated",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "text": "Plans from $30.",
+      "observedText": "Plans from $30.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    }
+  ],
+  "unlabelledFindings": [
+    {
+      "assetId": "asset_3223d3a89900196acf157663cf30281a",
+      "text": "Your MOGS plan",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_3223d3a89900196acf157663cf30281a",
+      "text": "Thanks, Zoë — let’s make scheduling easier.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_3223d3a89900196acf157663cf30281a",
+      "text": "Open your account",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_70765133a5efca656253dd068e3c7771",
+      "text": "Your MOGS plan",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_70765133a5efca656253dd068e3c7771",
+      "text": "Thanks, Zoë — let’s make scheduling easier.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_70765133a5efca656253dd068e3c7771",
+      "text": "Open your account",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_66ae6c4ef069e98ce241337bebbb4968",
+      "text": "Offer comparison",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_66ae6c4ef069e98ce241337bebbb4968",
+      "text": "Offer comparison",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_66ae6c4ef069e98ce241337bebbb4968",
+      "text": "Open your account",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "Conditional renewal",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "Conditional renewal",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "{% if subscriber.active %}",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "{% else %}",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "Check your account terms.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "{% endif %}",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_519621ddef41bab184567a25f637ec60",
+      "text": "Open your account",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "New customer pricing",
+      "label": "insufficient_context",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "Exported PDF evidence only. No native slide editing. 1",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "New customer plan comparison",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "A calmer way to schedule work across teams.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "Choose a plan that fits the way you collaborate.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_05b5cd464fe6b6aa20e1439dc376d63a",
+      "text": "Exported PDF evidence only. No native slide editing. 2",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_e40d1d94406050e8d2b513c88ce28fff",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_e40d1d94406050e8d2b513c88ce28fff",
+      "text": "Subscriber continuation",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_e40d1d94406050e8d2b513c88ce28fff",
+      "text": "Only active Starter monthly subscribers who subscribed before 2026-09-01 keep this rate.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_e40d1d94406050e8d2b513c88ce28fff",
+      "text": "Exported PDF evidence only. No native slide editing. 1",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_2b554e3e2d67f5b029d84165c88741db",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_2b554e3e2d67f5b029d84165c88741db",
+      "text": "Product milestones",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_2b554e3e2d67f5b029d84165c88741db",
+      "text": "Exported PDF evidence only. No native slide editing. 1",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_147da534d5f1de404b49789dc264c991",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_147da534d5f1de404b49789dc264c991",
+      "text": "Needs audience review",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_147da534d5f1de404b49789dc264c991",
+      "text": "Exported PDF evidence only. No native slide editing. 1",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_78c086cdd63de1144b7a7522d67ace3a",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_78c086cdd63de1144b7a7522d67ace3a",
+      "text": "New customer offer",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_78c086cdd63de1144b7a7522d67ace3a",
+      "text": "Static creative. Annotated suggestions only.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_7183002ae232e4a028b02959c40642c1",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_7183002ae232e4a028b02959c40642c1",
+      "text": "Your existing subscription",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_7183002ae232e4a028b02959c40642c1",
+      "text": "For legacy-eligible subscribers only.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_7183002ae232e4a028b02959c40642c1",
+      "text": "Static creative. Annotated suggestions only.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fa50c474e829f85f938753b9f1d660c7",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fa50c474e829f85f938753b9f1d660c7",
+      "text": "New customer plan comparison",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fa50c474e829f85f938753b9f1d660c7",
+      "text": "Static creative. Annotated suggestions only.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fd99c7c2baff4b70c12635a301480307",
+      "text": "MOGS / FICTIONAL COMPANY / SYNTHETIC FIXTURE",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fd99c7c2baff4b70c12635a301480307",
+      "text": "A flexible plan for your team",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_fd99c7c2baff4b70c12635a301480307",
+      "text": "Static creative. Annotated suggestions only.",
+      "label": "unrelated",
+      "replacement": null
+    }
+  ],
+  "errors": [
+    "email-new.html: partial extraction; review coverage warnings.",
+    "email-legacy.html: partial extraction; review coverage warnings.",
+    "email-mixed.html: partial extraction; review coverage warnings.",
+    "email-conditional.html: partial extraction; review coverage warnings.",
+    "creative-new.png: partial extraction; review coverage warnings.",
+    "creative-legacy.png: partial extraction; review coverage warnings.",
+    "creative-savings.jpg: partial extraction; review coverage warnings.",
+    "creative-ambiguous.png: partial extraction; review coverage warnings."
+  ],
+  "durationMs": 17
+}

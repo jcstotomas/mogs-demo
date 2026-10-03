@@ -1,0 +1,45 @@
+{
+  "mode": "local deterministic scan; no model call",
+  "runId": "lab_a36563e0-b06a-4aa1-aa2f-eb24d061d32a",
+  "status": "partial",
+  "counts": {
+    "assets": 6,
+    "units": 123,
+    "checked": 123,
+    "suggestions": 8,
+    "unresolved": 5
+  },
+  "errors": [
+    "mogs-legacy.png: partial extraction; review coverage warnings.",
+    "mogs-annual.png: partial extraction; review coverage warnings.",
+    "mogs-launch.png: partial extraction; review coverage warnings.",
+    "mogs-make-room.pdf: partial extraction; review coverage warnings.",
+    "welcome-room-to-work.html: partial extraction; review coverage warnings."
+  ],
+  "sourceHashes": [
+    {
+      "filename": "mogs-legacy.png",
+      "hash": "f7ec756631870063320efbd00768d787a979359b31aa10ae4559a0332b7a8877"
+    },
+    {
+      "filename": "mogs-annual.png",
+      "hash": "a2c6c5c710d38716e85736c3043475d2c9aa1b85062eef15f0dcced8ce471b5c"
+    },
+    {
+      "filename": "mogs-launch.png",
+      "hash": "04f4d045354a1a18239753d132c2e6d42d6729d55fa81d7761dfaa52bb444d89"
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "hash": "bc7509c78d00b9e7e01a8cf8cf2c091800035731f44d629bf7cfb2a60bdc55a0"
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "hash": "7e1153f798a04b8650859aedd9eb8cafc06087c308449e2522248c963026ee60"
+    },
+    {
+      "filename": "welcome-room-to-work.html",
+      "hash": "905273c14a53682e237a8f961572de1988e603c9ee1b8ba26ec6e95cd767167c"
+    }
+  ]
+}

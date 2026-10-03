@@ -1,0 +1,28 @@
+{
+  "evidenceKind": "focused-local-runtime-check",
+  "completedOn": "2026-10-03",
+  "workingDirectory": "/Users/jeremy/Desktop/project_hack",
+  "command": "node --import tsx --test lib/multichannel/proxy.test.ts",
+  "result": "passed",
+  "exitCode": 0,
+  "tests": 1,
+  "passed": 1,
+  "failed": 0,
+  "durationMs": 935.096417,
+  "observedOutput": "✔ local multichannel proxy stays inert when disabled and preserves the isolated import/review contract (806.397541ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 935.096417\n",
+  "checks": [
+    "Flag missing or zero returns 404 before lab storage initialization",
+    "Cross-origin and unsupported paths reject before lab storage initialization",
+    "Child environment contains only the explicit allowlist",
+    "Lazy UI response prefixes local asset URLs and permits same-origin framing without initializing storage",
+    "Actual isolated lab state and import schema validation",
+    "One synthetic new-customer HTML email imports through the real extractor",
+    "Preview retains script prohibition and sandbox policy",
+    "Deterministic full scan proposes Starter is $40 a month",
+    "Immutable export records publication none and the imported source manifest"
+  ],
+  "externalModelCalls": 0,
+  "publicationCalls": 0,
+  "cleanup": "The owned child was stopped and the temporary bridge-check runtime was removed.",
+  "boundary": "This receipt records the already completed focused check after the NODE_ENV environment typing fix. No rerun was performed when saving it. It does not claim root build, browser, deployment, or core release gate verification."
+}

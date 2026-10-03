@@ -37,9 +37,12 @@
     ".next/gate1-live/types/**/*.ts",
     ".next/gate1-live/dev/types/**/*.ts",
     ".next/remote0-check/types/**/*.ts",
-    ".next/remote0-check/dev/types/**/*.ts"
+    ".next/remote0-check/dev/types/**/*.ts",
+    ".next/campaign-demo/types/**/*.ts",
+    ".next/campaign-demo/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "experiments/**"
   ]
 }

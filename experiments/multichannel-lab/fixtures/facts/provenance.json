@@ -1,0 +1,17 @@
+{
+  "originCommit": "b9d167987747b1ff171c0ae368e0f98c02f9b2fa",
+  "copiedAt": "2026-10-03",
+  "purpose": "Immutable copied initial and desired MOGS fact fixtures; lab never reads core runtime state.",
+  "files": [
+    {
+      "origin": "fixtures/facts.initial.json",
+      "copy": "facts/facts.initial.json",
+      "sha256": "d9e8c25d0f432ec21b3c80317203236d74518b65f3a88a8d44c1fd82dfe137ee"
+    },
+    {
+      "origin": "fixtures/facts.confirmed.json",
+      "copy": "facts/facts.confirmed.json",
+      "sha256": "9864acae5cde1212fda83f65304dc25d72a066e1491f47718da69b9037bf73e0"
+    }
+  ]
+}

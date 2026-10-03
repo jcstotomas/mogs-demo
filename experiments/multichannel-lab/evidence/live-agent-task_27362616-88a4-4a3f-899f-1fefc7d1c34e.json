@@ -1,0 +1,54 @@
+{
+  "evidenceKind": "live-provider-synthetic-corpus",
+  "task": {
+    "id": "task_27362616-88a4-4a3f-899f-1fefc7d1c34e",
+    "status": "needs_input",
+    "message": "Raise the Starter monthly price for new customers and check only the imported emails. Keep legacy pricing as it is.",
+    "reply": "What new Starter monthly price should I audit against (e.g., \"$45\")? Note that I can only scan files for that price and can't edit or publish anything. Legacy pricing will stay at the frozen defaults, and I'll limit the scan to the imported email assets.",
+    "events": [
+      {
+        "at": "2026-10-03T22:21:10.175Z",
+        "title": "Agent started",
+        "detail": "Bound to 12 active asset revisions. No publication or source edits are available."
+      },
+      {
+        "at": "2026-10-03T22:21:13.162Z",
+        "title": "Clarification needed",
+        "detail": "What new Starter monthly price should I audit against (e.g., \"$45\")? Note that I can only scan files for that price and can't edit or publish anything. Legacy pricing will stay at the frozen defaults, and I'll limit the scan to the imported email assets."
+      }
+    ],
+    "runId": null,
+    "error": null,
+    "model": "claude-sonnet-5-5",
+    "createdAt": "2026-10-03T22:21:10.173Z",
+    "completedAt": "2026-10-03T22:21:13.163Z",
+    "usage": {
+      "inputTokens": 2052,
+      "outputTokens": 242
+    },
+    "agentVersion": "mogs-lab-tool-agent-v1",
+    "assetIds": [
+      "asset_11170bd07f2a19d285491756c52ec2db",
+      "asset_c5a076d13e78cdfbbf98edd1432864eb",
+      "asset_2c6a1b304eb33da333e2a7baedc155f9",
+      "asset_cfa696666f68c662e9df0091f03b08b7",
+      "asset_e0f875a7436bc856825d5fd0517987d5",
+      "asset_97e7dcec63151c97d28687f9dfd0bebd",
+      "asset_79652db243d56a8b4b195edce56901aa",
+      "asset_83f9b2a4f499793676303de9eb37934b",
+      "asset_3319ff6d043c1f1474ffb5e5e0b166b3",
+      "asset_6a64ee3263b68127c0ca2d172d63c43f",
+      "asset_5f575a94942863a050402c3944277a7f",
+      "asset_4bf8a189eff5867251fd762e8cc52ae2"
+    ],
+    "previousTaskId": null,
+    "factsHash": null,
+    "budget": {
+      "steps": 6,
+      "outputTokens": 2000,
+      "timeoutMs": 60000,
+      "inputCharacters": 60000,
+      "inspections": 2
+    }
+  }
+}

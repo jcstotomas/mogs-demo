@@ -1,0 +1,60 @@
+{
+  "id": "task_d0e05a9b-7e61-4d9b-a558-4a9f0a186060",
+  "status": "complete",
+  "message": "Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets.",
+  "reply": "**Audit run `lab_224f315f-8b43-41a4-8ba1-964a8577d3a3`: status partial.**\n\nI scanned all 6 selected assets against the approved facts: Starter at $40 a month, and legacy pricing at $30 preserved. The scan covered 123 of 123 extracted units. It produced 8 suggestions and 5 unresolved items.\n\nPer asset:\n- **mogs-legacy.png:** 0 suggestions, 0 unresolved.\n- **mogs-annual.png:** 1 suggestion, 0 unresolved.\n- **mogs-launch.png:** 1 suggestion, 1 unresolved.\n- **mogs-make-room.pdf:** 4 suggestions, 2 unresolved.\n- **your-familiar-rate.html:** 0 suggestions, 2 unresolved.\n- **welcome-room-to-work.html:** 2 suggestions, 0 unresolved.\n\nFive assets only partly extracted. That includes low-confidence OCR in the images, and PDF and email visuals that weren't extracted. Non-text visual claims and any undetected text are not verified. This scanner only checks narrow pricing rules, so it doesn't verify all claims or visuals.\n\nThe exact correction text is in the local review UI under the run ID above. I changed nothing. The original files are unchanged.",
+  "events": [
+    {
+      "at": "2026-10-03T23:20:42.539Z",
+      "title": "Agent started",
+      "detail": "Bound to 6 active asset revisions. No publication or source edits are available."
+    },
+    {
+      "at": "2026-10-03T23:20:44.619Z",
+      "title": "Listed assets",
+      "detail": "6 assets in the permitted scope."
+    },
+    {
+      "at": "2026-10-03T23:20:44.626Z",
+      "title": "Read pricing facts",
+      "detail": "Loaded the isolated approved fact snapshot and deterministic derived-value rules."
+    },
+    {
+      "at": "2026-10-03T23:20:47.846Z",
+      "title": "Started pricing audit",
+      "detail": "6 assets; Starter $40.00 per month. Original files stay unchanged."
+    },
+    {
+      "at": "2026-10-03T23:20:47.929Z",
+      "title": "Pricing audit finished",
+      "detail": "partial: 123 units checked; 8 suggestions; 5 unresolved."
+    }
+  ],
+  "runId": "lab_224f315f-8b43-41a4-8ba1-964a8577d3a3",
+  "error": null,
+  "model": "claude-sonnet-5-5",
+  "createdAt": "2026-10-03T23:20:42.532Z",
+  "completedAt": "2026-10-03T23:20:51.933Z",
+  "usage": {
+    "inputTokens": 9903,
+    "outputTokens": 732
+  },
+  "agentVersion": "mogs-lab-tool-agent-v2",
+  "assetIds": [
+    "asset_e155ef59b1625ab97353f9b765e63eb9",
+    "asset_4c492d868b956ae41be02948f7a563ee",
+    "asset_09b089f69992dcab7bb8ab9531646390",
+    "asset_388d19555151451c3c315d7cd7449fd6",
+    "asset_87bb6ed79d8394105253465f3eaa5c9b",
+    "asset_717271e94f3c58e916820619374cbd7f"
+  ],
+  "previousTaskId": null,
+  "factsHash": "2cdaf412beee8802e09f9dc358e7792e78ed80421381844fd56b6b72fb206fe1",
+  "budget": {
+    "steps": 6,
+    "outputTokens": 2000,
+    "timeoutMs": 60000,
+    "inputCharacters": 60000,
+    "inspections": 2
+  }
+}

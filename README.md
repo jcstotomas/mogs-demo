@@ -6,6 +6,7 @@ Read [SPEC.md](SPEC.md) for behavior and [BUILD_PLAN.md](BUILD_PLAN.md) for sequ
 
 ## Expanded demo
 
+- [Integrated campaign MVP](http://localhost:3110/console/campaign): the current 22-asset website launch plus six designed imported sources (two emails, a five-slide deck and three creatives). A real agent request produced eight checked suggestions across 123 extracted blocks; partial coverage and unresolved items stay visible. [Demo steps and integration evidence](docs/CAMPAIGN_MVP.md).
 - [Updated supporting-page design preview](https://mogs-demo-ot0fkms78-jcstotomas-projects.vercel.app/site/starter-offer): all 18 new pages use the approved presentation. [Draft PR #8](https://github.com/jcstotomas/mogs-demo/pull/8) awaits completion of the pinned correction before production rollout; [design evidence](docs/PUBLIC_PAGE_DESIGN.md) records the unchanged source and checks.
 - [22-asset analysis review](http://localhost:3107/console/remote?recording=required-22): real provider results from an isolated local run; approval and publication controls are disabled.
 - [Public seed preview](https://mogs-demo-pngdru8o8-jcstotomas-projects.vercel.app): 20 web pages and two email templates, including the approved public design, at the pristine $30 seed.
@@ -52,3 +53,12 @@ The public build consumes exact committed source. In an isolated checkout of the
 The primary local checkout and GitHub `main` have different histories. Keep the repaired v1 working content local. The ignored `data/remote/source` checkout provides pinned public source; do not push the primary branch over the public repository. See [Remote 1](docs/REMOTE_1.md) for the correction run and deployed identifiers.
 
 `npm run github:check` is read-only authentication inspection. `npm run github:enforce` configures protection and creates disposable audit PRs; its durable journal refuses to overwrite a completed probe. Passing configuration checks alone never substitutes for recorded eligibility probes.
+
+## Run the integrated local demo
+
+```sh
+npm run demo:build
+npm run demo
+```
+
+Open `http://localhost:3110/console/campaign`. The launcher explicitly enables campaign review; ordinary startup keeps it off unless `MOGS_MULTICHANNEL_ENABLED=1`. Node 24+ and the local PDF/OCR dependencies described in the [campaign package](experiments/multichannel-lab/README.md) are required. Existing local Anthropic configuration is reused for the campaign agent; GitHub/hosting credentials remain in the core process. Imported sources and state remain local.

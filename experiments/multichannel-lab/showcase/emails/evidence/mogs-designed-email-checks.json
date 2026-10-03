@@ -1,0 +1,59 @@
+[
+  {
+    "file": "emails/welcome-room-to-work.html",
+    "status": "partial",
+    "warnings": [
+      "1 visual or embedded region(s) have no reliable text extraction."
+    ],
+    "units": 22,
+    "checks": [
+      {
+        "text": "Starter is $30 a month.",
+        "expected": "contradicting",
+        "observed": "contradicting",
+        "pass": true
+      },
+      {
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "expected": "consistent",
+        "observed": "consistent",
+        "pass": true
+      },
+      {
+        "text": "Starter is $30 a month.",
+        "field": "plainText",
+        "expected": "contradicting",
+        "observed": "contradicting",
+        "pass": true
+      },
+      {
+        "text": "Starter is $288 a year, or $24 a month billed annually.",
+        "field": "plainText",
+        "expected": "consistent",
+        "observed": "consistent",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "file": "emails/your-familiar-rate.html",
+    "status": "complete",
+    "warnings": [],
+    "units": 23,
+    "checks": [
+      {
+        "text": "Starter is $30 a month.",
+        "expected": "valid_exception",
+        "observed": "valid_exception",
+        "pass": true
+      },
+      {
+        "text": "Starter is $30 a month.",
+        "field": "plainText",
+        "expected": "valid_exception",
+        "observed": "valid_exception",
+        "pass": true
+      }
+    ]
+  }
+]

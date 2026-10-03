@@ -12,7 +12,11 @@ The intended repository is `jcstotomas/mogs-demo`, under the owner selected by t
 
 **Subsequent scale milestone:** a separately frozen 200-asset workload, comprising 180 web pages including pricing and 20 email templates. It follows the complete 22-asset remote flow and has separate counts, timing, and evaluation. It is not a prerequisite for the first deployed demo or evidence that the required workload passed. Vary content and template families before increasing volume; duplicates measure throughput, not independent accuracy.
 
-**Deferred:** arbitrary customer websites/CMSs, ad platforms, decks, email sending, feature-entitlement scenarios, automatic merge, override controls, and continuous monitoring. A general-purpose-agent comparison is optional follow-up evidence; no superiority claim precedes a fair measured comparison. The deployed integration is one controlled source repository and hosting pipeline.
+**Deferred from the required deployed demo:** arbitrary customer websites/CMSs, ad platforms, decks, email sending, feature-entitlement scenarios, automatic merge, override controls, and continuous monitoring. A general-purpose-agent comparison is optional follow-up evidence; no superiority claim precedes a fair measured comparison. The deployed integration is one controlled source repository and hosting pipeline.
+
+**Independent parallel experiment:** [Multichannel build plan](docs/MULTICHANNEL_PLAN.md) defines isolated development for imported emails, deck exports, and static creative. It may proceed alongside the core build in its own worktree, package, state, and evidence. This exception does not expand the required demo or the 200-asset benchmark, change their acceptance gates, or permit experimental results in live launch submissions. Shared integration and native source publication have separate gates in that plan.
+
+**Integrated campaign MVP:** under the user’s October 3 demo-priority instruction, the implemented import/review lab may enter the local main app before deferred release acceptance. Its six designed email/deck/creative assets remain a separate collection with real extraction, located suggestions and explicit partial coverage. They do not enlarge the required 22-asset launch denominator or enter its approvals, Git candidate or publication. The existing launch attempt and immutable facts are preserved; the local workspace may show both flows and confirm their fact compatibility.
 
 | Area | Decision |
 |---|---|
@@ -20,7 +24,7 @@ The intended repository is `jcstotomas/mogs-demo`, under the owner selected by t
 | Content | Repository-backed Markdown under `content/site/` and `content/email/`; public `/site/...` and `/assets/email/[id]` routes expose the deployed revision |
 | Judge | Jev if its actual adapter passes the provider gates; frontier fallback must pass the same classification cases |
 | Fixes | A frontier model returns structured replacement/rationale or an explicit withholding reason |
-| Retrieval | Generous lexical prefilter; no embeddings or vector store |
+| Retrieval | Required demo: generous lexical prefilter; no embeddings or vector store |
 | State | Durable worker SQLite and submission journal; isolated evaluation has separate source, database, URLs, and remote test targets |
 | Approval | Human approval per complete correction group authorizes inclusion; one submitted candidate and one PR per run; GitHub merge is the separate publication decision |
 | Delivery | Pin repository/base commit and deployed source; check the combined candidate tree, PR preview, then production independently |

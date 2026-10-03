@@ -1,0 +1,63 @@
+{
+  "observedAt": "2026-10-03T22:53:19.922646+00:00",
+  "origin": "http://127.0.0.1:3212/",
+  "session": "campaign-mobile",
+  "runId": "lab_0ceefe60-14da-4f9a-95e6-efe3e66d19cf",
+  "extractor": "cheerio-pdfplumber-poppler-tesseract-v4",
+  "scope": "Read-only mobile browser verification; no model submissions or source edits.",
+  "finalChecks": {
+    "emails": [
+      "welcome-room-to-work.html",
+      "your-familiar-rate.html"
+    ],
+    "viewports": [
+      375,
+      320
+    ],
+    "iframeWidths": [
+      341,
+      286
+    ],
+    "masthead": "mogs. stays on one line in both emails at both widths, visually verified",
+    "horizontalPageOverflow": false,
+    "assetCheckboxTargets": [
+      44,
+      44
+    ],
+    "creative": "Original image loaded at375 and320;341px and286px wide; no pageoverflow"
+  },
+  "reusedUnchangedChecks": {
+    "from": "mobile-checks-before.json",
+    "skipLink": "Keyboard reachable, visible3pxoutline, Enter focusesreview",
+    "coverageDisclosure": "Enter expands, visible3pxfocusoutline,44pxheight",
+    "reducedMotion": "Preference enabled,zeroanimated ortransitioned applicationelements",
+    "textZoom": {
+      "percent": 200,
+      "method": "Application rootfontsize16px to32px",
+      "viewport": 375,
+      "horizontalPageOverflow": false,
+      "limitation": "This verifies consoletextreflow. Fixedpixel typography within the separately sandboxed emailiframe and text inside raster creative were not enlarged by this method."
+    }
+  },
+  "resolvedFindings": [
+    {
+      "description": "Assetcheckbox labelhitwidth28px",
+      "resolution": "Coordinator changedminwidth44px; finalall6targets44x44px."
+    },
+    {
+      "description": "Sanitizedemail logo wrapped atnarrowwidths",
+      "resolution": "Coordinator changedpreview overflow-wrap fromanywhere tobreak-word; refreshedv4sources, final4screenshotsconfirmfix."
+    }
+  ],
+  "screenshots": [
+    "mobile-legacy-320-final.png",
+    "mobile-legacy-375-final.png",
+    "mobile-welcome-320-final.png",
+    "mobile-welcome-375-final.png",
+    "mobile-creative-375.png",
+    "mobile-creative-320.png",
+    "mobile-creative-text-200.png",
+    "mobile-legacy-text-200.png"
+  ],
+  "unmet": "No outstanding mobileblockingfinding. Nativeemailtextzoom not independently tested."
+}

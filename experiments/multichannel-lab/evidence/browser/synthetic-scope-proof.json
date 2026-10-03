@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-10-03T22:25:43.602Z",
+  "scope": "Only the twelve local generated MOGS synthetic fixtures; no user documents",
+  "activeAssets": 12,
+  "allSynthetic": true,
+  "checked": [
+    {
+      "filename": "creative-ambiguous.png",
+      "id": "asset_11170bd07f2a19d285491756c52ec2db",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "id": "asset_c5a076d13e78cdfbbf98edd1432864eb",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "creative-legacy.png",
+      "id": "asset_2c6a1b304eb33da333e2a7baedc155f9",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "creative-new.png",
+      "id": "asset_cfa696666f68c662e9df0091f03b08b7",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "id": "asset_e0f875a7436bc856825d5fd0517987d5",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "deck-history.pdf",
+      "id": "asset_97e7dcec63151c97d28687f9dfd0bebd",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "id": "asset_79652db243d56a8b4b195edce56901aa",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "deck-new.pdf",
+      "id": "asset_83f9b2a4f499793676303de9eb37934b",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "email-conditional.html",
+      "id": "asset_3319ff6d043c1f1474ffb5e5e0b166b3",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "email-mixed.html",
+      "id": "asset_6a64ee3263b68127c0ca2d172d63c43f",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "email-legacy.html",
+      "id": "asset_5f575a94942863a050402c3944277a7f",
+      "bytesMatch": true,
+      "contextMatches": true
+    },
+    {
+      "filename": "email-new.html",
+      "id": "asset_4bf8a189eff5867251fd762e8cc52ae2",
+      "bytesMatch": true,
+      "contextMatches": true
+    }
+  ]
+}

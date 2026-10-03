@@ -1,0 +1,69 @@
+{
+  "observedAt": "2026-10-03T22:51:31.495053+00:00",
+  "origin": "http://127.0.0.1:3212/",
+  "session": "campaign-mobile",
+  "scope": "Read-only browser verification; no model submissions, imports, approvals or publication actions.",
+  "phase": "before preview v4",
+  "checks": {
+    "viewport375": {
+      "horizontalPageOverflow": false,
+      "iframeWidth": 341
+    },
+    "viewport320": {
+      "horizontalPageOverflow": false,
+      "iframeWidth": 286,
+      "creativeWidth": 286,
+      "creativeLoaded": true
+    },
+    "assetTargets": {
+      "before": [
+        28,
+        44
+      ],
+      "afterCoordinatorFix": [
+        44,
+        44
+      ],
+      "count": 6
+    },
+    "skipLink": {
+      "visibleTop": 8,
+      "outline": "3px solid rgb(149,89,30)",
+      "enterFocusTarget": "review"
+    },
+    "coverageDisclosure": {
+      "keyboardEnterOpens": true,
+      "focusVisible": true,
+      "outline": "3px solid rgb(149,89,30)",
+      "height": 44
+    },
+    "reducedMotion": {
+      "matches": true,
+      "animatedElements": 0
+    },
+    "text200Percent": {
+      "method": "Set application root font-size from16px to32px; iframe fixedpx typography unchanged",
+      "viewport": 375,
+      "horizontalPageOverflow": false,
+      "checked": [
+        "subscriber email review",
+        "creative review"
+      ]
+    }
+  },
+  "finding": {
+    "status": "coordinator fix in progress",
+    "description": "Sanitized email masthead breaks mogs. at341px and286px iframe widths because overflow-wrap:anywhere changes table min-content sizing. Coordinator is replacing with break-word and bumping extractor."
+  },
+  "screenshots": [
+    "mobile-creative-320.png",
+    "mobile-creative-375.png",
+    "mobile-creative-text-200.png",
+    "mobile-legacy-320-before.png",
+    "mobile-legacy-375.png",
+    "mobile-legacy-text-200.png",
+    "mobile-welcome-320-before.png",
+    "mobile-welcome-375.png",
+    "mobile-welcome-scroll-attempt-320-before.png"
+  ]
+}

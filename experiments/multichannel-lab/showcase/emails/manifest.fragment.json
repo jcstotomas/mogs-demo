@@ -1,0 +1,73 @@
+{
+  "assets": [
+    {
+      "filename": "welcome-room-to-work.html",
+      "surface": "email",
+      "context": {
+        "title": "Make room for good work",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "New customer welcome campaign",
+        "subject": "Make room for good work",
+        "preheader": "A calmer week starts with a little breathing room.",
+        "plainText": "Hello {{ first_name }},\n\nMake room for good work with MOGS.\n\nStarter is $30 a month.\n\nStarter is $288 a year, or $24 a month billed annually.\n\nFind your rhythm: https://example.invalid/mogs/start?utm_source=welcome",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "field": "plainText",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent",
+          "field": "plainText"
+        }
+      ],
+      "file": "emails/welcome-room-to-work.html",
+      "sha256": "905273c14a53682e237a8f961572de1988e603c9ee1b8ba26ec6e95cd767167c"
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "surface": "email",
+      "context": {
+        "title": "Good things stay with you",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "Active pre-cutoff Starter monthly subscriber reassurance",
+        "subject": "Good news: your rhythm stays the same",
+        "preheader": "A note of thanks, and a familiar monthly rate.",
+        "plainText": "Hello {{ first_name }},\n\nThis note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.\n\nStarter is $30 a month.\n\nOpen your workspace: https://example.invalid/mogs/workspace?utm_source=customer-note",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception",
+          "field": "plainText"
+        }
+      ],
+      "file": "emails/your-familiar-rate.html",
+      "sha256": "7e1153f798a04b8650859aedd9eb8cafc06087c308449e2522248c963026ee60"
+    }
+  ]
+}

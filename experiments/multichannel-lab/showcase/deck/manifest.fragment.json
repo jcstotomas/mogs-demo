@@ -1,0 +1,58 @@
+{
+  "filename": "deck/files/mogs-make-room.pdf",
+  "surface": "deck",
+  "context": {
+    "title": "MOGS - Make room for good work",
+    "audience": "new_customers",
+    "legacyEligible": false,
+    "journey": "sales",
+    "subject": "",
+    "preheader": "",
+    "plainText": "",
+    "region": "US",
+    "date": "2026-10-03"
+  },
+  "sha256": "bc7509c78d00b9e7e01a8cf8cf2c091800035731f44d629bf7cfb2a60bdc55a0",
+  "pages": 5,
+  "expected": [
+    {
+      "text": "20%",
+      "page": 4,
+      "label": "insufficient_context"
+    },
+    {
+      "text": "Starter is $30 a month.",
+      "page": 3,
+      "label": "contradicting",
+      "replacement": "Starter is $40 a month."
+    },
+    {
+      "text": "Team is $80 a month.",
+      "page": 3,
+      "label": "insufficient_context"
+    },
+    {
+      "text": "Team is only $50 a month more than Starter.",
+      "page": 3,
+      "label": "contradicting",
+      "replacement": "Team is only $40 a month more than Starter."
+    },
+    {
+      "text": "Save 20% on Starter with annual billing.",
+      "page": 4,
+      "label": "contradicting",
+      "replacement": "Save 40% on Starter with annual billing."
+    },
+    {
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "page": 4,
+      "label": "consistent"
+    },
+    {
+      "text": "Starter costs about a dollar a day.",
+      "page": 5,
+      "label": "contradicting",
+      "replacement": "Starter costs about $1.33 a day."
+    }
+  ]
+}

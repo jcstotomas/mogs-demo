@@ -1,0 +1,220 @@
+{
+  "version": "mogs-designed-campaign-v1",
+  "frozenAt": "2026-10-03",
+  "author": "Codex-authored fictional MOGS campaign",
+  "scope": "Separate visual demo collection; no core launch gate credit. Original regression corpus unchanged.",
+  "expectedAssetCount": 6,
+  "expectedSurfaces": {
+    "email": 2,
+    "deck": 1,
+    "creative": 3
+  },
+  "assets": [
+    {
+      "filename": "welcome-room-to-work.html",
+      "surface": "email",
+      "context": {
+        "title": "Make room for good work",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "New customer welcome campaign",
+        "subject": "Make room for good work",
+        "preheader": "A calmer week starts with a little breathing room.",
+        "plainText": "Hello {{ first_name }},\n\nMake room for good work with MOGS.\n\nStarter is $30 a month.\n\nStarter is $288 a year, or $24 a month billed annually.\n\nFind your rhythm: https://example.invalid/mogs/start?utm_source=welcome",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "field": "plainText",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent",
+          "field": "plainText"
+        }
+      ],
+      "file": "emails/welcome-room-to-work.html",
+      "sha256": "905273c14a53682e237a8f961572de1988e603c9ee1b8ba26ec6e95cd767167c"
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "surface": "email",
+      "context": {
+        "title": "Good things stay with you",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "Active pre-cutoff Starter monthly subscriber reassurance",
+        "subject": "Good news: your rhythm stays the same",
+        "preheader": "A note of thanks, and a familiar monthly rate.",
+        "plainText": "Hello {{ first_name }},\n\nThis note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.\n\nStarter is $30 a month.\n\nOpen your workspace: https://example.invalid/mogs/workspace?utm_source=customer-note",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception",
+          "field": "plainText"
+        }
+      ],
+      "file": "emails/your-familiar-rate.html",
+      "sha256": "7e1153f798a04b8650859aedd9eb8cafc06087c308449e2522248c963026ee60"
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "surface": "deck",
+      "context": {
+        "title": "MOGS - Make room for good work",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "sales",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "bc7509c78d00b9e7e01a8cf8cf2c091800035731f44d629bf7cfb2a60bdc55a0",
+      "pages": 5,
+      "expected": [
+        {
+          "text": "20%",
+          "page": 4,
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "page": 3,
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Team is $80 a month.",
+          "page": 3,
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Team is only $50 a month more than Starter.",
+          "page": 3,
+          "label": "contradicting",
+          "replacement": "Team is only $40 a month more than Starter."
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "page": 4,
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "page": 4,
+          "label": "consistent"
+        },
+        {
+          "text": "Starter costs about a dollar a day.",
+          "page": 5,
+          "label": "contradicting",
+          "replacement": "Starter costs about $1.33 a day."
+        }
+      ],
+      "file": "deck/files/mogs-make-room.pdf"
+    },
+    {
+      "filename": "mogs-launch.png",
+      "file": "creative/mogs-launch.png",
+      "surface": "creative",
+      "context": {
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "Make room for good work"
+      },
+      "sha256": "04f4d045354a1a18239753d132c2e6d42d6729d55fa81d7761dfaa52bb444d89",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        }
+      ]
+    },
+    {
+      "filename": "mogs-annual.png",
+      "file": "creative/mogs-annual.png",
+      "surface": "creative",
+      "context": {
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "A little more room to grow"
+      },
+      "sha256": "a2c6c5c710d38716e85736c3043475d2c9aa1b85062eef15f0dcced8ce471b5c",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Starter is $288 a year.",
+          "label": "consistent"
+        }
+      ]
+    },
+    {
+      "filename": "mogs-legacy.png",
+      "file": "creative/mogs-legacy.png",
+      "surface": "creative",
+      "context": {
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "Make room for good work campaign",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03",
+        "title": "Good things stay with you"
+      },
+      "sha256": "f7ec756631870063320efbd00768d787a979359b31aa10ae4559a0332b7a8877",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        }
+      ]
+    }
+  ]
+}

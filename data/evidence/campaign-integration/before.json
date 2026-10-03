@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-03T23:17:52.321Z",
+  "imports": {
+    "assets": 6,
+    "emails": 2,
+    "decks": 1,
+    "creatives": 3
+  },
+  "factsCompatible": true,
+  "core": {
+    "runId": "097e9332-aa63-428c-8c81-5e2b462a69bf",
+    "status": "ready",
+    "attemptState": "active",
+    "assets": 22,
+    "passages": 110,
+    "repairs": 37,
+    "groups": 4,
+    "approvedGroups": 0,
+    "prUrl": null,
+    "reviewUrl": "/console/remote?runId=097e9332-aa63-428c-8c81-5e2b462a69bf#review",
+    "beforeMonthlyCents": 3000,
+    "monthlyCents": 4000,
+    "annualCents": 28800,
+    "legacyMonthlyCents": 3000
+  },
+  "launchRowsSha256": "86b9011786268b4feecf19d5a35c9d857bdf8de9976777e1888734d99ae8f132"
+}

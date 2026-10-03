@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOGS · Multichannel lab</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#review">Skip to review</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="MOGS multichannel lab home">MOGS <span>Multichannel lab</span></a>
+    <span class="badge">Local experiment</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Email · Sales decks · Creative</p>
+      <h1 id="page-title">Tell MOGS what changed.</h1>
+      <p>Describe the change in your own words. MOGS can inspect your imported assets, ask for missing context, and run a pricing review.</p>
+      <p class="scope-note">Fictional MOGS pricing scenario. Suggestions only; no sending, editing, or publication. Separate from the launch demo.</p>
+    </section>
+    <div id="error" class="notice error" role="alert" hidden></div>
+    <p id="status" class="status-line" role="status" aria-live="polite">Loading local assets…</p>
+    <div class="campaign-loader"><button type="button" class="secondary" id="demo-button">Load designed campaign</button><p class="field-help">Two designed emails, a five-slide sales deck, and three photographic creatives. Inspect actual source previews below.</p></div>
+    <section class="agent-panel" aria-labelledby="agent-title">
+      <div class="section-heading"><h2 id="agent-title">What should we check?</h2><span class="badge" id="agent-availability">Connecting…</span></div>
+      <p class="field-help">Ask about the MOGS pricing change across emails, decks, and creative. The agent chooses its tools; the pricing checks remain grounded in the approved facts.</p>
+      <p class="field-help">Uses Anthropic to interpret requests; inspected source excerpts may be sent to the model.</p>
+      <div id="agent-unavailable" class="notice" hidden></div>
+      <div id="agent-conversation"></div>
+      <form id="agent-form">
+        <label for="agent-message" id="agent-message-label">Your request</label>
+        <textarea id="agent-message" name="message" rows="3" maxlength="4000" required aria-describedby="selection-help" placeholder="Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets."></textarea>
+        <div class="prompt-examples" id="prompt-examples" aria-label="Example requests"><button type="button" class="prompt-button secondary" data-prompt="Raise Starter to $40 a month for new customers, preserve legacy pricing, and check all imported assets.">Check the pricing change</button><button type="button" class="prompt-button secondary" data-prompt="Check all imported emails against the approved pricing facts and explain which legacy claims should stay unchanged.">Review emails and exceptions</button><button type="button" class="prompt-button secondary" data-prompt="Check all imported decks and creative for outdated Starter prices and derived pricing claims.">Check decks and creative</button></div>
+        <div class="form-actions"><button id="agent-submit" type="submit" disabled>Ask MOGS</button><button id="new-request" type="button" class="secondary" hidden>Start a new request</button><span class="field-help" id="selection-help">Import assets to give the agent source material.</span></div>
+      </form>
+      <details class="facts-details"><summary>Approved facts and scope</summary><p id="facts-description"></p><p>The agent can change the desired Starter monthly price when you specify it. Annual, Team, and legacy rules remain fixed. It runs a complete scan of extracted content using supported MOGS pricing rules. Broader semantic and visual claims are outside this check. Lab suggestions do not enter launch publication.</p></details>
+      <details class="task-history" id="task-history" hidden><summary>Previous requests</summary><label for="task-select">Choose a request</label><select id="task-select"></select></details>
+    </section>
+    <details class="import-panel" id="import-panel" open>
+      <summary>Import an asset</summary>
+      <form id="import-form">
+        <div class="import-grid">
+          <div>
+            <label for="file">Source file</label>
+            <input id="file" name="file" type="file" accept=".html,.htm,.pdf,.png,.jpg,.jpeg" required aria-describedby="file-help">
+            <p class="field-help" id="file-help">HTML email, text-bearing PDF, or PNG/JPEG creative. Up to 10 MB. Scanned PDFs and uncertain text are reported as incomplete.</p>
+            <label for="title">Asset title <span class="optional">optional</span></label>
+            <input id="title" name="title" maxlength="300" placeholder="For example, October welcome email">
+          </div>
+          <div class="context-fields">
+            <div class="field-pair">
+              <div><label for="audience">Audience</label><select id="audience" name="audience"><option value="unspecified">Unknown / unspecified</option><option value="new_customers">New customers</option><option value="existing_customers">Existing customers</option><option value="historical">Historical context</option></select></div>
+              <div><label for="eligibility">Legacy pricing eligibility</label><select id="eligibility" name="eligibility"><option value="unknown">Unknown</option><option value="false">Not eligible</option><option value="true">Eligible</option></select></div>
+            </div>
+            <p class="field-help">Use explicit audience evidence. Existing customers are not automatically eligible for legacy pricing.</p>
+            <label for="journey">Journey or campaign <span class="optional">optional</span></label>
+            <input id="journey" name="journey" maxlength="300" placeholder="For example, new customer onboarding">
+          </div>
+        </div>
+        <details class="metadata-details">
+          <summary>Email fields and additional context</summary>
+          <div class="import-grid">
+            <div><label for="subject">Email subject</label><input id="subject" name="subject" maxlength="1000"><label for="preheader">Email preheader</label><input id="preheader" name="preheader" maxlength="1000"><label for="plainText">Plain-text email variant</label><textarea id="plainText" name="plainText" rows="4" maxlength="100000"></textarea></div>
+            <div><label for="region">Region</label><input id="region" name="region" maxlength="100"><label for="date">Content date or date context</label><input id="date" name="date" maxlength="100" placeholder="For example, October 2026"><p class="field-help">All form context is recorded as user supplied. Keep unknown fields empty; uncertainty may withhold a suggestion.</p></div>
+          </div>
+        </details>
+        <div class="form-actions"><button type="submit" id="import-button">Import and extract</button></div>
+      </form>
+    </details>
+    <section class="workspace" aria-label="Asset review">
+      <aside class="asset-panel" aria-labelledby="assets-title">
+        <div class="section-heading"><h2 id="assets-title">Assets</h2><span id="asset-count" class="count">0</span></div>
+        <div class="select-row"><label><input type="checkbox" id="select-all"> Select all active assets</label></div>
+        <div id="asset-list"><p class="empty-message">Your imported files will appear here.</p></div>
+      </aside>
+      <section class="review-panel" id="review" tabindex="-1" aria-labelledby="review-title">
+        <div class="section-heading review-heading"><h2 id="review-title">Source and findings</h2><a id="export-link" class="button-link secondary" hidden download>Export report</a></div>
+        <div class="run-toolbar"><label for="run-select">Analysis run</label><select id="run-select"><option value="">No runs yet</option></select></div>
+        <div id="run-summary"></div>
+        <div id="asset-summary"></div>
+        <div class="review-columns">
+          <section class="source-panel" aria-labelledby="source-title"><div class="section-heading"><h3 id="source-title">Original source</h3><span class="badge" id="source-label">Unchanged</span></div><div id="source-preview" class="preview-content"><p class="empty-message">Import an asset or load the designed campaign to see its source.</p></div><div id="page-controls" class="page-controls" hidden><button type="button" id="previous-page" class="secondary">Previous page</button><span id="page-label"></span><button type="button" id="next-page" class="secondary">Next page</button></div><p class="field-help" id="preview-help">Select a finding to highlight its exact extracted location.</p></section>
+          <section class="findings-panel" aria-labelledby="findings-title"><div class="section-heading"><h3 id="findings-title">Findings</h3><span id="finding-count" class="count">0</span></div><div id="findings"><p class="empty-message">Run a check to review claims and suggested corrections.</p></div></section>
+        </div>
+      </section>
+    </section>
+    <footer>Local multichannel experiment · Imported content and synthetic evidence are separate from production verification.</footer>
+  </main>
+</body>
+</html>

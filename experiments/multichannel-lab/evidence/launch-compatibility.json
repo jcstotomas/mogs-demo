@@ -1,0 +1,51 @@
+{
+  "evidenceKind": "isolated-core-coordinator-fixture",
+  "createdAt": "2026-10-03T22:17:16.235Z",
+  "coreCommit": "375962c494b616f774c291c64f6472ab6bec207a",
+  "coreFiles": {
+    "lib/runs/remote-types.ts": "7039f42d64a3f29eafef7d124a79cf998a2ec24f293f246bacc4fb4895c067bd",
+    "lib/runs/remote-api.ts": "93f3ee5a53e66934caeaed41cded0c9469bb1ed98bba52be487f14dec8959be0",
+    "lib/runs/remote-service.ts": "21603ab3f907473792db98cc6242fe17f9e177a6574b7727534c2467d1f2058b",
+    "lib/types.ts": "5a2e45c3484b8ddf8bf5554208f40a771951aa9d7aa9421b01965667fba089d8",
+    "lib/facts/derive.ts": "368ae80586584d2f66593466f7a68e2ee5f8c04ef2932a4ace30b5647b62f665",
+    "lib/hash.ts": "757e1d5e30a8cc8cf6a82dc143544027a8620c2c99fba679155b842d4356a3a6"
+  },
+  "checks": [
+    "actual current v2 baseline and Confirm schemas accepted",
+    "lab facts equal canonical launch desired facts",
+    "stable hash parity",
+    "actual core coordinator created isolated fixture run",
+    "confirmation replay idempotent",
+    "only core inventory in launch run",
+    "no group approval or submission manufactured",
+    "unsupported $45 launch change rejected"
+  ],
+  "runId": "1d65197e-215c-42b2-9f3a-a0154396588a",
+  "launchAttemptId": "3d55de75-67aa-4943-811d-4de55d8b7ae5",
+  "assets": 3,
+  "proposal": {
+    "kind": "launch-confirmation-proposal",
+    "endpoint": "/api/v2/facts",
+    "method": "POST",
+    "request": {
+      "contractVersion": 2,
+      "launchAttemptId": "3d55de75-67aa-4943-811d-4de55d8b7ae5",
+      "idempotencyKey": "7f414958-20ce-4bcb-a904-079d715ac5c3",
+      "expectedFactVersion": 1,
+      "baselineHash": "82f63957a0716e42838d6f1fe60d045f86056f3e2cc0cce7c779b825bbedcfb2"
+    },
+    "desiredFactsHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+    "baselineVerification": "Caller-supplied observation; the launch coordinator revalidates it on Confirm.",
+    "requiresHumanConfirm": true,
+    "carriesLabPatches": false,
+    "subsequentGates": [
+      "Full launch-corpus classification and checked drafts",
+      "Human approval of current complete groups",
+      "One checked PR per run",
+      "Separate human GitHub merge",
+      "Observed deployment and rendered verification"
+    ]
+  },
+  "publication": "none",
+  "liveDeploymentVerified": false
+}

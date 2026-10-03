@@ -1,0 +1,550 @@
+{
+  "version": "mogs-lab-fixtures-v1",
+  "frozenAt": "2026-10-03",
+  "author": "Codex-generated synthetic fixtures",
+  "scope": "Independent experimental regression corpus; no launch gate credit.",
+  "expectedAssetCount": 12,
+  "expectedSurfaces": {
+    "email": 4,
+    "deck": 4,
+    "creative": 4
+  },
+  "assets": [
+    {
+      "filename": "email-new.html",
+      "surface": "email",
+      "context": {
+        "title": "Your MOGS plan",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "",
+        "subject": "Starter is $30 a month.",
+        "preheader": "Save 20% on Starter with annual billing.",
+        "plainText": "Starter is $30 a month.",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "cfece5ab92f6a8f9a62a316bbc3f592f29a8e1b386718fdac5dcdb644c8d6129",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Hello {{ first_name }}, Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Hello {{ first_name }}, Starter is $40 a month."
+        },
+        {
+          "text": "Starter costs about a dollar a day.",
+          "label": "contradicting",
+          "replacement": "Starter costs about $1.33 a day."
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Team is only $50 a month more than Starter.",
+          "label": "contradicting",
+          "replacement": "Team is only $40 a month more than Starter."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "field": "subject",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "field": "preheader",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "field": "plainText",
+          "replacement": "Starter is $40 a month."
+        }
+      ]
+    },
+    {
+      "filename": "email-legacy.html",
+      "surface": "email",
+      "context": {
+        "title": "Your MOGS plan",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "",
+        "subject": "Starter is $30 a month.",
+        "preheader": "Save 20% on Starter with annual billing.",
+        "plainText": "Starter is $30 a month.",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "cfece5ab92f6a8f9a62a316bbc3f592f29a8e1b386718fdac5dcdb644c8d6129",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Hello {{ first_name }}, Starter is $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter costs about a dollar a day.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Team is only $50 a month more than Starter.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception",
+          "field": "subject"
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "valid_exception",
+          "field": "preheader"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception",
+          "field": "plainText"
+        }
+      ]
+    },
+    {
+      "filename": "email-mixed.html",
+      "surface": "email",
+      "context": {
+        "title": "Offer comparison",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "71b583a67e41e7419b5112822257fba6fca43ae1ff5e96cf8eb44cfadd491b91",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month for new customers.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month for new customers."
+        },
+        {
+          "text": "Starter is $30 a month for legacy-eligible subscribers.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "email-conditional.html",
+      "surface": "email",
+      "context": {
+        "title": "Conditional renewal",
+        "audience": "existing_customers",
+        "legacyEligible": null,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "4d4d6feadc438185104ce8964458449322c1b49248b89a56e722c78300e050c2",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "deck-new.pdf",
+      "surface": "deck",
+      "context": {
+        "title": "New customer sales overview",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "1c4f7a3ead92b4fe6efd1d46ba5d145bebe45fece164b9203818749eb9981540",
+      "pages": 2,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "page": 1,
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Starter monthly | $30",
+          "label": "contradicting",
+          "replacement": "Starter monthly | $40"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "page": 2,
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter costs about a dollar a day.",
+          "label": "contradicting",
+          "replacement": "Starter costs about $1.33 a day."
+        },
+        {
+          "text": "Team is only $50 a month more than Starter.",
+          "label": "contradicting",
+          "replacement": "Team is only $40 a month more than Starter."
+        }
+      ]
+    },
+    {
+      "filename": "deck-legacy.pdf",
+      "surface": "deck",
+      "context": {
+        "title": "Subscriber continuation",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "5817f406003a20b335c548b336566273327b4362756e981599deabe5778cb642",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "deck-history.pdf",
+      "surface": "deck",
+      "context": {
+        "title": "Product milestones",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "7d904061aec38a2976bde6a9316c6abc0cc24c1fa33c23f018c70550c80d1624",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "When we launched in 2023, Starter cost $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "deck-unclear.pdf",
+      "surface": "deck",
+      "context": {
+        "title": "Needs audience review",
+        "audience": "existing_customers",
+        "legacyEligible": null,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "137793d8609b89b544122325a64ea4757b571187f658ec45050904e81f4f1558",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is under $35 a month, billed monthly for new customers.",
+          "label": "contradicting"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "creative-new.png",
+      "surface": "creative",
+      "context": {
+        "title": "New customer offer",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "f2b7ce4aa24d1b50c894423590b942b08dde4d17ca3c2c4260532ebf662a21f0",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "contradicting",
+          "replacement": "Starter is $40 a month."
+        },
+        {
+          "text": "Starter costs about a dollar a day.",
+          "label": "contradicting",
+          "replacement": "Starter costs about $1.33 a day."
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "creative-legacy.png",
+      "surface": "creative",
+      "context": {
+        "title": "Your existing subscription",
+        "audience": "existing_customers",
+        "legacyEligible": true,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "994d6ef854ef9fb156200479c7f211c70b60100456d8337ee345fca010e5877d",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "valid_exception"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "creative-savings.jpg",
+      "surface": "creative",
+      "context": {
+        "title": "New customer plan comparison",
+        "audience": "new_customers",
+        "legacyEligible": false,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "f8b6dba01942bc34480df385a8b9595a89c6034e21ada70066ecf6d72458263a",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Save 20% on Starter with annual billing.",
+          "label": "contradicting",
+          "replacement": "Save 40% on Starter with annual billing."
+        },
+        {
+          "text": "Team is only $50 a month more than Starter.",
+          "label": "contradicting",
+          "replacement": "Team is only $40 a month more than Starter."
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    },
+    {
+      "filename": "creative-ambiguous.png",
+      "surface": "creative",
+      "context": {
+        "title": "Campaign missing eligibility",
+        "audience": "existing_customers",
+        "legacyEligible": null,
+        "journey": "",
+        "subject": "",
+        "preheader": "",
+        "plainText": "",
+        "region": "US",
+        "date": "2026-10-03"
+      },
+      "sha256": "69013da6b0a712d303a6fe41b8c134c90f8ac61f2249c02ba0c6a2892948b253",
+      "pages": 1,
+      "expected": [
+        {
+          "text": "Starter is $30 a month.",
+          "label": "insufficient_context"
+        },
+        {
+          "text": "Starter is $288 a year, or $24 a month billed annually.",
+          "label": "consistent"
+        },
+        {
+          "text": "The Locations add-on is $30 a month.",
+          "label": "unrelated"
+        },
+        {
+          "text": "Plans from $30.",
+          "label": "insufficient_context"
+        }
+      ]
+    }
+  ],
+  "faultInputs": [
+    {
+      "filename": "faults/malformed.pdf",
+      "expected": "failed",
+      "reason": "Invalid PDF syntax"
+    },
+    {
+      "filename": "faults/mismatched.png",
+      "expected": "failed",
+      "reason": "PNG extension with HTML bytes"
+    },
+    {
+      "filename": "faults/blank.png",
+      "expected": "partial_or_failed",
+      "reason": "No extractable text"
+    },
+    {
+      "filename": "faults/blurry.png",
+      "expected": "partial_or_failed",
+      "reason": "Unreadable low-contrast text"
+    }
+  ]
+}

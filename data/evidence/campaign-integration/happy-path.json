@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-03T23:21:47.978Z",
+  "origin": "http://localhost:3110",
+  "sourceLabCommit": "b3e9404",
+  "coreRunId": "097e9332-aa63-428c-8c81-5e2b462a69bf",
+  "coreRowsUnchanged": true,
+  "coreRowsSha256": "86b9011786268b4feecf19d5a35c9d857bdf8de9976777e1888734d99ae8f132",
+  "taskId": "task_d0e05a9b-7e61-4d9b-a558-4a9f0a186060",
+  "agentStatus": "complete",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+    "inputTokens": 9903,
+    "outputTokens": 732
+  },
+  "runId": "lab_224f315f-8b43-41a4-8ba1-964a8577d3a3",
+  "runStatus": "partial",
+  "counts": {
+    "assets": 6,
+    "units": 123,
+    "checked": 123,
+    "suggestions": 8,
+    "unresolved": 5
+  },
+  "publication": "none",
+  "originalSourcesUnchanged": true,
+  "privateOrUnresolvedProposals": 0,
+  "allSuggestionChecksPassed": true
+}

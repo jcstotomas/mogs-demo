@@ -1,0 +1,966 @@
+{
+  "contractVersion": "mogs-lab-evaluation-v1",
+  "collection": "showcase",
+  "runId": "lab_6f73595f-2cbe-40a7-a24d-df0bad39fa27",
+  "createdAt": "2026-10-03T22:43:53.088Z",
+  "manifestHash": "d49a9c0b80d6ffaa461e9f505dda7e1f6197202e45580d87d833f9a4312c5489",
+  "factsHash": "2cdaf412beee8802e09f9dc358e7792e78ed80421381844fd56b6b72fb206fe1",
+  "engine": "mogs-explicit-pricing-rules-v2",
+  "evidenceMode": "real local parsers and OCR; deterministic MOGS rules; synthetic corpus",
+  "assets": 6,
+  "surfaces": {
+    "email": 2,
+    "deck": 1,
+    "creative": 3
+  },
+  "units": 123,
+  "checked": 123,
+  "expected": 17,
+  "passed": 17,
+  "failed": 0,
+  "runStatus": "partial",
+  "coverage": [
+    {
+      "filename": "welcome-room-to-work.html",
+      "status": "partial",
+      "warnings": [
+        "1 visual or embedded region(s) have no reliable text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "status": "ready",
+      "warnings": [],
+      "error": null
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "status": "partial",
+      "warnings": [
+        "Page 1: 1 embedded image region(s) are rendered but their visual claims are not extracted.",
+        "Page 2: vector artwork may contain visual claims outside text extraction.",
+        "Page 3: vector artwork may contain visual claims outside text extraction.",
+        "Page 4: vector artwork may contain visual claims outside text extraction.",
+        "Page 5: vector artwork may contain visual claims outside text extraction."
+      ],
+      "error": null
+    },
+    {
+      "filename": "mogs-launch.png",
+      "status": "partial",
+      "warnings": [
+        "Image region 1: OCR confidence is low; correction withheld.",
+        "Image region 2: OCR confidence is low; correction withheld.",
+        "Image region 3: OCR confidence is low; correction withheld.",
+        "Image region 4: OCR confidence is low; correction withheld.",
+        "Image region 5: OCR confidence is low; correction withheld.",
+        "Image region 6: OCR confidence is low; correction withheld.",
+        "Image region 7: OCR confidence is low; correction withheld.",
+        "Image region 8: OCR confidence is low; correction withheld.",
+        "Image region 9: OCR confidence is low; correction withheld.",
+        "Image region 11: OCR confidence is low; correction withheld.",
+        "Image region 13: OCR confidence is low; correction withheld.",
+        "Image region 14: OCR confidence is low; correction withheld.",
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    },
+    {
+      "filename": "mogs-annual.png",
+      "status": "partial",
+      "warnings": [
+        "Image region 2: OCR confidence is low; correction withheld.",
+        "Image region 3: OCR confidence is low; correction withheld.",
+        "Image region 4: OCR confidence is low; correction withheld.",
+        "Image region 5: OCR confidence is low; correction withheld.",
+        "Image region 7: OCR confidence is low; correction withheld.",
+        "Image region 9: OCR confidence is low; correction withheld.",
+        "Image region 10: OCR confidence is low; correction withheld.",
+        "Image region 11: OCR confidence is low; correction withheld.",
+        "Image region 12: OCR confidence is low; correction withheld.",
+        "Image region 13: OCR confidence is low; correction withheld.",
+        "Image region 14: OCR confidence is low; correction withheld.",
+        "Image region 15: OCR confidence is low; correction withheld.",
+        "Image region 19: OCR confidence is low; correction withheld.",
+        "Image region 20: OCR confidence is low; correction withheld.",
+        "Image region 21: OCR confidence is low; correction withheld.",
+        "Image region 22: OCR confidence is low; correction withheld.",
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    },
+    {
+      "filename": "mogs-legacy.png",
+      "status": "partial",
+      "warnings": [
+        "Image region 1: OCR confidence is low; correction withheld.",
+        "Image region 6: OCR confidence is low; correction withheld.",
+        "OCR covers detected English text only; non-text visual claims and undetected text remain outside coverage."
+      ],
+      "error": null
+    }
+  ],
+  "outcomes": [
+    {
+      "filename": "welcome-room-to-work.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "welcome-room-to-work.html",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "welcome-room-to-work.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "plainText",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "welcome-room-to-work.html",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "plainText",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "your-familiar-rate.html",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "field": "plainText",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "20%",
+      "observedText": "20%",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 4,
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 3,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Team is $80 a month.",
+      "observedText": "Team is $80 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 3,
+      "expectedLabel": "insufficient_context",
+      "observedLabel": "insufficient_context",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Team is only $50 a month more than Starter.",
+      "observedText": "Team is only $50 a month more than Starter.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 3,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Team is only $40 a month more than Starter.",
+      "observedReplacement": "Team is only $40 a month more than Starter.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 4,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "observedText": "Starter is $288 a year, or $24 a month billed annually.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 4,
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "mogs-make-room.pdf",
+      "text": "Starter costs about a dollar a day.",
+      "observedText": "Starter costs about a dollar a day.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace only",
+      "page": 5,
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter costs about $1.33 a day.",
+      "observedReplacement": "Starter costs about $1.33 a day.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-launch.png",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Starter is $40 a month.",
+      "observedReplacement": "Starter is $40 a month.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-annual.png",
+      "text": "Save 20% on Starter with annual billing.",
+      "observedText": "Save 20% on Starter with annual billing.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "contradicting",
+      "observedLabel": "contradicting",
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "observedReplacement": "Save 40% on Starter with annual billing.",
+      "pass": true
+    },
+    {
+      "filename": "mogs-annual.png",
+      "text": "Starter is $288 a year.",
+      "observedText": "Starter is $288 a year.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "consistent",
+      "observedLabel": "consistent",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    },
+    {
+      "filename": "mogs-legacy.png",
+      "text": "Starter is $30 a month.",
+      "observedText": "Starter is $30 a month.",
+      "exactTextMatch": true,
+      "matchRule": "whitespace and terminal punctuation only",
+      "expectedLabel": "valid_exception",
+      "observedLabel": "valid_exception",
+      "expectedReplacement": null,
+      "observedReplacement": null,
+      "pass": true
+    }
+  ],
+  "unlabelledFindings": [
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Make room for good work",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "A calmer week starts with a little breathing room.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Hello {{ first_name }},",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Make room for good work with MOGS.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Find your rhythm: https://example.invalid/mogs/start?utm_source=welcome",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "mogs.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "A LITTLE MORE ROOM",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "MEET YOUR NEXT CHAPTER",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Make room for good work.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "A week with fewer back-and-forths. And more time for the work that matters.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "A LITTLE SPACE. A FRESH PERSPECTIVE.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Hello {{ first_name }},",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Good work needs a little breathing room. Bring your team together with MOGS, and put the next thing on the calendar.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Start something good.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Find your rhythm →",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "The next great thing starts with a little space.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "Fictional MOGS campaign · October 2026",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_9155afc6ff104b417b3e863c65e512d6",
+      "text": "A calmer way to coordinate your team.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Good news: your rhythm stays the same",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "A note of thanks, and a familiar monthly rate.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Hello {{ first_name }},",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "This note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Open your workspace: https://example.invalid/mogs/workspace?utm_source=customer-note",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "mogs.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "A LITTLE MORE ROOM",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "A NOTE FOR OUR EARLY CUSTOMERS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Good things stay with you.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Your team. Your rhythm. And the monthly price you started with.",
+      "label": "insufficient_context",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Hello {{ first_name }},",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "You made room for MOGS early on. Thank you for making us part of your team's week.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "This note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "YOUR MONTHLY PLAN",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Same plan. A familiar price. Nothing for you to change.",
+      "label": "insufficient_context",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Here's to the work ahead.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Keep building a week that works for you. We'll be here to help you make room for it.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Open your workspace →",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "With thanks, The MOGS team",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "Fictional MOGS campaign · October 2026",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_4cc9a94343b0e91fe70b6df8681b9029",
+      "text": "A calmer way to coordinate your team.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Make room",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "for good",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "work.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Team scheduling for",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "the work ahead.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Fictional MOGS campaign 01",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "A littlle more",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "room in the week",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "A shared plan begins with a conversation.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Who needs to be there. What needs to happen.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS is team scheduling software.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Fictional MOGS campaign 02",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Plans for your team",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Fictional MOGS campaign 03",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "A year of room",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Fictional MOGS campaign 04",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Your next week,",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "with more room.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Let’s talk about your team’s schedule.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_f7b383259fb49b78975da76a6cf3415e",
+      "text": "Fictional MOGS campaign 05",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "ba",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "$6 MoGS",
+      "label": "insufficient_context",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "48",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "~S",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "KY",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "AB",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "W",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "—",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "Make room for !",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "good work.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "SS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "rs",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "s",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_bb3d86170499bc950b402041b91b796a",
+      "text": "Fictional MOGS campaign",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Se \\",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "=Ny",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Nw",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Oy",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "\\",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "YZ",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "A little more",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "\\",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Zi",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Wo",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "e-",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Lavow",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "WZ,",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "b \\A/",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "room to grow.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "ee",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "OSS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "SS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "a",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_331a29cc6b8b19572380f16d11c3a19d",
+      "text": "Fictional MOGS campaign",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "Df",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "MOGS",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "Good things",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "stay with you.",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "For eligible existing customers",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "we",
+      "label": "unrelated",
+      "replacement": null
+    },
+    {
+      "assetId": "asset_920c99d4b929056d3e76cdcd1961c168",
+      "text": "Fictional MOGS campaign",
+      "label": "unrelated",
+      "replacement": null
+    }
+  ],
+  "errors": [
+    "welcome-room-to-work.html: partial extraction; review coverage warnings.",
+    "mogs-make-room.pdf: partial extraction; review coverage warnings.",
+    "mogs-launch.png: partial extraction; review coverage warnings.",
+    "mogs-annual.png: partial extraction; review coverage warnings.",
+    "mogs-legacy.png: partial extraction; review coverage warnings."
+  ],
+  "durationMs": 37
+}
