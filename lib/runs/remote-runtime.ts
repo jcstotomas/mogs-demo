@@ -142,7 +142,11 @@ export async function observeRemoteRun(runId: string) {
   }));
   if (environment === 'preview') {
     const db = new RemoteDatabase(databaseOptions().databasePath);
-    try { const submission = db.getSubmission(runId)!; await github(db).postStatus(submission, submission.candidate.candidateSha!, 'mogs/preview', result.observation.verification === 'passed' ? 'success' : result.observation.verification === 'pending' ? 'pending' : 'failure', previewStatusEvidenceHash(result.observation), await enforcement()); } finally { db.close(); }
+    try {
+      const submission = db.getSubmission(runId)!, remote = github(db);
+      await remote.postStatus(submission, submission.candidate.candidateSha!, 'mogs/preview', result.observation.verification === 'passed' ? 'success' : result.observation.verification === 'pending' ? 'pending' : 'failure', previewStatusEvidenceHash(result.observation), await enforcement());
+      if (result.observation.verification === 'passed') await remote.updatePullRequestDescription(submission);
+    } finally { db.close(); }
   }
   return getRemoteRun(runId);
 }

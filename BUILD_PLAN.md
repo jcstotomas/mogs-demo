@@ -79,6 +79,8 @@ Use **one editable web page plus the paired emails**, with canonical pricing add
 
 Completion requires a real reviewer event, PR/preview/merge/deployment identifiers, real provider/run IDs, protected hashes, candidate/preview/public check outcomes, and browser evidence. A three-asset success establishes this integration gate only; report any pending human merge or failed deployment plainly.
 
+**Current miniature handoff:** the integrated run `07c47d90-b32a-45cf-9b33-97571ca7819c` has four actual human approvals, five combined checked edits, [real PR #3](https://github.com/jcstotomas/mogs-demo/pull/3), a verified candidate preview and human merge `308d64631320acf022ceef9620eb161369305c2f`. The matching Ready production deployment passed fresh rendered verification of all five edits and protected content; the durable attempt is `verified`. Both required GitHub checks passed; live submission replay returned that PR. [The Remote 1 record](docs/REMOTE_1.md) preserves identities, browser evidence and the proposed isolated recovery setup. The separate actual remote recovery exercises remain pending. Keep the active inventory at the miniature until this gate passes.
+
 ## Remote 2 — required 22-asset deployed workload
 
 - Expand only after the miniature reviewer and remote path passes. Serve exactly **20 web URLs including pricing and two email preview URLs**. Freeze source, facts, template splits, labels, independent representative IDs and hashes in Git under spec section 8; every manifest ID resolves once against the pinned deployed source. Missing assets or extraction/provider errors cannot silently reduce scope.

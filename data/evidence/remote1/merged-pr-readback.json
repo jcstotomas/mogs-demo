@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-10-03T21:58:17.027Z",
+  "repository": "jcstotomas/mogs-demo",
+  "prNumber": 3,
+  "url": "https://github.com/jcstotomas/mogs-demo/pull/3",
+  "state": "closed",
+  "merged": true,
+  "mergedAt": "2026-10-03T21:54:49Z",
+  "mergedSha": "308d64631320acf022ceef9620eb161369305c2f",
+  "mergedBy": "jcstotomas",
+  "headSha": "9856d289c8bebeeeb802496f9bc1e69cac1849fe",
+  "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b"
+}

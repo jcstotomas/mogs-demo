@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-03T21:59:44.585Z",
+  "repository": "jcstotomas/mogs-demo",
+  "prNumber": 3,
+  "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/3",
+  "headSha": "9856d289c8bebeeeb802496f9bc1e69cac1849fe",
+  "state": "closed",
+  "mergedSha": "308d64631320acf022ceef9620eb161369305c2f",
+  "descriptionHash": "333711d8561efd6285ee24af69a605ff0fb727fd202279dcb8fc82b5fdd335a3",
+  "operationMarkerPreserved": true,
+  "matchingVerifiedPreviewIncluded": true,
+  "bodyOnlyUpdate": true,
+  "repeatedUpdateSameIdentity": true,
+  "durableRunUnchanged": true,
+  "independentPublicReadMatched": true
+}

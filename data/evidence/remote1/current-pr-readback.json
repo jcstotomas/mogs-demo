@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-10-03T21:48:38.651Z",
+  "source": "GitHub public REST read",
+  "pr": {
+    "number": 3,
+    "url": "https://github.com/jcstotomas/mogs-demo/pull/3",
+    "state": "open",
+    "merged": false,
+    "mergedAt": null,
+    "mergedSha": null,
+    "headSha": "9856d289c8bebeeeb802496f9bc1e69cac1849fe",
+    "baseSha": "e573c2608ce3fa54f51cab67594355448aa1059b",
+    "repository": "jcstotomas/mogs-demo",
+    "mergeable": true,
+    "mergeableState": "clean",
+    "body": "Checked MOGS correction candidate. Human merge is required after candidate and preview verification.\n\n<!-- mogs-operation:9b1a54b6-2eb5-4af5-9941-e0712ac0ae83;attempt:32907448-eec5-43d9-8db1-20cbb47494cd;bundle:7e8f2b9e0a4ec3a3dbb2e913d2be3ea619cce17912c0e0932b0d92349ab42639 -->\n"
+  },
+  "statuses": [
+    {
+      "context": "mogs/preview",
+      "state": "success",
+      "creator": "memberofgtmstaff[bot]",
+      "description": "MOGS evidence dd062553d62d763588a46439b35d61991287ed5da3c913af78ff5d2cc450ff4a",
+      "updatedAt": "2026-10-03T21:46:13Z"
+    },
+    {
+      "context": "mogs/preview",
+      "state": "pending",
+      "creator": "memberofgtmstaff[bot]",
+      "description": "MOGS evidence b3e3aafae83f427eb5f4b066cffeac1e4b55d5c954d6bb97f7694a57059e8dc5",
+      "updatedAt": "2026-10-03T21:45:42Z"
+    },
+    {
+      "context": "mogs/candidate",
+      "state": "success",
+      "creator": "memberofgtmstaff[bot]",
+      "description": "MOGS evidence 653e5b97b75511deac6ef876fca7a52c3b0e724b2af78346fcd2621d9a39abf6",
+      "updatedAt": "2026-10-03T21:45:40Z"
+    }
+  ]
+}

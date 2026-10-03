@@ -8,6 +8,7 @@ import { FactSnapshotSchema } from '../types';
 import type { PullRequestState, RecoveryRemote } from './recovery';
 import type { GitHubAppTokenProvider } from './github-auth';
 import { localGitHubAppTokenProvider } from './github-config';
+import { buildPullRequestDescription } from './pr-body';
 
 type StatusEvidence = z.infer<typeof StatusEvidenceSchema>;
 type Context = z.infer<typeof RequiredContextSchema>;
@@ -80,12 +81,16 @@ export class GitHubRemote implements RecoveryRemote {
     this.tokenProvider = options.tokenProvider ?? (options.token === undefined && process.env.MOGS_GITHUB_PRIVATE_KEY_PATH ? localGitHubAppTokenProvider({ repository: this.target.repository, appId: this.target.statusProducerAppId, appSlug: this.appSlug, fetch: this.request, clock: this.clock }) : undefined);
   }
   private async api(method: 'GET' | 'POST' | 'PATCH', route: string, body?: unknown): Promise<unknown> {
+    const pullDetailPrefix = this.prefix + '/pulls/';
+    // PR detail in 2026-03-10 omits merge_commit_sha, required by our source/deployment binding.
+    // Pin only this read to 2022-11-28 (supported through 2028-03-10); retain current mutation/enforcement semantics.
+    const apiVersion = method === 'GET' && route.startsWith(pullDetailPrefix) && /^\d+$/.test(route.slice(pullDetailPrefix.length)) ? '2022-11-28' : '2026-03-10';
     for (let attempt = 0; attempt < 2; attempt++) {
       const token = this.tokenProvider ? await this.tokenProvider.getToken() : this.token;
       if (!token) throw new RemoteStateError('validation', 'Configure local GitHub App credentials or MOGS_GITHUB_TOKEN; no GitHub operation was attempted.');
       let response: Response;
       try {
-        response = await this.request('https://api.github.com' + route, { method, redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(20_000), headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': '2026-03-10', ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
+        response = await this.request('https://api.github.com' + route, { method, redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(20_000), headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + token, 'X-GitHub-Api-Version': apiVersion, ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
       } catch { throw new Error('GitHub request failed or timed out; remote outcome may be unknown.'); }
       if (response.status === 401 && attempt === 0 && this.tokenProvider) { this.tokenProvider.invalidate(token); continue; }
       if (!response.ok) throw new GitHubHttpError(response.status, method, route);
@@ -262,7 +267,13 @@ export class GitHubRemote implements RecoveryRemote {
     if (text(object(head.repo).full_name).toLowerCase() !== this.target.repository.toLowerCase() || text(object(base.repo).full_name).toLowerCase() !== this.target.repository.toLowerCase() || head.ref !== submission.candidate.branch || base.ref !== this.target.baseRef || (requireMarker && !text(pr.body).includes(operationMarker(submission))) || pr.auto_merge !== null) throw new RemoteStateError('stale', 'PR repository, branch, marker or merge settings differ from this operation.');
     const prNumber = number(pr.number), url = text(pr.html_url);
     if (url !== 'https://github.com/' + this.target.repository + '/pull/' + prNumber || !['open', 'closed'].includes(text(pr.state))) throw new Error('PR identity is outside the configured repository.');
-    return { number: prNumber, url, headSha: sha(head.sha), baseSha: sha(base.sha), state: pr.state as 'open' | 'closed', mergedSha: pr.merged_at !== null && pr.merged_at !== undefined ? sha(pr.merge_commit_sha) : null };
+    let mergedSha: string | null = null;
+    if (pr.merged_at !== null && pr.merged_at !== undefined) {
+      const merged = ShaSchema.safeParse(pr.merge_commit_sha);
+      if (!merged.success) throw new RemoteStateError('unknown_remote_state', 'GitHub reports a merged PR but its exact merge commit identity is unavailable.');
+      mergedSha = merged.data;
+    }
+    return { number: prNumber, url, headSha: sha(head.sha), baseSha: sha(base.sha), state: pr.state as 'open' | 'closed', mergedSha };
   }
   async findPullRequest(submission: Submission): Promise<PullRequestState | null> {
     this.local(submission);
@@ -282,7 +293,7 @@ export class GitHubRemote implements RecoveryRemote {
     if (await this.branchSha(submission.candidate) !== submission.candidate.candidateSha) throw new RemoteStateError('stale', 'PR head must be the owned immutable candidate.');
     this.active(submission);
     try {
-      const result = await this.api('POST', this.prefix + '/pulls', { title: submission.candidate.purpose === 'restoration' ? 'Restore frozen MOGS seed' : 'Apply approved MOGS launch corrections', head: submission.candidate.branch, base: this.target.baseRef, body: `Checked MOGS ${submission.candidate.purpose} candidate. Human merge is required after candidate and preview verification.\n\n${operationMarker(submission)}\n`, maintainer_can_modify: false, draft: false });
+      const result = await this.api('POST', this.prefix + '/pulls', { title: submission.candidate.purpose === 'restoration' ? 'Restore frozen MOGS seed' : 'Apply approved MOGS launch corrections', head: submission.candidate.branch, base: this.target.baseRef, body: this.pullRequestDescription(submission), maintainer_can_modify: false, draft: false });
       const pr = this.parsePullRequest(result, submission);
       if (pr.headSha !== submission.candidate.candidateSha || pr.baseSha !== submission.candidate.baseSha) throw new RemoteStateError('stale', 'Created PR head/base changed during submission.');
       return pr;
@@ -291,6 +302,30 @@ export class GitHubRemote implements RecoveryRemote {
       const recovered = await this.findPullRequest(submission); if (recovered) return recovered;
       throw error;
     }
+  }
+  private pullRequestDescription(submission: Submission): string {
+    if (this.options.stateStore) return buildPullRequestDescription(this.options.stateStore().export(submission.runId), submission, operationMarker(submission));
+    if (!this.options.testOnlyAllowFixtureEvidence) throw new RemoteStateError('validation', 'PR descriptions require complete durable run evidence.');
+    return `## Summary\n\nFixture-only checked MOGS ${submission.candidate.purpose} candidate.\n\n## Evidence\n\nFull fixture run evidence is unavailable; no live repair or human review credit.\n\n## Merge Danger\n\n**Door:** two-way\n\n**Blast Radius:** Content\n\n${operationMarker(submission)}\n`;
+  }
+  /** Metadata only; recorded merged PRs remain eligible for a truthful evidence update. */
+  async updatePullRequestDescription(submission: Submission): Promise<PullRequestState> {
+    const current = this.local(submission), body = this.pullRequestDescription(current.submission);
+    if (!current.submission.prNumber || !current.submission.prUrl || current.submission.status !== 'submitted' || current.submission.journal !== 'pr_opened') throw new RemoteStateError('validation', 'Description update requires the recorded submitted PR.');
+    const route = this.prefix + '/pulls/' + current.submission.prNumber;
+    const observed = object(await this.api('GET', route)), pr = this.parsePullRequest(observed, current.submission, false);
+    if (pr.number !== current.submission.prNumber || pr.url !== current.submission.prUrl || pr.headSha !== current.submission.candidate.candidateSha || (pr.state !== 'open' && !pr.mergedSha)) throw new RemoteStateError('stale', 'Description update requires the known open or merged PR and immutable candidate head.');
+    if (observed.body === body) return pr;
+    // Re-read durable evidence after remote lookup before issuing the metadata write.
+    const latest = this.local(current.submission);
+    if (!same(latest.submission, current.submission) || this.pullRequestDescription(latest.submission) !== body) throw new RemoteStateError('stale', 'Recorded PR evidence changed during the description update.');
+    const updated = object(await this.api('PATCH', route, { body }));
+    if ('body' in updated && updated.body !== body) throw new RemoteStateError('stale', 'Updated description is unconfirmed.');
+    // Mutation responses can omit merge metadata during a concurrent human merge.
+    // Independent readback supplies the authoritative body and complete PR identity.
+    const readback = object(await this.api('GET', route)), result = this.parsePullRequest(readback, latest.submission);
+    if (result.number !== pr.number || result.url !== pr.url || result.headSha !== latest.submission.candidate.candidateSha || (result.state !== 'open' && !result.mergedSha) || readback.body !== body) throw new RemoteStateError('stale', 'Updated description or PR identity is unconfirmed.');
+    return result;
   }
   async readPullRequest(submission: Submission): Promise<PullRequestState> {
     this.local(submission);

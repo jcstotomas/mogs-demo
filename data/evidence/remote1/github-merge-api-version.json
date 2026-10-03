@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-10-03T21:57:37Z",
+  "evidenceKind": "authenticated read comparison; credentials omitted",
+  "repository": "jcstotomas/mogs-demo",
+  "pullRequestNumber": 3,
+  "candidateSha": "9856d289c8bebeeeb802496f9bc1e69cac1849fe",
+  "mergedAt": "2026-10-03T21:54:49Z",
+  "observations": [
+    { "apiVersion": "2026-03-10", "httpStatus": 200, "merged": true, "mergeCommitFieldPresent": false },
+    { "apiVersion": "2022-11-28", "httpStatus": 200, "merged": true, "mergeCommitFieldPresent": true, "mergeCommitSha": "308d64631320acf022ceef9620eb161369305c2f" }
+  ],
+  "initialMetadataWrite": "Body updated successfully; parsing the mutation response failed before durable state changes.",
+  "initialProductionObserve": "HTTP 400 from missing merge field; no production observation or fact change recorded.",
+  "resolution": "Pin pull-request detail GET to supported 2022-11-28, read after metadata writes, preserve other endpoint versions and require an actual merge commit.",
+  "documentation": "https://docs.github.com/en/rest/about-the-rest-api/api-versions"
+}

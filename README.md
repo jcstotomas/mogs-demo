@@ -28,6 +28,6 @@ The primary local checkout and GitHub `main` currently have different histories.
 
 ## Review the remote miniature
 
-Open `/console/remote` on the local coordinator. The existing v1 console remains `/console`. The active handoff is at [localhost:3104](http://localhost:3104/console/remote?runId=07c47d90-b32a-45cf-9b33-97571ca7819c). Approve each complete group, check the combined candidate, submit its PR, then check the deployed preview. Merge is performed by a person in GitHub; check deployment again afterward for production verification.
+Open `/console/remote` on the local coordinator. The existing v1 console remains `/console`. The active handoff is at [localhost:3104](http://localhost:3104/console/remote?runId=07c47d90-b32a-45cf-9b33-97571ca7819c). This run has four human approvals, [human-merged PR #3](https://github.com/jcstotomas/mogs-demo/pull/3) and a matching publicly verified deployment. The [Remote 1 record](docs/REMOTE_1.md) lists the remaining actual recovery exercises before expansion.
 
 `npm run github:check` is read-only authentication inspection. `npm run github:enforce` configures protection and creates disposable audit PRs; its durable journal refuses to overwrite a completed probe. Passing configuration checks alone never substitutes for recorded eligibility probes.

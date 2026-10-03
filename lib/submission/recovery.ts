@@ -16,10 +16,11 @@ const message = (error: unknown) => error instanceof RemoteStateError ? error.me
 
 /** Journal first; a lost response leaves a recoverable operation and the slot locked. */
 export class RemoteRecovery {
-  constructor(readonly db: RemoteDatabase, readonly remote: RecoveryRemote, private readonly clock = () => new Date()) {}
+  constructor(readonly db: RemoteDatabase, readonly remote: RecoveryRemote, private readonly clock = () => new Date(), private readonly actor: 'human' | 'test' = 'human') {}
   async abandon(input: unknown): Promise<Recovery> {
     const request = AbandonRequestSchema.parse(input), fingerprint = hashRecord(request);
     const operation = this.db.transaction(() => {
+      this.assertActor(request.runId);
       const replay = this.db.replay('v2.abandon', request.idempotencyKey, fingerprint) as { recoveryId: string } | null;
       if (replay) return this.db.getRecovery(replay.recoveryId)!;
       const attempt = this.requireAttempt(request.launchAttemptId, request.runId, request.expectedAttemptRevision);
@@ -30,7 +31,7 @@ export class RemoteRecovery {
       const recovery = RecoverySchema.parse({ id, launchAttemptId: attempt.id, submissionId: submission?.id ?? null, action: 'abandon', status: 'planned', expectedAttemptRevision: request.expectedAttemptRevision, expectedSubmissionRevision: request.expectedSubmissionRevision, requestFingerprint: fingerprint, retiredShas: [], statuses: [], prClosed: false, mergedSha: null, observedDeploymentId: null, failure: null, createdAt: now, updatedAt: now });
       this.db.putRecovery(recovery);
       this.db.putAttempt({ ...attempt, state: 'abandoning', revision: attempt.revision + 1, recoveryId: id });
-      this.db.addReviewEvent({ contractVersion: 2, id, launchAttemptId: attempt.id, runId: attempt.runId, groupId: null, patchId: null, action: 'abandon', actor: 'human', at: now, detail: request.reason });
+      this.db.addReviewEvent({ contractVersion: 2, id, launchAttemptId: attempt.id, runId: attempt.runId, groupId: null, patchId: null, action: 'abandon', actor: this.actor, at: now, detail: request.reason });
       this.db.remember('v2.abandon', request.idempotencyKey, fingerprint, { recoveryId: id }, now);
       return recovery;
     });
@@ -96,6 +97,7 @@ export class RemoteRecovery {
   async reconcile(input: unknown): Promise<Recovery> {
     const request = ReconcileRequestSchema.parse(input), fingerprint = hashRecord(request);
     const operation = this.db.transaction(() => {
+      this.assertActor(request.runId);
       const replay = this.db.replay('v2.reconcile', request.idempotencyKey, fingerprint) as { recoveryId: string } | null;
       if (replay) return this.db.getRecovery(replay.recoveryId)!;
       const attempt = this.requireAttempt(request.launchAttemptId, request.runId, request.expectedAttemptRevision);
@@ -106,7 +108,7 @@ export class RemoteRecovery {
       const recovery = RecoverySchema.parse({ id, launchAttemptId: attempt.id, submissionId: submission.id, action: 'reconcile', status: 'planned', expectedAttemptRevision: attempt.revision, expectedSubmissionRevision: submission.revision, requestFingerprint: fingerprint, retiredShas: [], statuses: [], prClosed: false, mergedSha: null, observedDeploymentId: request.observedDeploymentId, failure: null, createdAt: now, updatedAt: now });
       this.db.putRecovery(recovery);
       this.db.putAttempt({ ...attempt, revision: attempt.revision + 1, recoveryId: id });
-      this.db.addReviewEvent({ contractVersion: 2, id, launchAttemptId: attempt.id, runId: attempt.runId, groupId: null, patchId: null, action: 'reconcile', actor: 'human', at: now, detail: request.reason });
+      this.db.addReviewEvent({ contractVersion: 2, id, launchAttemptId: attempt.id, runId: attempt.runId, groupId: null, patchId: null, action: 'reconcile', actor: this.actor, at: now, detail: request.reason });
       this.db.remember('v2.reconcile', request.idempotencyKey, fingerprint, { recoveryId: id }, now);
       return recovery;
     });
@@ -127,6 +129,9 @@ export class RemoteRecovery {
       });
     } catch (error) { recovery = { ...operation, status: 'unknown', failure: message(error), updatedAt: this.clock().toISOString() }; this.db.putRecovery(recovery); }
     return recovery;
+  }
+  private assertActor(runId: string): void {
+    if (this.actor === 'test' && this.db.getRun(runId)?.mode === 'live') throw new RemoteStateError('validation', 'Test recovery cannot act on a live run.');
   }
   private validatePr(s: Submission, pr: PullRequestState): void { if (pr.number !== s.prNumber || pr.url !== s.prUrl || !/^[a-f0-9]{40}$/.test(pr.headSha) || !/^[a-f0-9]{40}$/.test(pr.baseSha)) throw new Error('Remote PR identity mismatch.'); }
   private requireAttempt(id: string, runId: string, revision: number): LaunchAttempt { const a = this.db.getAttempt(id); if (!a || a.runId !== runId) throw new RemoteStateError('not_found', 'Attempt/run not found.'); if (a.revision !== revision) throw new RemoteStateError('stale', 'Attempt revision changed.'); return a; }

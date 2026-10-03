@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-03T21:53:08.772Z",
+  "evidenceKind": "live HTTP replay of original submission operation",
+  "runId": "07c47d90-b32a-45cf-9b33-97571ca7819c",
+  "launchAttemptId": "32907448-eec5-43d9-8db1-20cbb47494cd",
+  "operationId": "9b1a54b6-2eb5-4af5-9941-e0712ac0ae83",
+  "status": 200,
+  "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/3",
+  "candidateSha": "9856d289c8bebeeeb802496f9bc1e69cac1849fe",
+  "originalFingerprintMatched": true,
+  "identicalDurableSubmission": true,
+  "approvalsUnchanged": true,
+  "reviewerEventsUnchanged": true,
+  "newPrCreated": false
+}

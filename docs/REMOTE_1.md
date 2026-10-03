@@ -1,6 +1,6 @@
 # MOGS Remote 1 miniature handoff
 
-**Status on 2026-10-03: the three builders are integrated and a real miniature analysis is ready for human review. Remote 1 remains incomplete.** The recorded run has four sealed correction groups, five checked proposed edits, one withheld threshold claim, zero errors, zero approvals and no submission. Human group approval, a real correction PR, verified preview, human GitHub merge and matching production verification are still required.
+**Status on 2026-10-03: the miniature correction path is publicly verified after four human approvals and the human merge of PR #3. Remote 1 remains incomplete because its separate actual remote recovery exercises are pending.** The miniature has five checked edits, one withheld threshold claim and zero analysis errors. The original unapproved analysis handoff below is retained as historical evidence.
 
 Open the [local review console](http://localhost:3104/console/remote?runId=07c47d90-b32a-45cf-9b33-97571ca7819c). The coordinator server is local; the controlled fictional site remains at [mogs-demo.vercel.app](https://mogs-demo.vercel.app). Email publication updates repository-backed previews and never sends messages.
 
@@ -25,7 +25,7 @@ The local console and `/api/v2` operate on the separate durable v2 database and 
 | Unchecked hosting/source edge cases | Canonical alias binding, explicit pending production, exact UTF-8 reads and durable status retry checks | Keep deployment/source identity and failures accurate during integration |
 | Restoration intent with unfinished analysis state | Complete captured restoration can become ready without model or repair credit | Permit the separate checked restoration path under the existing lifecycle rules |
 
-## Recorded live analysis
+## Recorded live analysis at the original handoff
 
 The [live analysis export](../data/evidence/remote1/live-analysis.json) is a real provider run over the frozen fictional miniature. Its labels/checks are model results; its source content and commercial scenario are synthetic. It is not a fixture-provider run or a production repair score.
 
@@ -73,7 +73,7 @@ The [saved live baseline read](../data/evidence/remote1/live-baseline.json), obs
 | Before facts hash | `a0512f91ade4e8dfc3e73df89d2661eddcf409dbfb8cecf0f0ac71c987767664` |
 | Desired facts hash | `d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d` |
 
-[Remote 0's actual enforcement proof](../data/evidence/remote0/enforcement-pass.json) and [protection readback](../data/evidence/remote0/github-enforcement-current.json) bind the required candidate/preview contexts to App ID `5179329`, with strict current-base checks, administrators enforced and no bypass. Disposable audit PRs were closed unmerged and carry no correction or preview/publication credit. The first real correction PR has not been submitted.
+[Remote 0's actual enforcement proof](../data/evidence/remote0/enforcement-pass.json) and [protection readback](../data/evidence/remote0/github-enforcement-current.json) bind the required candidate/preview contexts to App ID `5179329`, with strict current-base checks, administrators enforced and no bypass. Disposable audit PRs were closed unmerged and carry no correction or preview/publication credit. The original analysis handoff preceded correction submission; the subsequent real PR is recorded below.
 
 The **31.163-second result covers only this miniature**. The required 22-asset timing gate, independent per-kind held-out repair gates, named-run production scoring and rehearsals remain pending. Evaluation preparation has zero eligible independent held-out representatives and supplies no accuracy, repair-success or workload claim. No active content, seed or sitemap expansion is recorded by these builder commits.
 
@@ -108,12 +108,53 @@ Native Chrome's menu visibly confirmed [200% zoom](../data/evidence/remote1/nati
 
 The [integrated check record](../data/evidence/remote1/integration-checks.json) also verifies restart resume of the same ready run, unchanged judgment/patch records during polling, invalid/cross-origin Confirm rejection, and the still-pristine public baseline. These checks complete the local implementation handoff, while Remote 1's human approval/publication path remains pending.
 
+## Subsequent human review and verified preview
+
+The [reviewer and preview export](../data/evidence/remote1/reviewer-preview.json) preserves the actual four human group approvals, submission event, combined candidate checks and fresh preview judgments. It supplements the original analysis export without overwriting it.
+
+| Event or identity | Recorded value |
+|---|---|
+| Human group approvals | Four, recorded between `2026-10-03T21:43:18.971Z` and `21:44:32.939Z` |
+| Human submission event | `2026-10-03T21:45:27.122Z` |
+| Real correction PR | [#3](https://github.com/jcstotomas/mogs-demo/pull/3), targeting `main` |
+| Exact submitted candidate | `9856d289c8bebeeeb802496f9bc1e69cac1849fe` |
+| Candidate bundle / mapped tree | `7e8f2b9e0a4ec3a3dbb2e913d2be3ea619cce17912c0e0932b0d92349ab42639` / `0966d87f1b1159c0c07d45c85c3695d38a26867f6e2a9d6cee251b516482d975` |
+| Changed files | `content/site/launch.md`, `content/email/onboarding.md`, `data/facts.json` |
+| Combined checks | Four web edits each pass 7/7; the onboarding edit passes 8/8 |
+| Matching preview | [Candidate preview](https://mogs-demo-pw6a4zpzq-jcstotomas-projects.vercel.app/site/launch), deployment `dpl_BaY7EU11Dx7gGH6UHdtyGWZn1jb6` |
+| Fresh preview observation | `2026-10-03T21:45:55.326Z`; Ready and passed, five changed blocks rejudged, zero failures |
+| Published preview facts / inventory | Version 2 ($40); facts hash `d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d`, inventory hash `ea24508bd03a4d24be8b5961d20c72e3b9ea2e0bc6b3cb38b369cf88283fdb7c` |
+| Eligible email preservation | Exact SHA-256 `00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0` |
+
+The [GitHub readback](../data/evidence/remote1/current-pr-readback.json) records PR #3 open, unmerged, mergeable and clean at `2026-10-03T21:48:38.651Z`. Both required statuses passed on the exact candidate, produced by `memberofgtmstaff[bot]`; old pending status history remains preserved. The [live submission replay](../data/evidence/remote1/submission-replay.json) returned the same PR and exact durable submission through the real HTTP route, without adding an approval or reviewer event.
+
+Browser checks opened the actual [corrected web page](../data/evidence/remote1/preview-launch.png), [onboarding email](../data/evidence/remote1/preview-onboarding.png), [preserved eligible email](../data/evidence/remote1/preview-eligible.png) and [canonical pricing](../data/evidence/remote1/preview-pricing.png). They expose the candidate revision, checked price/derived edits, unchanged historical and annual-billing copy, template tokens and links. The explicit withheld threshold remains unchanged. A [separate production screenshot](../data/evidence/remote1/production-before-merge.png) still shows $30, fact version 1 and seed revision `e573c26` before merge; preview success supplies no public repair credit.
+
+The PR description implementation now presents grouped changes, final check counts, factual rationale, exclusions, immutable identities and a preview link only when its complete matching observation passes. The [actual description](../data/evidence/remote1/correction-pr-description.md) and [independent readback](../data/evidence/remote1/pr-description-readback.json) record a body-only update preserving the operation marker and exact PR/head identity; retries read back identical descriptions. Isolated recovery tests additionally connect the actual HTTP dispatcher to SQLite recovery through changed-head revocation, lost-close restart/retry and merged-failure reconciliation. Those recovery tests are fixture evidence, not actual remote exercises.
+
+## Subsequent human merge and publicly verified result
+
+The [merge readback](../data/evidence/remote1/merged-pr-readback.json) records `jcstotomas` merging PR #3 at `2026-10-03T21:54:49Z`, producing commit `308d64631320acf022ceef9620eb161369305c2f`. The [complete production export](../data/evidence/remote1/production-observation.json) records Ready deployment `dpl_7beAQpjQcnwkSAzbT9AUJ2W6zQZj` at that exact merge commit and [mogs-demo.vercel.app](https://mogs-demo.vercel.app), observed at `2026-10-03T21:58:41.809Z`.
+
+Fresh source, canonical facts and rendered contextual verification passed with five changed blocks and zero failures. Production facts are version 2 ($40), matching the immutable desired facts hash; the complete mapped source hashes preserve the eligible email, historical/unrelated copy, email tokens/URLs and the explicitly withheld threshold. The durable attempt is `verified`. Four human group approvals and one submission action remain recorded; no abandon/reconcile action was manufactured, and GitHub review duration remains unavailable in the console. This is the miniature production result, not a held-out score or the 22-asset workload.
+
+Production browser evidence: [launch page](../data/evidence/remote1/production-launch.png), [onboarding](../data/evidence/remote1/production-onboarding.png), [eligible email](../data/evidence/remote1/production-eligible.png), [pricing](../data/evidence/remote1/production-pricing.png) and [console result](../data/evidence/remote1/console-publicly-verified.png).
+
+An actual merge-readback failure was retained in [the API-version evidence](../data/evidence/remote1/github-merge-api-version.json): authenticated `2026-03-10` PR responses omitted `merge_commit_sha`, causing the initial metadata-response parse and production observation to fail. The metadata write succeeded, but no production observation was accepted then. PR-detail GET now pins supported `2022-11-28`; other endpoints keep their existing version. Metadata writes require independent GET readback, and a missing merge identity remains `unknown_remote_state`. [GitHub's version documentation](https://docs.github.com/en/rest/about-the-rest-api/api-versions) supports this explicit pin. The corrected readback and real production verification passed.
+
+The full suite passed **171/171** before the final bounded API readback correction. After that correction, **29/29 focused PR/Git tests**, typecheck and the webpack application build passed. The later test-actor preparation passed **14/14 focused HTTP recovery/submission tests**, including six HTTP cases and eight preserved submission cases. UI guardrails passed. Existing integrated UI evidence was reused, with new actual preview/public browser evidence and a fresh console result. Generated build-directory type paths were restored, and the restarted coordinator resumes the same verified durable run on port 3104.
+
+## Proposed isolated live recovery setup
+
+Create a unique audit-only child commit of the corrected remote merge, preserving all mapped $40 files, on `codex/recovery-base`. A separate `mogs-recovery` Vercel project uses that branch for production, while the existing MOGS project and `main` keep the verified result. Its deployed artifact contains only fictional public pages and email previews. Use an isolated worktree, database, captures, source checkout and enforcement proof. Unique base/candidate SHAs keep required-status writes off PR #3's successful candidate.
+
+1. Create a test restoration PR against this isolated protected base. Make its submitted head stale with a child commit, then exercise API abandonment: retire both required contexts on both SHAs, confirm closure and release the test target slot.
+2. Start a second test restoration PR, verify its actual preview, and have a person merge it through GitHub. Exercise abandonment before the local merge observation to record the real merge race as `merged_failure`; reconcile the actual Ready $30 production deployment and source/fact hashes through the API. Preserve the failure/recovery journal and release the isolated slot.
+
+These are explicitly remote test evidence, with zero live correction credit. Restoration/submission already support test actors; recovery now accepts an explicit test actor and rejects live-run recovery by that actor before replay, journaling or effects. Isolated runtime propagation and exact test-target guards still need wiring. The user explicitly approved the separate public `mogs-recovery` project with deployment authentication disabled; the second drill requires a separate actual human merge. No live recovery result is claimed by this proposal.
+
 ## Remaining Remote 1 decisions and gate
 
-1. A person reviews and approves each of the four complete groups in the local console. Preserve the withheld threshold and protected email; approval alone does not publish.
-2. Prepare and check the complete combined candidate, including all five approved edits and deterministic canonical facts. Submit one real correction PR, recording exact base/head/tree/bundle identities and retry evidence.
-3. Observe and verify the exact candidate preview, including preserved blocks, email tokens/URLs, desired canonical pricing and fresh contextual judgments. Production remains a separate state.
-4. A person makes the publication decision by merging through GitHub under the enforced required checks.
-5. Observe the matching production deployment and verify every required rendered replacement and protected block. Record production evidence, elapsed intervals and any failed/pending outcome explicitly.
+1. Separately exercise actual stale-submission abandonment and merged-failure reconciliation through the required console/API flows. Preserve the audit and successful candidate; isolated fixture tests do not satisfy these remote exercises.
 
-Only then can Remote 1 pass and the active corpus expand to 22 assets. Changed submitted candidates require abandonment and a fresh attempt; merged failures require observed deployment reconciliation. Earlier PRs, failures and restoration evidence remain preserved.
+Only after these exercises can Remote 1 pass and the active corpus expand to 22 assets. Changed submitted candidates require abandonment and a fresh attempt; merged failures require observed deployment reconciliation. Earlier PRs, failures and restoration evidence remain preserved.
