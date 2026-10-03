@@ -10,12 +10,26 @@ export const PUBLIC_ARTIFACT_VERSION = 'mogs-public-artifact-v1';
 export const DEPLOYMENT_META_VERSION = 'mogs-deployment-meta-v1';
 export const PUBLIC_REPOSITORY = 'jcstotomas/mogs-demo';
 export const MINIATURE_SOURCE_FILES = ['email/eligible.md', 'email/onboarding.md', 'site/launch.md'] as const;
+export const REQUIRED_SOURCE_FILES = [
+  'email/eligible.md', 'email/onboarding.md',
+  'site/account-rules.md', 'site/annual-calculator.md', 'site/annual-comparison.md',
+  'site/annual-faq.md', 'site/annual-help.md', 'site/annual-overview.md',
+  'site/billing-choice.md', 'site/daily-help.md', 'site/daily-planner.md',
+  'site/launch.md', 'site/monthly-checkout.md', 'site/monthly-help.md',
+  'site/monthly-plans.md', 'site/offer-context.md', 'site/plan-comparison.md',
+  'site/starter-basics.md', 'site/starter-cost.md', 'site/starter-offer.md',
+  'site/starter-renewal.md',
+] as const;
+export type PublicScope = 'miniature' | 'required-22';
+export function publicSourceFiles(scope: PublicScope): readonly string[] {
+  return scope === 'miniature' ? MINIATURE_SOURCE_FILES : REQUIRED_SOURCE_FILES;
+}
 type InventoryAsset = Baseline['assets'][number];
 
 interface SeedSource { source: string; hash: string }
-interface SeedManifest {
+export interface SeedManifest {
   format: 'mogs-content-seed-v1';
-  scope: string;
+  scope: 'miniature-gate-1' | 'required-22';
   sources: Record<string, SeedSource>;
   corpusHash: string;
   initialFactHash: string;
@@ -43,7 +57,7 @@ export interface PublicArtifact {
   format: typeof PUBLIC_ARTIFACT_VERSION;
   contractVersion: 2;
   repository: typeof PUBLIC_REPOSITORY;
-  scope: 'miniature';
+  scope: PublicScope;
   mode: PublicBuildMode;
   sourceCommit: string;
   factsHash: string;
@@ -65,13 +79,14 @@ export interface DeploymentMetadata {
   sourceHashes: Record<string, string>;
 }
 
-function parseSeedManifest(text: string): SeedManifest {
+export function parseSeedManifest(text: string): SeedManifest {
   const candidate: unknown = JSON.parse(text);
   if (!candidate || typeof candidate !== 'object') throw new Error('Seed manifest must be an object.');
   const seed = candidate as Partial<SeedManifest>;
-  if (seed.format !== 'mogs-content-seed-v1' || seed.scope !== 'miniature-gate-1' || !seed.sources || typeof seed.sources !== 'object') throw new Error('Unsupported miniature seed manifest.');
+  if (seed.format !== 'mogs-content-seed-v1' || !['miniature-gate-1', 'required-22'].includes(seed.scope ?? '') || !seed.sources || typeof seed.sources !== 'object' || Array.isArray(seed.sources)) throw new Error('Unsupported public seed manifest.');
+  const expectedFiles = publicSourceFiles(seed.scope === 'required-22' ? 'required-22' : 'miniature');
   const files = Object.keys(seed.sources).sort();
-  if (files.length !== MINIATURE_SOURCE_FILES.length || files.some((file, index) => file !== MINIATURE_SOURCE_FILES[index])) throw new Error('Miniature seed inventory changed.');
+  if (files.length !== expectedFiles.length || files.some((file, index) => file !== expectedFiles[index])) throw new Error('Seed inventory changed.');
   for (const file of files) {
     const entry = seed.sources[file];
     if (!entry || typeof entry.source !== 'string' || !/^[a-f0-9]{64}$/.test(entry.hash) || sha256(entry.source) !== entry.hash) throw new Error('Seed source hash mismatch: ' + file);
@@ -119,6 +134,8 @@ export function createPublicArtifact(input: PublicArtifactInput): PublicArtifact
   if (!/^[a-f0-9]{40}$/.test(input.sourceCommit)) throw new Error('sourceCommit must be an exact Git commit SHA.');
   if (input.mode !== 'seed' && input.mode !== 'commit') throw new Error('Unsupported public build mode.');
   const seed = parseSeedManifest(input.seedManifestText);
+  const scope: PublicScope = seed.scope === 'required-22' ? 'required-22' : 'miniature';
+  const expectedFiles = publicSourceFiles(scope);
   const facts = FactSnapshotSchema.parse(JSON.parse(input.factText));
   if (hashRecord(facts.derived) !== hashRecord(deriveFacts(facts))) throw new Error('Published derived facts are inconsistent.');
   if (input.mode === 'seed' && (sha256(input.factText) !== seed.initialFactHash || facts.phase !== 'initial')) throw new Error('Seed facts do not match the committed seed.');
@@ -128,7 +145,7 @@ export function createPublicArtifact(input: PublicArtifactInput): PublicArtifact
     : input.sourceTexts;
   if (!sourceTexts) throw new Error('Commit mode requires source texts from the exact commit.');
   const files = Object.keys(sourceTexts).sort();
-  if (files.length !== MINIATURE_SOURCE_FILES.length || files.some((file, index) => file !== MINIATURE_SOURCE_FILES[index])) throw new Error('Public source inventory changed.');
+  if (files.length !== expectedFiles.length || files.some((file, index) => file !== expectedFiles[index])) throw new Error('Public source inventory changed.');
 
   const routes: PublicRoute[] = [];
   const sourceHashes: Record<string, string> = {};
@@ -155,7 +172,7 @@ export function createPublicArtifact(input: PublicArtifactInput): PublicArtifact
   const assets = routes.map(inventoryAssetFor);
   return {
     format: PUBLIC_ARTIFACT_VERSION, contractVersion: 2, repository: PUBLIC_REPOSITORY,
-    scope: 'miniature', mode: input.mode, sourceCommit: input.sourceCommit,
+    scope, mode: input.mode, sourceCommit: input.sourceCommit,
     factsHash, factsFileHash: sha256(input.factText), inventoryHash: hashRecord(assets),
     sourceHashes, assets, routes,
   };
@@ -164,18 +181,21 @@ export function createPublicArtifact(input: PublicArtifactInput): PublicArtifact
 /** Bind the exact generated artifact bytes and every source/fact identity. */
 export function createDeploymentMetadata(artifactText: string): DeploymentMetadata {
   const artifact = JSON.parse(artifactText) as Partial<PublicArtifact>;
-  if (artifact.format !== PUBLIC_ARTIFACT_VERSION || artifact.contractVersion !== 2 || artifact.repository !== PUBLIC_REPOSITORY || artifact.scope !== 'miniature' || !artifact.routes || !Array.isArray(artifact.routes) || !artifact.assets || !Array.isArray(artifact.assets)) throw new Error('Unsupported public artifact.');
+  if (artifact.format !== PUBLIC_ARTIFACT_VERSION || artifact.contractVersion !== 2 || artifact.repository !== PUBLIC_REPOSITORY || !['miniature', 'required-22'].includes(artifact.scope ?? '') || !artifact.routes || !Array.isArray(artifact.routes) || !artifact.assets || !Array.isArray(artifact.assets)) throw new Error('Unsupported public artifact.');
   if (!artifact.sourceCommit || !/^[a-f0-9]{40}$/.test(artifact.sourceCommit) || !artifact.factsHash || !artifact.factsFileHash || !artifact.inventoryHash || !artifact.sourceHashes) throw new Error('Incomplete public artifact identity.');
   const routes = artifact.routes;
+  const expectedFiles = publicSourceFiles(artifact.scope as PublicScope);
   const assets = artifact.assets.map(item => InventoryAssetSchema.parse(item));
-  if (routes.length !== 4 || assets.length !== routes.length || hashRecord(assets) !== artifact.inventoryHash || routes.filter(route => route.pathname === '/site/pricing' && route.kind === 'pricing' && route.sourceFile === null).length !== 1) throw new Error('Public artifact inventory hash mismatch.');
+  const actualFiles = routes.flatMap(route => route.sourceFile === null ? [] : [route.sourceFile]).sort();
+  if (routes.length !== expectedFiles.length + 1 || assets.length !== routes.length || new Set(routes.map(route => route.pathname)).size !== routes.length || hashRecord(assets) !== artifact.inventoryHash || actualFiles.length !== expectedFiles.length || actualFiles.some((file, index) => file !== expectedFiles[index]) || Object.keys(artifact.sourceHashes).sort().join('\n') !== expectedFiles.join('\n') || routes.filter(route => route.pathname === '/site/pricing' && route.kind === 'pricing' && route.sourceFile === null).length !== 1) throw new Error('Public artifact inventory hash mismatch.');
   for (const route of routes) {
+    if (route.sourceFile !== null && route.pathname !== routeFor(route.sourceFile)) throw new Error('Public artifact source route mismatch.');
     checkedRenderedRoute(route);
     const expected = inventoryAssetFor(route);
     const stored = assets.find(item => item.pathname === route.pathname);
     if (!stored || hashRecord(expected) !== hashRecord(stored)) throw new Error('Public artifact route inventory mismatch: ' + route.pathname);
   }
-  for (const file of MINIATURE_SOURCE_FILES) {
+  for (const file of expectedFiles) {
     const route = routes.find(item => item.sourceFile === file);
     if (!route || artifact.sourceHashes[file] !== route.sourceHash) throw new Error('Public artifact source hash mismatch: ' + file);
   }

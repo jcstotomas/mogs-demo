@@ -1,5 +1,5 @@
 scenario: mogs-starter-2026-10-03
-scope: miniature-gate-1
+scope: required-22
 author: agent
 split: featured
 assets:
@@ -11,19 +11,115 @@ assets:
       audienceHint: new_customers
       legacyStarterEligible: false
     blocks:
-      - { id: launch-title, role: heading, text: "MOGS launch guide — fictional company", kind: none, label: unrelated }
-      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: contradicting, replacement: "Starter is $40 a month.", template: miniature-direct-pair }
-      - { id: annual-savings, role: body, text: "Save 20% on Starter with annual billing.", kind: annual_savings, label: contradicting, replacement: "Save 40% on Starter with annual billing." }
-      - { id: per-day, role: body, text: "Starter costs about a dollar a day.", kind: per_day, label: contradicting, replacement: "Starter costs about $1.33 a day." }
-      - { id: plan-gap, role: body, text: "Team is only $50 a month more than Starter.", kind: plan_gap, label: contradicting, replacement: "Team is only $40 a month more than Starter." }
-      - { id: threshold, role: body, text: "Get started for under $35 a month, billed monthly.", kind: threshold, label: contradicting, withhold: "No deterministic safe target for threshold wording." }
-      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
-      - { id: annual-price, role: body, text: "Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
-      - { id: current-price, role: body, text: "Starter is $40 a month for new customers.", kind: direct_price, label: consistent }
-      - { id: most-affordable, role: list_item, text: "Starter is our most affordable plan.", kind: other_pricing, label: consistent }
-      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
-      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
-      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
+      - id: launch-title
+        role: heading
+        text: MOGS launch guide — fictional company
+        kind: none
+        label: unrelated
+        family: featured-web-site-launch-md-launch-title
+        template: miniature-site-launch.md-launch-title
+        split: featured
+      - id: starter-price
+        role: body
+        text: Starter is $30 a month.
+        kind: direct_price
+        label: contradicting
+        replacement: Starter is $40 a month.
+        template: miniature-direct-pair
+        family: featured-direct-pair
+        split: featured
+      - id: annual-savings
+        role: body
+        text: Save 20% on Starter with annual billing.
+        kind: annual_savings
+        label: contradicting
+        replacement: Save 40% on Starter with annual billing.
+        family: featured-web-site-launch-md-annual-savings
+        template: miniature-site-launch.md-annual-savings
+        split: featured
+      - id: per-day
+        role: body
+        text: Starter costs about a dollar a day.
+        kind: per_day
+        label: contradicting
+        replacement: Starter costs about $1.33 a day.
+        family: featured-web-site-launch-md-per-day
+        template: miniature-site-launch.md-per-day
+        split: featured
+      - id: plan-gap
+        role: body
+        text: Team is only $50 a month more than Starter.
+        kind: plan_gap
+        label: contradicting
+        replacement: Team is only $40 a month more than Starter.
+        family: featured-web-site-launch-md-plan-gap
+        template: miniature-site-launch.md-plan-gap
+        split: featured
+      - id: threshold
+        role: body
+        text: Get started for under $35 a month, billed monthly.
+        kind: threshold
+        label: contradicting
+        withhold: No deterministic safe target for threshold wording.
+        family: featured-web-site-launch-md-threshold
+        template: miniature-site-launch.md-threshold
+        split: featured
+      - id: historical
+        role: body
+        text: When we launched in 2023, Starter cost $30 a month.
+        kind: direct_price
+        label: valid_exception
+        family: featured-historical
+        template: miniature-site-launch.md-historical
+        split: featured
+      - id: annual-price
+        role: body
+        text: Starter is $288 a year, or $24 a month billed annually.
+        kind: other_pricing
+        label: consistent
+        family: featured-annual-price
+        template: miniature-site-launch.md-annual-price
+        split: featured
+      - id: current-price
+        role: body
+        text: Starter is $40 a month for new customers.
+        kind: direct_price
+        label: consistent
+        family: featured-current-price
+        template: miniature-site-launch.md-current-price
+        split: featured
+      - id: most-affordable
+        role: list_item
+        text: Starter is our most affordable plan.
+        kind: other_pricing
+        label: consistent
+        family: featured-web-site-launch-md-most-affordable
+        template: miniature-site-launch.md-most-affordable
+        split: featured
+      - id: locations-addon
+        role: body
+        text: The Locations add-on is $30 a month.
+        kind: none
+        label: unrelated
+        family: featured-locations-addon
+        template: miniature-site-launch.md-locations-addon
+        split: featured
+      - id: cancellation
+        role: body
+        text: Cancel within 30 days.
+        kind: none
+        label: unrelated
+        family: featured-cancellation
+        template: miniature-site-launch.md-cancellation
+        split: featured
+      - id: ambiguous-offer
+        role: body
+        text: Plans from $30.
+        kind: other_pricing
+        label: insufficient_context
+        family: featured-ambiguous-offer
+        template: miniature-site-launch.md-ambiguous-offer
+        split: featured
   - file: email/onboarding.md
     surface: email
     meta:
@@ -33,16 +129,87 @@ assets:
       legacyStarterEligible: false
       journey: onboarding
     blocks:
-      - { id: email-subject, role: subject, text: "Welcome to MOGS, {{ first_name }}", kind: none, label: unrelated }
-      - { id: email-preheader, role: preheader, text: "A fictional MOGS onboarding email.", kind: none, label: unrelated }
-      - { id: greeting, role: body, text: "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.", kind: none, label: unrelated }
-      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: contradicting, replacement: "Starter is $40 a month.", template: miniature-direct-pair }
-      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
-      - { id: annual-price, role: body, text: "Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
-      - { id: current-price, role: body, text: "For new customers, Starter is $40 a month.", kind: direct_price, label: consistent }
-      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
-      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
-      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
+      - id: email-subject
+        role: subject
+        text: Welcome to MOGS, {{ first_name }}
+        kind: none
+        label: unrelated
+        family: featured-email-subject
+        template: miniature-email-onboarding.md-email-subject
+        split: featured
+      - id: email-preheader
+        role: preheader
+        text: A fictional MOGS onboarding email.
+        kind: none
+        label: unrelated
+        family: featured-email-email-onboarding-md-email-preheader
+        template: miniature-email-onboarding.md-email-preheader
+        split: featured
+      - id: greeting
+        role: body
+        text: Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.
+        kind: none
+        label: unrelated
+        family: featured-greeting
+        template: miniature-email-onboarding.md-greeting
+        split: featured
+      - id: starter-price
+        role: body
+        text: Starter is $30 a month.
+        kind: direct_price
+        label: contradicting
+        replacement: Starter is $40 a month.
+        template: miniature-direct-pair
+        family: featured-direct-pair
+        split: featured
+      - id: historical
+        role: body
+        text: When we launched in 2023, Starter cost $30 a month.
+        kind: direct_price
+        label: valid_exception
+        family: featured-historical
+        template: miniature-email-onboarding.md-historical
+        split: featured
+      - id: annual-price
+        role: body
+        text: Starter is $288 a year, or $24 a month billed annually.
+        kind: other_pricing
+        label: consistent
+        family: featured-annual-price
+        template: miniature-email-onboarding.md-annual-price
+        split: featured
+      - id: current-price
+        role: body
+        text: For new customers, Starter is $40 a month.
+        kind: direct_price
+        label: consistent
+        family: featured-current-price
+        template: miniature-email-onboarding.md-current-price
+        split: featured
+      - id: locations-addon
+        role: body
+        text: The Locations add-on is $30 a month.
+        kind: none
+        label: unrelated
+        family: featured-locations-addon
+        template: miniature-email-onboarding.md-locations-addon
+        split: featured
+      - id: cancellation
+        role: body
+        text: Cancel within 30 days.
+        kind: none
+        label: unrelated
+        family: featured-cancellation
+        template: miniature-email-onboarding.md-cancellation
+        split: featured
+      - id: ambiguous-offer
+        role: body
+        text: Plans from $30.
+        kind: other_pricing
+        label: insufficient_context
+        family: featured-ambiguous-offer
+        template: miniature-email-onboarding.md-ambiguous-offer
+        split: featured
   - file: email/eligible.md
     surface: email
     meta:
@@ -52,13 +219,856 @@ assets:
       legacyStarterEligible: true
       journey: eligible_legacy
     blocks:
-      - { id: email-subject, role: subject, text: "Your MOGS account, {{ first_name }}", kind: none, label: unrelated }
-      - { id: email-preheader, role: preheader, text: "A fictional MOGS email for active pre-change Starter monthly subscribers.", kind: other_pricing, label: valid_exception }
-      - { id: greeting, role: body, text: "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.", kind: none, label: unrelated }
-      - { id: starter-price, role: body, text: "Starter is $30 a month.", kind: direct_price, label: valid_exception, template: miniature-direct-pair }
-      - { id: historical, role: body, text: "When we launched in 2023, Starter cost $30 a month.", kind: direct_price, label: valid_exception }
-      - { id: annual-price, role: body, text: "For new customers, Starter is $288 a year, or $24 a month billed annually.", kind: other_pricing, label: consistent }
-      - { id: current-price, role: body, text: "For new customers, Starter is $40 a month.", kind: direct_price, label: consistent }
-      - { id: locations-addon, role: body, text: "The Locations add-on is $30 a month.", kind: none, label: unrelated }
-      - { id: cancellation, role: body, text: "Cancel within 30 days.", kind: none, label: unrelated }
-      - { id: ambiguous-offer, role: body, text: "Plans from $30.", kind: other_pricing, label: insufficient_context }
+      - id: email-subject
+        role: subject
+        text: Your MOGS account, {{ first_name }}
+        kind: none
+        label: unrelated
+        family: featured-email-subject
+        template: miniature-email-eligible.md-email-subject
+        split: featured
+      - id: email-preheader
+        role: preheader
+        text: A fictional MOGS email for active pre-change Starter monthly subscribers.
+        kind: none
+        label: unrelated
+        family: featured-email-email-eligible-md-email-preheader
+        template: miniature-email-eligible.md-email-preheader
+        split: featured
+      - id: greeting
+        role: body
+        text: Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.
+        kind: none
+        label: unrelated
+        family: featured-greeting
+        template: miniature-email-eligible.md-greeting
+        split: featured
+      - id: starter-price
+        role: body
+        text: Starter is $30 a month.
+        kind: direct_price
+        label: valid_exception
+        template: miniature-direct-pair
+        family: featured-direct-pair
+        split: featured
+      - id: historical
+        role: body
+        text: When we launched in 2023, Starter cost $30 a month.
+        kind: direct_price
+        label: valid_exception
+        family: featured-historical
+        template: miniature-email-eligible.md-historical
+        split: featured
+      - id: annual-price
+        role: body
+        text: For new customers, Starter is $288 a year, or $24 a month billed annually.
+        kind: other_pricing
+        label: consistent
+        family: featured-annual-price
+        template: miniature-email-eligible.md-annual-price
+        split: featured
+      - id: current-price
+        role: body
+        text: For new customers, Starter is $40 a month.
+        kind: direct_price
+        label: consistent
+        family: featured-current-price
+        template: miniature-email-eligible.md-current-price
+        split: featured
+      - id: locations-addon
+        role: body
+        text: The Locations add-on is $30 a month.
+        kind: none
+        label: unrelated
+        family: featured-locations-addon
+        template: miniature-email-eligible.md-locations-addon
+        split: featured
+      - id: cancellation
+        role: body
+        text: Cancel within 30 days.
+        kind: none
+        label: unrelated
+        family: featured-cancellation
+        template: miniature-email-eligible.md-cancellation
+        split: featured
+      - id: ambiguous-offer
+        role: body
+        text: Plans from $30.
+        kind: other_pricing
+        label: insufficient_context
+        family: featured-ambiguous-offer
+        template: miniature-email-eligible.md-ambiguous-offer
+        split: featured
+  - file: site/starter-offer.md
+    surface: web
+    meta:
+      title: MOGS Starter offer
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: starter-offer-title
+        role: heading
+        text: MOGS starter offer — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-starter-offer-title
+        template: framing-starter-offer-title
+      - id: direct-h1
+        role: body
+        text: Starter · monthly billing · $30 for a new account.
+        kind: direct_price
+        label: contradicting
+        replacement: Starter · monthly billing · $40 for a new account.
+        split: heldout
+        family: direct-h1-tariff-fragment
+        template: direct-h1-tariff-fragment
+        representative: true
+      - id: savings-h1
+        role: body
+        text: 20% annual savings for new Starter customers, measured against twelve monthly payments.
+        kind: annual_savings
+        label: contradicting
+        replacement: 40% annual savings for new Starter customers, measured against twelve monthly payments.
+        split: heldout
+        family: savings-h1-percent-first-badge
+        template: savings-h1-percent-first-badge
+        representative: true
+  - file: site/starter-renewal.md
+    surface: web
+    meta:
+      title: MOGS Starter renewal
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: starter-renewal-title
+        role: heading
+        text: MOGS starter renewal — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-starter-renewal-title
+        template: framing-starter-renewal-title
+      - id: direct-h2
+        role: body
+        text: A new Starter subscription renews each month for $30.
+        kind: direct_price
+        label: contradicting
+        replacement: A new Starter subscription renews each month for $40.
+        split: heldout
+        family: direct-h2-recurring-event
+        template: direct-h2-recurring-event
+        representative: true
+      - id: daily-h1
+        role: body
+        text: "Daily equivalent for Starter monthly billing (new customers; 30-day month): $1.00 per day."
+        kind: per_day
+        label: contradicting
+        replacement: "Daily equivalent for Starter monthly billing (new customers; 30-day month): $1.33 per day."
+        split: heldout
+        family: daily-h1-labelled-equivalent
+        template: daily-h1-labelled-equivalent
+        representative: true
+  - file: site/starter-cost.md
+    surface: web
+    meta:
+      title: MOGS Starter cost
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: starter-cost-title
+        role: heading
+        text: MOGS starter cost — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-starter-cost-title
+        template: framing-starter-cost-title
+      - id: direct-h3
+        role: body
+        text: Thirty dollars is the recurring charge on a new Starter account with monthly billing.
+        kind: direct_price
+        label: contradicting
+        replacement: Forty dollars is the recurring charge on a new Starter account with monthly billing.
+        split: heldout
+        family: direct-h3-amount-first-obligation
+        template: direct-h3-amount-first-obligation
+        representative: true
+      - id: gap-h1
+        role: body
+        text: "Monthly price difference for new subscriptions: Team minus Starter equals $50."
+        kind: plan_gap
+        label: contradicting
+        replacement: "Monthly price difference for new subscriptions: Team minus Starter equals $40."
+        split: heldout
+        family: gap-h1-subtraction-label
+        template: gap-h1-subtraction-label
+        representative: true
+  - file: site/monthly-plans.md
+    surface: web
+    meta:
+      title: MOGS Monthly plans
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: monthly-plans-title
+        role: heading
+        text: MOGS monthly plans — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-monthly-plans-title
+        template: framing-monthly-plans-title
+      - id: direct-h4
+        role: body
+        text: Monthly subscriptions for new customers cost $30 for Starter and $80 for Team.
+        kind: direct_price
+        label: contradicting
+        replacement: Monthly subscriptions for new customers cost $40 for Starter and $80 for Team.
+        split: heldout
+        family: direct-h4-multiplan-binding
+        template: direct-h4-multiplan-binding
+        representative: true
+      - id: savings-h2
+        role: body
+        text: A new customer's yearly Starter bill falls by 20% when paid annually instead of month by month.
+        kind: annual_savings
+        label: contradicting
+        replacement: A new customer's yearly Starter bill falls by 40% when paid annually instead of month by month.
+        split: heldout
+        family: savings-h2-year-total-reduction
+        template: savings-h2-year-total-reduction
+        representative: true
+  - file: site/billing-choice.md
+    surface: web
+    meta:
+      title: MOGS Billing choice
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: billing-choice-title
+        role: heading
+        text: MOGS billing choice — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-billing-choice-title
+        template: framing-billing-choice-title
+      - id: direct-h5
+        role: body
+        text: If a new customer selects monthly Starter billing, the charge is $30; annual Starter billing is $288.
+        kind: direct_price
+        label: contradicting
+        replacement: If a new customer selects monthly Starter billing, the charge is $40; annual Starter billing is $288.
+        split: heldout
+        family: direct-h5-billing-branch
+        template: direct-h5-billing-branch
+        representative: true
+      - id: daily-h2
+        role: body
+        text: If you spread new-customer Starter monthly billing over 30 days, budget $1 per day.
+        kind: per_day
+        label: contradicting
+        replacement: If you spread new-customer Starter monthly billing over 30 days, budget $1.33 per day.
+        split: heldout
+        family: daily-h2-conditional-allocation
+        template: daily-h2-conditional-allocation
+        representative: true
+  - file: site/annual-comparison.md
+    surface: web
+    meta:
+      title: MOGS Annual comparison
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: annual-comparison-title
+        role: heading
+        text: MOGS annual comparison — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-annual-comparison-title
+        template: framing-annual-comparison-title
+      - id: savings-h3
+        role: body
+        text: If a new Starter customer chooses annual billing instead of twelve monthly payments, the saving is 20%.
+        kind: annual_savings
+        label: contradicting
+        replacement: If a new Starter customer chooses annual billing instead of twelve monthly payments, the saving is 40%.
+        split: heldout
+        family: savings-h3-conditional-choice
+        template: savings-h3-conditional-choice
+        representative: true
+      - id: gap-h2
+        role: body
+        text: Moving a new customer from monthly Starter to monthly Team adds $50 to each monthly bill.
+        kind: plan_gap
+        label: contradicting
+        replacement: Moving a new customer from monthly Starter to monthly Team adds $40 to each monthly bill.
+        split: heldout
+        family: gap-h2-upgrade-increment
+        template: gap-h2-upgrade-increment
+        representative: true
+  - file: site/annual-help.md
+    surface: web
+    meta:
+      title: MOGS Annual help
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: annual-help-title
+        role: heading
+        text: MOGS annual help — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-annual-help-title
+        template: framing-annual-help-title
+      - id: savings-h4
+        role: body
+        text: For new Starter accounts, monthly billing has no annual-payment discount; the annual option reduces the twelve-month cost by 20%.
+        kind: annual_savings
+        label: contradicting
+        replacement: For new Starter accounts, monthly billing has no annual-payment discount; the annual option reduces the twelve-month cost by 40%.
+        split: heldout
+        family: savings-h4-billing-option-binding
+        template: savings-h4-billing-option-binding
+        representative: true
+      - id: daily-h3
+        role: body
+        text: Set aside $1 per day for a new Starter monthly subscription; this daily equivalent assumes a 30-day month.
+        kind: per_day
+        label: contradicting
+        replacement: Set aside $1.33 per day for a new Starter monthly subscription; this daily equivalent assumes a 30-day month.
+        split: heldout
+        family: daily-h3-calendar-budget
+        template: daily-h3-calendar-budget
+        representative: true
+  - file: site/annual-faq.md
+    surface: web
+    meta:
+      title: MOGS Annual FAQ
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: annual-faq-title
+        role: heading
+        text: MOGS annual faq — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-annual-faq-title
+        template: framing-annual-faq-title
+      - id: savings-h5
+        role: body
+        text: How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 20%.
+        kind: annual_savings
+        label: contradicting
+        replacement: How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 40%.
+        split: heldout
+        family: savings-h5-question-answer
+        template: savings-h5-question-answer
+        representative: true
+      - id: gap-h3
+        role: body
+        text: New monthly Team subscribers pay fifty dollars extra compared with Starter.
+        kind: plan_gap
+        label: contradicting
+        replacement: New monthly Team subscribers pay forty dollars extra compared with Starter.
+        split: heldout
+        family: gap-h3-spelled-premium
+        template: gap-h3-spelled-premium
+        representative: true
+  - file: site/daily-help.md
+    surface: web
+    meta:
+      title: MOGS Daily help
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: daily-help-title
+        role: heading
+        text: MOGS daily help — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-daily-help-title
+        template: framing-daily-help-title
+      - id: daily-h4
+        role: body
+        text: On a 30-day month, what daily amount represents a new Starter monthly subscription? $1 per day.
+        kind: per_day
+        label: contradicting
+        replacement: On a 30-day month, what daily amount represents a new Starter monthly subscription? $1.33 per day.
+        split: heldout
+        family: daily-h4-question-answer
+        template: daily-h4-question-answer
+        representative: true
+      - id: gap-h4
+        role: body
+        text: For new monthly subscriptions, how much less is Starter than Team? $50.
+        kind: plan_gap
+        label: contradicting
+        replacement: For new monthly subscriptions, how much less is Starter than Team? $40.
+        split: heldout
+        family: gap-h4-reversed-question
+        template: gap-h4-reversed-question
+        representative: true
+  - file: site/plan-comparison.md
+    surface: web
+    meta:
+      title: MOGS Plan comparison
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: plan-comparison-title
+        role: heading
+        text: MOGS plan comparison — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-plan-comparison-title
+        template: framing-plan-comparison-title
+      - id: daily-h5
+        role: body
+        text: For new customers, Starter monthly billing equals $1 per day on a 30-day month; annual billing remains $24 effective per month.
+        kind: per_day
+        label: contradicting
+        replacement: For new customers, Starter monthly billing equals $1.33 per day on a 30-day month; annual billing remains $24 effective per month.
+        split: heldout
+        family: daily-h5-billing-option-binding
+        template: daily-h5-billing-option-binding
+        representative: true
+      - id: gap-h5
+        role: body
+        text: Of the new-customer monthly prices, Team is higher; the difference from Starter is $50.
+        kind: plan_gap
+        label: contradicting
+        replacement: Of the new-customer monthly prices, Team is higher; the difference from Starter is $40.
+        split: heldout
+        family: gap-h5-anaphoric-direction
+        template: gap-h5-anaphoric-direction
+        representative: true
+  - file: site/starter-basics.md
+    surface: web
+    meta:
+      title: MOGS Starter basics
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: starter-basics-title
+        role: heading
+        text: MOGS starter basics — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-starter-basics-title
+        template: framing-starter-basics-title
+      - id: direct-t1
+        role: body
+        text: A first-time Starter monthly checkout lists $30 due today.
+        kind: direct_price
+        label: contradicting
+        replacement: A first-time Starter monthly checkout lists $40 due today.
+        split: tuning
+        family: direct-t1-first-charge
+        template: direct-t1-first-charge
+        representative: false
+      - id: savings-t1
+        role: body
+        text: For a lapsed customer restarting Starter, annual billing saves twenty percent compared with twelve monthly bills.
+        kind: annual_savings
+        label: contradicting
+        replacement: For a lapsed customer restarting Starter, annual billing saves forty percent compared with twelve monthly bills.
+        split: tuning
+        family: savings-t1-lapsed-return
+        template: savings-t1-lapsed-return
+        representative: false
+  - file: site/monthly-checkout.md
+    surface: web
+    meta:
+      title: MOGS Monthly checkout
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: monthly-checkout-title
+        role: heading
+        text: MOGS monthly checkout — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-monthly-checkout-title
+        template: framing-monthly-checkout-title
+      - id: direct-t2
+        role: body
+        text: Returning after a lapse? Restart Starter on monthly billing at $30.
+        kind: direct_price
+        label: contradicting
+        replacement: Returning after a lapse? Restart Starter on monthly billing at $40.
+        split: tuning
+        family: direct-t2-lapsed-return
+        template: direct-t2-lapsed-return
+        representative: false
+      - id: daily-t1
+        role: body
+        text: For a lapsed customer restarting Starter monthly, allow $1 per day on a 30-day month.
+        kind: per_day
+        label: contradicting
+        replacement: For a lapsed customer restarting Starter monthly, allow $1.33 per day on a 30-day month.
+        split: tuning
+        family: daily-t1-lapsed-return
+        template: daily-t1-lapsed-return
+        representative: false
+  - file: site/monthly-help.md
+    surface: web
+    meta:
+      title: MOGS Monthly help
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: monthly-help-title
+        role: heading
+        text: MOGS monthly help — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-monthly-help-title
+        template: framing-monthly-help-title
+      - id: direct-t3
+        role: body
+        text: Without grandfathering, a monthly Starter subscription costs $30.
+        kind: direct_price
+        label: contradicting
+        replacement: Without grandfathering, a monthly Starter subscription costs $40.
+        split: tuning
+        family: direct-t3-eligibility-exclusion
+        template: direct-t3-eligibility-exclusion
+        representative: false
+      - id: monthly-comparison-heading
+        role: heading
+        text: "New subscriptions: monthly Team compared with monthly Starter"
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-monthly-comparison-heading
+        template: framing-monthly-comparison-heading
+      - id: gap-t1
+        role: body
+        text: The monthly premium is $50.
+        kind: plan_gap
+        label: contradicting
+        replacement: The monthly premium is $40.
+        split: tuning
+        family: gap-t1-heading-inheritance
+        template: gap-t1-heading-inheritance
+        representative: false
+  - file: site/annual-overview.md
+    surface: web
+    meta:
+      title: MOGS Annual overview
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: annual-overview-title
+        role: heading
+        text: MOGS annual overview — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-annual-overview-title
+        template: framing-annual-overview-title
+      - id: annual-comparison-heading
+        role: heading
+        text: "New Starter subscriptions: annual billing versus monthly billing"
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-annual-comparison-heading
+        template: framing-annual-comparison-heading
+      - id: savings-t2
+        role: body
+        text: The annual discount is 20%.
+        kind: annual_savings
+        label: contradicting
+        replacement: The annual discount is 40%.
+        split: tuning
+        family: savings-t2-heading-inheritance
+        template: savings-t2-heading-inheritance
+        representative: false
+      - id: daily-equivalent-heading
+        role: heading
+        text: "New Starter monthly subscriptions: 30-day equivalent"
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-daily-equivalent-heading
+        template: framing-daily-equivalent-heading
+      - id: daily-t2
+        role: body
+        text: Allow $1 per day.
+        kind: per_day
+        label: contradicting
+        replacement: Allow $1.33 per day.
+        split: tuning
+        family: daily-t2-heading-inheritance
+        template: daily-t2-heading-inheritance
+        representative: false
+  - file: site/annual-calculator.md
+    surface: web
+    meta:
+      title: MOGS Annual calculator
+      kind: launch
+      audienceHint: existing_customers
+      legacyStarterEligible: true
+    blocks:
+      - id: annual-calculator-title
+        role: heading
+        text: MOGS annual calculator — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-annual-calculator-title
+        template: framing-annual-calculator-title
+      - id: savings-t3
+        role: body
+        text: For new subscriptions, Starter annual billing saves 20% relative to monthly payments; eligible legacy monthly rates are unchanged.
+        kind: annual_savings
+        label: contradicting
+        replacement: For new subscriptions, Starter annual billing saves 40% relative to monthly payments; eligible legacy monthly rates are unchanged.
+        split: tuning
+        family: savings-t3-explicit-public-in-legacy-context
+        template: savings-t3-explicit-public-in-legacy-context
+        representative: false
+      - id: gap-t2
+        role: body
+        text: When restarting after a lapse, choosing monthly Team instead of monthly Starter adds a $50 monthly charge.
+        kind: plan_gap
+        label: contradicting
+        replacement: When restarting after a lapse, choosing monthly Team instead of monthly Starter adds a $40 monthly charge.
+        split: tuning
+        family: gap-t2-lapsed-return
+        template: gap-t2-lapsed-return
+        representative: false
+  - file: site/daily-planner.md
+    surface: web
+    meta:
+      title: MOGS Daily planner
+      kind: launch
+      audienceHint: new_customers
+      legacyStarterEligible: false
+    blocks:
+      - id: daily-planner-title
+        role: heading
+        text: MOGS daily planner — fictional company
+        kind: none
+        label: unrelated
+        split: tuning
+        family: framing-daily-planner-title
+        template: framing-daily-planner-title
+      - id: daily-t3
+        role: body
+        text: For an ineligible returning Starter monthly customer, the daily equivalent is one dollar per day on a 30-day month.
+        kind: per_day
+        label: contradicting
+        replacement: For an ineligible returning Starter monthly customer, the daily equivalent is $1.33 per day on a 30-day month.
+        split: tuning
+        family: daily-t3-explicit-ineligibility
+        template: daily-t3-explicit-ineligibility
+        representative: false
+      - id: gap-t3
+        role: body
+        text: For customers without legacy eligibility, the monthly upgrade charge from Starter to Team is $50.
+        kind: plan_gap
+        label: contradicting
+        replacement: For customers without legacy eligibility, the monthly upgrade charge from Starter to Team is $40.
+        split: tuning
+        family: gap-t3-explicit-ineligibility
+        template: gap-t3-explicit-ineligibility
+        representative: false
+  - file: site/account-rules.md
+    surface: web
+    meta:
+      title: MOGS Account rules
+      kind: launch
+      audienceHint: unspecified
+      legacyStarterEligible: null
+    blocks:
+      - id: account-rules-title
+        role: heading
+        text: MOGS account rules — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-account-rules-title
+        template: framing-account-rules-title
+      - id: legacy-active
+        role: body
+        text: Active Starter monthly subscribers whose subscription began before 2026-10-03 keep $30 a month.
+        kind: direct_price
+        label: valid_exception
+        split: heldout
+        family: context-legacy-active
+        template: context-legacy-active
+      - id: historical-release
+        role: body
+        text: In our 2023 release, the monthly Starter list price was $30.
+        kind: direct_price
+        label: valid_exception
+        split: heldout
+        family: context-historical-release
+        template: context-historical-release
+      - id: annual-current
+        role: body
+        text: A new Starter annual subscription totals $288, equivalent to $24 per month billed annually.
+        kind: other_pricing
+        label: consistent
+        split: heldout
+        family: context-annual-current
+        template: context-annual-current
+      - id: unrelated-addon
+        role: body
+        text: A separate Locations add-on carries a $30 monthly fee.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: context-unrelated-addon
+        template: context-unrelated-addon
+      - id: account-section-heading
+        role: heading
+        text: Account guidance
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-account-section-heading
+        template: framing-account-section-heading
+      - id: account-before
+        role: body
+        text: Review your account details.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: neutral-account-before
+        template: neutral-account-before
+      - id: unknown-eligibility
+        role: body
+        text: Existing customers pay $30 a month for Starter.
+        kind: direct_price
+        label: insufficient_context
+        split: heldout
+        family: context-unknown-eligibility
+        template: context-unknown-eligibility
+      - id: account-after
+        role: body
+        text: Contact the account team for details.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: neutral-account-after
+        template: neutral-account-after
+      - id: threshold-t1
+        role: body
+        text: New monthly Starter accounts cost less than $35 a month.
+        kind: threshold
+        label: contradicting
+        split: tuning
+        family: context-threshold-t1
+        template: context-threshold-t1
+        withhold: No deterministic safe target for threshold wording.
+  - file: site/offer-context.md
+    surface: web
+    meta:
+      title: MOGS Offer context
+      kind: launch
+      audienceHint: unspecified
+      legacyStarterEligible: null
+    blocks:
+      - id: offer-context-title
+        role: heading
+        text: MOGS offer context — fictional company
+        kind: none
+        label: unrelated
+        split: heldout
+        family: framing-offer-context-title
+        template: framing-offer-context-title
+      - id: offer-before-plan
+        role: body
+        text: Explore the options that fit your work.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: neutral-offer-before-plan
+        template: neutral-offer-before-plan
+      - id: unknown-plan
+        role: body
+        text: Our entry offer is $30 monthly.
+        kind: other_pricing
+        label: insufficient_context
+        split: heldout
+        family: context-unknown-plan
+        template: context-unknown-plan
+      - id: offer-separator-one
+        role: body
+        text: Read the offer details.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: neutral-offer-separator-one
+        template: neutral-offer-separator-one
+      - id: unknown-billing
+        role: body
+        text: New Starter accounts cost $30.
+        kind: direct_price
+        label: insufficient_context
+        split: heldout
+        family: context-unknown-billing
+        template: context-unknown-billing
+      - id: offer-separator-two
+        role: body
+        text: Choose the options that fit your work.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: neutral-offer-separator-two
+        template: neutral-offer-separator-two
+      - id: already-current
+        role: body
+        text: A first-time Starter subscription costs $40 each month.
+        kind: direct_price
+        label: consistent
+        split: heldout
+        family: context-already-current
+        template: context-already-current
+      - id: unrelated-service
+        role: body
+        text: Our separate setup service has a $30 one-time fee.
+        kind: none
+        label: unrelated
+        split: heldout
+        family: context-unrelated-service
+        template: context-unrelated-service
+      - id: threshold-h1
+        role: body
+        text: For new Starter subscriptions billed monthly, pay under $35 a month.
+        kind: threshold
+        label: contradicting
+        split: heldout
+        family: context-threshold-h1
+        template: context-threshold-h1
+        withhold: No deterministic safe target for threshold wording.
+rubricNotes:
+  - "The eligible email preheader describes recipients without asserting a price: full-scope v2 labels it unrelated, kind none. The original miniature label remains preserved in fixtures/remote/miniature and coverage-miniature.json."
+  - Five held-out structures per deterministic kind were selected before provider execution. Exact text copies remain clustered; headings and neutral separators have no repair representatives.
