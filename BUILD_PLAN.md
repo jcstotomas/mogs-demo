@@ -91,6 +91,8 @@ Completion requires a real reviewer event, PR/preview/merge/deployment identifie
 
 Completion requires all required correction examples, real full-scope counts, reviewer actions, successful PR/preview/public verification, and both passing analysis timing results. Preserve immutable run/deployment evidence for the production repair score in Remote 3. Mark either missed target as missed rather than claiming the required demo is complete.
 
+**Current 22-asset build handoff:** the frozen corpus, public routes and complete-group pipeline are built. Local real-provider run `753e13a0-e6a2-4276-8701-8ab23009b6b5` read 22 assets/110 passages and drafted all 37 expected repairs with passing checks; three required thresholds were withheld and protected/ambiguous text received no replacement. First group was ready in 68.979s and all results in 112.594s. [Seed setup PR #7](https://github.com/jcstotomas/mogs-demo/pull/7) has a verified exact-source public preview and both trusted App checks. A human seed merge and matching production observation are required before a fresh full deployed correction. Local timing supplies no deployed gate credit. [Remote 2 evidence](docs/REMOTE_2.md) records the preserved failed runs, fixes, focused checks and single changed-path UI walkthrough; evaluation, recovery exercises and rehearsals remain deferred.
+
 ## Remote 3 — isolated evaluation, failures, and rehearsals
 
 - Evaluate pristine source against pinned desired facts in separate content, database, and served/deployment state. Reports survive reset and record corpus/labels/facts, model/adapter/configuration, run, source commit, and applicable submission/deployment IDs. Test approvals and isolated deployments remain explicitly test evidence.

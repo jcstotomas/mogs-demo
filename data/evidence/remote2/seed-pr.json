@@ -1,0 +1,205 @@
+{
+  "format": "mogs-required-seed-pr-v1",
+  "repository": "jcstotomas/mogs-demo",
+  "branch": "codex/required-22-seed",
+  "parent": "308d64631320acf022ceef9620eb161369305c2f",
+  "sourceCommit": "11221354d99aaac170ebd9475a707a04abfebbca",
+  "createdAt": "2026-10-03T22:35:50.843Z",
+  "purpose": "required-corpus-seed-setup",
+  "humanApprovals": 0,
+  "launchRepairCredit": false,
+  "stages": [],
+  "files": [
+    {
+      "path": "apps/public/.gitignore",
+      "sha256": "04c0337bd2ba6cc3534ec14030187d7de97999524feea84a988ee8138af1af5c",
+      "blobSha": "1364a66dda5534321a116c81c771b41181fc5366"
+    },
+    {
+      "path": "apps/public/app/globals.css",
+      "sha256": "f35c9a5a0ff8ff1dee67d34a6822d654e58778ce87c9fe72604caf046a725bee",
+      "blobSha": "b1f22cd9e0fa79d082a834afa4ff713556f5b9aa"
+    },
+    {
+      "path": "apps/public/app/page.tsx",
+      "sha256": "1c9fb3c418355841e9728b130e2d191f8941fe54200589b9890aac170fc7244c",
+      "blobSha": "349ac5c5b89626bbc34852bcf05c9e5dc9f1800c"
+    },
+    {
+      "path": "apps/public/app/site/[slug]/page.tsx",
+      "sha256": "554bcf41537c8ba8387fd701612f78c9f2852a99df2b0d939e8cf713e2502bd5",
+      "blobSha": "81ff93d3eaa0648f2077da06702be549ae72d7fd"
+    },
+    {
+      "path": "apps/public/components/brand.tsx",
+      "sha256": "a047ee33eb18a42e6720d19ee87e49b5a63c883cfc8935bb70f49e20a1090fc6",
+      "blobSha": "a88093f4f9f0df46ea023e788a04bc48f07698c2"
+    },
+    {
+      "path": "apps/public/components/public-asset.tsx",
+      "sha256": "5e45999ee3094cd639e7c9e20162cdea51fc59ae0b50d09280be6a9bf79f46b9",
+      "blobSha": "0b6bb12af057cd53c85b437a3cd5f88be0bb64d3"
+    },
+    {
+      "path": "apps/public/components/site-header.tsx",
+      "sha256": "79e3aeb1c1539fa32cfcc65bcab6a731b2f2eecb5c5b46cf2a325cb17fa6d25f",
+      "blobSha": "cf7ecbe3c81153f51fd832c46f94423b336468c7"
+    },
+    {
+      "path": "lib/deployment/public-artifact.ts",
+      "sha256": "b3149dd409f7d4a2e4de9c1bf40d8e1069057d65731f9a4fc044e1618dcfd103",
+      "blobSha": "07b3835ba1bc59e8d618af4e6cd4d188afb31362"
+    },
+    {
+      "path": "scripts/public-bootstrap.ts",
+      "sha256": "c8f756e6049cdcd929048d259cc0daae57d4aacfa0c76a81286d1ae4e619fa76",
+      "blobSha": "7fdbe4df14b9a2731e98108fbdf657589ab05b02"
+    },
+    {
+      "path": "content/seed.json",
+      "sha256": "4f69a951c20d242d95a7fbad5bcfc2583a7755a831caa4ff8eb3cd5143bf57d3",
+      "blobSha": "632575518ba3a6c84714bd363c094fc591e20123"
+    },
+    {
+      "path": "content/claims.yaml",
+      "sha256": "89991415483a16e9b90ca135ab4233f842f0eea9566c0b1b8c644df0fd881ffc",
+      "blobSha": "eba05c1786f8e3f524df0abe449b81f647ee7276"
+    },
+    {
+      "path": "content/manifest.jsonl",
+      "sha256": "b14baaf70758696f3fb7beb2e378799a1aca281efa0ea53a27ed942bff1e39bc",
+      "blobSha": "180b0763a5bbb87065fd923ea569e4684066d1dd"
+    },
+    {
+      "path": "fixtures/remote/coverage-required-22.json",
+      "sha256": "8ea3ecb205b0ba16b34ce8c96abee06f8c46b0199739b32578c1fcd3d8a9b880",
+      "blobSha": "7d8b7de72dd83ac7d19e51b3983dc39b0b792462"
+    },
+    {
+      "path": "content/site/launch.md",
+      "sha256": "4df8eba75307c57b6e5675d063d529cf15b1c4c3e756d908e5b90c22d2282255",
+      "blobSha": "a27ac269ca8e2f07905cb69385f6e9ac2ebebfd1"
+    },
+    {
+      "path": "content/email/onboarding.md",
+      "sha256": "945f04a465155a9d113cb0bb4f3a9ad89956ce30473478290c9f363298bd00d5",
+      "blobSha": "b7564136118c1db424ef11393904aed7ad97cfdf"
+    },
+    {
+      "path": "content/site/starter-offer.md",
+      "sha256": "a8944401107be0988a90c3b4fbe45377a8a020b4529ffd4fe5b69888e8911dc1",
+      "blobSha": "8de8ea61d8e2223a6d30029274309dc0e7ecbc94"
+    },
+    {
+      "path": "content/site/starter-renewal.md",
+      "sha256": "2670d440c102cf98ce6279d66d322e61481aa45bbbc570fbc27887af767d26c8",
+      "blobSha": "41d7ef7cceccf6ad1318f5361c6d1561a2de96dc"
+    },
+    {
+      "path": "content/site/starter-cost.md",
+      "sha256": "a9b627058a1c9583bc1b12b9c301bd6c97266fe24dcbe253a112e5ffbb26eeed",
+      "blobSha": "5f10f454d85f05d53f4786fb4da7b67bc75cfe02"
+    },
+    {
+      "path": "content/site/monthly-plans.md",
+      "sha256": "6ae25e4443ac42b54e7db8c546d10aa2c9df802ff4e2a66ac8851e20730e78cd",
+      "blobSha": "c742bcca30f112267702b4e98a82b6d7f8abe8c2"
+    },
+    {
+      "path": "content/site/billing-choice.md",
+      "sha256": "552b3f69a9deb5c049c886b172d87348a9967d562af8402ffca3eea35ef02f00",
+      "blobSha": "d92cd252eeed5a45f13980454c084c9b6848b0e1"
+    },
+    {
+      "path": "content/site/annual-comparison.md",
+      "sha256": "321a155c7956cb62b71d55461756e8346a8bc3b8414fcdc06b1b6003afa4b8c9",
+      "blobSha": "744a5814ed2a46c7d89440fdc1c5eeec211b56f4"
+    },
+    {
+      "path": "content/site/annual-help.md",
+      "sha256": "b1e91bacce48cb3c77fcbe20e7f33178931fd3db474b83d08242c64ed25ec8df",
+      "blobSha": "6f9ecdfa20bf6c51555163890bcf6e7cc0aaf7b3"
+    },
+    {
+      "path": "content/site/annual-faq.md",
+      "sha256": "53d9ef3ddd49c9a66135001a94dce711695b056e10dcc9918d2890cb23a3be23",
+      "blobSha": "24c7bfb2c00ab06d79a40acb9d0b79633d58fd06"
+    },
+    {
+      "path": "content/site/daily-help.md",
+      "sha256": "ae6a46a41906aa09d70864457a92408361b0bda11b6a9896c005a8bcdf1f8552",
+      "blobSha": "9766f0d53f2ed7a87b4f65461823e3d2cbace145"
+    },
+    {
+      "path": "content/site/plan-comparison.md",
+      "sha256": "813290f6a18894d5c7c311d5cc6c447fabe2bfdec5276ad7d56573cdc221c6f9",
+      "blobSha": "1d443044d728980bad56d53c27fadacd4769159b"
+    },
+    {
+      "path": "content/site/starter-basics.md",
+      "sha256": "f472afe9b740f6299e0c015ad978afee5775af63fe00022ec1c4b82bbd159cb7",
+      "blobSha": "b638aa6ca5589a2107e7bc7303eef55c723b042d"
+    },
+    {
+      "path": "content/site/monthly-checkout.md",
+      "sha256": "87716d85b7c82d66638aaa76db247737dd94bd90009ef90b4bf1e30d2ce9eac2",
+      "blobSha": "d59ef78e141327808e306e3d192bf8c3c5d75981"
+    },
+    {
+      "path": "content/site/monthly-help.md",
+      "sha256": "1873e90c672acbe2e908ee83447097f9c24c62b89e6613e22f72d15595b8400e",
+      "blobSha": "4b9c2b23b29b8078f2e2da5da0c35bc29864a9b4"
+    },
+    {
+      "path": "content/site/annual-overview.md",
+      "sha256": "0b74eb9b6ac90efc9f20a562d7805d3761f7d8b6c957ae9481ae73a9fcd46a96",
+      "blobSha": "2bc7e6e68f28a69298e8ce6052c880100acca629"
+    },
+    {
+      "path": "content/site/annual-calculator.md",
+      "sha256": "c2f3e51e3ee22f453a8d3a8958c5b11bcf2eec3cc41b31d933f1cf1894524e3a",
+      "blobSha": "6f45fb219b27834178ec169aee32517c26f36789"
+    },
+    {
+      "path": "content/site/daily-planner.md",
+      "sha256": "7d363a5dbddd436a5b600feff7a9bf3a766153f60d2361e436cd2cffa8a39529",
+      "blobSha": "07f9c49df41f9920f6eac80882d01342dbf2dd3b"
+    },
+    {
+      "path": "content/site/account-rules.md",
+      "sha256": "604480d3a63087d33b5039459d1ff8d733d9d41c56308b564f1852ace80020ad",
+      "blobSha": "d75650e6b04793a976ad5e16deb4de2f6496e6eb"
+    },
+    {
+      "path": "content/site/offer-context.md",
+      "sha256": "5bd6e56d3852f90b3eb836a14f23b57657de20c22fac3aebf5a51c01add5ea3f",
+      "blobSha": "40198e629697045f57450772f086805bb836e3cd"
+    },
+    {
+      "path": "data/facts.json",
+      "sha256": "fcb4b29bc752a2ea6af1aea939c62852fd78085d663323abd35753dbc007d74e",
+      "blobSha": "71e6ae32a4d5d8b75b7ab53ab3f8d6fc5b040f5f"
+    },
+    {
+      "path": "docs/REQUIRED_22_SEED.md",
+      "sha256": "3f7fe792119787186e88c1bc675215660dc5d08b4af84a283d30b281deada53d",
+      "blobSha": "7b8633cfd19939f1e8a6693ce2c7485a2ea5944c"
+    }
+  ],
+  "treeSha": "5c687f8b4a7a757321491b2cbb0ca7a27927054b",
+  "commitSha": "38418a55b71f111e9310c28487fe699dc03c1d60",
+  "prUrl": "https://github.com/jcstotomas/mogs-demo/pull/7",
+  "prNumber": 7,
+  "preview": {
+    "deploymentId": "dpl_7cxWABjfnGV4z8VK6vqt6UoS9VJj",
+    "url": "https://mogs-demo-pngdru8o8-jcstotomas-projects.vercel.app",
+    "sourceCommit": "38418a55b71f111e9310c28487fe699dc03c1d60",
+    "readyState": "READY",
+    "observedAt": "2026-10-03T22:37:48.187Z"
+  },
+  "previewReadback": {
+    "passed": true,
+    "evidenceHash": "7d01648af97c9a17bba8af733c0a8fa022dece2dd514f542de80ce48f4894aee",
+    "at": "2026-10-03T22:39:08.227Z"
+  }
+}

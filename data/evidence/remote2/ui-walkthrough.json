@@ -1,0 +1,27 @@
+{
+  "format": "mogs-demo-ui-walkthrough-v1",
+  "scope": "required-22",
+  "recordingRunId": "753e13a0-e6a2-4276-8701-8ab23009b6b5",
+  "desktopWidth": 1440,
+  "mobileWidth": 375,
+  "site": {
+    "h1": 1,
+    "main": 1,
+    "horizontalOverflow": false,
+    "keyboardFocusVisible": true
+  },
+  "review": {
+    "h1": 1,
+    "main": 1,
+    "horizontalOverflow": false,
+    "mobileOverflowingElements": 0,
+    "keyboardFocusOutline": "3px solid",
+    "groups": 4,
+    "confirmDisabled": true,
+    "approvalButtonsDisabled": 4,
+    "submitDisabled": true,
+    "deploymentCheckDisabled": true
+  },
+  "visualCreditOnly": true,
+  "publicationCredit": false
+}

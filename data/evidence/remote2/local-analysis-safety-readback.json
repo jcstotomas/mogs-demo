@@ -1,0 +1,22 @@
+{
+  "format": "mogs-local-analysis-safety-readback-v1",
+  "evidenceKind": "focused-local-readback",
+  "runId": "753e13a0-e6a2-4276-8701-8ab23009b6b5",
+  "sourceCommit": "11221354d99aaac170ebd9475a707a04abfebbca",
+  "runtimeCommit": "e5beda089b6e61d6dd9b613670e55fb590d3c8c5",
+  "corpusHash": "22072aae8d911d414640982cfa59b86fcbf210c5c9854500157d3c595337d4a2",
+  "expectedRepairs": 37,
+  "draftedRepairs": 37,
+  "exactRepairMismatches": [],
+  "unexpectedProtectedOrAmbiguousReplacements": [],
+  "repairCheckFailures": [],
+  "requiredThresholds": 3,
+  "unsafeThresholds": [],
+  "approvals": 0,
+  "submission": null,
+  "observations": 0,
+  "publicationCredit": false,
+  "status": "ready",
+  "firstSealedGroupMs": 68979,
+  "allResultsReadyMs": 112594
+}
