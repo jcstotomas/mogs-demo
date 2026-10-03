@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-03",
+  "preview": "http://localhost:3111/console/campaign",
+  "responsive": [
+    {
+      "screen": "campaign",
+      "width": 375,
+      "main": 375,
+      "frame": {
+        "viewport": 343,
+        "scroll": 343
+      }
+    },
+    {
+      "screen": "campaign",
+      "width": 320,
+      "main": 320,
+      "frame": {
+        "viewport": 288,
+        "scroll": 288
+      }
+    },
+    {
+      "screen": "website",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "screen": "website",
+      "width": 320,
+      "scroll": 320
+    }
+  ],
+  "fixtures": [
+    {
+      "state": "initial",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "WEBSITE AND EMAIL REVIEW\n\nReview proposed changes\n\nReview the proposed copy for the fictional MOGS price change. Approve the checked changes, then send one website update for review in GitHub.\n\nUI fixture · initial\n\nIsolated UI fixture. Counts, checks, timings, approvals, PR and deployment identities are synthetic. Fixture controls cannot approve, submit, merge or publish.\n\nBefore Confirm\nCollecting\nComplete groups\nWithheld and protected\nSubmission failed\nPreview failed\nPublic verification faile"
+    },
+    {
+      "state": "collecting",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "WEBSITE AND EMAIL REVIEW\n\nReview proposed changes\n\nReview the proposed copy for the fictional MOGS price change. Approve the checked changes, then send one website update for review in GitHub.\n\nUI fixture · collecting\n\nIsolated UI fixture. Counts, checks, timings, approvals, PR and deployment identities are synthetic. Fixture controls cannot approve, submit, merge or publish.\n\nBefore Confirm\nCollecting\nComplete groups\nWithheld and protected\nSubmission failed\nPreview failed\nPublic verification fa"
+    },
+    {
+      "state": "sealed",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Review proposed changes\n4\n\nCompare the current copy with each suggestion. Review the reason and any items needing attention, then approve the checked changes you want to include.\n\nFixture: Ready for review\nFixture direct_price\n\n2 proposed changes · 0 not included\n\nAssets and check details\nApprove these changes\n\nFixture approval is disabled.\n\nWeb page · MOGS launch guide\nProposed correction\nCURRENT\n\nStarter is $30 a month.\n\nSUGGESTED\n\nStarter is $40 a month.\n\nWhy this change?\nEmail preview · MOGS"
+    },
+    {
+      "state": "withheld",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Withheld and preserved claims\nNeeds attention\n4\n\nThese claims receive no automatic correction.\n\nWeb · withheld\n\nGet started for under $35 a month, billed monthly.\n\nNo deterministic safe target for threshold wording.\n\nNeeds context\n\nPlans from $30.\n\nPlan, billing or eligibility context is unresolved.\n\nNeeds context\n\nPlans from $30.\n\nPlan, billing or eligibility context is unresolved.\n\nNeeds context\n\nPlans from $30.\n\nPlan, billing or eligibility context is unresolved.\n\nPreserved claims\n20\n\nValid l"
+    },
+    {
+      "state": "failedsubmission",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Send website changes for review\n\nOne GitHub pull request contains your approved corrections and the pricing page update. Every included change must pass its checks. Publishing happens after you merge the request in GitHub.\n\nCreate GitHub review request\nCheck deployment\n\nFixture submission is disabled.\n\n1. Review request\n\nFixture: failed\n\nSynthetic lost PR response. Remote identity remains unknown; the target stays reserved.\n\n2. Preview check\n\nFixture: Awaiting deployed preview\n\nThe proposed upda"
+    },
+    {
+      "state": "failedpreview",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Send website changes for review\n\nOne GitHub pull request contains your approved corrections and the pricing page update. Every included change must pass its checks. Publishing happens after you merge the request in GitHub.\n\nCreate GitHub review request\nCheck deployment\n\nFixture submission is disabled.\n\n1. Review request\n\nFixture: submitted\n\nThe request is recorded. Preview and live site checks have their own results below.\n\nSynthetic PR identity · link disabled\n\n2. Preview check\n\nFixture: failed"
+    },
+    {
+      "state": "mergedfailure",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Send website changes for review\n\nOne GitHub pull request contains your approved corrections and the pricing page update. Every included change must pass its checks. Publishing happens after you merge the request in GitHub.\n\nCreate GitHub review request\nCheck deployment\n\nFixture submission is disabled.\n\n1. Review request\n\nFixture: submitted\n\nThe request is recorded. Preview and live site checks have their own results below.\n\nSynthetic PR identity · link disabled\n\n2. Preview check\n\nFixture: passed"
+    },
+    {
+      "state": "verified",
+      "overflow": false,
+      "enabledMutationButtons": 0,
+      "targetText": "Send website changes for review\n\nOne GitHub pull request contains your approved corrections and the pricing page update. Every included change must pass its checks. Publishing happens after you merge the request in GitHub.\n\nCreate GitHub review request\nCheck deployment\n\nFixture submission is disabled.\n\n1. Review request\n\nFixture: submitted\n\nThe request is recorded. Preview and live site checks have their own results below.\n\nSynthetic PR identity · link disabled\n\n2. Preview check\n\nFixture: passed"
+    }
+  ],
+  "accessibility": {
+    "campaignFocus": {
+      "text": "Skip to campaign review",
+      "outline": "rgb(155, 72, 23) solid 3px",
+      "top": 8
+    },
+    "skipTarget": "campaign-main",
+    "disclosureOpen": true,
+    "campaignContrast": {
+      "min": 6.18,
+      "failures": []
+    },
+    "labContrast": {
+      "min": 5.92,
+      "failures": []
+    },
+    "websiteContrast": {
+      "min": 4.84,
+      "failures": []
+    },
+    "websiteFocus": {
+      "text": "Skip to launch review",
+      "outline": "rgb(155, 72, 23) solid 3px"
+    },
+    "websiteSkipTarget": "remote-main",
+    "reducedMotion": {
+      "transition": "all",
+      "transform": "none"
+    }
+  },
+  "additional": {
+    "hover": {
+      "background": "rgb(21, 59, 39)",
+      "height": 48
+    },
+    "reducedMotion": {
+      "duration": "0s",
+      "transform": "none"
+    },
+    "/console/remote?fixture=sealed": [
+      {
+        "url": "http://localhost:3111/console/remote?fixture=sealed",
+        "sizes": {
+          "width": 375,
+          "scroll": 375
+        }
+      }
+    ],
+    "/console/campaign": [
+      {
+        "url": "http://localhost:3111/console/campaign",
+        "sizes": {
+          "width": 375,
+          "scroll": 375
+        }
+      },
+      {
+        "url": "http://localhost:3111/api/multichannel/ui",
+        "sizes": {
+          "width": 343,
+          "scroll": 343
+        }
+      }
+    ],
+    "home": {
+      "h1": "Keep the launch in step.",
+      "overflow": false
+    }
+  }
+}

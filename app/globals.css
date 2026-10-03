@@ -1,12 +1,14 @@
 :root {
   --font-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --color-ink: #242a24;
-  --color-muted: #606c5b;
-  --color-canvas: #f6f5f0;
-  --color-surface: #fffefa;
-  --color-action: #294e3a;
-  --color-action-hover: #193d29;
-  --color-focus: #ae6924;
+  --color-ink: #191b17;
+  --color-muted: #53584e;
+  --color-canvas: #eeece4;
+  --color-surface: #fffdf6;
+  --color-action: #24543b;
+  --color-action-hover: #153b27;
+  --color-focus: #9b4817;
+  --color-line: #777b70;
+  --color-rule: #252820;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --duration-press: 140ms;
   color-scheme: light;

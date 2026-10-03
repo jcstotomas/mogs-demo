@@ -150,3 +150,95 @@
   .groupNote, .publication { padding-inline: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .shell *, .shell *::before, .shell *::after { scroll-behavior: auto !important; } }
+
+/* Brutalist review theme: shared by current and historical review screens. */
+.shell { overflow-wrap: anywhere; }
+.shell a { color: var(--color-action); }
+.shell h2, .shell h3 { font-weight: 800; letter-spacing: -.035em; }
+.topbar { max-width: none; padding: 16px 40px; min-height: 88px; border-bottom: 3px solid var(--color-rule); }
+.brand { gap: 12px; color: var(--color-ink) !important; font-size: 32px; font-weight: 900; letter-spacing: -.07em; }
+.brand::before { content: ''; width: 32px; height: 32px; flex: 0 0 32px; background: var(--color-ink); clip-path: polygon(0 0, 50% 32%, 100% 0, 100% 100%, 70% 100%, 70% 48%, 50% 62%, 30% 48%, 30% 100%, 0 100%); }
+.brand span { border-left: 2px solid var(--color-rule); padding-left: 20px; margin-left: 8px; color: var(--color-muted); font-size: 14px; }
+.topbar nav { gap: 8px 24px; }
+.topbar nav a { font-size: 14px; font-weight: 650; }
+.main { max-width: 1360px; margin: 0 auto; padding: 40px 40px 48px; }
+.intro { max-width: none; border-bottom: 3px solid var(--color-rule); padding-bottom: 28px; margin-bottom: 28px; }
+.intro h1 { font-size: clamp(36px, 4.6vw, 64px); font-weight: 850; letter-spacing: -.06em; line-height: 1.03; margin: 12px 0 16px; }
+.intro > p:last-child { color: var(--color-muted); max-width: 720px; }
+.eyebrow { color: var(--color-muted); font-weight: 750; letter-spacing: .08em; }
+.change { border: 2px solid var(--color-rule); border-radius: 0; background: var(--color-surface); padding: 32px; gap: 32px; }
+.change h2 { font-size: 26px; }
+.price { font-size: 52px; font-weight: 650; gap: 16px; padding: 16px 0; }
+.price > span:first-child, .price small, .muted, .small { color: var(--color-muted); }
+.price strong { font-weight: 850; color: var(--color-action); }
+.changeAction { border-left: 2px solid var(--color-line); padding-left: 32px; }
+.changeAction > p { color: var(--color-muted); }
+.badge, .goodBadge, .warningBadge { border-radius: 0; border: 1px solid var(--color-line); padding: 5px 8px; font-weight: 700; }
+.badge { color: var(--color-ink); background: #e3e4d8; }
+.goodBadge { color: #245039; background: #e4edde; border-color: #477253; }
+.warningBadge { color: #684511; background: #f5e6c4; border-color: #97702c; }
+.primary, .secondary { border: 2px solid var(--color-action); border-radius: 0; min-height: 48px; padding: 12px 20px; font-size: 14px !important; font-weight: 750 !important; }
+.secondary { border-color: var(--color-rule); color: var(--color-ink); background: var(--color-surface); }
+.shell button:disabled { opacity: 1; color: #62665b; background: #e1e2d8; border-color: #929689; }
+.scope { border-bottom: 2px solid var(--color-rule); }
+.scope p { color: var(--color-muted); font-size: 14px; }
+.progressSection { border-radius: 0; padding: 24px 32px; background: #e0e3d6; border-top: 3px solid var(--color-rule); border-bottom: 2px solid var(--color-rule); }
+.progress { border-radius: 0; height: 8px; background: #bdc6b6; }
+.progress::-webkit-progress-bar { border-radius: 0; background: #bdc6b6; }
+.progress::-webkit-progress-value { border-radius: 0; background: var(--color-action); }
+.progress::-moz-progress-bar { border-radius: 0; background: var(--color-action); }
+.stat dt { color: var(--color-muted); }
+.stat dd { color: var(--color-ink); font-size: 32px; font-weight: 750; }
+.section { margin-top: 40px; }
+.sectionDescription { color: var(--color-muted); }
+.count { border-radius: 0; border: 2px solid var(--color-rule); background: var(--color-surface); color: var(--color-ink); font-weight: 750; }
+.empty { border: 2px dashed var(--color-line); border-radius: 0; color: var(--color-muted); }
+.group { border: 2px solid var(--color-rule); border-radius: 0; background: var(--color-surface); }
+.groupHeader { padding: 24px; align-items: flex-start; gap: 24px; }
+.groupHeader > div { min-width: 0; }
+.groupHeader p { color: var(--color-muted); }
+.patch { border-top: 2px solid var(--color-rule); padding: 24px; }
+.diff { gap: 0; border: 1px solid var(--color-line); }
+.diff > div { min-width: 0; border-radius: 0; padding: 16px; background: #eeebe2; }
+.diff > div:nth-child(2) { background: #e7eddf; border-left: 1px solid var(--color-line); }
+.diff span { color: var(--color-muted); font-weight: 750; }
+.diff p { font-size: 15px; }
+.rationale { color: var(--color-muted); font-size: 14px; }
+.checks, .checks li p { font-size: 14px; }
+.checks li { border-color: #c2c6b8; grid-template-columns: 40px minmax(0, 1fr); }
+.checks summary, .evidence summary { color: var(--color-action); }
+.goodText { color: #245039; }
+.badText { color: #8c3023; }
+.verification { border-left: 4px solid var(--color-action); background: #e7eddf; font-size: 14px; }
+.error { border: 2px solid #994e3c; border-radius: 0; color: #822c20; background: #fae9df; }
+.publication { border-top: 2px solid var(--color-rule); background: #e9eadd; font-size: 14px; }
+.findingPanel { border: 2px solid var(--color-rule); border-radius: 0; background: var(--color-surface); padding: 24px; }
+.finding, .protectedItem { border-color: #b6bcad; }
+.finding p { font-size: 14px; }
+.evidence { border-top: 3px solid var(--color-rule); }
+.evidence > p, .evidence details dl { color: var(--color-muted); }
+@media (hover: hover) and (pointer: fine) {
+  .secondary:not(:disabled):hover { background: #dedfd3; }
+}
+@media (max-width: 960px) {
+  .topbar { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 760px) {
+  .topbar { padding: 16px; gap: 16px; }
+  .brand { gap: 8px; font-size: 28px; }
+  .brand span { max-width: 140px; padding-left: 12px; margin-left: 4px; font-size: 12px; }
+  .brand::before { width: 28px; height: 28px; flex-basis: 28px; }
+  .topbar nav { gap: 0 20px; }
+  .main { margin: 0; padding: 28px 16px; }
+  .intro { padding-bottom: 24px; margin-bottom: 24px; }
+  .intro h1 { font-size: clamp(36px, 10vw, 48px); }
+  .change { padding: 20px; gap: 24px; }
+  .price { font-size: 44px; }
+  .changeAction { padding: 20px 0 0; border-left: 0; border-top: 2px solid var(--color-line); }
+  .scope { flex-wrap: wrap; }
+  .progressSection { padding: 24px 20px; }
+  .groupHeader, .patch, .findingPanel { padding: 20px; }
+  .diff > div:nth-child(2) { border-left: 0; border-top: 1px solid var(--color-line); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat dd { font-size: 28px; }
+}

@@ -41,3 +41,44 @@
   .launch { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 16px; margin-bottom: 24px; }
   .frame { min-height: 960px; }
 }
+
+/* Brutalist review theme: paper, ink, and structural rules. */
+.header { border-bottom: 3px solid var(--color-rule); padding: 16px 40px; min-height: 88px; }
+.brand { gap: 12px; font-size: 32px; font-weight: 900; letter-spacing: -.07em; }
+.brand::before { content: ''; width: 32px; height: 32px; flex: 0 0 32px; background: var(--color-ink); clip-path: polygon(0 0, 50% 32%, 100% 0, 100% 100%, 70% 100%, 70% 48%, 50% 62%, 30% 48%, 30% 100%, 0 100%); }
+.brand span { margin-left: 8px; padding-left: 20px; border-left: 2px solid var(--color-rule); letter-spacing: 0; }
+.header nav { gap: 8px; }
+.header nav a { padding: 8px 16px; font-weight: 650; text-decoration: none; border: 2px solid transparent; }
+.header nav a[aria-current='page'] { background: var(--color-ink); color: var(--color-surface); border-color: var(--color-ink); }
+.main { padding: 40px; }
+.intro { max-width: none; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 3px solid var(--color-rule); }
+.intro h1 { max-width: 1080px; font-size: clamp(36px, 5vw, 72px); font-weight: 850; letter-spacing: -.065em; line-height: 1; margin-bottom: 16px; }
+.intro p:last-child { max-width: 760px; }
+.eyebrow { font-weight: 750; color: var(--color-muted); }
+.launch { border: 2px solid var(--color-rule); border-radius: 0; padding: 24px; gap: 32px; margin-bottom: 32px; }
+.launch h2, .sectionHeading h2 { font-size: 24px; letter-spacing: -.035em; font-weight: 800; }
+.summary { margin-top: 12px; }
+.summary strong { font-size: 20px; font-weight: 800; letter-spacing: -.025em; }
+.primary, .secondary { min-height: 48px; border: 2px solid var(--color-action); border-radius: 0; padding: 12px 20px; font-weight: 750; }
+.secondary { color: var(--color-ink); border-color: var(--color-rule); }
+.sectionHeading { padding: 0 0 16px; margin-bottom: 24px; border-bottom: 3px solid var(--color-rule); }
+.reviewDetails summary { font-weight: 600; text-underline-offset: 4px; }
+.skip { font-weight: 700; }
+@media (hover: hover) and (pointer: fine) {
+  .header nav a:not([aria-current='page']):hover { border-color: var(--color-rule); }
+  .secondary:hover { background: #dedfd3; }
+}
+@media (max-width: 700px) {
+  .header { padding: 16px; gap: 16px; }
+  .brand { flex-wrap: nowrap; gap: 8px; font-size: 28px; }
+  .brand span { flex-basis: auto; max-width: 140px; margin-left: 4px; padding-left: 12px; font-size: 12px; }
+  .brand::before { width: 28px; height: 28px; flex-basis: 28px; }
+  .header nav { gap: 4px; }
+  .header nav a { padding: 8px 12px; }
+  .main { padding: 28px 16px; }
+  .intro { padding-bottom: 24px; margin-bottom: 24px; }
+  .intro h1 { font-size: clamp(36px, 10vw, 48px); }
+  .launch { padding: 20px; gap: 20px; }
+  .launch h2, .sectionHeading h2 { font-size: 22px; }
+  .actions { min-width: 0; }
+}

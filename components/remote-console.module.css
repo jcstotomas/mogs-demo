@@ -44,3 +44,14 @@
   .evidenceList dd { margin-bottom: 8px; }
   .notice { padding: 16px 20px; }
 }
+
+/* Brutalist review theme; semantic states remain separate. */
+.notice { border: 2px solid var(--color-rule); border-radius: 0; background: #e3e6d9; color: var(--color-ink); }
+.status, .shellWrap p.supportingText, .shellWrap dt.supportingText, .shellWrap span.priceArrow { color: var(--color-muted); }
+.facts dt, .surfaces, .groupReason { color: var(--color-muted); }
+.facts dd { font-weight: 750; }
+.stage { border-top: 2px solid var(--color-rule); }
+.reviewDetails summary { color: var(--color-action); }
+.recovery { border: 2px solid #994e3c; border-radius: 0; background: #fae9df; }
+.reason { border: 2px solid var(--color-line); border-radius: 0; color: var(--color-ink); background: var(--color-surface); }
+.preserved details { border-color: var(--color-line); }
