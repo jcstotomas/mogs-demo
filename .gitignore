@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.turbo/
+coverage/
+*.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+
+data/*.db
+data/*.db-*
+data/eval/latest.json
+
+.DS_Store
