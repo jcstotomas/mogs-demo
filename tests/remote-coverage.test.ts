@@ -42,7 +42,7 @@ test('miniature coverage registry is fixture evidence with zero independent held
 });
 
 test('every miniature registry passage resolves once against pristine source and exact hashes', () => {
-  const seed = JSON.parse(readFileSync('content/seed.json', 'utf8')) as { sources: Record<string, { source: string; hash: string }> };
+  const seed = JSON.parse(readFileSync('fixtures/remote/miniature/seed.json', 'utf8')) as { sources: Record<string, { source: string; hash: string }> };
   const observed = Object.entries(seed.sources).map(([file, value]) => extractRenderedAsset(renderSource(parseSource(value.source, file, file.startsWith('site/') ? 'web' : 'email')), 'http://localhost:3000/' + file.slice(0, -3)));
   const passages = observed.flatMap(item => item.passages), assets = observed.map(item => item.page);
   assertCoverageResolution(fixture, passages, assets);

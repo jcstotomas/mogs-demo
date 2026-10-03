@@ -1,0 +1,3140 @@
+{
+  "contractVersion": "remote0-coverage-v1",
+  "id": "mogs-required-22-v1",
+  "evidenceKind": "fixture",
+  "scenarioId": "mogs-starter-2026-10-03",
+  "sourceCommit": null,
+  "corpusHash": "22072aae8d911d414640982cfa59b86fcbf210c5c9854500157d3c595337d4a2",
+  "labelHash": "36651ebe6887c3a7ca1d9dbb8b719ed1fbe878ceb3f2a5a47ec5a6c7c824361b",
+  "factHash": "d8d3572f382592e750561c2d8665f5673a0e80b630341abec6cf17e8cc41ca1d",
+  "targets": {
+    "direct_price": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    },
+    "annual_savings": {
+      "value": 40,
+      "unit": "percent",
+      "scope": "public"
+    },
+    "per_day": {
+      "value": 1.33,
+      "unit": "usd_per_day",
+      "scope": "public"
+    },
+    "plan_gap": {
+      "value": 40,
+      "unit": "usd",
+      "scope": "public"
+    }
+  },
+  "assets": [
+    {
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "adce6640d89f84971f5e148ed400c1d1ea24f9a97fc3297e842b91eb3bd15780"
+    },
+    {
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "sourceHash": "33a2094dd3d102e9f4bf4173695841fde64510083b6ae68fbdc5a97059c2abef"
+    },
+    {
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "sourceHash": "00f445cba9e475a4769f3d2c0d6e57a881588d35e2df69dd5ffa5b0d2ba2b0d0"
+    },
+    {
+      "assetId": "web:site/starter-offer.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "03943976d0244a16875fefdda1f30b8fbc4749e44a24e378d60751eb10709314"
+    },
+    {
+      "assetId": "web:site/starter-renewal.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "d1ec7093fb98a6884f4b7096cd27a83c610ee068468d188030b51c9740bec103"
+    },
+    {
+      "assetId": "web:site/starter-cost.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "d1e45f97fb643fdf1794c9c970840fc70876ebc42e35704d7a059b5035884f3d"
+    },
+    {
+      "assetId": "web:site/monthly-plans.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "661f888e270380baf2253636c592fbbd8964ef602dde70160d844b5917e18e72"
+    },
+    {
+      "assetId": "web:site/billing-choice.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "1fc408bb396c97d4d4b4d23c63bad872d9f57a6ad936f8c8ab0fdbb262b545be"
+    },
+    {
+      "assetId": "web:site/annual-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "1f3379cd3ab7eb4a594c7efc8cda441a2448c04ac5198331b9dc42a286e6c329"
+    },
+    {
+      "assetId": "web:site/annual-help.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "e76a7fa1a26b240a5678ad090cc197df6015c7416fd8804c237483091a4995ff"
+    },
+    {
+      "assetId": "web:site/annual-faq.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "c7b9504b685edcdff59e7d931da2ebcd94dd79f89403277574d980dca4edb8aa"
+    },
+    {
+      "assetId": "web:site/daily-help.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "5e2e0de229da8abb10f6f9ebda0bff837fc67545e513bd70492437a95b7557e4"
+    },
+    {
+      "assetId": "web:site/plan-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "647c9b3e08100830234564518be4f4d099f091f633a9367a072324fcb4ad2756"
+    },
+    {
+      "assetId": "web:site/starter-basics.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "b57129c79cfe74a8d137f34e26ce242b6b2063911efa1a725082095e9609d1fc"
+    },
+    {
+      "assetId": "web:site/monthly-checkout.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "bbb82305e07f37c21cca5b3302eb5985058d2ef7584c4cfe1071f6b602e12154"
+    },
+    {
+      "assetId": "web:site/monthly-help.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "fb9f322dda701d9780e688979f8f87f3b63958199e18246c879313385c45396e"
+    },
+    {
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "95ac7651314e97a7fad3fb3cb6ff76d4e5d1a7e355d974000e6954745f892daf"
+    },
+    {
+      "assetId": "web:site/annual-calculator.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "18b5d8dc9e3f731a2cde58331144dbee9182f4093e0532bac3573e4595773dfd"
+    },
+    {
+      "assetId": "web:site/daily-planner.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "06d0bf87f5a1cf6878e4acfea0205b75fc53b9810b2b40e02d3a615591e8cbb0"
+    },
+    {
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "2eea5b0befbe958e4a08e9894571926eee4f26ee6719cd7a18c1cfddf0652b85"
+    },
+    {
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "sourceHash": "ce02a85812a4fd0ced2f1716d46483d2b6583c5de4408953e0b2c57754c6d82c"
+    }
+  ],
+  "families": [
+    {
+      "familyId": "featured-web-site-launch-md-launch-title",
+      "kind": "none",
+      "templateId": "featured-web-site-launch-md-launch-title",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#launch-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-direct-pair",
+      "kind": "direct_price",
+      "templateId": "featured-direct-pair",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#starter-price",
+        "email:email/onboarding.md#starter-price",
+        "email:email/eligible.md#starter-price"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-web-site-launch-md-annual-savings",
+      "kind": "annual_savings",
+      "templateId": "featured-web-site-launch-md-annual-savings",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#annual-savings"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-web-site-launch-md-per-day",
+      "kind": "per_day",
+      "templateId": "featured-web-site-launch-md-per-day",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#per-day"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-web-site-launch-md-plan-gap",
+      "kind": "plan_gap",
+      "templateId": "featured-web-site-launch-md-plan-gap",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#plan-gap"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-web-site-launch-md-threshold",
+      "kind": "threshold",
+      "templateId": "featured-web-site-launch-md-threshold",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#threshold"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-historical",
+      "kind": "direct_price",
+      "templateId": "featured-historical",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#historical",
+        "email:email/onboarding.md#historical",
+        "email:email/eligible.md#historical"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-annual-price",
+      "kind": "other_pricing",
+      "templateId": "featured-annual-price",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#annual-price",
+        "email:email/onboarding.md#annual-price",
+        "email:email/eligible.md#annual-price"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-current-price",
+      "kind": "direct_price",
+      "templateId": "featured-current-price",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#current-price",
+        "email:email/onboarding.md#current-price",
+        "email:email/eligible.md#current-price"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-web-site-launch-md-most-affordable",
+      "kind": "other_pricing",
+      "templateId": "featured-web-site-launch-md-most-affordable",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#most-affordable"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-locations-addon",
+      "kind": "none",
+      "templateId": "featured-locations-addon",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#locations-addon",
+        "email:email/onboarding.md#locations-addon",
+        "email:email/eligible.md#locations-addon"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-cancellation",
+      "kind": "none",
+      "templateId": "featured-cancellation",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#cancellation",
+        "email:email/onboarding.md#cancellation",
+        "email:email/eligible.md#cancellation"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-ambiguous-offer",
+      "kind": "other_pricing",
+      "templateId": "featured-ambiguous-offer",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/launch.md#ambiguous-offer",
+        "email:email/onboarding.md#ambiguous-offer",
+        "email:email/eligible.md#ambiguous-offer"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-email-subject",
+      "kind": "none",
+      "templateId": "featured-email-subject",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "email:email/onboarding.md#email-subject",
+        "email:email/eligible.md#email-subject"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-email-email-onboarding-md-email-preheader",
+      "kind": "none",
+      "templateId": "featured-email-email-onboarding-md-email-preheader",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "email:email/onboarding.md#email-preheader"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-greeting",
+      "kind": "none",
+      "templateId": "featured-greeting",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "email:email/onboarding.md#greeting",
+        "email:email/eligible.md#greeting"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "featured-email-email-eligible-md-email-preheader",
+      "kind": "none",
+      "templateId": "featured-email-email-eligible-md-email-preheader",
+      "split": "featured",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "email:email/eligible.md#email-preheader"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-starter-offer-title",
+      "kind": "none",
+      "templateId": "framing-starter-offer-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-offer.md#starter-offer-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-h1-tariff-fragment",
+      "kind": "direct_price",
+      "templateId": "direct-h1-tariff-fragment",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-offer.md#direct-h1"
+      ],
+      "representativePassageId": "web:site/starter-offer.md#direct-h1"
+    },
+    {
+      "familyId": "savings-h1-percent-first-badge",
+      "kind": "annual_savings",
+      "templateId": "savings-h1-percent-first-badge",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-offer.md#savings-h1"
+      ],
+      "representativePassageId": "web:site/starter-offer.md#savings-h1"
+    },
+    {
+      "familyId": "framing-starter-renewal-title",
+      "kind": "none",
+      "templateId": "framing-starter-renewal-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-renewal.md#starter-renewal-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-h2-recurring-event",
+      "kind": "direct_price",
+      "templateId": "direct-h2-recurring-event",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-renewal.md#direct-h2"
+      ],
+      "representativePassageId": "web:site/starter-renewal.md#direct-h2"
+    },
+    {
+      "familyId": "daily-h1-labelled-equivalent",
+      "kind": "per_day",
+      "templateId": "daily-h1-labelled-equivalent",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-renewal.md#daily-h1"
+      ],
+      "representativePassageId": "web:site/starter-renewal.md#daily-h1"
+    },
+    {
+      "familyId": "framing-starter-cost-title",
+      "kind": "none",
+      "templateId": "framing-starter-cost-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-cost.md#starter-cost-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-h3-amount-first-obligation",
+      "kind": "direct_price",
+      "templateId": "direct-h3-amount-first-obligation",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-cost.md#direct-h3"
+      ],
+      "representativePassageId": "web:site/starter-cost.md#direct-h3"
+    },
+    {
+      "familyId": "gap-h1-subtraction-label",
+      "kind": "plan_gap",
+      "templateId": "gap-h1-subtraction-label",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-cost.md#gap-h1"
+      ],
+      "representativePassageId": "web:site/starter-cost.md#gap-h1"
+    },
+    {
+      "familyId": "framing-monthly-plans-title",
+      "kind": "none",
+      "templateId": "framing-monthly-plans-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-plans.md#monthly-plans-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-h4-multiplan-binding",
+      "kind": "direct_price",
+      "templateId": "direct-h4-multiplan-binding",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-plans.md#direct-h4"
+      ],
+      "representativePassageId": "web:site/monthly-plans.md#direct-h4"
+    },
+    {
+      "familyId": "savings-h2-year-total-reduction",
+      "kind": "annual_savings",
+      "templateId": "savings-h2-year-total-reduction",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-plans.md#savings-h2"
+      ],
+      "representativePassageId": "web:site/monthly-plans.md#savings-h2"
+    },
+    {
+      "familyId": "framing-billing-choice-title",
+      "kind": "none",
+      "templateId": "framing-billing-choice-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/billing-choice.md#billing-choice-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-h5-billing-branch",
+      "kind": "direct_price",
+      "templateId": "direct-h5-billing-branch",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/billing-choice.md#direct-h5"
+      ],
+      "representativePassageId": "web:site/billing-choice.md#direct-h5"
+    },
+    {
+      "familyId": "daily-h2-conditional-allocation",
+      "kind": "per_day",
+      "templateId": "daily-h2-conditional-allocation",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/billing-choice.md#daily-h2"
+      ],
+      "representativePassageId": "web:site/billing-choice.md#daily-h2"
+    },
+    {
+      "familyId": "framing-annual-comparison-title",
+      "kind": "none",
+      "templateId": "framing-annual-comparison-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-comparison.md#annual-comparison-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-h3-conditional-choice",
+      "kind": "annual_savings",
+      "templateId": "savings-h3-conditional-choice",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-comparison.md#savings-h3"
+      ],
+      "representativePassageId": "web:site/annual-comparison.md#savings-h3"
+    },
+    {
+      "familyId": "gap-h2-upgrade-increment",
+      "kind": "plan_gap",
+      "templateId": "gap-h2-upgrade-increment",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-comparison.md#gap-h2"
+      ],
+      "representativePassageId": "web:site/annual-comparison.md#gap-h2"
+    },
+    {
+      "familyId": "framing-annual-help-title",
+      "kind": "none",
+      "templateId": "framing-annual-help-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-help.md#annual-help-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-h4-billing-option-binding",
+      "kind": "annual_savings",
+      "templateId": "savings-h4-billing-option-binding",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-help.md#savings-h4"
+      ],
+      "representativePassageId": "web:site/annual-help.md#savings-h4"
+    },
+    {
+      "familyId": "daily-h3-calendar-budget",
+      "kind": "per_day",
+      "templateId": "daily-h3-calendar-budget",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-help.md#daily-h3"
+      ],
+      "representativePassageId": "web:site/annual-help.md#daily-h3"
+    },
+    {
+      "familyId": "framing-annual-faq-title",
+      "kind": "none",
+      "templateId": "framing-annual-faq-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-faq.md#annual-faq-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-h5-question-answer",
+      "kind": "annual_savings",
+      "templateId": "savings-h5-question-answer",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-faq.md#savings-h5"
+      ],
+      "representativePassageId": "web:site/annual-faq.md#savings-h5"
+    },
+    {
+      "familyId": "gap-h3-spelled-premium",
+      "kind": "plan_gap",
+      "templateId": "gap-h3-spelled-premium",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-faq.md#gap-h3"
+      ],
+      "representativePassageId": "web:site/annual-faq.md#gap-h3"
+    },
+    {
+      "familyId": "framing-daily-help-title",
+      "kind": "none",
+      "templateId": "framing-daily-help-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-help.md#daily-help-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "daily-h4-question-answer",
+      "kind": "per_day",
+      "templateId": "daily-h4-question-answer",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-help.md#daily-h4"
+      ],
+      "representativePassageId": "web:site/daily-help.md#daily-h4"
+    },
+    {
+      "familyId": "gap-h4-reversed-question",
+      "kind": "plan_gap",
+      "templateId": "gap-h4-reversed-question",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-help.md#gap-h4"
+      ],
+      "representativePassageId": "web:site/daily-help.md#gap-h4"
+    },
+    {
+      "familyId": "framing-plan-comparison-title",
+      "kind": "none",
+      "templateId": "framing-plan-comparison-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/plan-comparison.md#plan-comparison-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "daily-h5-billing-option-binding",
+      "kind": "per_day",
+      "templateId": "daily-h5-billing-option-binding",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/plan-comparison.md#daily-h5"
+      ],
+      "representativePassageId": "web:site/plan-comparison.md#daily-h5"
+    },
+    {
+      "familyId": "gap-h5-anaphoric-direction",
+      "kind": "plan_gap",
+      "templateId": "gap-h5-anaphoric-direction",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/plan-comparison.md#gap-h5"
+      ],
+      "representativePassageId": "web:site/plan-comparison.md#gap-h5"
+    },
+    {
+      "familyId": "framing-starter-basics-title",
+      "kind": "none",
+      "templateId": "framing-starter-basics-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-basics.md#starter-basics-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-t1-first-charge",
+      "kind": "direct_price",
+      "templateId": "direct-t1-first-charge",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-basics.md#direct-t1"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-t1-lapsed-return",
+      "kind": "annual_savings",
+      "templateId": "savings-t1-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/starter-basics.md#savings-t1"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-monthly-checkout-title",
+      "kind": "none",
+      "templateId": "framing-monthly-checkout-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-checkout.md#monthly-checkout-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-t2-lapsed-return",
+      "kind": "direct_price",
+      "templateId": "direct-t2-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-checkout.md#direct-t2"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "daily-t1-lapsed-return",
+      "kind": "per_day",
+      "templateId": "daily-t1-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-checkout.md#daily-t1"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-monthly-help-title",
+      "kind": "none",
+      "templateId": "framing-monthly-help-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-help.md#monthly-help-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "direct-t3-eligibility-exclusion",
+      "kind": "direct_price",
+      "templateId": "direct-t3-eligibility-exclusion",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-help.md#direct-t3"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-monthly-comparison-heading",
+      "kind": "none",
+      "templateId": "framing-monthly-comparison-heading",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-help.md#monthly-comparison-heading"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "gap-t1-heading-inheritance",
+      "kind": "plan_gap",
+      "templateId": "gap-t1-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/monthly-help.md#gap-t1"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-annual-overview-title",
+      "kind": "none",
+      "templateId": "framing-annual-overview-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-overview.md#annual-overview-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-annual-comparison-heading",
+      "kind": "none",
+      "templateId": "framing-annual-comparison-heading",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-overview.md#annual-comparison-heading"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-t2-heading-inheritance",
+      "kind": "annual_savings",
+      "templateId": "savings-t2-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-overview.md#savings-t2"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-daily-equivalent-heading",
+      "kind": "none",
+      "templateId": "framing-daily-equivalent-heading",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-overview.md#daily-equivalent-heading"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "daily-t2-heading-inheritance",
+      "kind": "per_day",
+      "templateId": "daily-t2-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-overview.md#daily-t2"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-annual-calculator-title",
+      "kind": "none",
+      "templateId": "framing-annual-calculator-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-calculator.md#annual-calculator-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "savings-t3-explicit-public-in-legacy-context",
+      "kind": "annual_savings",
+      "templateId": "savings-t3-explicit-public-in-legacy-context",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-calculator.md#savings-t3"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "gap-t2-lapsed-return",
+      "kind": "plan_gap",
+      "templateId": "gap-t2-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/annual-calculator.md#gap-t2"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-daily-planner-title",
+      "kind": "none",
+      "templateId": "framing-daily-planner-title",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-planner.md#daily-planner-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "daily-t3-explicit-ineligibility",
+      "kind": "per_day",
+      "templateId": "daily-t3-explicit-ineligibility",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-planner.md#daily-t3"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "gap-t3-explicit-ineligibility",
+      "kind": "plan_gap",
+      "templateId": "gap-t3-explicit-ineligibility",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/daily-planner.md#gap-t3"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-account-rules-title",
+      "kind": "none",
+      "templateId": "framing-account-rules-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#account-rules-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-legacy-active",
+      "kind": "direct_price",
+      "templateId": "context-legacy-active",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#legacy-active"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-historical-release",
+      "kind": "direct_price",
+      "templateId": "context-historical-release",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#historical-release"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-annual-current",
+      "kind": "other_pricing",
+      "templateId": "context-annual-current",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#annual-current"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-unrelated-addon",
+      "kind": "none",
+      "templateId": "context-unrelated-addon",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#unrelated-addon"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-account-section-heading",
+      "kind": "none",
+      "templateId": "framing-account-section-heading",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#account-section-heading"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "neutral-account-before",
+      "kind": "none",
+      "templateId": "neutral-account-before",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#account-before"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-unknown-eligibility",
+      "kind": "direct_price",
+      "templateId": "context-unknown-eligibility",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#unknown-eligibility"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "neutral-account-after",
+      "kind": "none",
+      "templateId": "neutral-account-after",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#account-after"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-threshold-t1",
+      "kind": "threshold",
+      "templateId": "context-threshold-t1",
+      "split": "tuning",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/account-rules.md#threshold-t1"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "framing-offer-context-title",
+      "kind": "none",
+      "templateId": "framing-offer-context-title",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#offer-context-title"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "neutral-offer-before-plan",
+      "kind": "none",
+      "templateId": "neutral-offer-before-plan",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#offer-before-plan"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-unknown-plan",
+      "kind": "other_pricing",
+      "templateId": "context-unknown-plan",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#unknown-plan"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "neutral-offer-separator-one",
+      "kind": "none",
+      "templateId": "neutral-offer-separator-one",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#offer-separator-one"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-unknown-billing",
+      "kind": "direct_price",
+      "templateId": "context-unknown-billing",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#unknown-billing"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "neutral-offer-separator-two",
+      "kind": "none",
+      "templateId": "neutral-offer-separator-two",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#offer-separator-two"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-already-current",
+      "kind": "direct_price",
+      "templateId": "context-already-current",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#already-current"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-unrelated-service",
+      "kind": "none",
+      "templateId": "context-unrelated-service",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#unrelated-service"
+      ],
+      "representativePassageId": null
+    },
+    {
+      "familyId": "context-threshold-h1",
+      "kind": "threshold",
+      "templateId": "context-threshold-h1",
+      "split": "heldout",
+      "authoredBy": "agent",
+      "memberPassageIds": [
+        "web:site/offer-context.md#threshold-h1"
+      ],
+      "representativePassageId": null
+    }
+  ],
+  "cases": [
+    {
+      "passageId": "web:site/launch.md#launch-title",
+      "sourceId": "launch-title",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS launch guide — fictional company",
+      "textHash": "3fe179cfd041bccb6fdbd69b13dec52a02a27db6efd39e639af66429a3c9f90a",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-web-site-launch-md-launch-title",
+      "templateId": "miniature-site-launch.md-launch-title",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#starter-price",
+      "sourceId": "starter-price",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter is $30 a month.",
+      "textHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Starter is $40 a month.",
+      "expectedWithhold": null,
+      "familyId": "featured-direct-pair",
+      "templateId": "miniature-direct-pair",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#annual-savings",
+      "sourceId": "annual-savings",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Save 20% on Starter with annual billing.",
+      "textHash": "8ce46d9a518c7ba37587624c3bb723ece5a46feb94f32b2e5396d1785c55dff5",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "Save 40% on Starter with annual billing.",
+      "expectedWithhold": null,
+      "familyId": "featured-web-site-launch-md-annual-savings",
+      "templateId": "miniature-site-launch.md-annual-savings",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#per-day",
+      "sourceId": "per-day",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter costs about a dollar a day.",
+      "textHash": "d09a5d8514f739a714df4a383a3138aaae072f2395c277d549bf858550586519",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "Starter costs about $1.33 a day.",
+      "expectedWithhold": null,
+      "familyId": "featured-web-site-launch-md-per-day",
+      "templateId": "miniature-site-launch.md-per-day",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#plan-gap",
+      "sourceId": "plan-gap",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Team is only $50 a month more than Starter.",
+      "textHash": "0d97374ec691ae8e716baad06583d3ad3fad468bb2a462f38aa47a3fddd2f74f",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Team is only $40 a month more than Starter.",
+      "expectedWithhold": null,
+      "familyId": "featured-web-site-launch-md-plan-gap",
+      "templateId": "miniature-site-launch.md-plan-gap",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#threshold",
+      "sourceId": "threshold",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Get started for under $35 a month, billed monthly.",
+      "textHash": "e3b1ea14af3ab176a2ffc3e724fee052df90cc5b6e1c53ebb13e1d59bb31993b",
+      "kind": "threshold",
+      "expectedLabel": "contradicting",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": "No deterministic safe target for threshold wording.",
+      "familyId": "featured-web-site-launch-md-threshold",
+      "templateId": "miniature-site-launch.md-threshold",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#historical",
+      "sourceId": "historical",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "When we launched in 2023, Starter cost $30 a month.",
+      "textHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-historical",
+      "templateId": "miniature-site-launch.md-historical",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#annual-price",
+      "sourceId": "annual-price",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "textHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+      "kind": "other_pricing",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-annual-price",
+      "templateId": "miniature-site-launch.md-annual-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#current-price",
+      "sourceId": "current-price",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter is $40 a month for new customers.",
+      "textHash": "eeffbcbc0bba075e4c531a6fce60d766065226dc685b45346cff7e4fff9c855c",
+      "kind": "direct_price",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-current-price",
+      "templateId": "miniature-site-launch.md-current-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#most-affordable",
+      "sourceId": "most-affordable",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter is our most affordable plan.",
+      "textHash": "ea2fb5f9aeadefc99c5e12c6f68aea80c6e34b7dcb15dba5afcb1ba74afb5222",
+      "kind": "other_pricing",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-web-site-launch-md-most-affordable",
+      "templateId": "miniature-site-launch.md-most-affordable",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#locations-addon",
+      "sourceId": "locations-addon",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "The Locations add-on is $30 a month.",
+      "textHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-locations-addon",
+      "templateId": "miniature-site-launch.md-locations-addon",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#cancellation",
+      "sourceId": "cancellation",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Cancel within 30 days.",
+      "textHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-cancellation",
+      "templateId": "miniature-site-launch.md-cancellation",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/launch.md#ambiguous-offer",
+      "sourceId": "ambiguous-offer",
+      "assetId": "web:site/launch.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Plans from $30.",
+      "textHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+      "kind": "other_pricing",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-ambiguous-offer",
+      "templateId": "miniature-site-launch.md-ambiguous-offer",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#email-subject",
+      "sourceId": "email-subject",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Welcome to MOGS, {{ first_name }}",
+      "textHash": "7d1b0354096c74ba00a00b63b233b1433cddc7d25cdbe079ad5e66b1d6e9c1b7",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-email-subject",
+      "templateId": "miniature-email-onboarding.md-email-subject",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#email-preheader",
+      "sourceId": "email-preheader",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "A fictional MOGS onboarding email.",
+      "textHash": "553bd8769e2eac007190becc2f2e19d44bdabc138e7d93c741fcec7c4d764f19",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-email-email-onboarding-md-email-preheader",
+      "templateId": "miniature-email-onboarding.md-email-preheader",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#greeting",
+      "sourceId": "greeting",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Hi {{ first_name }}, visit https://mogs.example/get-started?ref=onboarding&step=1 for setup.",
+      "textHash": "97927ade4a0540fb75f3cd89034db9d0d77833f8240c67ff3000b954f0f6d827",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-greeting",
+      "templateId": "miniature-email-onboarding.md-greeting",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#starter-price",
+      "sourceId": "starter-price",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Starter is $30 a month.",
+      "textHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Starter is $40 a month.",
+      "expectedWithhold": null,
+      "familyId": "featured-direct-pair",
+      "templateId": "miniature-direct-pair",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#historical",
+      "sourceId": "historical",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "When we launched in 2023, Starter cost $30 a month.",
+      "textHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-historical",
+      "templateId": "miniature-email-onboarding.md-historical",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#annual-price",
+      "sourceId": "annual-price",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Starter is $288 a year, or $24 a month billed annually.",
+      "textHash": "0e971828e6d4e9d21c1dbf79666656a1b839bca6099d3f18b7123221e48b4d63",
+      "kind": "other_pricing",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-annual-price",
+      "templateId": "miniature-email-onboarding.md-annual-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#current-price",
+      "sourceId": "current-price",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "For new customers, Starter is $40 a month.",
+      "textHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+      "kind": "direct_price",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-current-price",
+      "templateId": "miniature-email-onboarding.md-current-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#locations-addon",
+      "sourceId": "locations-addon",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "The Locations add-on is $30 a month.",
+      "textHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-locations-addon",
+      "templateId": "miniature-email-onboarding.md-locations-addon",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#cancellation",
+      "sourceId": "cancellation",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Cancel within 30 days.",
+      "textHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-cancellation",
+      "templateId": "miniature-email-onboarding.md-cancellation",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/onboarding.md#ambiguous-offer",
+      "sourceId": "ambiguous-offer",
+      "assetId": "email:email/onboarding.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Plans from $30.",
+      "textHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+      "kind": "other_pricing",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-ambiguous-offer",
+      "templateId": "miniature-email-onboarding.md-ambiguous-offer",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#email-subject",
+      "sourceId": "email-subject",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Your MOGS account, {{ first_name }}",
+      "textHash": "91576c06bd03ed515773f649583c4cc562b9fe4b82ac3662a18cbb03e36d05af",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-email-subject",
+      "templateId": "miniature-email-eligible.md-email-subject",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#email-preheader",
+      "sourceId": "email-preheader",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "A fictional MOGS email for active pre-change Starter monthly subscribers.",
+      "textHash": "ec3b2a16dfb6aa5029759d35ac2a27fc0ad218e65a5e49322df2eacafc8eb1c0",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-email-email-eligible-md-email-preheader",
+      "templateId": "miniature-email-eligible.md-email-preheader",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#greeting",
+      "sourceId": "greeting",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Hi {{ first_name }}, visit https://mogs.example/account?ref=legacy&step=1 for your account.",
+      "textHash": "363f9c2f433c1fa10478bfff5398460236b2f89f9169f39a17f1773768667613",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-greeting",
+      "templateId": "miniature-email-eligible.md-greeting",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#starter-price",
+      "sourceId": "starter-price",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Starter is $30 a month.",
+      "textHash": "a4ace0927f63c9a998e9e7223cc9501514b6fae6bc8caa287179416488bb693e",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-direct-pair",
+      "templateId": "miniature-direct-pair",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#historical",
+      "sourceId": "historical",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "When we launched in 2023, Starter cost $30 a month.",
+      "textHash": "65929ce90033bd003db05bc86a43e6d0d74bf551dd43cb9374b00d65af7db725",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-historical",
+      "templateId": "miniature-email-eligible.md-historical",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#annual-price",
+      "sourceId": "annual-price",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "For new customers, Starter is $288 a year, or $24 a month billed annually.",
+      "textHash": "892ccd3193e5bc5e62322710017d783e180b9638a2e2cece2d9a588a2ee0dd80",
+      "kind": "other_pricing",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-annual-price",
+      "templateId": "miniature-email-eligible.md-annual-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#current-price",
+      "sourceId": "current-price",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "For new customers, Starter is $40 a month.",
+      "textHash": "f0cb24cf197c853621eaf3616f024d3cb957a8fc6cbcc6e53a17247e35b3b26f",
+      "kind": "direct_price",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-current-price",
+      "templateId": "miniature-email-eligible.md-current-price",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#locations-addon",
+      "sourceId": "locations-addon",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "The Locations add-on is $30 a month.",
+      "textHash": "a15ea9261d0331039cd3b34a23acc4255c866569babf4cfadf011b933dbdcc24",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-locations-addon",
+      "templateId": "miniature-email-eligible.md-locations-addon",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#cancellation",
+      "sourceId": "cancellation",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Cancel within 30 days.",
+      "textHash": "ed4923329abbe43e680cfaa04f99f57660147cae0ac88102319677f09ba21251",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-cancellation",
+      "templateId": "miniature-email-eligible.md-cancellation",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "email:email/eligible.md#ambiguous-offer",
+      "sourceId": "ambiguous-offer",
+      "assetId": "email:email/eligible.md",
+      "surface": "email",
+      "editable": true,
+      "text": "Plans from $30.",
+      "textHash": "1b0cfff544b34297775215368b9188949bd0b1f80f831d6039522554d0de17d6",
+      "kind": "other_pricing",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "featured-ambiguous-offer",
+      "templateId": "miniature-email-eligible.md-ambiguous-offer",
+      "split": "featured",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-offer.md#starter-offer-title",
+      "sourceId": "starter-offer-title",
+      "assetId": "web:site/starter-offer.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS starter offer — fictional company",
+      "textHash": "2d46be1de16a7eee2ed2ba348f8fdb11baedd7cb8df0665e6077d4a0de0894ae",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-starter-offer-title",
+      "templateId": "framing-starter-offer-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-offer.md#direct-h1",
+      "sourceId": "direct-h1",
+      "assetId": "web:site/starter-offer.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Starter · monthly billing · $30 for a new account.",
+      "textHash": "911ca81439f9c4789ac87b44fdc3a32e7b7e3e71effc595b00f9df132ebf4430",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Starter · monthly billing · $40 for a new account.",
+      "expectedWithhold": null,
+      "familyId": "direct-h1-tariff-fragment",
+      "templateId": "direct-h1-tariff-fragment",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-offer.md#savings-h1",
+      "sourceId": "savings-h1",
+      "assetId": "web:site/starter-offer.md",
+      "surface": "web",
+      "editable": true,
+      "text": "20% annual savings for new Starter customers, measured against twelve monthly payments.",
+      "textHash": "65043b1a2b45975b656584e79c3179ee38cefa4a26357df713087a88a65763d5",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "40% annual savings for new Starter customers, measured against twelve monthly payments.",
+      "expectedWithhold": null,
+      "familyId": "savings-h1-percent-first-badge",
+      "templateId": "savings-h1-percent-first-badge",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-renewal.md#starter-renewal-title",
+      "sourceId": "starter-renewal-title",
+      "assetId": "web:site/starter-renewal.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS starter renewal — fictional company",
+      "textHash": "9aff113f4c5d2b41206c8901e32cf170fcec45bcbfbb5dfb41c5d983e6366052",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-starter-renewal-title",
+      "templateId": "framing-starter-renewal-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-renewal.md#direct-h2",
+      "sourceId": "direct-h2",
+      "assetId": "web:site/starter-renewal.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A new Starter subscription renews each month for $30.",
+      "textHash": "8abb8f9361a306d0679da264271393d88dd25a2b2ec9d25efbd0696fe4c595c1",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "A new Starter subscription renews each month for $40.",
+      "expectedWithhold": null,
+      "familyId": "direct-h2-recurring-event",
+      "templateId": "direct-h2-recurring-event",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-renewal.md#daily-h1",
+      "sourceId": "daily-h1",
+      "assetId": "web:site/starter-renewal.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Daily equivalent for Starter monthly billing (new customers; 30-day month): $1.00 per day.",
+      "textHash": "140e4e4ef19012bf344c35fcc10f6d4e178ed80b08e502add88e8088a6a6c7fd",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "Daily equivalent for Starter monthly billing (new customers; 30-day month): $1.33 per day.",
+      "expectedWithhold": null,
+      "familyId": "daily-h1-labelled-equivalent",
+      "templateId": "daily-h1-labelled-equivalent",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-cost.md#starter-cost-title",
+      "sourceId": "starter-cost-title",
+      "assetId": "web:site/starter-cost.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS starter cost — fictional company",
+      "textHash": "8423223ce7488266b99b6659bea45a01fdab1269738a0c29f825cbce071c12c2",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-starter-cost-title",
+      "templateId": "framing-starter-cost-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-cost.md#direct-h3",
+      "sourceId": "direct-h3",
+      "assetId": "web:site/starter-cost.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Thirty dollars is the recurring charge on a new Starter account with monthly billing.",
+      "textHash": "fca19b6ed151cc67d7190dc97cd3c18947487cc6d591c15b0b533c438779ddf5",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Forty dollars is the recurring charge on a new Starter account with monthly billing.",
+      "expectedWithhold": null,
+      "familyId": "direct-h3-amount-first-obligation",
+      "templateId": "direct-h3-amount-first-obligation",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-cost.md#gap-h1",
+      "sourceId": "gap-h1",
+      "assetId": "web:site/starter-cost.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Monthly price difference for new subscriptions: Team minus Starter equals $50.",
+      "textHash": "7a6bb8e2c295475fe0483d25be99af3f10a487c51cbfb0fc470146caf30fc1d0",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Monthly price difference for new subscriptions: Team minus Starter equals $40.",
+      "expectedWithhold": null,
+      "familyId": "gap-h1-subtraction-label",
+      "templateId": "gap-h1-subtraction-label",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-plans.md#monthly-plans-title",
+      "sourceId": "monthly-plans-title",
+      "assetId": "web:site/monthly-plans.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS monthly plans — fictional company",
+      "textHash": "e23066927c5d02d70d32d0fe7c4bedafcc02ab8a8a3d67359cbf6595bcc6b91e",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-monthly-plans-title",
+      "templateId": "framing-monthly-plans-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-plans.md#direct-h4",
+      "sourceId": "direct-h4",
+      "assetId": "web:site/monthly-plans.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Monthly subscriptions for new customers cost $30 for Starter and $80 for Team.",
+      "textHash": "864da62fec91f5407f022ac4151bf4482bc93d92cb0738301d3819c5c4387e14",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Monthly subscriptions for new customers cost $40 for Starter and $80 for Team.",
+      "expectedWithhold": null,
+      "familyId": "direct-h4-multiplan-binding",
+      "templateId": "direct-h4-multiplan-binding",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-plans.md#savings-h2",
+      "sourceId": "savings-h2",
+      "assetId": "web:site/monthly-plans.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A new customer's yearly Starter bill falls by 20% when paid annually instead of month by month.",
+      "textHash": "536bc749d6c709e6b4ae9983d0aa768a8353862f626609d748d8246dfde6b2a8",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "A new customer's yearly Starter bill falls by 40% when paid annually instead of month by month.",
+      "expectedWithhold": null,
+      "familyId": "savings-h2-year-total-reduction",
+      "templateId": "savings-h2-year-total-reduction",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/billing-choice.md#billing-choice-title",
+      "sourceId": "billing-choice-title",
+      "assetId": "web:site/billing-choice.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS billing choice — fictional company",
+      "textHash": "d4e7da607394bd9ffa7cffa7af19b62ecba991582049b95a75322624dc04f6cc",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-billing-choice-title",
+      "templateId": "framing-billing-choice-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/billing-choice.md#direct-h5",
+      "sourceId": "direct-h5",
+      "assetId": "web:site/billing-choice.md",
+      "surface": "web",
+      "editable": true,
+      "text": "If a new customer selects monthly Starter billing, the charge is $30; annual Starter billing is $288.",
+      "textHash": "8e7b6a41c8e8c09d4364b60a40551f664649b40da4ae28bebb9afdfa2af3ff6d",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "If a new customer selects monthly Starter billing, the charge is $40; annual Starter billing is $288.",
+      "expectedWithhold": null,
+      "familyId": "direct-h5-billing-branch",
+      "templateId": "direct-h5-billing-branch",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/billing-choice.md#daily-h2",
+      "sourceId": "daily-h2",
+      "assetId": "web:site/billing-choice.md",
+      "surface": "web",
+      "editable": true,
+      "text": "If you spread new-customer Starter monthly billing over 30 days, budget $1 per day.",
+      "textHash": "2cb4ab8a5ee405699bc717be879502e234acb85aab89be0d760389592c8454a8",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "If you spread new-customer Starter monthly billing over 30 days, budget $1.33 per day.",
+      "expectedWithhold": null,
+      "familyId": "daily-h2-conditional-allocation",
+      "templateId": "daily-h2-conditional-allocation",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-comparison.md#annual-comparison-title",
+      "sourceId": "annual-comparison-title",
+      "assetId": "web:site/annual-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS annual comparison — fictional company",
+      "textHash": "9f6e8b352965082fe281e8321947fc8afec8ad86a8b32fe5e4c9d551ffb9d1da",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-comparison-title",
+      "templateId": "framing-annual-comparison-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-comparison.md#savings-h3",
+      "sourceId": "savings-h3",
+      "assetId": "web:site/annual-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "If a new Starter customer chooses annual billing instead of twelve monthly payments, the saving is 20%.",
+      "textHash": "57a4fdc52f9225ad6324699474f24c41857215ab519c4051d9d6b84b312d41a0",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "If a new Starter customer chooses annual billing instead of twelve monthly payments, the saving is 40%.",
+      "expectedWithhold": null,
+      "familyId": "savings-h3-conditional-choice",
+      "templateId": "savings-h3-conditional-choice",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-comparison.md#gap-h2",
+      "sourceId": "gap-h2",
+      "assetId": "web:site/annual-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Moving a new customer from monthly Starter to monthly Team adds $50 to each monthly bill.",
+      "textHash": "0c9cf074d078ea36bef4f4961ddd4d2f6b1c71363c41b3f7146178d54773c378",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Moving a new customer from monthly Starter to monthly Team adds $40 to each monthly bill.",
+      "expectedWithhold": null,
+      "familyId": "gap-h2-upgrade-increment",
+      "templateId": "gap-h2-upgrade-increment",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-help.md#annual-help-title",
+      "sourceId": "annual-help-title",
+      "assetId": "web:site/annual-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS annual help — fictional company",
+      "textHash": "2b90ebebf4a9c7110fe26c743e16955bece49daca8919756040eae0cceec23a0",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-help-title",
+      "templateId": "framing-annual-help-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-help.md#savings-h4",
+      "sourceId": "savings-h4",
+      "assetId": "web:site/annual-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For new Starter accounts, monthly billing has no annual-payment discount; the annual option reduces the twelve-month cost by 20%.",
+      "textHash": "f76e4c34fd3d71b5b524052474ad79793340856cb7a234b9953eedcdfa4cb09b",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "For new Starter accounts, monthly billing has no annual-payment discount; the annual option reduces the twelve-month cost by 40%.",
+      "expectedWithhold": null,
+      "familyId": "savings-h4-billing-option-binding",
+      "templateId": "savings-h4-billing-option-binding",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-help.md#daily-h3",
+      "sourceId": "daily-h3",
+      "assetId": "web:site/annual-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Set aside $1 per day for a new Starter monthly subscription; this daily equivalent assumes a 30-day month.",
+      "textHash": "e3a90b993001b65bc92cfcab406fe866c9ef1000a36daa92ad17bd991bb1602a",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "Set aside $1.33 per day for a new Starter monthly subscription; this daily equivalent assumes a 30-day month.",
+      "expectedWithhold": null,
+      "familyId": "daily-h3-calendar-budget",
+      "templateId": "daily-h3-calendar-budget",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-faq.md#annual-faq-title",
+      "sourceId": "annual-faq-title",
+      "assetId": "web:site/annual-faq.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS annual faq — fictional company",
+      "textHash": "d54ed2b191dce51881699c4e8b3e4c50f3ffc11aa42fdb462a4b5bf0b143548f",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-faq-title",
+      "templateId": "framing-annual-faq-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-faq.md#savings-h5",
+      "sourceId": "savings-h5",
+      "assetId": "web:site/annual-faq.md",
+      "surface": "web",
+      "editable": true,
+      "text": "How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 20%.",
+      "textHash": "76a2b8a5bd7aa32745e869524d6959a6444e81575616bed15f78727e94230167",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 40%.",
+      "expectedWithhold": null,
+      "familyId": "savings-h5-question-answer",
+      "templateId": "savings-h5-question-answer",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-faq.md#gap-h3",
+      "sourceId": "gap-h3",
+      "assetId": "web:site/annual-faq.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New monthly Team subscribers pay fifty dollars extra compared with Starter.",
+      "textHash": "9357d9d17e4cb2bcb3ffdc0ab13004446c97b33b2ab07f0f4037decccbaed633",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "New monthly Team subscribers pay forty dollars extra compared with Starter.",
+      "expectedWithhold": null,
+      "familyId": "gap-h3-spelled-premium",
+      "templateId": "gap-h3-spelled-premium",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-help.md#daily-help-title",
+      "sourceId": "daily-help-title",
+      "assetId": "web:site/daily-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS daily help — fictional company",
+      "textHash": "7c6576a076bca042f1ee98cc9af2e1d705dcfa014e87a1067cf507a1f6973f89",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-daily-help-title",
+      "templateId": "framing-daily-help-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-help.md#daily-h4",
+      "sourceId": "daily-h4",
+      "assetId": "web:site/daily-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "On a 30-day month, what daily amount represents a new Starter monthly subscription? $1 per day.",
+      "textHash": "7132734c0475654a2504164d5693153e92d3edc0858c0cf6c715b6774fc5b102",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "On a 30-day month, what daily amount represents a new Starter monthly subscription? $1.33 per day.",
+      "expectedWithhold": null,
+      "familyId": "daily-h4-question-answer",
+      "templateId": "daily-h4-question-answer",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-help.md#gap-h4",
+      "sourceId": "gap-h4",
+      "assetId": "web:site/daily-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For new monthly subscriptions, how much less is Starter than Team? $50.",
+      "textHash": "f3d22a9b068dc9ca242b9ddbbfc3418e6f51baa3488dcc494deb7f8f0c25d8ca",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "For new monthly subscriptions, how much less is Starter than Team? $40.",
+      "expectedWithhold": null,
+      "familyId": "gap-h4-reversed-question",
+      "templateId": "gap-h4-reversed-question",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/plan-comparison.md#plan-comparison-title",
+      "sourceId": "plan-comparison-title",
+      "assetId": "web:site/plan-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS plan comparison — fictional company",
+      "textHash": "edffe676d1a9aad664e1c3139a2dff17c079a235219435d1929b2118d0d668d2",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-plan-comparison-title",
+      "templateId": "framing-plan-comparison-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/plan-comparison.md#daily-h5",
+      "sourceId": "daily-h5",
+      "assetId": "web:site/plan-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For new customers, Starter monthly billing equals $1 per day on a 30-day month; annual billing remains $24 effective per month.",
+      "textHash": "a91545fc8d6344a39bcfbbcd7eb81a954bb71a655e662763332f7dd2e43d1d68",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "For new customers, Starter monthly billing equals $1.33 per day on a 30-day month; annual billing remains $24 effective per month.",
+      "expectedWithhold": null,
+      "familyId": "daily-h5-billing-option-binding",
+      "templateId": "daily-h5-billing-option-binding",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/plan-comparison.md#gap-h5",
+      "sourceId": "gap-h5",
+      "assetId": "web:site/plan-comparison.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Of the new-customer monthly prices, Team is higher; the difference from Starter is $50.",
+      "textHash": "2f660bfb62c562a3b4401b36c15a76d6f7c6940dc041d3bba0f907a0a00827f0",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Of the new-customer monthly prices, Team is higher; the difference from Starter is $40.",
+      "expectedWithhold": null,
+      "familyId": "gap-h5-anaphoric-direction",
+      "templateId": "gap-h5-anaphoric-direction",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-basics.md#starter-basics-title",
+      "sourceId": "starter-basics-title",
+      "assetId": "web:site/starter-basics.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS starter basics — fictional company",
+      "textHash": "91613aed8ef17b73426795bf8422bdc0d9c7d9c9ded990783b93b83ed26d482b",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-starter-basics-title",
+      "templateId": "framing-starter-basics-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-basics.md#direct-t1",
+      "sourceId": "direct-t1",
+      "assetId": "web:site/starter-basics.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A first-time Starter monthly checkout lists $30 due today.",
+      "textHash": "e0be45cae1aa4c8820cad28c0e749b8ac246f9548bec3745727624fc7c9c313c",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "A first-time Starter monthly checkout lists $40 due today.",
+      "expectedWithhold": null,
+      "familyId": "direct-t1-first-charge",
+      "templateId": "direct-t1-first-charge",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/starter-basics.md#savings-t1",
+      "sourceId": "savings-t1",
+      "assetId": "web:site/starter-basics.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For a lapsed customer restarting Starter, annual billing saves twenty percent compared with twelve monthly bills.",
+      "textHash": "f250aadb1697078aa2a30c1cb84b74c64f209cac43583604abb393646245aeba",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "For a lapsed customer restarting Starter, annual billing saves forty percent compared with twelve monthly bills.",
+      "expectedWithhold": null,
+      "familyId": "savings-t1-lapsed-return",
+      "templateId": "savings-t1-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-checkout.md#monthly-checkout-title",
+      "sourceId": "monthly-checkout-title",
+      "assetId": "web:site/monthly-checkout.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS monthly checkout — fictional company",
+      "textHash": "84c9d516d6e31947f70c9fb6d613b661ee0c7b36f3fcb32c7a93b1c0461cec00",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-monthly-checkout-title",
+      "templateId": "framing-monthly-checkout-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-checkout.md#direct-t2",
+      "sourceId": "direct-t2",
+      "assetId": "web:site/monthly-checkout.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Returning after a lapse? Restart Starter on monthly billing at $30.",
+      "textHash": "a6c1601957de2128687e8a6e0348fec7847069d552326d739c5cfc556d5d95b6",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Returning after a lapse? Restart Starter on monthly billing at $40.",
+      "expectedWithhold": null,
+      "familyId": "direct-t2-lapsed-return",
+      "templateId": "direct-t2-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-checkout.md#daily-t1",
+      "sourceId": "daily-t1",
+      "assetId": "web:site/monthly-checkout.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For a lapsed customer restarting Starter monthly, allow $1 per day on a 30-day month.",
+      "textHash": "666fe744d832680eb1e622e59e5455784bbcb2a43ed82655e2c9a49f705f54df",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "For a lapsed customer restarting Starter monthly, allow $1.33 per day on a 30-day month.",
+      "expectedWithhold": null,
+      "familyId": "daily-t1-lapsed-return",
+      "templateId": "daily-t1-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-help.md#monthly-help-title",
+      "sourceId": "monthly-help-title",
+      "assetId": "web:site/monthly-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS monthly help — fictional company",
+      "textHash": "ec1ed383769c7b282bf74b3fe0ff1c97dcbccb24401b0f5b80886fcc483e4919",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-monthly-help-title",
+      "templateId": "framing-monthly-help-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-help.md#direct-t3",
+      "sourceId": "direct-t3",
+      "assetId": "web:site/monthly-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Without grandfathering, a monthly Starter subscription costs $30.",
+      "textHash": "667b1d107f6870999666a1df551521f53e71ba635b2d4ccb8f5dfe7f1dacf11e",
+      "kind": "direct_price",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "Without grandfathering, a monthly Starter subscription costs $40.",
+      "expectedWithhold": null,
+      "familyId": "direct-t3-eligibility-exclusion",
+      "templateId": "direct-t3-eligibility-exclusion",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-help.md#monthly-comparison-heading",
+      "sourceId": "monthly-comparison-heading",
+      "assetId": "web:site/monthly-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New subscriptions: monthly Team compared with monthly Starter",
+      "textHash": "c58cdbebf8124b6d5f9b4adcf2f72a6251a689b541437fe668e9badb8d8665d2",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-monthly-comparison-heading",
+      "templateId": "framing-monthly-comparison-heading",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/monthly-help.md#gap-t1",
+      "sourceId": "gap-t1",
+      "assetId": "web:site/monthly-help.md",
+      "surface": "web",
+      "editable": true,
+      "text": "The monthly premium is $50.",
+      "textHash": "ee0fca06e7df2e724ae1953de950cd1da211cae9ce429f0ae6efad7f7a9e6fc5",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "The monthly premium is $40.",
+      "expectedWithhold": null,
+      "familyId": "gap-t1-heading-inheritance",
+      "templateId": "gap-t1-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-overview.md#annual-overview-title",
+      "sourceId": "annual-overview-title",
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS annual overview — fictional company",
+      "textHash": "31bc57a7407e2acea6a5580c3e48dcf02e87bbb44e326a46bf4415af5866ca3d",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-overview-title",
+      "templateId": "framing-annual-overview-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-overview.md#annual-comparison-heading",
+      "sourceId": "annual-comparison-heading",
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New Starter subscriptions: annual billing versus monthly billing",
+      "textHash": "27bf31eb141757b9a08206d589ce68bbebff1b0aea6d068bd8eddf9304e37bad",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-comparison-heading",
+      "templateId": "framing-annual-comparison-heading",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-overview.md#savings-t2",
+      "sourceId": "savings-t2",
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "text": "The annual discount is 20%.",
+      "textHash": "1c4d4fe50a5a69faa78b7a3b63c1be05149756bca119ad42ce5fb39ab2a7d852",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "The annual discount is 40%.",
+      "expectedWithhold": null,
+      "familyId": "savings-t2-heading-inheritance",
+      "templateId": "savings-t2-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-overview.md#daily-equivalent-heading",
+      "sourceId": "daily-equivalent-heading",
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New Starter monthly subscriptions: 30-day equivalent",
+      "textHash": "536446b8bb4df306ce213eb7de157f293052f12be5314dbf44e8bb67bc30a6e1",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-daily-equivalent-heading",
+      "templateId": "framing-daily-equivalent-heading",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-overview.md#daily-t2",
+      "sourceId": "daily-t2",
+      "assetId": "web:site/annual-overview.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Allow $1 per day.",
+      "textHash": "126b829a0b8a1ae7666665be98eeaf9a2f1311f9201fdb29f2ca4a1ec5f5f3cf",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "Allow $1.33 per day.",
+      "expectedWithhold": null,
+      "familyId": "daily-t2-heading-inheritance",
+      "templateId": "daily-t2-heading-inheritance",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-calculator.md#annual-calculator-title",
+      "sourceId": "annual-calculator-title",
+      "assetId": "web:site/annual-calculator.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS annual calculator — fictional company",
+      "textHash": "b6c366fb4b98ff9901ecb20d0db4ee83658b55ddbd151499fb2467ea0d42b017",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-annual-calculator-title",
+      "templateId": "framing-annual-calculator-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-calculator.md#savings-t3",
+      "sourceId": "savings-t3",
+      "assetId": "web:site/annual-calculator.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For new subscriptions, Starter annual billing saves 20% relative to monthly payments; eligible legacy monthly rates are unchanged.",
+      "textHash": "94191f1aa6c8220b9f46afc076d8ac87c2477baf63f73ca4312b6e86bfaf758a",
+      "kind": "annual_savings",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "percent",
+        "scope": "public"
+      },
+      "expectedReplacement": "For new subscriptions, Starter annual billing saves 40% relative to monthly payments; eligible legacy monthly rates are unchanged.",
+      "expectedWithhold": null,
+      "familyId": "savings-t3-explicit-public-in-legacy-context",
+      "templateId": "savings-t3-explicit-public-in-legacy-context",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/annual-calculator.md#gap-t2",
+      "sourceId": "gap-t2",
+      "assetId": "web:site/annual-calculator.md",
+      "surface": "web",
+      "editable": true,
+      "text": "When restarting after a lapse, choosing monthly Team instead of monthly Starter adds a $50 monthly charge.",
+      "textHash": "97949b85a7a7d617b586f0306f663a764bd78402bd362ca6cc1ae06a850d1952",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "When restarting after a lapse, choosing monthly Team instead of monthly Starter adds a $40 monthly charge.",
+      "expectedWithhold": null,
+      "familyId": "gap-t2-lapsed-return",
+      "templateId": "gap-t2-lapsed-return",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-planner.md#daily-planner-title",
+      "sourceId": "daily-planner-title",
+      "assetId": "web:site/daily-planner.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS daily planner — fictional company",
+      "textHash": "2045afc29fc75611ad4798a2d5737e3b566006c9cf6369c848c4d39e72b71272",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-daily-planner-title",
+      "templateId": "framing-daily-planner-title",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-planner.md#daily-t3",
+      "sourceId": "daily-t3",
+      "assetId": "web:site/daily-planner.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For an ineligible returning Starter monthly customer, the daily equivalent is one dollar per day on a 30-day month.",
+      "textHash": "c53f58eb91d47a5a001d1e7ca7bb2afe9060777c9761f84663d0614a2d81ab07",
+      "kind": "per_day",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 1.33,
+        "unit": "usd_per_day",
+        "scope": "public"
+      },
+      "expectedReplacement": "For an ineligible returning Starter monthly customer, the daily equivalent is $1.33 per day on a 30-day month.",
+      "expectedWithhold": null,
+      "familyId": "daily-t3-explicit-ineligibility",
+      "templateId": "daily-t3-explicit-ineligibility",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/daily-planner.md#gap-t3",
+      "sourceId": "gap-t3",
+      "assetId": "web:site/daily-planner.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For customers without legacy eligibility, the monthly upgrade charge from Starter to Team is $50.",
+      "textHash": "476d60fa0408fd180a562241f286f37dfb87a4345814da25848d92bdb1b6193f",
+      "kind": "plan_gap",
+      "expectedLabel": "contradicting",
+      "target": {
+        "value": 40,
+        "unit": "usd",
+        "scope": "public"
+      },
+      "expectedReplacement": "For customers without legacy eligibility, the monthly upgrade charge from Starter to Team is $40.",
+      "expectedWithhold": null,
+      "familyId": "gap-t3-explicit-ineligibility",
+      "templateId": "gap-t3-explicit-ineligibility",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#account-rules-title",
+      "sourceId": "account-rules-title",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS account rules — fictional company",
+      "textHash": "b2a348380b2d8ac72535eac66bb5caa8c9131357d3b8166a099c0b9648de2b5a",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-account-rules-title",
+      "templateId": "framing-account-rules-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#legacy-active",
+      "sourceId": "legacy-active",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Active Starter monthly subscribers whose subscription began before 2026-10-03 keep $30 a month.",
+      "textHash": "ab98dd7e04cd2998c342e1fcff152fae6cf88755b58ea0768556b07aa73bac8c",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-legacy-active",
+      "templateId": "context-legacy-active",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#historical-release",
+      "sourceId": "historical-release",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "In our 2023 release, the monthly Starter list price was $30.",
+      "textHash": "a2265c7f8b548e0443b1fa31976aceb91026ff1852db16fbf524c75fcd393efd",
+      "kind": "direct_price",
+      "expectedLabel": "valid_exception",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-historical-release",
+      "templateId": "context-historical-release",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#annual-current",
+      "sourceId": "annual-current",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A new Starter annual subscription totals $288, equivalent to $24 per month billed annually.",
+      "textHash": "e1c23e11553b4be0db1614ebe00c5a1b204a9ff4d3e43dc16bf7a31b348020d7",
+      "kind": "other_pricing",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-annual-current",
+      "templateId": "context-annual-current",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#unrelated-addon",
+      "sourceId": "unrelated-addon",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A separate Locations add-on carries a $30 monthly fee.",
+      "textHash": "a2408603c7ae550d3542ba7f53ea0c62ec46635d25314c4ce65572ed1502b8c6",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-unrelated-addon",
+      "templateId": "context-unrelated-addon",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#account-section-heading",
+      "sourceId": "account-section-heading",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Account guidance",
+      "textHash": "fc4e215c1346c702321fbc997a539746c1a21d25b0ce8f00596eab7bcc29bce5",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-account-section-heading",
+      "templateId": "framing-account-section-heading",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#account-before",
+      "sourceId": "account-before",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Review your account details.",
+      "textHash": "46766f1a322156add86fca69449dc8421fff4e1429957570e965ec0bde2b7804",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "neutral-account-before",
+      "templateId": "neutral-account-before",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#unknown-eligibility",
+      "sourceId": "unknown-eligibility",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Existing customers pay $30 a month for Starter.",
+      "textHash": "75483caa2174fd12af5ebdb0e2bd3cb66394afdbd0904c212c910e71e123471d",
+      "kind": "direct_price",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-unknown-eligibility",
+      "templateId": "context-unknown-eligibility",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#account-after",
+      "sourceId": "account-after",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Contact the account team for details.",
+      "textHash": "92bf8d2f65197914f127793907d458de58d58da850ad6cb93326061437c58fed",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "neutral-account-after",
+      "templateId": "neutral-account-after",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/account-rules.md#threshold-t1",
+      "sourceId": "threshold-t1",
+      "assetId": "web:site/account-rules.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New monthly Starter accounts cost less than $35 a month.",
+      "textHash": "38c43bf80f07ffb0b38655a9d70345e231bca437ff3971776667d79f6ecb8ee1",
+      "kind": "threshold",
+      "expectedLabel": "contradicting",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": "No deterministic safe target for threshold wording.",
+      "familyId": "context-threshold-t1",
+      "templateId": "context-threshold-t1",
+      "split": "tuning",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#offer-context-title",
+      "sourceId": "offer-context-title",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "MOGS offer context — fictional company",
+      "textHash": "13aab52936498826f4492e59f754780219cfbd74cb444a780e0073d436b9714e",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "framing-offer-context-title",
+      "templateId": "framing-offer-context-title",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#offer-before-plan",
+      "sourceId": "offer-before-plan",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Explore the options that fit your work.",
+      "textHash": "a40a96d1bbfa1615f804f23aa9ef9af81c14d4003d31668ca0f8d08d7a3e07cb",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "neutral-offer-before-plan",
+      "templateId": "neutral-offer-before-plan",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#unknown-plan",
+      "sourceId": "unknown-plan",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Our entry offer is $30 monthly.",
+      "textHash": "f1a9fc07003c78973e6f52866e5f5b1b4fe5d58f46ba4f5e40f846ba6db5a96c",
+      "kind": "other_pricing",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-unknown-plan",
+      "templateId": "context-unknown-plan",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#offer-separator-one",
+      "sourceId": "offer-separator-one",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Read the offer details.",
+      "textHash": "ad8a5998eca4c10296ecda3b945709e35f74b853831b2c7311bddab5aa4f9b20",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "neutral-offer-separator-one",
+      "templateId": "neutral-offer-separator-one",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#unknown-billing",
+      "sourceId": "unknown-billing",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "New Starter accounts cost $30.",
+      "textHash": "5b387ff83f0ee87fe22b19d3fdaac3601a3d60626d06b5f7bc02e7c2fc3ad26f",
+      "kind": "direct_price",
+      "expectedLabel": "insufficient_context",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-unknown-billing",
+      "templateId": "context-unknown-billing",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#offer-separator-two",
+      "sourceId": "offer-separator-two",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Choose the options that fit your work.",
+      "textHash": "246cf7351e560cc837bd64d37d17a6b4f1b3fe4861ae2430885d244db6428216",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "neutral-offer-separator-two",
+      "templateId": "neutral-offer-separator-two",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#already-current",
+      "sourceId": "already-current",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "A first-time Starter subscription costs $40 each month.",
+      "textHash": "8958a843fd999d92502c51570fae3c62d5cd5cd99729de14340bc86e1ade6bdf",
+      "kind": "direct_price",
+      "expectedLabel": "consistent",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-already-current",
+      "templateId": "context-already-current",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#unrelated-service",
+      "sourceId": "unrelated-service",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "Our separate setup service has a $30 one-time fee.",
+      "textHash": "07dadbdc63b950a5b9e6e5010888eeeb2ae7205603264ce2fe164e0569709479",
+      "kind": "none",
+      "expectedLabel": "unrelated",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": null,
+      "familyId": "context-unrelated-service",
+      "templateId": "context-unrelated-service",
+      "split": "heldout",
+      "authoredBy": "agent"
+    },
+    {
+      "passageId": "web:site/offer-context.md#threshold-h1",
+      "sourceId": "threshold-h1",
+      "assetId": "web:site/offer-context.md",
+      "surface": "web",
+      "editable": true,
+      "text": "For new Starter subscriptions billed monthly, pay under $35 a month.",
+      "textHash": "12f12014d5ac815b17ead5f755d20aac5a8dd5fbd31edef793e948143afeae2e",
+      "kind": "threshold",
+      "expectedLabel": "contradicting",
+      "target": null,
+      "expectedReplacement": null,
+      "expectedWithhold": "No deterministic safe target for threshold wording.",
+      "familyId": "context-threshold-h1",
+      "templateId": "context-threshold-h1",
+      "split": "heldout",
+      "authoredBy": "agent"
+    }
+  ],
+  "registryHash": "522efdcfb1ee47d940965af56c1e8909978ad662ef0098bd446190b130e14b4f"
+}

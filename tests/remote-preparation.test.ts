@@ -5,7 +5,7 @@ import { prepareMiniatureEvaluation, type MiniaturePreparationInput } from '../l
 import { hashRecord, sha256 } from '../lib/hash';
 
 function input(): MiniaturePreparationInput {
-  return { sourceCommit: 'a'.repeat(40), seedManifestText: readFileSync('content/seed.json', 'utf8'), seedFactsText: readFileSync('data/seed/facts.json', 'utf8'), manifestText: readFileSync('content/manifest.jsonl', 'utf8'), registryText: readFileSync('fixtures/remote/coverage-miniature.json', 'utf8') };
+  return { sourceCommit: 'a'.repeat(40), seedManifestText: readFileSync('fixtures/remote/miniature/seed.json', 'utf8'), seedFactsText: readFileSync('data/seed/facts.json', 'utf8'), manifestText: readFileSync('fixtures/remote/miniature/manifest.jsonl', 'utf8'), registryText: readFileSync('fixtures/remote/coverage-miniature.json', 'utf8') };
 }
 
 test('isolated preparation freezes pristine sources, explicit desired facts and unscored miniature denominators', () => {

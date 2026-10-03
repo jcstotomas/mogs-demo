@@ -2,18 +2,21 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { prepareMiniatureEvaluation } from '../lib/metrics/remote-preparation';
+import { prepareMiniatureEvaluation, prepareRequiredEvaluation } from '../lib/metrics/remote-preparation';
 import { RemoteDatabase } from '../lib/runs/remote-db';
 import { ShaSchema } from '../lib/runs/remote-types';
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
-  if (args.length !== 1 || args[0] !== '--prepare') throw new Error('Use npm run eval -- --prepare for isolated miniature preparation. Evaluation/scoring is pending the named remote run and frozen full-scope handoff.');
+  if (args.length !== 1 || !['--prepare', '--prepare-miniature'].includes(args[0])) throw new Error('Use npm run eval -- --prepare for the active frozen corpus, or --prepare-miniature for preserved miniature preparation. Evaluation/scoring is pending named-run evidence.');
   const root = process.cwd();
   const sourceCommit = ShaSchema.parse(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim());
   const readPinned = (file: string) => execFileSync('git', ['show', sourceCommit + ':' + file], { cwd: root, encoding: 'utf8', maxBuffer: 5_000_000 });
-  const seedManifestText = readPinned('content/seed.json'), seedFactsText = readPinned('data/seed/facts.json'), manifestText = readPinned('content/manifest.jsonl'), registryText = readPinned('fixtures/remote/coverage-miniature.json');
-  const prepared = prepareMiniatureEvaluation({ sourceCommit, seedManifestText, seedFactsText, manifestText, registryText });
+  const miniature = args[0] === '--prepare-miniature', directoryPrefix = miniature ? 'fixtures/remote/miniature' : 'content';
+  const seedManifestText = readPinned(directoryPrefix + '/seed.json'), seedFactsText = readPinned('data/seed/facts.json'), manifestText = readPinned(directoryPrefix + '/manifest.jsonl');
+  const required = JSON.parse(seedManifestText).scope === 'required-22';
+  const registryText = readPinned('fixtures/remote/coverage-' + (required ? 'required-22' : 'miniature') + '.json');
+  const prepared = (required ? prepareRequiredEvaluation : prepareMiniatureEvaluation)({ sourceCommit, seedManifestText, seedFactsText, manifestText, registryText });
   const preparationId = randomUUID(), directory = path.join(root, 'data/eval', preparationId), sourceRoot = path.join(directory, 'source');
   await mkdir(path.dirname(directory), { recursive: true });
   await mkdir(directory, { recursive: false });

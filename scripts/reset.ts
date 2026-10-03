@@ -5,9 +5,10 @@ import { z } from 'zod';
 import { MogsDatabase } from '../lib/db';
 import { FactSnapshotSchema, HashSchema } from '../lib/types';
 import { parseSource } from '../lib/assets/source';
+import { parseSeedManifest } from '../lib/deployment/public-artifact';
 import { hashRecord, sha256 } from '../lib/hash';
 
-const SeedSchema = z.object({ format: z.literal('mogs-content-seed-v1'), scope: z.literal('miniature-gate-1'), sources: z.record(z.string(), z.object({ source: z.string(), hash: HashSchema }).strict()), corpusHash: HashSchema, manifestHash: HashSchema, initialFactHash: HashSchema }).strict();
+const SeedSchema = z.object({ format: z.literal('mogs-content-seed-v1'), scope: z.enum(['miniature-gate-1', 'required-22']), sources: z.record(z.string(), z.object({ source: z.string(), hash: HashSchema }).strict()), corpusHash: HashSchema, manifestHash: HashSchema, initialFactHash: HashSchema }).strict();
 const LockSchema = z.object({ pid: z.number().int().positive(), operation: z.enum(['confirm', 'publish', 'reset']), startedAt: z.iso.datetime() }).strict();
 async function exists(file: string): Promise<boolean> { try { await access(file); return true; } catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return false; throw error; } }
 function alive(pid: number): boolean { try { process.kill(pid, 0); return true; } catch (error) { if ((error as NodeJS.ErrnoException).code === 'ESRCH') return false; throw error; } }
@@ -35,7 +36,9 @@ async function writeAtomic(file: string, source: string): Promise<void> {
 async function main(): Promise<void> {
   const root = process.cwd(), databasePath = path.join(root, 'data/app.db'), lockPath = path.join(root, 'data/runtime.lock');
   if (process.env.MOGS_DATABASE_PATH && path.resolve(process.env.MOGS_DATABASE_PATH) !== databasePath) throw new Error('Reset only operates on the live data/app.db, never an evaluation or custom database.');
-  const seed = SeedSchema.parse(JSON.parse(await readFile(path.join(root, 'content/seed.json'), 'utf8')));
+  const seedText = await readFile(path.join(root, 'content/seed.json'), 'utf8');
+  parseSeedManifest(seedText);
+  const seed = SeedSchema.parse(JSON.parse(seedText));
   const manifestSource = await readFile(path.join(root, 'content/manifest.jsonl'), 'utf8');
   const factSource = await readFile(path.join(root, 'data/seed/facts.json'), 'utf8'), facts = FactSnapshotSchema.parse(JSON.parse(factSource));
   if (sha256(manifestSource) !== seed.manifestHash || sha256(factSource) !== seed.initialFactHash || facts.phase !== 'initial' || facts.version !== 1) throw new Error('Seed manifest or initial facts do not match their frozen hashes.');
