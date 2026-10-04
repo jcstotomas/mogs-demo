@@ -10,7 +10,7 @@ MOGS launch guide — fictional company
 <!-- /source-id: launch-title -->
 
 <!-- source-id: starter-price role: body -->
-Starter is $30 a month.
+Starter is $40 a month.
 <!-- /source-id: starter-price -->
 
 <!-- source-id: annual-savings role: body -->
