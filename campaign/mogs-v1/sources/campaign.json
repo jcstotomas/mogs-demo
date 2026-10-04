@@ -1,0 +1,55 @@
+{
+  "version": "mogs-authoring-v1",
+  "monthlyCents": 4000,
+  "annualCents": 28800,
+  "teamMonthlyCents": 8000,
+  "legacyMonthlyCents": 3000,
+  "legacyCutoff": "2026-10-03",
+  "starterMonthly": "Starter is $40 a month.",
+  "starterAnnual": "Starter is $288 a year, or $24 a month billed annually.",
+  "planGap": "Team is only $40 a month more than Starter.",
+  "savingsHeadline": "40%",
+  "annualSavings": "Save 40% on Starter with annual billing.",
+  "perDay": "Starter costs about $1.33 a day.",
+  "legacyPrice": "Starter is $30 a month.",
+  "legacyEligibility": "This note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.",
+  "welcome": {
+    "subject": "Make room for good work",
+    "preheader": "A calmer week starts with a little breathing room.",
+    "greeting": "Hello {{ first_name }},",
+    "intro": "Good work needs a little breathing room. Bring your team together with MOGS, and put the next thing on the calendar.",
+    "cta": "Find your rhythm",
+    "url": "https://example.invalid/mogs/start?utm_source=welcome"
+  },
+  "legacy": {
+    "subject": "Good news: your rhythm stays the same",
+    "preheader": "A note of thanks, and a familiar monthly rate.",
+    "greeting": "Hello {{ first_name }},",
+    "intro": "You made room for MOGS early on. Thank you for making us part of your team's week.",
+    "cta": "Open your workspace",
+    "url": "https://example.invalid/mogs/workspace?utm_source=customer-note"
+  },
+  "creative": {
+    "launch": {
+      "eyebrow": "A LITTLE MORE ROOM",
+      "title": "Make room\nfor good work.",
+      "body": "A calmer week starts here.",
+      "qualifier": "Starter monthly plan for new customers.",
+      "cta": "Find your rhythm"
+    },
+    "annual": {
+      "eyebrow": "YOUR YEAR, WITH MORE ROOM",
+      "title": "Room for\nthe whole year.",
+      "body": "Good work deserves a little breathing room.",
+      "qualifier": "Compared with 12 months of Starter monthly billing.",
+      "cta": "Plan your year"
+    },
+    "legacy": {
+      "eyebrow": "A NOTE FOR OUR EARLY CUSTOMERS",
+      "title": "Good things\nstay with you.",
+      "body": "Your team. Your rhythm. Your familiar rate.",
+      "qualifier": "For active Starter monthly subscribers who joined before October 3, 2026.",
+      "cta": "Here’s to the work ahead"
+    }
+  }
+}

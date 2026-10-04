@@ -1,0 +1,13 @@
+Hello {{ first_name }},
+
+Good things stay with you.
+
+You made room for MOGS early on. Thank you for making us part of your team's week.
+
+This note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.
+
+Starter is $30 a month.
+
+Open your workspace: https://example.invalid/mogs/workspace?utm_source=customer-note
+
+Fictional MOGS campaign · October 2026

@@ -14,7 +14,7 @@ New Starter subscriptions: annual billing versus monthly billing
 <!-- /source-id: annual-comparison-heading -->
 
 <!-- source-id: savings-t2 role: body -->
-The annual discount is 20%.
+The annual discount is 40%.
 <!-- /source-id: savings-t2 -->
 
 <!-- source-id: daily-equivalent-heading role: heading -->
@@ -22,5 +22,5 @@ New Starter monthly subscriptions: 30-day equivalent
 <!-- /source-id: daily-equivalent-heading -->
 
 <!-- source-id: daily-t2 role: body -->
-Allow $1 per day.
+Allow $1.33 per day.
 <!-- /source-id: daily-t2 -->

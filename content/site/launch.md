@@ -10,19 +10,19 @@ MOGS launch guide — fictional company
 <!-- /source-id: launch-title -->
 
 <!-- source-id: starter-price role: body -->
-Starter is $30 a month.
+Starter is $40 a month.
 <!-- /source-id: starter-price -->
 
 <!-- source-id: annual-savings role: body -->
-Save 20% on Starter with annual billing.
+Save 40% on Starter with annual billing.
 <!-- /source-id: annual-savings -->
 
 <!-- source-id: per-day role: body -->
-Starter costs about a dollar a day.
+Starter costs about $1.33 a day.
 <!-- /source-id: per-day -->
 
 <!-- source-id: plan-gap role: body -->
-Team is only $50 a month more than Starter.
+Team is only $40 a month more than Starter.
 <!-- /source-id: plan-gap -->
 
 <!-- source-id: threshold role: body -->

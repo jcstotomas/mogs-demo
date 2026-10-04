@@ -1,0 +1,9 @@
+{
+  "id": "legacy",
+  "sourceVersion": "mogs-authoring-v1",
+  "subject": "Good news: your rhythm stays the same",
+  "preheader": "A note of thanks, and a familiar monthly rate.",
+  "plainText": "Hello {{ first_name }},\n\nGood things stay with you.\n\nYou made room for MOGS early on. Thank you for making us part of your team's week.\n\nThis note is for active Starter monthly subscribers who joined before October 3, 2026. Your legacy rate stays with your active subscription.\n\nStarter is $30 a month.\n\nOpen your workspace: https://example.invalid/mogs/workspace?utm_source=customer-note\n\nFictional MOGS campaign · October 2026\n",
+  "audience": "existing_customers",
+  "legacyEligible": true
+}
