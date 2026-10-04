@@ -10,9 +10,9 @@ MOGS monthly plans — fictional company
 <!-- /source-id: monthly-plans-title -->
 
 <!-- source-id: direct-h4 role: body -->
-Monthly subscriptions for new customers cost $30 for Starter and $80 for Team.
+Monthly subscriptions for new customers cost $40 for Starter and $80 for Team.
 <!-- /source-id: direct-h4 -->
 
 <!-- source-id: savings-h2 role: body -->
-A new customer's yearly Starter bill falls by 20% when paid annually instead of month by month.
+A new customer's yearly Starter bill falls by 40% when paid annually instead of month by month.
 <!-- /source-id: savings-h2 -->

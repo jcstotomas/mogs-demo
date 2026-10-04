@@ -1,0 +1,13 @@
+Hello {{ first_name }},
+
+Make room for good work.
+
+Good work needs a little breathing room. Bring your team together with MOGS, and put the next thing on the calendar.
+
+Starter is $40 a month.
+
+Starter is $288 a year, or $24 a month billed annually.
+
+Find your rhythm: https://example.invalid/mogs/start?utm_source=welcome
+
+Fictional MOGS campaign · October 2026

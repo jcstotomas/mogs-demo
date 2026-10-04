@@ -10,9 +10,9 @@ MOGS annual faq — fictional company
 <!-- /source-id: annual-faq-title -->
 
 <!-- source-id: savings-h5 role: body -->
-How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 20%.
+How much does a new Starter customer save by choosing yearly billing instead of twelve monthly payments? 40%.
 <!-- /source-id: savings-h5 -->
 
 <!-- source-id: gap-h3 role: body -->
-New monthly Team subscribers pay fifty dollars extra compared with Starter.
+New monthly Team subscribers pay forty dollars extra compared with Starter.
 <!-- /source-id: gap-h3 -->

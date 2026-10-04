@@ -1,0 +1,9 @@
+{
+  "id": "welcome",
+  "sourceVersion": "mogs-authoring-v1",
+  "subject": "Make room for good work",
+  "preheader": "A calmer week starts with a little breathing room.",
+  "plainText": "Hello {{ first_name }},\n\nMake room for good work.\n\nGood work needs a little breathing room. Bring your team together with MOGS, and put the next thing on the calendar.\n\nStarter is $40 a month.\n\nStarter is $288 a year, or $24 a month billed annually.\n\nFind your rhythm: https://example.invalid/mogs/start?utm_source=welcome\n\nFictional MOGS campaign · October 2026\n",
+  "audience": "new_customers",
+  "legacyEligible": false
+}
