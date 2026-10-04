@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { readRoute } from '../lib/generated';
 import { CalendarArt } from './brand';
 import SiteHeader from './site-header';
 
-export default async function PublicAsset({ pathname }: { pathname: string }) {
+export default async function PublicAsset({ pathname, children }: { pathname: string; children?: ReactNode }) {
   const result = await readRoute(pathname);
   if (!result) notFound();
   const { route, deployment } = result;
@@ -20,6 +21,7 @@ export default async function PublicAsset({ pathname }: { pathname: string }) {
         </div>
         {!isEmail && <CalendarArt />}
       </div>
+      {children}
       <div className="source-body" dangerouslySetInnerHTML={{ __html: route.html }} />
       <script type="application/json" id="deployment-meta" dangerouslySetInnerHTML={{ __html: JSON.stringify(deployment).replace(/</g, '\\u003c') }} />
     </div>
